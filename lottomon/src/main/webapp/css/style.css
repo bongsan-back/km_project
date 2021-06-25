@@ -1,0 +1,796 @@
+#sub .wrap1000 { width:970px; top:-27px; left:384px; position:relative; overflow:hidden; }
+#sub div .list { font-size:15px; color:#505050;  position:absolute; left:140px; top:-25px; }
+#sub .list h2 { margin-bottom:30px; }
+#sub .list div { overflow:hidden; }
+#sub .list div a { display:block; border:1px solid #ccc; border-bottom:none; box-sizing:border-box;}
+#sub .list div a:last-child { border-bottom:1px solid #ccc; }
+#sub .list div a p { padding:15px 0 15px 15px; width:200px; position:relative; }
+#sub .list div .pocus { background:#2e68bf; color:#fff; background-image:url("../img/arrow2.png"); background-repeat:no-repeat; border:1px solid #2e68bf;
+  background-position:200px center; }
+#sub .wrap1000 .head { padding-bottom:30px; border-bottom:1px solid #dedede; margin-bottom:30px; }
+#sub .wrap1000 .head h2 { display:inline-block; vertical-align:top;}
+#sub .wrap1000 .head h5 { padding-top:5px; }
+#sub .wrap1000 .head h5 img { margin:0 4px; vertical-align:middle;}
+
+#sub .wrap1500 .wrap1000 .filebox input[type="file"] { position:absolute; width:0; height:0; padding:0; overflow:hidden; border:0; }
+#sub .wrap1500 .wrap1000 .filebox label { display:inline-block; padding:7px 12px;  color:#fff;  vertical-align:middle;  background-color:#2e68bf;  cursor:pointer;  font-size:13px; }
+#sub .wrap1500 .wrap1000 .filebox .upload-name { display:inline-block; font-size:13px; padding:7px 12px; vertical-align:middle; border:1px solid #dedede;  background:#fff; color:#505050; outline:none; }
+/*�떦泥④껐怨�**********************************************/
+#sub .winning form select { padding:13px 10px; width:130px; color:#505050; font-size:13px; margin-bottom:20px; }
+#sub .winning .result .result_num div span {  }
+#sub .winning .result > div { border:1px solid #dedede;}
+#sub .winning .result > div h6 { padding:20px 0; text-align:center; font-size:19px; background:#f4f7f8; }
+#sub .winning .result .lotto-numder { border-top:1px solid #dedede; text-align:center; padding:20px 0; }
+#sub .winning .result .lotto-numder .plus { width:20px; font-size:21px; }
+  #sub .lotto-numder span { width:36px; height:36px; line-height:36px; font-size:16px; }
+#sub .winning .table table { border:1px solid #dedede; color:#505050; margin-top:10px; width:100%; border-bottom:none; text-align:center; }
+#sub .winning .table .top { text-align:right; }
+#sub .winning .table  table tr th { background:#f4f7f8; padding:10px 0px; text-align:center; font-size:15px; border-right:1px solid #dedede; }
+#sub .winning .table  table tr th:last-child { border-right:none; }
+#sub .winning .table  table tr td { padding:10px 10px 10px 0; font-size:13px; border-right:1px solid #dedede; }
+#sub .winning .table  table tr td:first-child { padding-right:0; }
+#sub .winning .table  table tr td:last-child { border-right:none; }
+#sub .winning .table  table tr td,th { border-bottom:1px solid #dedede; }
+#sub .winning .table  table tr td:first-child { text-align:center; }
+#sub .winning .table  table tr td:first-child + td +td { text-align:center; }
+#sub .winning .table h3 { padding:53px 0 20px 0; border-top:2px solid #eeeeee; border-bottom:2px solid #ccc; margin-top:18px; margin-bottom:18px; font-weight:bold; }
+/*�닚�꽌*/
+#sub  .list_btn { width:520px;  margin:0 auto; overflow:hidden; margin-top:30px; }
+#sub  .list_btn span { padding:5px; text-align:center; display:inline-block; width:18px; height:18px; border:1px solid #ccc; color:#505050; margin:0 3px; float:left; line-height:18px; }
+#sub  .list_btn span:first-child { margin:0; border-right:none; }
+#sub  .list_btn span:first-child + span { margin:0; }
+#sub  .list_btn span:last-child { margin:0; border-left:none;}
+#sub  .list_btn span:first-child + span + span + span + span + span + span + span + span + span + span + span + span { margin:0; }
+#sub  .list_btn span img { vertical-align:middle; margin-bottom:2px; }
+#sub  .list_btn span a { display:block; }
+#sub  .list_btn .on { background:#0c5f9a; }
+#sub  .list_btn .on a { color:#fff; }
+#sub  .list_btn .btn_pocus a { color:#fff; }
+#sub #service_seclect { text-align:center; }
+/*�떦泥④껐怨�*****�걹*****************************************/
+
+
+/*硫ㅻ쾭�떗�븞�궡**********************************************/
+#sub .membership .box_vip { overflow:hidden; }
+#sub .membership .box_vip > div { border:1px solid #000; }
+#sub .membership .box_vip .img span { display:inline-block; }
+#sub .membership .box_vip .txt .recommendation { color:#fff; background:#2e68bf; padding:2px 8px; }
+#sub .membership .box_vip .txt .sale { border:1px solid #ff4e00; color:#ff4e00; padding:2px 5px; }
+#sub .membership .box_vip .txt .evert { border:1px solid #09827b; color:#09827b; padding:2px 5px; }
+#sub .membership .box_vip .txt .bonus { border:1px solid #2e68bf; color:#2e68bf; padding:2px 5px; }
+#sub .membership .box_vip > div { width:99%; height:220px; overflow:hidden; border:1px solid #dedede; margin-bottom:20px; }
+#sub .membership .box_vip div .img { float:left; width:20%; position:relative; min-width:190px; }
+#sub .membership .box_vip div .img a { display:inline-block; position:absolute; top:90%; left:50%; transform:translate(-50%,-90%); color:#fff; width:85%; text-align:center; padding:7px 0; }
+#sub .membership .box_vip div .txt { float:right; width:80%; height:220px; padding:20px 20px; box-sizing:border-box; position:relative; min-width:260px; }
+#sub .membership .box_vip div .txt h2 { margin-top:10px; }
+#sub .membership .box_vip div .txt p { line-height:25px; font-size:16px; }
+#sub .membership .box_vip div .txt .money { text-decoration:line-through; position:absolute; left:20px; bottom:20px;}
+#sub .membership .box_vip div .txt .money + span { color:#ff0000; font-size:30px; font-weight:bold; position:absolute; left:90px; bottom:13px;}
+#sub .membership .box_vip .vip .img a { background:#000;}
+#sub .membership .box_vip .gold .img a { background:#8d6935;}
+#sub .membership .box_vip .silv .img a { background:#4c4c4c;}
+#sub .membership  table {  border-top:2px solid #dedede; border-bottom:1px solid #dedede; width:100%; margin-top:10px; }
+#sub .membership  table tr th { background:#f4f7f8; padding:10px 0px;  border-right:1px solid #dedede; color:#505050;}
+#sub .membership  table tr th:last-child { border-right:none; }
+#sub .membership  table tr td { padding:10px 15px; text-align:right; border-right:1px solid #dedede; color:#7e7e7e; }
+#sub .membership  table tr td:first-child { text-align:center; }
+#sub .membership  table tr td:last-child { border-right:none; }
+#sub .membership  table tr td,#sub .membership  table tr th { border-bottom:1px solid #dedede; }
+
+#sub .membership .pay { text-align:center; margin-top:50px; }
+#sub .membership .pay a { display:inline-block; background:#2e68bf; color:#fff; padding:15px 60px; }
+ /*硫ㅻ쾭�떗�븞�궡  ***************************************************/
+
+/*�쉶�썝�꽌鍮꾩뒪 -濡쒓렇�씤 **************************************/
+#sub .membership_login .wrap1000 .head { border-bottom:none; margin-bottom:0; }
+#sub .membership_login .login_box_wrap h6 { font-size:24px; text-align:center;  margin-bottom:20px; }
+#sub .membership_login .login_box { border:1px solid #ccc; padding:50px 0; }
+
+#sub .membership_login {  }
+#sub .membership_login .login_box { border:1px solid #dedede; font-size:13px; }
+#sub .membership_login .login_box .login_box_wrap { width:490px;  margin:0 auto; }
+#sub .membership_login .login_box .login_box_wrap form { text-align:center; }
+#sub .membership_login .login_box .login_box_wrap form input[type=text],
+#sub .membership_login .login_box .login_box_wrap form input[type=password] { width:100%; height:60px; padding-left:17px; }
+#sub .membership_login .login_box .login_box_wrap form input[type=password] { border-top:none; }
+#sub .membership_login .login_box .login_box_wrap .login { overflow:hidden; margin-top:10px; }
+#sub .membership_login .login_box .login_box_wrap .login label { float:left; color:#505050; }
+#sub .membership_login .login_box .login_box_wrap .login ul { display:inline-block; float:right;}
+#sub .membership_login .login_box .login_box_wrap .login ul li { display:inline-block; }
+#sub .membership_login .login_box .login_box_wrap .login ul li a { color:#505050; }
+#sub .membership_login .login_box .login_box_wrap form input[type=submit]{ padding:20px 0; width:100%; margin-top:25px; font-size:17px; }
+#sub .membership_login .login_box .login_box_wrap .simple { margin-top:80px; }
+#sub .membership_login .login_box .login_box_wrap .simple .pcicon img { margin-bottom:10px;  }
+#sub .membership_login .login_box .login_box_wrap .simple .moicon { display:none; }
+
+/*�쉶�썝�꽌鍮꾩뒪 -濡쒓렇�씤 *********** �걹***************************/
+
+
+
+/*�븘�씠�뵒 �뙣�뒪�썙�뱶 李얘린******************************************/
+#sub .member_password form { border-top:2px solid #ccc; border-bottom:1px solid #eeeeee; padding:23px 13px; margin-bottom:10px; }
+#sub .member_password h3 { margin-bottom:20px;}
+#sub .member_password form dl { margin-bottom:10px; }
+#sub .member_password form dt { display:inline-block; width:130px; color:#606060; }
+#sub .member_password form { margin-bottom:85px; }
+#sub .member_password form dt::after { content:"*"; color:#ef3433; margin-left:2px; }
+#sub .member_password form dd { display:inline-block; }
+#sub .member_password form input { padding-left:8px; border:1px solid #ccc; }
+#sub .member_password form select { padding-left:8px; border:1px solid #ccc; }
+#sub .member_password form .name input { width:400px; height:48px; }
+#sub .member_password form .tel input,
+#sub .member_password form .tel select { width:98px; height:48px; color:#606060; }
+#sub .member_password .my { margin-top:80px; background:#f8f8f8; color:#606060; padding:45px 0; text-align:center; font-size:16px; }
+#sub .member_password .my span { font-weight:bold; color:#000; }
+#sub .member_password .submit { text-align:center; margin-top:20px; }
+#sub .member_password .submit input[type=submit] { padding:16px 100px; }
+#sub .member_password .email input[type=text] { height:48px; width:225px; margin-right:10px; }
+#sub .member_password .email select { width:170px; height:48px; margin-left:10px;}
+/*�븘�씠�뵒 �뙣�뒪�썙�뱶 李얘린***************�걹***************************/
+
+/* 怨좉컼�꽱�꽣 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+#sub .service .table table { width:100%; text-align:center; color:#505050; table-layout:fixed; }
+#sub .service .table table  td a { color:#505050; display:block; padding:5px; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;}
+#sub .service .table table  td:first-child { width:80px; padding:10px 10px 10px 0; }
+#sub .service .table table  td:first-child + td + td { width:80px;}
+#sub .service .table table  td:last-child { width:80px; padding:10px; }
+#sub .service .table table .gray td img { margin-right:3px; margin-bottom:5px;  }
+#sub .service .table .gray td { background:#fbfbfb; }
+#sub .service table tr th { padding:10px 30px; background:#f4f7f8; border-top:1px solid #dedede; }
+#sub .service table tr td { padding:5px 15px; font-size:13px; border-bottom:1px solid #dedede; }
+#sub .service table tr td:first-child + td { text-align:left; }
+#sub .service .list_btn { margin-top:40px; }
+#sub .service .p { background:#f8f8f8; padding:17px 0; text-align:center; font-size:15px; margin-bottom:15px; color:#505050; }
+#sub .service .btn { text-align:right; margin-top:20px; }
+#sub .service .btn a { background:#2e68bf; color:#fff; padding:7px 25px; }
+#sub .service form { margin-top:20px;  }
+#sub .service .find { overflow:hidden; vertical-align:middle; }
+#sub .service .find select { height:auto; }
+#sub .service .find input[type=text] { float:left; width:95%; border:none; height:100%;  padding:12px 10px; }
+#sub .service .find button { float:left; width:5%; }
+#sub .service .find button img { margin-top:9px; }
+/*怨좉컼�꽱�꽣*************�걹**************/
+
+
+
+/*怨듭��궗�빆******************************/
+#sub .service_main .table table { width:100%; text-align:center; color:#505050; table-layout:fixed; }
+#sub .service_main .table table .gray td{ background:#fbfbfb; }
+#sub .service_main .table table tr th { border-top:2px solid #dedede; background:#f4f7f8; padding:15px 0; font-size:15px;  }
+#sub .service_main .table table tr td { cursor:pointer; padding:13px 0; font-size:13px; color:#505050; overflow:hidden; white-space:nowrap; text-overflow: ellipsis; }
+#sub .service_main .table table tr td span { display:inline-block; background:#ff6000; padding:1px 5px 3px 5px; color:#fff; border-radius:3px; margin-left:8px; }
+#sub .service_main .table table tr td:first-child + td { text-align:left; padding-left:10px; }
+#sub .service_main .table table tr td:first-child + td + td,
+#sub .service_main .table table tr td:first-child + td + td + td,
+#sub .service_main .table table tr td:first-child + td + td + td +td { width:85px; }
+#sub .service_main .btn { text-align:right; margin-top:15px; }
+#sub .service_main .btn a { display:inline-block; background:#2e68bf; color:#fff; padding:7px 25px; }
+#sub .service_main #service_seclect { margin-top:20px; }
+#sub .service_main .find { overflow:hidden; vertical-align:middle;}
+#sub .service_main .find select { height:auto; }
+#sub .service_main .find input[type=text] { float:left; width:95%; border:none; height:100%;  padding:12px 10px; outline:none; }
+#sub .service_main .find button { float:left; width:5%; }
+#sub .service_main .find button img { margin-top:9px; }
+
+#sub .service_alert .title { color:#505050; border-bottom:1px solid #dedede; padding-bottom:20px; text-align:left; }
+#sub .service_alert span { display:inline-block;}
+#sub .service_alert dl dt { font-size:15px; padding:15px; font-weight:600; }
+#sub .service_alert .title dl dt { background:#f4f7f8; border-top:2px solid #dedede; border-bottom:1px solid #dedede;}
+#sub .service_alert .title dl p { font-size:13px; border-bottom:1px solid #dedede; padding:15px; position:relative; }
+#sub .service_alert .title dl p .day { position:absolute; right:15px; color:#000;}
+#sub .service_alert .title dl dd { padding:10px 15px; min-height:320px; }
+#sub .service_alert .service_alert_list { overflow:hidden; margin-top:15px; }
+#sub .service_alert .service_alert_list span { background:#2e68bf; padding:9px 14px; }
+#sub .service_alert .service_alert_list span a { color:#fff; display:block; }
+#sub .service_alert .service_alert_list ul { display:inline-block; float:right;}
+#sub .service_alert .service_alert_list ul li { margin-right:5px; display:inline-block; padding:9px 14px; background:#505050; }
+#sub .service_alert .service_alert_list ul li:last-child { margin-right:0; }
+#sub .service_alert .service_alert_list ul li a { color:#fff; display:block; }
+#sub .service_alert .comment h6 { font-size:15px; padding:45px 0 15px 0; border-bottom:1px solid #dedede; }
+#sub .service_alert .comment h6 span { color:#2e68bf;}
+#sub .service_alert .comment > span { border:1px solid #bbbbbb; color:#bbbbbb; background:#fff; padding:10px 37px; margin:10px 0;}
+#sub .service_alert .comment .pocus { border:none; background:#6e6e6e; color:#fff;}
+#sub .service_alert .comment .ajax, #sub .service_alert .comment .ajax2
+ { cursor:pointer; }
+#sub .service_alert .comment .com { overflow:hidden; }
+#sub .service_alert .comment .com input { float:left; height:100px;  }
+#sub .service_alert .comment .com input[type=text] { width:90%; }
+#sub .service_alert .comment .com input[type=submit] { width:10%; }
+
+#sub .service_alert .comment .comment_list { padding:15px 0; color:#505050; position:relative; border-bottom:1px solid #dedede; }
+#sub .service_alert .comment .comment_list a { color:#505050; }
+#sub .service_alert .comment .comment_list dt,
+#sub .service_alert .comment .comment_list dd { display:inline-block; overflow:hidden; width:90%; text-overflow:ellipsis; }
+#sub .service_alert .comment .comment_list dt { color:#000; padding:0; margin-right:10px; }
+#sub .service_alert .comment .comment_list dt img { margin-right:5px; vertical-align:middle; }
+#sub .service_alert .comment .comment_list dd span::after { content:"|"; color:#bbbbbb; margin:0 7px; }
+#sub .service_alert .comment .comment_list .content { display:block; }
+#sub .service_alert .comment .comment_list p {color:#2e68bf; position:absolute; top:50%; right:0; transform:translate(0,-50%);}
+#sub .service_alert .comment .comment_list p img { margin-right:3px; }
+#sub .service_alert .comment .comment_list .delete a { color:#cd0000; }
+#sub .service_alert table { display:block; color:#505050; border:1px solid #bbbbbb; margin-top:50px; margin-bottom:30px; }
+#sub .service_alert table tbody { display:block;  }
+#sub .service_alert table tr { overflow:hidden; width:100%; display:block; }
+#sub .service_alert table tr a { display:block; padding:15px 10px; }
+#sub .service_alert table tr th { box-sizing:border-box; float:left; width:12%;  background:#f4f7f8; border-right:1px solid #dedede; }
+#sub .service_alert table tr th img { margin-left:10px; vertical-align:middle; }
+#sub .service_alert table tr td { box-sizing:border-box; width:88%; float:left; border-bottom:1px solid #dedede; }
+#sub .service_alert .bener { width:100%; }
+#sub .service_alert .filebox { text-align:left; }
+#sub .service_alert .filebox label { margin-left:0; }
+
+/*湲��벐湲�*/
+#sub .notice_detail .wrap .content label { display:inline-block;  overflow:hidden; }
+#sub .notice_detail .wrap .content .title { width:100%; box-sizing:border-box; background:#f4f7f8; padding:10px; border-top:2px solid #ccc; }
+#sub .notice_detail .wrap .content label #title { width:89%; float:right; padding:10px;}
+#sub .notice_detail .wrap .content label span { padding:10px; display:inline-block; }
+#sub .notice_detail .wrap .content textarea { width:100%; min-height:500px; outline:none; font-size:15px; padding:10px; border-color:#ccc;}
+#sub .notice_detail .wrap .content form .file { display:block; position:relative; border:1px solid #ccc; border-top:none; padding:5px 10px; }
+#sub .notice_detail .wrap .content form span { display:inline-block;  font-weight:600;}
+#sub .notice_detail .wrap .content form input[type=file] { position:absolute; left:30px; opacity:0; }
+#sub .notice_detail .wrap .content form input[type=text] { padding:10px; width:400px; }
+#sub .notice_detail .wrap .content form .button { margin-left:3px; vertical-align:middle; background:#505050; color:#fff; font-size:14px; padding:9px 13px; display:inline-block; cursor:pointer;}
+#sub .notice_detail .wrap .content form #delete { margin-left:97px; }
+#sub .notice_detail .wrap .content form .submit { text-align:center; margin-top:50px; }
+#sub .notice_detail .wrap .content form input[type=submit] { padding:15px 100px; font-size:17px; margin:0 auto;}
+#sub .filebox input[type="file"] { position: absolute; width:0; height:0; padding:0; overflow:hidden;  border:0;}
+#sub .filebox label { margin-left:40px; display:inline-block; padding:5px 12px; color: #fff;  vertical-align: middle; background-color:#2e68bf; cursor:pointer; border:1px solid #ebebeb; }
+#sub .filebox .upload-name { display:inline-block; height:31px; font-size:18px; background-position:225px center; background-repeat:no-repeat; background-image:url("../img/file.jpg"); padding:0 10px; vertical-align: middle; background-color:#fff; color:#505050; border:1px solid #ebebeb; width:250px;}
+/*湲��벐湲� �걹*/
+
+/*怨듭��궗�빆*************�걹*****************/
+
+/********************�굹�쓽濡쒕삉******************/
+
+#sub .mylotto h6 { font-size:17px; text-align:center; background:#f4f7f8; border-top:2px solid #dedede; border-bottom:1px solid #dedede; padding:13px 0; font-weight:bold; }
+#sub .mylotto .box { border-bottom:1px solid #ccc; }
+#sub .mylotto .lotto-numder {text-align:center; }
+#sub .mylotto .mylotto_box_now h6 { color:#fff; background:#2e68bf; border-top:none; border-bottom:none; font-weight:400;  }
+#sub .mylotto .mylotto_box_now h6 span { margin-left:6px; font-size:13px; background:#fff; color:#2e68bf; padding:4px 15px; border-radius:20px; font-weight:bold; }
+#sub .mylotto .mylotto_box_now .lotto-numder { background:#effbff;}
+#sub .mylotto .box { margin-bottom:18px; }
+#sub .mylotto .lotto-numder { padding:20px 0; }
+#sub .mylotto .lotto-numder span { vertical-align:middle; }
+#sub .mylotto .lotto-numder .plus { width:20px; font-size:21px; vertical-align:top; }
+#sub .mylotto .list_btn { margin-top:55px; }
+/********************�굹�쓽濡쒕삉******�걹************/
+
+
+/*寃곗젣�궡�뿭 *******************************************/
+#sub .mylotto_payment .payment { color:#505050; text-align:center; width:100%; margin-bottom:55px; }
+#sub .mylotto_payment .payment tr th { font-size:15px; padding:15px 40px; border-right:1px solid #dedede; border-top:2px solid #dedede; background:#f4f7f8; }
+#sub .mylotto_payment .payment tr th:last-child { border-right:none; }
+#sub .mylotto_payment .payment tr td { font-size:13px; padding:15px 40px; border-right:1px solid #dedede; border-bottom:1px solid #dedede; }
+#sub .mylotto_payment .payment tr td:last-child { border-right:none; }
+#sub .mylotto_payment .payment tr td a { display:inline-block; background:#2e68bf; color:#fff; padding:5px 11px; }
+
+#sub .mylotto_payment .payment_2 { border-top:2px solid #dedede; width:100%; margin-top:20px; margin-bottom:80px; }
+#sub .mylotto_payment .payment_2 tr td { font-size:13px; padding:15px 10px; border-bottom:1px solid #dedede; }
+#sub .mylotto_payment .payment_2 tr td span { margin-right:55px; }
+#sub .mylotto_payment .payment_2 .gray { background:#fbfbfb; }
+#sub .mylotto_payment .btn { text-align:center; }
+#sub .mylotto_payment .btn a { display:inline-block; background:#2e68bf; color:#fff; padding:15px 100px; }
+/*寃곗젣�궡�뿭 *******************�걹************************/
+
+
+
+
+/*�궡�젙蹂댁닔�젙 *******************************************/
+#sub .mylotto_fix .fix h2 { border-bottom:2px solid #dedede; padding-bottom:20px; margin-bottom:20px }
+#sub .mylotto_fix .fix form input { border:1px solid #ccc;}
+#sub .mylotto_fix .fix form tr { display:block; margin-bottom:20px; }
+#sub .mylotto_fix .fix form tr th { border:none; width:140px; text-align:left; font-weight:500; font-size:16px; margin-bottom:20px; }
+#sub .mylotto_fix .fix form tr th::after { content:"*"; color:#ee1512; margin-left:3px;  }
+
+#sub .mylotto_fix .fix .account input { width:400px; height:48px; padding-left:10px; }
+#sub .mylotto_fix .fix .information { padding:20px 0; color:#505050; width:100%; border-bottom:1px solid #dedede; }
+#sub .mylotto_fix .fix .information input[type=text] { width:400px; height:48px; padding-left:10px; }
+#sub .mylotto_fix .fix .information .birthday input:first-child { width:105px; margin-left:0; }
+#sub .mylotto_fix .fix .information .birthday input { width:80px; height:48px; margin-right:3px; margin-left:3px; }
+#sub .mylotto_fix .fix .information input[type=radio]:last-child { margin-left:10px; }
+#sub .mylotto_fix .fix .information .email input { width:220px; margin-right:10px; }
+#sub .mylotto_fix .fix .information .email select { margin-left:10px; width:165px; height:48px; }
+#sub .mylotto_fix .fix .information .tel input,
+#sub .mylotto_fix .fix .information .tel select { width:95px; }
+#sub .mylotto_fix .fix .information tr:last-child { margin-bottom:0; }
+#sub .mylotto_fix .fix .information tr:last-child input { width:175px; }
+#sub .mylotto_fix .fix .information button { background:#505050; color:#fff; height:40px; padding:0 13px; margin-left:3px; outline:none;}
+#sub .mylotto_fix .fix div { text-align:center; margin-top:80px; }
+#sub .mylotto_fix .fix div input[type=submit] { padding:15px 100px; }
+
+/*�궡�젙蹂댁닔�젙 *******************�걹************************/
+
+
+
+
+
+/********************而ㅻ�ㅻ땲�떚******************/
+#sub .community_one .bener img { width:100%; }
+#sub .community_one .box { overflow:hidden; border:1px solid #ccc; height:160px; display:flex; margin-top:20px; }
+#sub .community_one .box h4 { font-size:16px; margin-bottom:10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+#sub .community_one .box span { font-size:14px; text-overflow:ellipsis; overflow:hidden; display:inline-block; white-space: normal; line-height:20px; height:60px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; }
+#sub .community_one .box .txt_name { display:block; color:#505050; font-size:13px; position:absolute; bottom:-25px; }
+#sub .community_one .box img { display:inline-block; background:#ccc;}
+#sub .community_one .box .txt { cursor:pointer; display:inline-block; padding:10px 20px 0 10px; box-sizing:border-box; overflow:hidden; position:relative;}
+#sub .community_one .box .txt a { display:block; }
+#sub .community_one form { width:100%; text-align:center; }
+#sub .community_one .list_btn { margin-bottom:20px; }
+#sub .community_one .btn { text-align:right; margin-top:20px; }
+#sub .community_one .btn a { background:#2e68bf; color:#fff; padding:5px 20px; }
+#sub .community_one .find { overflow:hidden; vertical-align:middle;}
+#sub .community_one .find select { height:auto; }
+#sub .community_one .find input[type=text] { float:left; width:95%; border:none; height:100%;  padding:12px 10px; outline:none; }
+#sub .community_one .find button { float:left; width:5%; cursor:pointer; }
+#sub .community_one .find button img { margin-top:9px; }
+
+/********************移대�ㅻ땲�떚******�걹************/
+
+/*�쉶�썝媛��엯 *****************************************/
+
+#sub .member_go .sign_Up { display:flex; text-align:center; padding:30px 0 10px 0; }
+#sub .member_go .sign_Up div { width:80%; margin:0 auto;}
+#sub .member_go .sign_Up .circle { background:#fff; border:1px solid #ccc; display:inline-block; border-radius:50%; padding:22px 18px; text-align:center; width:120px; height:120px; margin:0 auto; color:#ababab; box-sizing:border-box; font-size:14px; }
+#sub .member_go .sign_Up .circle h3 {  }
+#sub .member_go .sign_Up .circle h3:after { content: ""; display:block; width:30px; border-bottom:1px solid #bcbcbc; margin:10px auto;}
+#sub .member_go .sign_Up span { vertical-align:top; margin:0 40px; display:inline-block; height:120px; line-height:120px; }
+#sub .member_go .sign_Up span img { vertical-align:middle; }
+#sub .member_go .sign_Up .circle.on { background:#2e68bf; color:#fff; }
+#sub .member_go .sign_Up .stap { border:1px solid #fff;}
+#sub .member_go .seolmyeong { color:#505050;}
+#sub .member_go .seolmyeong p { font-size:18px; margin:18px 0; color:#000; }
+#sub .member_go .seolmyeong form textarea { height:220px; width:100%; margin-bottom:5px; font-family:"Noto Sans KR", sans-serif;}
+#sub .member_go .seolmyeong form a { display:block; }
+#sub .member_go .seolmyeong form input[type=checkbox] { margin-right:5px;  }
+#sub .member_go input[type=text] {flex:left; width:515px; height:40px; border:none; padding-left:10px; }
+#sub .member_go form .btn { text-align:center; display:block  }
+#sub .member_go form .btn a { display:inline-block; padding:15px 60px; margin:0 auto; margin-top:75px; color:#fff; background:#2E68BF; }
+
+/*2踰덉㎏�럹�씠吏�*/
+#sub .member_go.go02 form { color:#8c8c8c; }
+#sub .member_go.go02 form h3::after { content: ""; display:block; width:100%; border-bottom:1px solid #ccc; margin:20px auto; }
+#sub .member_go.go02 form th::after { content: "*"; color:#ef3433; margin-left:3px; }
+#sub .member_go.go02 form th { text-align:left; border-bottom:none; width:120px;line-height: 45px !important;    display: inherit;    vertical-align: middle;}
+#sub .member_go.go02 form h3 { color:#000; font-size:16px; }
+#sub .member_go.go02 form table { width:100%; }
+#sub .member_go.go02 form input { margin-bottom:10px; }
+#sub .member_go.go02 form input[type=text] { width:400px; height:50px; }
+#sub .member_go.go02 form input[type=password] { width:400px; height:50px; }
+#sub .seolmyeong .btn { text-align:center; }
+#sub .seolmyeong form .btn a { display:inline-block; padding:15px 60px; color:#fff; background:#2e68bf; font-weight:600; outline:none; font-size:14px; font-weight:500;}
+#sub .member_go.go02 input,#sub .member_go.go02 textarea { border:1px solid #ccc;}
+#sub .member_go.go02 .birthday input[type=text] { width:110px;  margin:0 5px;  }
+#sub .member_go.go02 .birthday input:first-child { margin:0;}
+#sub .member_go.go02 input[type=radio] { margin:30px 0px; }
+#sub .member_go.go02 input[type=radio]:last-child { margin-left:10px; }
+#sub .member_go.go02 .email input[type=text] { width:225px;  }
+#sub .member_go.go02 .email select { width:170px; height:50px; margin-bottom:10px; }
+#sub .member_go.go02 .email span { display:inline-block; margin:0 15px; vertical-align:top; line-height:50px; }
+#sub .member_go.go02 .tel { margin:0 10px; }
+#sub .member_go.go02 .tel span { margin:0 5px; }
+#sub .member_go.go02 .tel input[type=text] { width:97px; margin:20px 0; }
+#sub .member_go.go02 input[type=button] { background:#505050; color:#fff; padding:13px; margin-bottom:0; outline:none; }
+#sub .member_go.go02 .certification input[type=text] { width:170px; margin:15px 0; }
+/*3踰덉㎏ �럹�씠 .*/
+#sub .member_go.go03 .txt { border:1px solid #dedede; height:300px; text-align:center; position:relative; margin-top:50px; }
+#sub .member_go.go03 .txt div { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:20px; }
+#sub .member_go.go03 .txt div p span { font-weight:bold; color:#277f7d; }
+#sub .member_go.go03 .txt div p b { color:#2e68bf; }
+#sub .member_go.go03 .btn { text-align:center; display:block; margin-top:75px; outline:none; }
+#sub .member_go.go03 .btn a { display:inline-block; color:#fff;  background:#2e68bf; padding:15px 60px; }
+/*�쉶�썝媛��엯 *****************************************/
+
+
+/*硫ㅻ쾭�떗寃곗젣**********************************/
+#sub .membership_pay .wrap .content .h2 { border-bottom:2px solid #ccc; padding-bottom:20px; font-size:17px;}
+#sub .membership_pay .wrap .content form { padding:20px 0; color:#505050; }
+#sub .membership_pay .wrap .content h6  { font-size:16px; margin:10px 0;}
+#sub .membership_pay .wrap .content form label { margin-bottom:30px; display:inline-block;}
+#sub .membership_pay .wrap .content form input[type=radio] { margin:0 5px 2px 13px; vertical-align:middle; }
+#sub .membership_pay .wrap .content form #tel_num { width:100px; height:40px; margin-bottom:30px; }
+#sub .membership_pay .wrap .content form #tel_num + span { margin:0 5px; display:inline-block;}
+#sub .membership_pay .wrap .content form #account { width:400px; height:45px; margin-bottom:30px; }
+#sub .membership_pay .wrap .content form #account_name { width:400px; height:45px; margin-bottom:30px; padding-left:10px; }
+#sub .membership_pay .wrap .content form .amount-of-payment { background:#fcfcfc; padding:15px; width:370px; box-sizing:border-box; margin-bottom:30px; }
+#sub .membership_pay .wrap .content form .amount-of-payment p { padding-bottom:15px; overflow:hidden; }
+#sub .membership_pay .wrap .content form .amount-of-payment p:first-child + p{ border-bottom:1px solid #dedede; }
+#sub .membership_pay .wrap .content form .amount-of-payment p:last-child {padding-bottom:0; margin-top:15px; }
+#sub .membership_pay .wrap .content form .amount-of-payment p span { float:left;}
+#sub .membership_pay .wrap .content form .amount-of-payment p span:last-child { float:right; }
+#sub .membership_pay .wrap .content form .amount-of-payment p:last-child span:last-child { color:#ee1512; font-size:24px; font-weight:600;}
+#sub .membership_pay .wrap .content form textarea { width:100%; padding:15px 10px; margin-bottom:10px;}
+#sub .membership_pay .wrap .content form textarea::-webkit-scrollbar { display:none; }
+#sub .membership_pay .wrap .content form .submit { text-align:center; padding-top:60px; border-top:1px solid #dedede;}
+#sub .membership_pay .wrap .content form .submit input { padding:15px 60px;}
+/*硫ㅻ쾭�떗寃곗젣**********  �걹************************/
+
+
+
+
+/*�씠�슜�빟愿�***********************************************/
+#sub .mypage .wrap .content dl { border-top:1px solid #dedede; border-bottom:1px solid #dedede; padding-top:25px; font-size:15px; }
+#sub .mypage .wrap .content dl dt { font-weight:bold; margin-bottom:30px; }
+#sub .mypage .wrap .content dl dd { line-height:27px; margin-bottom:30px; color:#505050; }
+/*�씠�슜�빟愿�******************�걹*****************************/
+
+
+
+
+/*�궗�씠�듃留�***********************************************/
+#sub .sitemap .wrap .content .sitemap_box { overflow:hidden;}
+#sub .sitemap .wrap .content .sitemap_box dl { float:left; width:33%; box-sizing:border-box; padding:0 4%; margin-bottom:80px; }
+#sub .sitemap .wrap .content .sitemap_box dl dt { margin-bottom:15px; border-bottom:2px solid #134ca3; color:#134ca3; padding-bottom:15px; font-size:20px; font-weight:600;}
+#sub .sitemap .wrap .content .sitemap_box dl dd { line-height:20px;}
+#sub .sitemap .wrap .content .sitemap_box dl dd a { display:inline-block; padding:5px 0px; }
+
+
+
+/*�궗�씠�듃留�******************�걹*****************************/
+@media screen and (max-width:1500px) {
+  .top-btn { right:30px; }
+  .wrap1500 { width:auto; }
+  #sub div .list { left:40px; }
+  #sub .wrap1000 { width:70%; }
+  #sub .membership .box_vip div .txt { float:left; width:auto; }
+  /* 寃곗젣�궡�뿭 */
+  #sub .mylotto_payment .payment tr th,
+  #sub .mylotto_payment .payment tr td { padding:10px; }
+}
+
+
+@media screen and ( max-width:1250px ){
+ #sub { overflow:hidden; }
+ #sub div .list { top:2px; }
+ #sub .list h2 { margin-bottom:20px; }
+ #sub .list div a p { padding:10px 0 10px 10px;}
+ #sub .wrap .left div a span { display:none;}
+ #sub .wrap1000 { position:static; width:70%; float:right; padding-right:50px; box-sizing:border-box; }
+ #sub .wrap1000 .head { padding-bottom:20px; margin-bottom:25px; }
+ #sub .community_one .box { height:132px; }
+ #sub .community_one .box span { -webkit-line-clamp: 2; height:40px;}
+ #sub .membership .box_vip div .txt { padding:15px 10px; }
+ /* �궡�젙蹂댁닔�젙 */
+ #sub .mylotto_fix .fix .account input { width:300px; height:40px; }
+ #sub .mylotto_fix .fix .information input[type=text] { width:300px; height:40px; }
+ #sub .mylotto_fix .fix .information .birthday input { width:70px;}
+ #sub .mylotto_fix .fix .information .email input { width:97px; }
+ #sub .mylotto_fix .fix .information .tel input, #sub .mylotto_fix .fix .information .tel select { width:90px; }
+ #sub .mylotto_fix .fix .information button { }
+
+ /* 濡쒓렇�씤 */
+ #sub .membership_login .login_box { padding:40px 0;}
+ #sub .membership_login .login_box .login_box_wrap { width:400px; }
+ #sub .membership_login .login_box_wrap h6 { font-size:20px; }
+/* �뙣�뒪�썙�뱶 */
+ #sub .member_password h3 { margin-bottom:15px; }
+ #sub .member_password form dt { width:100px; }
+ #sub .member_password form .name input { width:350px; height:45px;}
+ #sub .member_password .my { margin-top:60px; padding:35px 0; }
+ #sub .member_password .email input[type=text] { width:140px; height:45px; }
+ #sub .member_password form .tel input, #sub .member_password form .tel select { height:45px; width:108px;}
+/* �쉶�썝媛��엯 */
+ #sub .member_go .sign_Up div { width:100%; }
+ #sub .member_go .sign_Up span { margin:0 20px; }
+ #sub .member_go .seolmyeong p { font-size:16px; margin:15px 0;}
+/* 1�벑 �떦泥⑥옄�씠�빞湲� */
+ #sub .community_one .box .txt_name { bottom:-15px; }
+/* 寃뚯떆�뙋 �긽�꽭 */
+ #sub .service_alert .comment .com input[type=text] { width:80%; }
+ #sub .service_alert .comment .com input[type=submit] { width:20%; }
+ #sub .service_alert table tr td { width:80%; }
+ #sub .service_alert table tr th { width:20%; }
+/* 怨듭��궗�빆 湲��벐湲� */
+ #sub .notice_detail .wrap1500 .wrap1000 form span { margin-right:0; }
+ #sub .notice_detail .wrap1500 .wrap1000 form #delete { margin-left:78px; }
+ #sub .notice_detail .wrap1500 .wrap1000 form input[type=text] { width:300px; }
+ #sub .notice_detail .wrap1500 .wrap1000 .filebox .upload-name { width:320px; margin-left:20px; }
+
+}
+
+@media screen and ( max-width:1000px ) {
+  #sub div .list { width:20%; }
+
+}
+
+@media screen and ( max-width:768px ){
+  #sub h2 { font-size:18px; }
+  #sub .list_btn { width:480px; }
+  #sub .list div a:first-child { border-right:none; }
+  #sub .list div a:first-child + a + a + a { border-left:none;}
+  #sub .list div a:first-child + a + a,
+  #sub .list div a:first-child + a + a + a { border-top:none; }
+
+  #sub colgroup col:last-child { display:none; }
+
+  #sub .head { display:none; }
+  #sub { padding:0 20px; }
+  #sub .list div a { border-bottom:1px solid #ccc; }
+  #sub div .list { width:100%; margin-bottom:60px; position:static; }
+  #sub div .list div a { float:left; width:50%; box-sizing: border-box;}
+  #sub .list h2 { text-align:center; }
+  #sub .list div .pocus { background-position:95% center; }
+  /* 硫ㅻ쾭�돺 */
+  #sub .membership .box_vip div .txt span { font-size:13px;}
+  #sub .membership_login .login_box { padding:30px 0;}
+  #sub .membership_login .login_box .login_box_wrap .simple { text-align:center;}
+  #sub .membership_login .login_box .login_box_wrap .simple .pcicon {  display:none;  }
+  #sub .membership_login .login_box .login_box_wrap .simple .moicon { display:block; margin-bottom:5px;  }
+  #sub .member_password .my { font-size:14px; }
+  #sub .membership .pay { margin-top:30px; }
+
+/* 濡쒕삉�떦泥④껐怨� */
+  #sub .winning form select { width:100%; padding:0; }
+  #sub .list_btn span { margin:0 4px; }
+  #sub .list_btn .prev,
+  #sub .list_btn .next { width:auto;}
+/* 1�벑 �떦泥⑥옄�씠�빞湲� */
+  #sub  select { width:100%; margin-bottom:0px;  }
+  #sub .find { width:100%; box-sizing:border-box; }
+  #sub .community_one .box { height:110px; }
+  #sub .community_one .box .txt { padding:10px 5px 0px 5px;}
+  #sub .community_one .box h4 { margin-bottom:3px; font-size:14px; }
+  #sub .community_one .box span { font-size:11px; }
+  #sub .community_one .box .txt_name { margin-top:10px; font-size:10px;}
+  /* 硫ㅻ쾭�떗寃곗젣 */
+  #sub .membership .box_vip div .txt { padding:15px 5px;}
+
+
+  /* �옄�쑀寃뚯떆�뙋 */
+  #sub .service_main .table  { }
+  #sub .service_main .table table tr th { padding:10px 0;}
+  #sub .service_main .table table tr th:last-child { display:none; }
+  #sub .service_main .table table tr td { padding:8px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #sub .service_main .table table tr td:first-child + td {  }
+  #sub .service_main .table table tr td:last-child { display:none; }
+  /* 寃곗젣�궡�뿭 */
+  #sub .service .table {  }
+  #sub .mylotto_payment .payment tr th,
+  #sub .mylotto_payment .payment tr td { padding:5px 10px; }
+  #sub .mylotto_payment .payment tr th a,
+  #sub .mylotto_payment .payment tr td a { white-space:normal;}
+  #sub .mylotto_payment .payment tr th:first-child + th,
+  #sub .mylotto_payment .payment tr td:first-child + td { display:none;}
+  #sub .mylotto_payment .payment_2 tr td { padding:10px; }
+  #sub .mylotto_payment .payment_2 { margin-bottom:35px; }
+  /* 1:1臾몄쓽�븯湲� */
+  #sub .service .p { padding:15px 10px; }
+  #sub .service .table table { }
+  #sub .service .table table colgroup col:first-child { width:65px !important; }
+  #sub .service .table table colgroup col:first-child + col + col { width:65px !important; }
+  #sub .service .table table tr td { font-size:13px; padding:0px;  }
+  #sub .service .table table tr th { font-size:14px; }
+  #sub .service .table table tr td:first-child + td + td,
+  #sub .service .table table tr th:first-child + th + th { display:none; }
+  #sub .service .table table tr th { padding:7px 10px; }
+  /* �궗�씠�듃留� */
+  #sub .sitemap .sitemap_box dl dt { font-size:18px; padding-bottom:9px; margin-bottom:9px; }
+  #sub .sitemap .sitemap_box dl dd { font-size:14px; line-height:18px; }
+  #sub .sitemap .sitemap_box dl dd a { padding:3px 0; }
+  #sub .sitemap .sitemap_box dl { margin-bottom:60px; }
+  /* 濡쒓렇�씤 */
+  #sub .membership_login .login_box .login_box_wrap { width:70%; }
+  /* �뙣�뒪�썙�뱶 */
+  #sub .member_password h3 { font-size:16px; margin-bottom:10px; }
+  #sub .member_password form { margin-bottom:60px; }
+  #sub .member_password form dt { width:100%; margin-bottom:10px; }
+  #sub .member_password form dd { display:block; width:80%; }
+  #sub .member_password .email input[type=text] { width:137px; }
+  #sub .member_password form select { margin-bottom:0; }
+  /* �쉶�썝媛��엯 */
+  #sub .member_go .sign_Up { padding:10px 0 10px 0; }
+  #sub .member_go .sign_Up span { margin:0 15px; }
+  #sub .member_go .seolmyeong form textarea { height:200px; }
+  #sub .member_go label { font-size:12px; }
+  #sub .member_go form input[type=submit] { margin-top:60px; }
+  #sub .member_go.go02 form h3 { margin-top:30px; }
+  #sub .member_go.go02 form input[type=text] { width:50%; height:40px; }
+  #sub .member_go.go02 form input[type=password] { width:50%; height:40px; }
+  #sub .member_go.go02 .birthday input[type=text] { width:90px; height:40px; }
+  #sub .member_go.go02 input[type=button] { padding:10px; }
+  /* 寃뚯떆�뙋�긽�꽭 */
+  #sub .service_alert dl dt { padding:10px; }
+  #sub .service_alert .comment h6 { padding:25px 0 10px 0;}
+  #sub .service_alert span { font-size:13px; }
+  #sub .service_alert .title dl p .day { font-size:11px; }
+  #sub .service_alert table tr th { padding:0; font-size:12px; }
+  #sub .service_alert table tr td { padding:0; font-size:12px; }
+  #sub .service_alert .comment .com input { height:80px; }
+  #sub .service_main .find { margin-top:10px; }
+  /* 怨듭��궗�빆 湲��벐湲� */
+  #sub .notice_detail .wrap1500 .wrap1000 form input[type=text] { width:280px; }
+  #sub .notice_detail .wrap1500 .wrap1000 form .submit { margin-top:35px; }
+  #sub .notice_detail .wrap1500 .wrap1000 .filebox .upload-name { width:290px; }
+  #sub .notice_detail .wrap .content textarea { min-height:400px; }
+
+  #sub .winning .table h3 { padding:35px 0 20px 0; }
+  #sub .winning .result > div h6 { font-size:17px; }
+
+  #sub .community_one .find { margin-top:10px; }
+  #sub .mylotto h6 { font-size:14px; padding:9px 0;}
+  #sub .mylotto .mylotto_box_now h6 span { padding:2px 10px; }
+  #sub .mylotto .lotto-numder { padding:10px 0; }
+  #sub .mylotto_fix .fix .information input[type=text] { height:33px; }
+  #sub select { height:33px; }
+  #sub .mylotto_fix .fix .information button { height:33px; }
+}
+
+
+@media only all and ( max-width:640px ) {
+  #sub { padding:0 10px; }
+  #sub .list_btn { width:100%; }
+  #sub .membership_pay .wrap .content .h2 { padding-bottom:15px; }
+  #sub .membership_pay .wrap .content form { padding-top:5px; }
+  #sub .wrap1500 .wrap1000 colgroup col:first-child { width:55px; }
+  #sub .wrap1500 .wrap1000 colgroup col:first-child + col + col +col{ display:none; }
+  #sub div .list { font-size:13px; }
+  #sub .lotto-numder span { width:30px; height:30px; line-height:30px; padding-right:1px; font-size:14px; margin-left:0;}
+  #sub .winning .result .lotto-numder { padding:10px 0;}
+  #sub .list_btn span { display:none; }
+  #sub .list_btn .prev,
+  #sub .list_btn .next,
+  #sub .list_btn .prev:first-child + span + span,
+  #sub .list_btn .prev:first-child + span + span + span,
+  #sub .list_btn .prev:first-child + span + span + span + span,
+  #sub .list_btn .prev:first-child + span + span + span + span + span,
+  #sub .list_btn .prev:first-child + span + span + span + span + span + span
+ { display: inline-block;}
+ #sub .list_btn .prev,#sub .list_btn .next { width:11.1%}
+ #sub .list_btn span { width:11.1%; margin:0; box-sizing:border-box; height:auto}
+ #sub .list div .pocus { background-position:90% center; }
+  /* 濡쒕삉�떦泥④껐怨� */
+  #sub .list h2 { margin-bottom:10px; }
+  #sub .winning .result > div h6,
+  #sub .winning .table table tr th { padding:7px 0;}
+  #sub .winning .table table tr td:first-child + td,
+  #sub .winning .table table tr th:first-child + th { display:none; }
+  #sub .winning .table table tr td { padding:5px;}
+/*硫ㅻ쾭�떗�븞  */
+  #sub .membership .box_vip > div { height:auto; padding-top:20px; }
+  #sub .membership .box_vip div .img { width:100%; text-align:center; }
+  #sub .membership .box_vip div .txt { height:auto; width:100%; padding:10px; text-align:center;}
+  #sub .membership .box_vip div .img a {  max-width:160px; }
+  #sub .membership .box_vip div .txt .money { margin-right:10px;}
+  #sub .membership .box_vip div .txt .money,
+  #sub .membership .box_vip div .txt .money + span { position:static;}
+  #sub .membership table tr td { padding:10px 5px; }
+/* 硫ㅻ쾭�떗寃곗젣 */
+  #sub .membership_pay .wrap1500 .wrap1000 .h2 { padding-bottom:10px; }
+  #sub .membership_pay .wrap1500 .wrap1000 form { padding:0; }
+  #sub .membership_pay .wrap1500 .wrap1000 form label { margin-bottom:20px; }
+  #sub .membership_pay .wrap1500 .wrap1000 form #tel_num { width:80px; height:30px; margin-bottom:20px; }
+  #sub .membership_pay .wrap1500 .wrap1000 form #tel_num + span { margin:0 3px 0px 5px; vertical-align:top; line-height:26px; }
+  #sub .membership_pay .wrap1500 .wrap1000 form #account { margin-bottom:20px; width:100%;}
+  #sub .membership_pay .wrap1500 .wrap1000 form #account_name { margin-bottom:20px; width:100%; }
+  #sub .membership_pay .wrap1500 .wrap1000 form .amount-of-payment { width:100%; margin-bottom:20px; }
+  #sub .membership_pay .wrap .content form input[type=radio] { margin:0 5px 2px 6px; }
+  #sub .membership_pay .wrap .content form #tel_num { width:80px; }
+  #sub .membership_pay .wrap .content form #account { width:100%; margin-bottom:15px; }
+  #sub .membership_pay .wrap .content form #account_name { width:100%; margin-bottom:15px; }
+  #sub .membership_pay .wrap .content form .amount-of-payment { width:100%; }
+  #sub .membership_pay .wrap .content form .submit { padding-top:30px; }
+
+  /* �옄�쑀寃뚯떆�뙋 */
+  #sub .service_main .table  { width:100%; margin:0 auto; }
+  #sub .service_main .table table colgroup { display:none; }
+  #sub .service_main .table table tr th { padding:10px 0;}
+  #sub .service_main .table table tr td { padding:8px 0;}
+  #sub .service_main .table table tr th:first-child { width:50px; }
+  #sub .service_main .table table tr td:first-child { width:50px; }
+  #sub .service_main .table table tr td:first-child + td + td + td {  width:65px; }
+  #sub .service_main .table table tr th:first-child +th + th + th { width:65px; }
+  #sub .service_main .table table tr td:first-child + td + td  { display:none; }
+  #sub .service_main .table table tr th:first-child +th + th { display:none; }
+  #sub .service_main .table table tr th:first-child { white-space:nowrap; }
+  #sub .service_main .table table colgroup { display:none; }
+  /* 寃곗젣�궡�뿭 */
+  #sub .mylotto_payment .payment tr th,
+  #sub .mylotto_payment .payment tr td { padding:5px; font-size:14px; }
+  #sub .mylotto_payment .payment tr td { font-size:12px; }
+  #sub .mylotto_payment .payment tr th:first-child + th,
+  #sub .mylotto_payment .payment tr td:first-child + td { display:none;}
+  #sub .mylotto_payment .payment tr td a { padding:5px 6px; }
+  #sub .mylotto_payment .payment tr th:first-child + th + th + th + th,
+  #sub .mylotto_payment .payment tr td:first-child + td + td + td + td { display:none;}
+
+  /* �궡�젙蹂댁닔�젙 */
+  #sub .mylotto_fix .fix .account input { width:200px; }
+  #sub .mylotto_fix .fix form tr th { font-size:14px; }
+  #sub .mylotto_fix .fix { font-size:13px; }
+  #sub .mylotto_fix .fix h2 { margin-bottom:15px; padding-bottom:15px; }
+  #sub .mylotto_fix .fix form tr th { width:75px; }
+  #sub .mylotto_fix .fix .information .birthday input:first-child { width:75px; }
+  #sub .mylotto_fix .fix .information .email select { width:103px; height:35px; margin-bottom:0; margin-left:3px;}
+  #sub .mylotto_fix .fix .information input[type=text] { width:auto; margin-bottom:5px;}
+  #sub .mylotto_fix .fix .information .birthday input { width:43px; }
+  #sub .mylotto_fix .fix .information .birthday input:first-child { width:50px; }
+  #sub .mylotto_fix .fix .information .tel input, #sub .mylotto_fix .fix .information .tel select { width:62px; }
+  #sub .mylotto_fix .fix .information .tel button { }
+  #sub .mylotto_fix .fix .information input[type=text] { margin-bottom:0; }
+  #sub .mylotto_fix .fix .information tr:last-child input { width:140px; }
+  #sub .mylotto_fix .fix .information .email input { width:87px; margin-right:3px; }
+  /* 1:1 臾몄쓽�븯湲� */
+  #sub .service .p { font-size:13px; }
+  #sub .service table tr th { padding:5px;}
+  /* #sub .service .table table { ; } */
+  #sub .service .table table td:first-child { width:30px;}
+  #sub .service .table table td:last-child { padding:0;}
+  /* �궗�씠�듃留� */
+  #sub .sitemap .wrap1500 .wrap1000 .sitemap_box dl { margin-bottom:40px;}
+  #sub .sitemap .wrap1500 .wrap1000 .sitemap_box dl dt { font-size:14px; padding-bottom:5px; margin-bottom:5px; }
+  #sub .sitemap .wrap1500 .wrap1000 .sitemap_box dl dd { font-size:12px; line-height:15px; }
+  #sub .sitemap .wrap1500 .wrap1000 .sitemap_box dl dd a { padding:3px 0;}
+  /* 濡쒓렇�씤 */
+  #sub .membership_login .login_box { padding:20px 0;}
+  #sub .membership_login .login_box .login_box_wrap { width:90%; }
+  #sub .membership_login .login_box_wrap h6 { font-size:16px; margin-bottom:10px; }
+  #sub .membership_login .login_box .login_box_wrap form input[type=submit] { padding:10px 0; font-size:13px; margin-top:15px; }
+  #sub .membership_login .login_box .login_box_wrap form input[type=text], #sub .membership_login .login_box .login_box_wrap form input[type=password] { font-size:11px; height:45px; padding-left:10px; }
+  #sub .membership_login .login_box .login_box_wrap .login { font-size:11px; }
+  #sub .member_go.go02 form th { font-size:13px; width:90px; }
+  #sub .member_go.go02 form input[type=text] { width:80%; height:30px; }
+  #sub .member_go.go02 form input[type=password] { width:80%; height:30px; }
+  #sub .member_go.go02 .email input[type=text] { width:40%; }
+  #sub .member_go.go02 .email select { width:40%; height:30px; }
+  #sub .member_go.go02 .tel input[type=text] { width:30%; }
+  #sub .member_go.go02 .tel span { margin:0; }
+  #sub .member_go.go02 input[type=button] { padding:5px; }
+  #sub .member_go.go02 .certification input[type=text] { width:70%; }
+  #sub .member_go.go02 .email span { margin:0 2px; line-height:25px; }
+  #sub .member_go.go02 .birthday input[type=text] { width:20%; }
+  #sub .membership .box_vip .txt span { display:none; }
+  #sub .membership .box_vip div .txt h2 { margin-top:0; }
+  /* �뙣�뒪�썙�뱶 */
+  #sub .member_password h3 { font-size:15px; margin-bottom:5px; }
+  #sub .member_password form { margin-bottom:40px; font-size:13px; }
+  #sub .member_password form .name input { width:90%; height:40px; }
+  #sub .member_password form .tel input, #sub .member_password form .tel select { width:60px; height:40px; }
+  #sub .member_password .my { margin-top:40px; padding:20px 5px; font-size:12px; }
+  #sub .member_password .email input[type=text] { width:105px; height:40px; margin-right:0; }
+  #sub .member_password .email select { margin-left:0; height:40px; width:92px; }
+  /* �쉶�썝媛��엯 */
+  #sub .member_go .sign_Up { padding:0; }
+  #sub .member_go .sign_Up .circle { width:80px; height:80px; font-size:11px; padding:15px 5px; }
+  #sub .member_go .sign_Up span { margin:0px; height:45px; line-height:10px;vertical-align:middle;}
+  #sub .member_go .sign_Up .circle h3:after { margin:5px auto; }
+  #sub .member_go .sign_Up span img { width:10px; }
+  #sub .member_go .seolmyeong { font-size:15px; }
+  #sub .member_go form input[type=submit] { margin-top:30px; }
+  /* 寃뚯떆�뙋 �긽�꽭 */
+  #sub .service_alert .comment .comment_list { padding:10px 0; }
+  #sub .service_alert .service_alert_list span { padding:5px 10px; }
+  #sub .service_alert .service_alert_list ul li { padding:5px 10px; font-size:13px; }
+  #sub .service_alert .comment > span { width:49%; box-sizing:border-box; text-align:center;}
+  #sub .service_alert .comment > .pocus {}
+  #sub .service_alert .comment .com { clear:right; }
+  #sub .service_alert .comment .com input { height:60px; }
+  #sub input[type=submit] { font-size:12px; }
+  #sub .service_alert .comment .comment_list dt, #sub .service_alert .comment .comment_list dd { font-size:13px; }
+  #sub .service_alert .comment .comment_list p { font-size:11px; right:5px; }
+  #sub .service_alert table tr th { padding:5px; width:30%; }
+  #sub .service_alert table tr td { padding:5px; width:70%; }
+ /* 湲��벐湲� */
+  #sub .notice_detail .wrap .content label #title { width:80%; }
+  #sub .notice_detail .wrap .content form input[type=text] { width:200px; }
+  #sub .notice_detail .wrap .content form .button { margin-top:10px; }
+  #sub .notice_detail .wrap .content form #delete { margin-left:5px; }
+  #sub .notice_detail .wrap .content .filebox {  margin-bottom:10px; }
+  #sub .notice_detail .wrap .content .filebox .upload-name { margin-left:0; }
+  #sub .notice_detail .wrap .content label { font-size:13px;}
+  #sub .notice_detail .wrap .content textarea { min-height:300px; }
+  #sub .filebox { font-size:13px; margin-bottom:0;}
+  #sub .filebox label { margin-left:5px; font-size:13px; }
+  #sub .filebox .upload-name { width:160px; font-size:13px; background-position:140px center; }
+  #sub .notice_detail .wrap .content form .submit { margin-top:20px; }
+
+  #sub .mypage .wrap .content dl dt { margin-bottom:15px; }
+  #sub .sitemap .wrap .content .sitemap_box dl { width:100%; margin-bottom:40px; }
+  #sub .sitemap .wrap .content .sitemap_box dl dt { margin-bottom:10px; padding-bottom:10px; }
+
+  #sub .service_alert .comment .com input[type=submit] { width:25%; }
+  #sub .service_alert .comment .com input[type=text] { width:75%; }
+  #sub .service_alert .comment > span { padding:10px 25px; width:100px; }
+  #sub .service_alert span { font-size:11px; }
+}
+
+@media screen and (max-width:412px) {
+  #sub .mylotto_fix .fix .information .tel button { margin-top:10px; }
+}

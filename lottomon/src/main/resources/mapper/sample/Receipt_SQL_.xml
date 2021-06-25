@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample">
+
+<insert id="insertReceiptDataRenew" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO 
+				TB_USER_DATA_RENEW
+					(	
+						USER_KEY				,
+						SALES_BARCODE           ,
+						CONNECTION_COM			,
+						ETC_MEMO	            ,
+						ETC_EVENT	            ,
+						SHOP_NAME	            ,
+						SHOP_BRANCH				,
+						SHOP_BIZNO	            ,
+						SHOP_ADDR	            ,
+						SHOP_CEO	            ,
+						SHOP_TEL_NUM	        ,
+						SHOP_CASHIER	        ,
+						COMPOUND_YN				,
+						PAYMENT_TYPE			,
+						SALES_DATE	            ,
+						SALES_PRINT_DATE	    ,
+						SALES_TYPE	            ,
+						SALES_TOT_AMT	    	,
+						SALES_DISCOUNT_AMT	    ,
+						SALES_CHG_AMT       	,
+						SALES_PAID_AMT	    	,
+						SALES_SURTAX_AMT	    ,
+						SALES_DF_AMT	        ,
+						SALES_TAX_AMT 			, 
+						SALES_RE_PRINT	        ,
+						SALES_DETAIL_CNT	    ,
+						CASH_AMT	            ,
+						CASH_TYPE	            ,
+						CASH_NO            		,
+						CASH_APP_N0	            ,
+						CASH_DATE	            ,
+						CARD_AMT	            ,
+						CARD_INSTALLMENT	    ,
+						CARD_APP_NO	            ,
+						CARD_DATE	            ,
+						CARD_ICOM	            ,
+						CARD_PCOM	            ,
+						CARD_NO            		,
+						PAY_AMT					,
+						PAY_APP_NO				,
+						PAY_DATE				,
+						PAY_ICOM				,
+						POINT_CARD				,
+						POINT_AMT	            ,
+						POINT_TYPE				,
+						POINT_ICOM				,
+						POINT_GET	            ,
+						POINT_OPER,
+						COUPON_NO, 
+						COUPON_COM,
+						COUPON_TYPE,
+						COUPON_AMT,
+						COUPON_CASH_YN,
+						REC_VIEW_YN	            ,
+						FRT_CREA_DTM	        ,
+						FRT_REGN_NM	            ,
+						FNL_MOF_DTM	            ,
+						FNL_MDF_NM				,
+						REC_NO				,
+						ORIGIN_REC_NO				,
+						ORIGIN_SALES_DATE,
+					)
+					VALUES
+					(
+						#{USER_KEY}				,
+						#{SALES_BARCODE}		,
+						#{CONNECTION_COM}		,
+						#{MEMO}            	 	,
+						#{EVENT}            	,
+						#{SHOP_NAME}	        ,
+						#{SHOP_BRACH}	        ,
+						#{SHOP_BIZNO}	    		,
+						#{SHOP_ADDR}	        		,
+						#{SHOP_CEO}	            	,
+						#{SHOP_TEL_NUM}	        	,
+						#{SHOP_CASHIER}	        	,
+						#{COMPOUND_YN}			,
+						#{PAYMENT_TYPE}			,
+						#{SALES_DATE}	        ,
+						#{SALES_TAX_AMT}	    	,
+						#{SALES_TYPE}	        ,
+						#{SALES_TOT_AMT}	    		,
+						#{SALES_DISCOUNT_AMT}	    	,
+						#{SALES_CHG_AMT}    			,	
+						#{SALES_PAID_AMT}	    		,
+						#{SALES_SURTAX_AMT}	    	,
+						#{SALES_DF_AMT}	    		,
+						#{SALES_TAX_AMT}	    		,
+						#{SALES_RE_PRINT}	    		,
+						#{SALES_DETAIL_CNT}	        ,
+						#{CASH_AMT}	            ,
+						#{CASH_TYPE}	        	,
+						#{CASH_NO}              	,
+						#{CASH_APP_NO}	        ,
+						#{CASH_DATE}	        	,
+						#{CARD_AMT}	            ,
+						#{CARD_INSTALLMENT}	    ,
+						#{CARD_APP_NO}	        ,
+						#{CARD_DATE}	        	,
+						#{CARDICOM}	        	,
+						#{CARD_PCOM}	        	,
+						#{CARD_NO}              	,
+						#{PAY_AMT}				,
+						#{PAY_APP_NO}				,
+						#{PAY_DATE}				,
+						#{PAY_ICOM}				,
+						#{POINT_CARD}			,
+						#{POINT_AMT}	        	,
+						#{POINT_TYPE}	        ,
+						#{POINT_ICOM}	        ,
+						#{POINT_GET}	        	,
+						#{POINT_OPER}	        ,
+						#{COUPON_NO}				,
+						#{COUPON_COM}	        ,
+						#{COUPON_TYPE}	        ,
+						#{COUPON_AMT}	        ,
+						#{COUPON_CASH_YN}	        ,
+						'N'	        			,
+						now()	        		,
+						'Admin'	        		,
+						now()	        		,
+						'Admin'					,
+						#{recNO}	        	,
+						#{originRecNo}	    	,
+						#{originSalesDate}	    ,
+					)
+			
+			
+
+		]]>
+	</insert>	
+	
+
+
+	<insert id="insertReceiptDeatailDataRenew" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO 
+				TB_USER_DATA_DETAIL_RENEW
+					(
+					CUST_CI				,
+					USER_KEY			,
+					SALES_SEQ_NO		,
+					SALES_BARCODE		,
+					SALES_PNAME	    	,
+					SALES_PPRICE		,
+					SALES_OPRICE		,
+					SALES_QTY	    	,
+					SALES_FP_AMT		,
+					SALES_TAX_AMT		,
+					SALES_TYPE			,
+					SALES_DISCOUNT_AMT	,
+					SALES_PAID_AMT		,
+					FRT_CREA_DTM		,
+					FRT_REGN_NM     	,
+					FNL_MOF_DTM	    	,
+					FNL_MDF_NM			,
+					SHOP_BIZNO
+					)
+				VALUES
+					(
+					#{CUST_CI} 	,
+					#{USER_KEY}          ,
+					#{SALES_SEQ_NO}            ,
+					#{SALES_BARCODE}     ,
+					#{SALES_PNAME}            ,
+					#{SALES_PPRICE}           ,
+					#{SALES_OPRICE}           ,
+					#{SALES_QTY}              ,
+					#{SALES_FP_AMT}            ,
+					#{SALES_TAX_AMT}           ,
+					#{SALES_TYPE}		,
+					#{SALES_DISCOUNT_AMT},
+					#{SALES_PAID_AMT}	,
+					SYSDATE               ,
+					'admin'             ,
+					SYSDATE				,
+					'admin'				,
+					#{SHOP_BIZNO}
+					)
+		]]>
+	</insert>	
+
+
+<insert id="insertCancelReceiptData" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO 
+				TB_USER_DATA_RENEW
+					(	
+						USER_CI					,
+						USER_KEY				,
+						SALES_BARCODE           ,
+						ETC_MEMO	            ,
+						ETC_EVENT	            ,
+						SHOP_NAME	            ,
+						SHOP_BRANCH				,
+						SHOP_BIZNO	            ,
+						SHOP_ADDR	            ,
+						SHOP_CEO	            ,
+						SHOP_TEL_NUM	        ,
+						SHOP_CASHIER	        ,
+						SALES_DATE	            ,
+						SALES_PRINT_DATE	    ,
+						SALES_TYPE	            ,
+						SALES_TOT_AMT	    	,
+						SALES_DISCOUNT_AMT	    ,
+						SALES_CHG_AMT       	,
+						SALES_PAID_AMT	    	,
+						SALES_SURTAX_AMT	    ,
+						SALES_DF_AMT	        ,
+						SALES_TAX_AMT 			, 
+						SALES_RE_PRINT	        ,
+						SALES_DETAIL_CNT	    ,
+						CASH_AMT	            ,
+						CASH_TYPE	            ,
+						CASH_NO            		,
+						CASH_APP_N0	            ,
+						CASH_DATE	            ,
+						CARD_AMT	            ,
+						CARD_INSTALLMENT	    ,
+						CARD_APP_NO	            ,
+						CARD_DATE	            ,
+						CARD_ICOM	            ,
+						CARD_PCOM	            ,
+						CARD_NO            		,
+						POINT_CARD				,
+						POINT_AMT	            ,
+						POINT_TYPE				,
+						POINT_ICOM				,
+						POINT_GET	            ,
+						REC_VIEW_YN	            ,
+						EMAIL	            ,
+						FRT_CREA_DTM	        ,
+						FRT_REGN_NM	            ,
+						FNL_MOF_DTM	            ,
+						FNL_MDF_NM				,
+						REC_NO				,
+						ORIGIN_REC_NO				,
+						ORIGIN_SALES_DATE,
+						UPLUS_USER_KEY
+					)
+					VALUES
+					(
+						#{CI}					,
+						#{userKey}				,
+						#{mainSalesBarCode}	,
+						#{memo}          	,
+						#{event}         	,
+						#{shopName}	     	,
+						#{branchName}	    	,
+						#{bizNo}	    	,
+						#{addr}	   		,
+						#{ceo}	        	,
+						#{phone}	    	,
+						#{cashier}	     	,
+						#{salesDate}	        ,
+						#{printDate}	 	,
+						'RCP02'	    			,
+						#{totAmt}   		,
+						#{discountAmt}	,
+						#{chgAmt}    	,
+						#{paidAmt}	 	,
+						#{surtaxAmt}	 	,
+						#{dfAmt}	   		,
+						#{taxAmt}	    		,
+						#{rePrint}	    		,
+						#{detailCnt}	    	,
+						#{cashAmt}	            ,
+						#{cashType}	        	,
+						#{cashNo}              	,
+						#{cashAppNo}	        ,
+						#{cashDate}	        	,
+						#{cardAmt}	            ,
+						#{cardInstallment}	    ,
+						#{cardAppNo}	        ,
+						#{cardDate}	        	,
+						#{cardICom}	        	,
+						#{cardPCom}	        	,
+						#{cardNo}              	,
+						#{pointCardNo}			,
+						#{pointAmt}	        	,
+						#{pointType}	        ,
+						#{pointIcom}	        ,
+						#{pointGet}	        	,
+						'N'	        			,
+						#{eMail}	    		,
+						now()	        		,
+						'Admin'	        		,
+						now()	        		,
+						'Admin'					,
+						#{salesBarCode}	        	,
+						#{oriSalesBarCode}	    	,
+						#{oriSalesDate}	    ,
+						#{uplusUserKey}
+					)
+			
+			
+
+		]]>
+	</insert>	
+		
+					
+		<select id="cancelGetReceipt" parameterType="hashmap" resultType="hashmap">
+		    <![CDATA[
+		    	SELECT 
+		    		USER_KEY,
+		    		CUST_CI,
+		    		SALES_BARCODE,
+		    		CONNECTION_COM,
+		    		SHOP_NAME,
+		    		SHOP_BRANCH,
+		    		SHOP_BIZNO,
+		    		ETC_MEMO,
+		    		ETC_EVENT,
+		    		ERCP_REG_NO,
+		    		SHOP_ADDR,
+		    		SHOP_CEO,
+		    		SHOP_TEL_NUM,
+		    		SHOP_CASHIER,
+		    		SALES_DATE,
+		    		SALES_PRINT_DATE,
+		    		SALES_TOT_AMT,
+		    		SALES_DISCOUNT_AMT,
+		    		SALES_CHG_AMT,
+		    		SALES_PAID_AMT,
+		    		SALES_SURTAX_AMT,
+		    		SALES_DF_AMT,
+		    		SALES_TAX_AMT,
+		    		SALES_RE_PRINT,
+		    		SALES_DETAIL_CNT,
+		    		PAYMENT_TYPE,
+		    		COMPOUND_YN,
+		    		CASH_AMT,
+		    		CASH_TYPE,
+		    		CASH_NO,
+		    		CASH_APP_N0,
+		    		CASH_DATE,
+		    		CARD_AMT,
+		    		CARD_INSTALLMENT,
+		    		CARD_APP_NO,
+		    		CARD_DATE,
+		    		CARD_ICOM,
+		    		CARD_PCOM,
+		    		CARD_NO,
+		    		POINT_CARD,
+		    		POINT_TYPE,
+		    		POINT_AMT,
+		    		POINT_ICOM,
+		    		POINT_GET,
+		    		POINT_OPER
+		 		FROM 
+		 			TB_USER_DATA_RENEW
+				WHERE 	
+					SALES_BARCODE = #{oriSalesBarCode}
+				AND
+					SHOP_BIZNO = #{bizNo}
+				LIMIT 1
+					
+		    ]]>
+		</select>
+		
+		
+		
+		
+		
+		<!-- 2019.01.30 -->
+		<insert id="smsReceiptPopupIn" parameterType="hashmap">
+		<![CDATA[
+		      INSERT INTO TB_SMS_MASTER
+			(
+			    REC_TEN_NO, 
+			    USER_CI, 
+			    SEND_TEN_NO, 
+			    APP_CO, 
+			    CARD_APP_DIV, 
+			    CARD_APP_CO, 
+			    ACC_SUM_AMMOUNT,
+			    INST_DIV,
+			    APP_AMOUNT,
+			    FRT_CREA_DTM,
+			    FRT_REGN_NM,
+			    FNL_MOF_DTM,
+			    FNL_MDF_NM,
+			    APP_CO_DIV
+			)
+			VALUES
+			(
+			    #{REC_TEN_NO}, 
+			    #{USER_CI}, 
+			    #{SEND_TEN_NO}, 
+			    #{APP_CO}, 
+			    #{CARD_APP_DIV}, 
+			    #{CARD_APP_CO}, 
+			    #{ACC_SUM_AMMOUNT}, 
+			    #{INST_DIV}, 
+			    #{APP_AMOUNT}, 
+			    #{now},
+				'Admin',	
+				#{now},
+				'Admin',
+				#{APP_CO_DIV}
+			)
+			]]>
+	</insert>
+	
+		
+		
+		
+</mapper>

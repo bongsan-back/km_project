@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample">
+
+	<insert id="insReceiptDetail" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO TB_RECEIPT_DETAIL
+			(
+			    SALES_BARCODE, 
+			    SHOP_BIZNO, 
+			    SALES_TYPE, 
+			    SALES_SEQ, 
+			    SALES_PNAME, 
+			    SALES_PPRICE, 
+			    SALES_OPRICE,
+			    SALES_QTY,
+			    SALES_DIS_AMT,
+			    SALES_SIN_DIS_AMT,
+			    SALES_FP_AMT,
+			    SALES_TAX_AMT,
+			    SALES_PAID_AMT,
+			    FRT_CREA_DTM,
+			    FNL_MOF_DTM
+			)
+			VALUES
+			(
+			    #{SALES_BARCODE},
+			    #{SHOP_BIZNO}, 
+			    #{SALES_TYPE}, 
+			    #{SALES_SEQ}, 
+			    #{SALES_PNAME}, 
+			    #{SALES_PPRICE}, 
+			    #{SALES_OPRICE},
+			    #{SALES_QTY},
+			    #{SALES_DIS_AMT},
+			    #{SALES_SIN_DIS_AMT},
+			    #{SALES_FP_AMT},
+			    #{SALES_TAX_AMT},
+			    #{SALES_PAID_AMT},
+			    now(),
+			    now()
+			)
+		]]>
+	</insert>
+	
+	
+	
+	<select id="getMaxShopInfoNo" parameterType="hashmap" resultType="String">
+	    <![CDATA[
+	    	SELECT MAX(SHOP_INFO_NO) FROM TB_RECEIPT_SHOP 
+	    ]]>
+	</select>
+
+
+	<insert id="insReceiptShop" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO TB_RECEIPT_SHOP
+			(
+			    SHOP_INFO_NO, 
+			    ERCP_REG_NO, 
+			    SHOP_NAME, 
+			    SHOP_BRANCH, 
+			    SHOP_BIZNO, 
+			    SHOP_ADDR, 
+			    SHOP_CEO,
+			    SHOP_TEL_NUM,
+			    SHOP_CASHIER,
+			    FRT_CREA_DTM,
+			    FNL_CREA_DTM
+			)
+			VALUES
+			(
+			    #{SHOP_INFO_NO}, 
+			    #{ERCP_REG_NO}, 
+			    #{SHOP_NAME}, 
+			    #{SHOP_BRANCH}, 
+			    #{SHOP_BIZNO}, 
+			    #{SHOP_ADDR}, 
+			    #{SHOP_CEO},
+			    #{SHOP_TEL_NUM},
+			    #{SHOP_CASHIER},
+			    now(),
+			    now()
+			)
+		]]>
+	</insert>
+	
+	<select id="getShopInfVerify" parameterType="HashMap" resultType="String">
+	    SELECT SHOP_INFO_NO FROM TB_RECEIPT_SHOP
+	    WHERE SHOP_BIZNO = #{SHOP_BIZNO} AND SHOP_CASHIER = #{SHOP_CASHIER}
+	</select>
+	
+
+	<insert id="insReceiptData" parameterType="hashmap">
+		<![CDATA[
+			INSERT INTO TB_RECEIPT_ISSUE
+			(
+				SALES_BARCODE,
+				SHOP_BIZNO,
+				SHOP_INFO_NO,
+				USER_KEY ,
+				CONNECTION_COM,
+				ETC_MEMO,
+				ETC_EVENT ,
+				SALES_DATE ,
+				SALES_TYPE,
+				SALES_TOT_AMT,
+				SALES_DIS_AMT,
+				SALES_CHG_AMT ,
+				SALES_PAID_AMT,
+				SALES_SURTAX_AMT,
+				SALES_DF_AMT,
+				SALES_TAX_AMT ,
+				SALES_RE_PRINT,
+				SALES_DETAIL_CNT,
+				PAYMENT_TYPE ,
+				COMPOUND_YN,
+				FRT_CREA_DTM ,
+				FRT_REGN_NM ,
+				FNL_MOF_DTM ,
+				FNL_MDF_NM ,
+				NATURAL_REC_NO ,
+				ORIGIN_REC_NO,
+				ORIGIN_SALES_DATE ,
+				KAKAO_YN 
+			)
+			VALUES
+			(
+				#{SALES_BARCODE},
+				#{SHOP_BIZNO},
+				#{SHOP_INFO_NO},
+				#{USER_KEY},
+				#{CONNECTION_COM},
+				#{ETC_MEMO},
+				#{ETC_EVENT},
+				#{SALES_DATE},
+				#{SALES_TYPE},
+				#{SALES_TOT_AMT},
+				#{SALES_DIS_AMT},
+				#{SALES_CHG_AMT},
+				#{SALES_PAID_AMT},
+				#{SALES_SURTAX_AMT},
+				#{SALES_DF_AMT},
+				#{SALES_TAX_AMT},
+				#{SALES_RE_PRINT},
+				#{SALES_DETAIL_CNT},
+				#{PAYMENT_TYPE},
+				#{COMPOUND_YN},
+				now(),
+				'Admin',
+				now(),
+				'Admin',
+				'',
+				'',
+				'',
+				#{KAKAO_YN}
+			)
+		]]>
+	</insert>
+
+	
+	
+	<insert id="insReceiptPay" parameterType="HashMap">
+		<![CDATA[
+			INSERT INTO TB_RECEIPT_PAYMENT
+			(
+				SALES_BARCODE,
+				PAYMENT_TYPE,
+				PAY_DIV,
+				PAY_CNT ,
+				PAY_ALL,
+				PAY_AMT,
+				PAY_NO ,
+				PAY_ICOM ,
+				PAY_PCOM,
+				PAY_APP_NO,
+				PAY_DATE,
+				PAY_CARD_AFF_NO ,
+				PAY_CARD_INSTALL,
+				PAY_COUPON_CASH_YN,
+				PAY_POINT_GET,
+				PAY_POINT_OPER 
+			)
+			VALUES
+			(
+				#{SALES_BARCODE},
+				#{PAYMENT_TYPE},
+				#{PAY_DIV},
+				#{PAY_CNT} ,
+				#{PAY_ALL},
+				#{PAY_AMT},
+				#{PAY_NO},
+				#{PAY_ICOM} ,
+				#{PAY_PCOM},
+				#{PAY_APP_NO},
+				#{PAY_DATE},
+				#{PAY_CARD_AFF_NO} ,
+				#{PAY_CARD_INSTALL},
+				#{PAY_COUPON_CASH_YN},
+				#{PAY_POINT_GET},
+				#{PAY_POINT_OPER}
+			)
+		]]>
+</insert>
+	
+	
+	
+
+
+
+	<select id="getCi" parameterType="hashmap" resultType="String">
+		<![CDATA[
+		SELECT
+			USER_CI
+		FROM
+			TB_USER
+		WHERE
+			TEL_NO = #{telNo}
+		AND
+			EMAIL != 'UPLUS'
+		AND
+			USER_CI != 'leave' 
+		]]>
+	</select>
+
+
+	<insert id="insertBoard" parameterType="hashmap"
+		useGeneratedKeys="true" keyProperty="IDX">
+		<selectKey keyProperty="IDX" resultType="string" order="BEFORE">
+			SELECT MAX(SEQ)+1 FROM TB_BOARD;
+		</selectKey>
+		<![CDATA[
+			
+			INSERT INTO TB_BOARD
+			(
+			    BOARD_TITLE, 
+			    BOARD_CONTENTS, 
+			    HIT_CNT, 
+			    DEL_GB, 
+			    MAIN_GB, 
+			    CREA_DTM, 
+			    CREA_ID
+			)
+			VALUES
+			(
+			    #{TITLE}, 
+			    #{CONTENTS}, 
+			    0, 
+			    #{DEL_GB}, 
+			    #{MAIN_GB}, 
+			    now(), 
+			    'Admin'
+			)
+		]]>
+	</insert>
+
+	<update id="updateHitCnt" parameterType="hashmap">
+		<![CDATA[
+			UPDATE TB_BOARD 
+			SET
+				HIT_CNT = HIT_CNT+ 1
+			WHERE
+				SEQ = #{IDX}	
+		]]>
+	</update>
+
+</mapper>
