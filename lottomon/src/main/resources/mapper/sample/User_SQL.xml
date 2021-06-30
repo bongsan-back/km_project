@@ -49,7 +49,17 @@
 		<if test='nickname != null'>
 			AND nickname = #{nickname}
 		</if>
-				
 	</select>
+	
+	
+	<update id="updateHitCnt" parameterType="hashmap">
+		<![CDATA[
+			UPDATE TB_BOARD 
+			SET
+				HIT_CNT = HIT_CNT+ 1
+			WHERE
+				SEQ = #{IDX}	
+		]]>
+	</update>
 
 </mapper>

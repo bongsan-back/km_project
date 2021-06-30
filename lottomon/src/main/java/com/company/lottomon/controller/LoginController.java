@@ -15,7 +15,7 @@ public class LoginController {
 	/**
      * 회원 가입 페이지 호출
      */
-    @RequestMapping(value = "/Login/findUserxx.do", method = RequestMethod.GET)
+    @RequestMapping(value = "/login/findUserxx.do", method = RequestMethod.GET)
     public String findUser(HttpServletRequest request, HttpSession session) {
 
 

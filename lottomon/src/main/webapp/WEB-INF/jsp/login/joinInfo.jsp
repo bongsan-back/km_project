@@ -444,7 +444,7 @@ function joinSubmit(){
         data: JSON.stringify(requestParam),
         success: function(data) {
         	alert("회원가입에 성공하였습니다.");
-        	location.href = '/Login/joinSuc.do';
+        	location.href = '/login/joinSuc.do';
         },
         error : function(request, status, error ) {
         	alert("알 수 없는 이유로 실패하였습니다. " + error);
