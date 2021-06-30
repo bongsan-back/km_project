@@ -187,6 +187,182 @@
 
 
 <script>
+var certYn = false;
+var telNo;
+var name;
+var gender;
+
+$(document).ready(function(){
+	
+});
+
+$("#certBtn").click(function(){
+	telNo = $("#tel_h1 option:selected").val() + $("#tel_h2_1").val() + $("#tel_h2_2").val();
+	name = $("#name").val();
+	gender = $("input[name=gender]").val();
+	
+	var requestParam = {
+            "data":{
+                "telNo" : telNo,
+                "gender": gender,
+                "name": name
+            }
+        };
+	
+	if(telNo.length < 11 || isNaN(telNo)){
+		alert("전화번호를 확인하세요.");
+		return false;
+	}
+	
+	if(!checkKor(name)){
+		alert("성명을 확인하세요.");
+		return false;
+	}
+	
+	
+	$.ajax({
+        type: 'POST',
+        url: '/auth/smsCert.do',
+        data: JSON.stringify(requestParam),
+        success: function(data) {
+        	alert("인증번호가 발송되었습니다. 3분 이내에 입력하세요.")
+        },
+        error : function(request, status, error ) {
+        	alert("알 수 없는 이유로 실패하였습니다. " + error);
+        
+        },
+        contentType: "application/json",
+        dataType: 'text'
+    });
+})
+
+$("#emailaddr").on('change', function(){
+	if($("#emailaddr option:selected").val() == 'email'){
+		$("#emailText").show();
+	}else{
+		$("#emailText").hide();
+	}
+	
+	
+})
+
+function joinSubmit(){
+	var id = $("#id").val();
+	var password = $("#password").val();
+	var password_re = $("#password_re").val();
+	var nickname = $("#nickname").val();
+	var year = $("#year").val();
+	var mon = $("#mon").val();
+	var day = $("#day").val();
+	var birth;
+	
+	var name = $("#name").val();
+	
+	var gender = $("input[name=gender]").val();
+	var email = $("#email").val() + '@' + $("#emailaddr").val();
+	
+	/* if(!certYn){
+		alert("휴대폰 인증을 해주세요.");
+		return false;
+	}
+	 */
+	
+	if(id.length < 3 || id.length > 20 || !checkEngNum(id)){
+		alert("아이디는 4자리 이상, 20자리 이하로 입력하세요.");
+		return false;
+	}
+	 
+	if(password == '' || password_re == ''){
+		 alert("비밀번호를 입력하세요.");
+		 return false;
+	 }
+	 
+	 if(password !== password_re){
+		 alert("비밀번호가 일히하지 않습니다.");
+		 return false;
+	 }
+	 
+	 if(!checkPassword(password)){
+		 alert("비밀번호는 8~20자리, 영문,숫자,특수문자를 포함하여 입력해 주세요.");
+		 return false;
+	 }
+	 
+	 if(nickname == '' || nickname.length < 5){
+		 alert("닉네임을 5자 이상 입력해주세요.");
+		 return false;
+	 }
+	 
+	 
+	 if(year < 1900 || year > now_year || year == ''){
+		 alert("생년월일을 정확히 입력하세요.");
+		 return false;
+	 }
+	  
+	 if(mon < 0 || mon > 12 || mon == ''){
+		 alert("생년월일을 정확히 입력하세요.");
+		 return false;
+	 }
+	 
+	 if(day < 0 || day > 31 || day == ''){
+		 alert("생년월일을 정확히 입력하세요	.");
+		 return false;
+	 }
+	 
+	 if(mon.length <2 && mon < 10) mon = '0' + mon;
+	 if(day.length <2 && day < 10) day = '0' + day;
+	 
+	 birth = year+""+mon+""+day
+	 
+	 if($("#email").val() == ''){
+		 alert("이메일을 정확히 입력해 주세요.");
+		 return false;
+	 }else{
+		 if($("#emailaddr option:selected").val() == 'email'){
+			 if($("#emailText").val() == '' || $("#emailText").val().indexOf('.') < 0){
+				 alert("이메일 주소를 정확히 입력해주세요.");
+				 return false;
+			 }else{
+				 email =  $("#email").val().trim() + '@' + $("#emailText").val().trim();	 
+			 }
+		 }else{
+			 email =  $("#email").val().trim() + '@' + $("#emailaddr option:selected").val();
+		 }
+	 }
+	 
+	 var requestParam = {
+	    "data":{
+	        "telNo" : telNo,
+	        "gender": gender,
+	        "name": name,
+	        "id" : id,
+	        "password" : password,
+	        "nickname" : nickname,
+	        "birth" : birth,
+	        "email" : email
+	    }
+	};
+
+	 
+	 console.log(requestParam);
+	
+	$.ajax({
+        type: 'POST',
+        url: '/user/join.do',
+        data: JSON.stringify(requestParam),
+        success: function(data) {
+        	alert("회원가입에 성공하였습니다.")
+        },
+        error : function(request, status, error ) {
+        	alert("알 수 없는 이유로 실패하였습니다. " + error);
+        
+        },
+        contentType: "application/json",
+        dataType: 'text'
+    });
+	
+		
+	
+}
 
 
 
