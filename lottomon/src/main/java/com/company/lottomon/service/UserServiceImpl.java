@@ -11,11 +11,17 @@ import com.company.lottomon.model.UserInfo;
 public class UserServiceImpl implements UserService{
 	
 	@Autowired
-	private UserDAO userMapper;
+	private UserDAO userDAO;
 
 	@Override
 	public ServiceResult insertUser(UserInfo userInfo) {
-		userMapper.insert(userInfo);
+		userDAO.insert(userInfo);
 		return ServiceResult.SUCCESS;
+	}
+	
+	@Override
+	public int findUser(UserInfo userInfo) {
+		int userCnt = userDAO.findUser(userInfo);
+		return userCnt;
 	}
 }

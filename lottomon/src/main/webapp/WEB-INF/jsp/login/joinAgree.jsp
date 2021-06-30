@@ -68,7 +68,7 @@
           <h5>
             <a href="/"><img src="./img/home.jpg"> 홈</a>
             <a href="./login.do"><img src="./img/arrow.png"> 회원서비스</a>
-            <a href="member_go.php"><img src="./img/arrow.png"> 회원가입</a>
+            <a href="./join.do"><img src="./img/arrow.png"> 회원가입</a>
           </h5>
         </div>
 

@@ -20,6 +20,7 @@ import com.company.lottomon.result.LMServiceParam;
 import com.company.lottomon.service.UserService;
 
 @Controller
+@RequestMapping(value = "/user")
 @Component
 public class UserController {
 	
@@ -30,7 +31,7 @@ public class UserController {
 	/**
      * 회원 가입 최종
      */
-    @RequestMapping(value = "/user/join.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/join.do", method = RequestMethod.POST)
 	public @ResponseBody ServiceResult smsCert(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
     	try {
     		System.out.println(param.getData().getName());
@@ -46,6 +47,31 @@ public class UserController {
     	
 		return ServiceResult.SUCCESS;
 	}
+    
+    
+    /**
+     * 회원 가입 최종
+     */
+    @RequestMapping(value = "/verifyUser.do", method = RequestMethod.POST)
+	public @ResponseBody ServiceResult verifyId(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
+    	try {
+    		System.out.println(param.getData().getId());
+    		System.out.println(param.getData().getNickname());
+    		int verifyCnt = userService.findUser(param.getData());
+    		if(verifyCnt > 0 ) {
+    			return ServiceResult.ALREADY_DATA;
+    		}else{
+    			return ServiceResult.SUCCESS;
+    		}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ServiceResult.FAIL;
+			// TODO: handle exception
+		}
+	}
+    
+    
+    
     
     
 }

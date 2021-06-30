@@ -5,4 +5,5 @@ import com.company.lottomon.model.UserInfo;
 
 public interface UserService {
 	ServiceResult insertUser(UserInfo userInfo);
+	int findUser(UserInfo userInfo);
 }

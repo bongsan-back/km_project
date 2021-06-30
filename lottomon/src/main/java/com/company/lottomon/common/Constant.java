@@ -13,5 +13,6 @@ public class Constant {
         BAD_REQUEST,
         UNAUTHORIZED,
         MAMS_ERROR,
+        ALREADY_DATA
     }
 }

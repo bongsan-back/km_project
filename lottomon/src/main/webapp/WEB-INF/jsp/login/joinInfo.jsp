@@ -31,6 +31,7 @@
 
 <link rel="stylesheet" href="/css/swiper-min.css" />
 <script src="/js/swiper.min.js"></script>
+<script src="/js/common.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/font.css" />
 <link rel="stylesheet" type="text/css" href="/css/common.css" />
 <link rel="stylesheet" type="text/css" href="/css/layout.css" />
@@ -40,6 +41,8 @@
 
 <style type="text/css">
 .placeholder { color: #aaa; }
+#write_form_user table td{width: 80%}
+.message-text{color: red; border: none !important; background-color: #fff !important; display:none; height: 20px !important;}
 </style>
 
 
@@ -57,18 +60,18 @@
       <div class="left three">
         <h2>회원서비스</h2>
         <div>
-          <a href="./login.do">로그인</a>
-          <a href="./member_password.php">아이디<span>/패스워드</span> 찾기</a>
-          <a href="./member_go.php" class="on">회원가입</a>
+          	<a href="./login.do"  class="on">로그인</a>
+	        <a href="./findUser.do">아이디<span>/패스워드</span> 찾기</a>
+	        <a href="./join.do" class="on">회원가입</a>
         </div>
       </div>
       <div class="content">
         <div class="head">
           <h2>회원가입</h2>
           <h5>
-            <a href="/"><img src="/img/home.jpg"> 홈</a>
-            <a href="./login.do"><img src="/img/arrow.png"> 회원서비스</a>
-            <a href="./member_go.php"><img src="/img/arrow.png"> 회원가입</a>
+            <a href="/"><img src="./img/home.jpg"> 홈</a>
+            <a href="./login.do"><img src="./img/arrow.png"> 회원서비스</a>
+            <a href="./join.do"><img src="./img/arrow.png"> 회원가입</a>
           </h5>
         </div>
         <div class="sign_Up">
@@ -92,19 +95,21 @@
         
         
         
-        <form name="write_form_user" method="post">
+        <form name="write_form_user" id="write_form_user" method="post">
           <table>
             <h3>계정정보</h3>
             <tr>
               <th>아이디</th>
               <td>
-                <input type="text" name="id" id="id" required>
+                <input type="text" name="id" id="id" required onkeyup="javascript:verifyId(this,'id')">
                 <a href='#' style='cursor:help'></a>
+                <input type="text" class="message-text" id="message_id" value="" disabled="disabled"/>
               </td>
             </tr>
             <tr>
               <th>비밀번호</th>
-              <td><input type="password" name="password" id="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$"></td>
+              <td><input type="password" name="password" id="password" required placeholder="8~20 자리 영문,숫자,특수문자를 포함시켜 입력해 주세요.">
+              </td>
             </tr>
             <tr>
               <th>비밀번호 확인</th>
@@ -112,7 +117,10 @@
             </tr>
             <tr>
               <th>닉네임</th>
-              <td><input type="text" name="nickname" required></td>
+              <td>
+              	<input type="text" name="nickname" id="nickname" required onkeyup="javascript:verifyId(this,'nickname')">
+              	<input type="text" class="message-text" id="message_nickname" value="" disabled="disabled"/>
+              </td>
             </tr>
           </table>
 
@@ -125,23 +133,24 @@
             <tr>
               <th>생년월일</th>
               <td class="birthday">
-              	<input type="text" name="year" maxlength="4" required pattern="(19|20)\d{2}" > 년
-                <input type="text" name="math" maxlength="2" required> 월
-                <input type="text" name="day" maxlength="2" required> 일
+              	<input type="text" name="year" id="year" maxlength="4" required> 년
+                <input type="text" name="mon"  id="mon" maxlength="2" required> 월
+                <input type="text" name="day"  id="day" maxlength="2" required> 일
               </td>
             </tr>
             <tr>
               <th>성별</th>
               <td class="s">
-                <input type="radio" name="m" checked> 남자
-                <input type="radio" name="f"> 여자
+                <input type="radio" name="gender" value="M" checked> 남자
+                <input type="radio" name="gender" value="F"> 여자
               </td>
             </tr>
             <tr>
               <th>이메일</th>
               <td class="email">
-                <input type='text' name="email" required>
+                <input type='text' name="email" id="email" required>
                 <span>@</span>
+                <input type="text" id="emailText">
                 <select name="emailaddr" id="emailaddr">
                   <option value="email">직접입력</option>
                   <option value="daum.net">daum.net</option>
@@ -156,12 +165,13 @@
             </tr>
             <tr>
               <th>핸드폰 번호</th>
-              <td class="tel"><input type="text" name="tel_h1" required>
+              <td class="tel">
+              	<input type="text" name="tel_h1" id="tel_h1" required maxlength="3" onkeyup="javascript:nextTelNo(1)"> 
                 <span>-</span>
-                <input type="text" name="tel_h2_1" required>
+                <input type="text" name="tel_h2_1" id="tel_h2_1" required maxlength="4" onkeyup="javascript:nextTelNo(2)">
                 <span>-</span>
-                <input type="text" name="tel_h2_2" required>
-                <input type="button" class="form_btn" value="인증번호전송">
+                <input type="text" name="tel_h2_2" id="tel_h2_2" required maxlength="4">
+                <input type="button" class="form_btn" id="certBtn" value="인증번호전송">
               </td>
             </tr>
             <tr>
@@ -175,7 +185,7 @@
             </tr>
           </table>
           <div class="btn">
-              <a href="./member_go03.php" class="btn">가입하기</a>
+              <a href="javascript:joinSubmit()" class="btn">가입하기</a>
           </div>
         </form>
       </div>
@@ -188,16 +198,86 @@
 
 <script>
 var certYn = false;
+var checkId= false;
+var checkNickname= false;
 var telNo;
 var name;
 var gender;
+
 
 $(document).ready(function(){
 	
 });
 
+function nextTelNo(cnt){
+	if(cnt == 1){
+		$("#tel_h2_1").focus();
+	}else if(cnt ==2){
+		$("#tel_h2_2").focus();
+	}
+}
+
+function verifyId(attr, type){
+	
+	var requestParam;
+	var value = $(attr).val();
+	var textType;
+		
+	if(type == 'id'){
+		textType = '아이디';
+		$("#message_id").show();
+		if(value.length < 4 || value.length > 20 || !checkEngNum(value)){
+			$("#message_id").val("아이디는 5자리 이상, 20자리 이하로 입력해 주세요.").css("color", "red");
+			return false;
+		}
+		
+		requestParam = {
+	            "data":{
+	                "id" : value,
+	            }
+	        };
+	}else if(type=='nickname'){
+		textType = '닉네임';
+		$("#message_nickname").show();
+		if(value.length < 2 || value.length > 20){
+			$("#message_nickname").val("닉네임은 2자리 이상, 20자리 이하로 입력해 주세요.").css("color", "red");
+			return false;
+		}
+		
+		requestParam = {
+	            "data":{
+	                "nickname" : value,
+	            }
+	        };
+	}
+	
+	$.ajax({
+        type: 'POST',
+        url: '/user/verifyUser.do',
+        data: JSON.stringify(requestParam),
+        success: function(data) {
+        	if(data == '\"SUCCESS\"'){
+        		$("#message_"+type).val("사용가능한 "+textType+" 입니다.").css("color", "#46bf46");
+        		if(type == 'id'){
+        			checkId = true;
+        		}else if(type == 'nickname'){
+        			checkNickname = true;
+        		}
+        	}else{
+        		$("#message_"+type).val("이미 사용중인 "+textType+" 입니다.").css("color", "red");
+        	}
+        },
+        error : function(request, status, error ) {
+        	alert("알 수 없는 이유로 실패하였습니다. " + error);
+        
+        },
+        contentType: "application/json",
+        dataType: 'text'
+    });
+}
+
 $("#certBtn").click(function(){
-	telNo = $("#tel_h1 option:selected").val() + $("#tel_h2_1").val() + $("#tel_h2_2").val();
+	telNo = $("#tel_h1").val() + $("#tel_h2_1").val() + $("#tel_h2_2").val();
 	name = $("#name").val();
 	gender = $("input[name=gender]").val();
 	
@@ -209,16 +289,17 @@ $("#certBtn").click(function(){
             }
         };
 	
-	if(telNo.length < 11 || isNaN(telNo)){
-		alert("전화번호를 확인하세요.");
-		return false;
-	}
-	
+	var patternPhone = /01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/;
+
+	if(!patternPhone.test(phoneNum)){
+        alert("전화번호를 확인하세요.");
+        return false;
+    }  
+
 	if(!checkKor(name)){
 		alert("성명을 확인하세요.");
 		return false;
 	}
-	
 	
 	$.ajax({
         type: 'POST',
@@ -266,9 +347,16 @@ function joinSubmit(){
 		return false;
 	}
 	 */
+	 
+	 if(!checkId){
+		 alert("아이디를 확인하세요.");
+		 $("#id").focus();
+		return false;
+	 }
+	 
 	
-	if(id.length < 3 || id.length > 20 || !checkEngNum(id)){
-		alert("아이디는 4자리 이상, 20자리 이하로 입력하세요.");
+	if(id.length < 4 || id.length > 20 || !checkEngNum(id)){
+		alert("아이디는 5자리 이상, 20자리 이하로 입력하세요.");
 		return false;
 	}
 	 
@@ -287,11 +375,16 @@ function joinSubmit(){
 		 return false;
 	 }
 	 
-	 if(nickname == '' || nickname.length < 5){
-		 alert("닉네임을 5자 이상 입력해주세요.");
+	 if(nickname == ''){
+		 alert("닉네임을 2글자 이상 입력해주세요.");
 		 return false;
 	 }
 	 
+	 if(!checkNickname){
+		 alert("닉네임을 확인하세요.");
+		 $("#nickname").focus();
+		return false;
+	 }
 	 
 	 if(year < 1900 || year > now_year || year == ''){
 		 alert("생년월일을 정확히 입력하세요.");
@@ -350,7 +443,8 @@ function joinSubmit(){
         url: '/user/join.do',
         data: JSON.stringify(requestParam),
         success: function(data) {
-        	alert("회원가입에 성공하였습니다.")
+        	alert("회원가입에 성공하였습니다.");
+        	location.href = '/Login/joinSuc.do';
         },
         error : function(request, status, error ) {
         	alert("알 수 없는 이유로 실패하였습니다. " + error);

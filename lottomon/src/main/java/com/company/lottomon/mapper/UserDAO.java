@@ -20,5 +20,14 @@ public class UserDAO {
     	sqlSession.insert("user.insertUser", userInfo);
 	}
     
+	/**
+     * 게시물 추가 하기
+     * @param userInfo	추가 할 게시물 정보
+     * @return
+     */
+    public int findUser(UserInfo userInfo) {
+    	return sqlSession.selectOne("user.findUser", userInfo);
+	}
+    
     
 }

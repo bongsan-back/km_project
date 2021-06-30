@@ -45,6 +45,15 @@ public class ViewController {
 
         return "login/findUser";
     }
+    
+    /**
+     * 회원 가입 완료
+     */
+    @RequestMapping(value = "/Login/joinSuc.do", method = RequestMethod.GET)
+    public String joinSuc(HttpServletRequest request, HttpSession session) {
+
+        return "login/joinSuc";
+    }
 
 
 

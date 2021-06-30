@@ -35,5 +35,21 @@
 			)
 		]]>
 	</insert>
+	
+	
+	<select id="findUser" parameterType="map" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) FROM user
+			WHERE
+				1=1
+		]]>
+		<if test='id != null'>
+			AND id = #{id}
+		</if>
+		<if test='nickname != null'>
+			AND nickname = #{nickname}
+		</if>
+				
+	</select>
 
 </mapper>
