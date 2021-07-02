@@ -16,7 +16,7 @@ public class BoardDAO {
 	private SqlSessionTemplate sqlSession;
 	/**
      * 게시물 리스트 가져오기
-     * @param userInfo	추가 할 게시물 정보
+     * @param board	추가 할 게시물 정보
      * @return
      */
     public List<Board> selectList(Board board) {
