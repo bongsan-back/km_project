@@ -19,7 +19,8 @@ public class LoginController {
     public String findUser(HttpServletRequest request, HttpSession session) {
 
 
-        return "login/findUser";
+        System.out.println("ASDASDASDAS");
+        return "/login/findUser";
 
     }
 }

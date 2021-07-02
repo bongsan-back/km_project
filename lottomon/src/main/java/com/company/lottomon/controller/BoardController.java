@@ -22,7 +22,6 @@ public class BoardController {
 	@Autowired
 	@Resource(name = "boardService")
 	private BoardService boardService;
-	
     /**
      * 자유게시판 페이지
      */
@@ -30,7 +29,7 @@ public class BoardController {
 	 * @RequestMapping(value = "/login.do", method = RequestMethod.GET) public
 	 * String login(HttpServletRequest request, HttpSession session) {
 	 * 
-	 * return "login/login"; }
+	 * return "/login/login"; }
 	 */
 
 
