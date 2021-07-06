@@ -1,5 +1,6 @@
 package com.company.lottomon.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class BoardServiceImpl implements BoardService{
 	private BoardDAO boardDAO;
 
 	@Override
-	public List<Board> selectList(Board board) {
+	public List<HashMap<String,Object>> selectList(Board board) {
 		return boardDAO.selectList(board);
 	}
 	

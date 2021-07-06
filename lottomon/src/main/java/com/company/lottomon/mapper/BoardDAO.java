@@ -1,5 +1,6 @@
 package com.company.lottomon.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -19,9 +20,8 @@ public class BoardDAO {
      * @param board	추가 할 게시물 정보
      * @return
      */
-    public List<Board> selectList(Board board) {
+    public List<HashMap<String,Object>> selectList(Board board) {
     	return sqlSession.selectList("board.selectList", board);
 	}
-    
     
 }

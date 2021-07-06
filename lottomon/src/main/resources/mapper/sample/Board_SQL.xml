@@ -3,13 +3,19 @@
 
 <mapper namespace="board">
 	
-	<select id="selectList" parameterType="map" resultType="list">
-		<![CDATA[
-			SELECT COUNT(*) FROM user
-			WHERE
-				type = #{type}
-			
-		]]>
+	<select id="selectList" parameterType="map" resultType="map">
+		SELECT A.seq,
+			   A.title,
+			   A.content,
+			   B.name,
+			   A.pv,
+			   date_format(A.reg_dt,'%Y-%m-%d') reg_dt,
+			   if(A.reg_dt > date_sub(now(), interval 1 day),'Y','N') dsp_new_dt
+		FROM board A
+		LEFT JOIN user B
+	    ON A.user_id = B.id
+		WHERE type = #{type}
+		ORDER BY A.seq DESC
 	</select>
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.company.lottomon.controller;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,9 @@ import com.company.lottomon.common.Constant.boardCodeType;
 import com.company.lottomon.model.Board;
 import com.company.lottomon.service.BoardService;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -80,11 +83,16 @@ public class ViewController {
     	Board board = new Board();
     	board.setType(boardCodeType.GENERAL.getTypeValue());
     	
-    	List<Board> list = boardService.selectList(board);
-    	
-    	
-    	
-    	model.addAttribute("list", list);
+    	List<HashMap<String, Object>> list = boardService.selectList(board);
+
+        try {
+            model.addAttribute("list", new ObjectMapper().writeValueAsString(list));
+            model.addAttribute("allCnt", list.size());
+            model.addAttribute("nowPage", 1);
+            model.addAttribute("allPage", (list.size()/10)+1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     	
         return "board/boardGeneral";
     }
