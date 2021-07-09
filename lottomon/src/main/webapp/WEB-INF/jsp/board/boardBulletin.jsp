@@ -179,6 +179,7 @@
             str += '<tr>\n' +
                     '<td class="no">'+getList.seq+'</td>\n'
             str +=  '<td class="title">'+getList.title;
+            str +=  getList.comment==0?'':'['+getList.comment+']';
             str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
             str +=  '</td>\n'
             str +=  '<td class="date">'+getList.reg_dt+'</td>\n'

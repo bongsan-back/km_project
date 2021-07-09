@@ -15,7 +15,8 @@
 			   B.name,
 			   A.pv,
 			   DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
-			   IF(A.reg_dt > date_sub(now(), interval 1 day),'Y','N') dsp_new_dt
+			   IF(A.reg_dt > date_sub(now(), interval 1 day),'Y','N') dsp_new_dt,
+			   (SELECT COUNT(*) FROM board_comment C WHERE A.seq = C.board_seq) AS comment
 		FROM board A
 		LEFT JOIN user B
 	    ON A.user_id = B.id
