@@ -17,7 +17,7 @@ public class Constant {
     }
 	
 	public enum boardCodeType {
-		GENERAL("01"),		// 자유게시판
+		BULLETIN("01"),		// 자유게시판
 		DEBATE("02"),  		// 토론방
 		HOPE_WIN("03"),		// 당첨기원
 		WINNIG("04"),		// 당첨자이야기

@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<title>로또몬</title>
+<title>프로젝트Sample</title>
 
 <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
@@ -109,7 +109,7 @@
               </tr>
 
             </table>
-            <p class="btn"><a href="#">글쓰기</a></p>
+            <p class="btn"><a href="/">글쓰기</a></p>
           </div>
 
 
@@ -138,12 +138,10 @@
 
 <script type="text/javascript">
   //최초 진입 시 페이징에 필요한 데이터
-  /*<![CDATA[*/
-  var allList = ${list};
-  var allCnt = ${allCnt};
-  var nowPage = ${nowPage};
-  var allPage = ${allPage};
-  /*]]>*/
+  var allCnt = ${listCnt};
+  var postNumBaseCnt = ${postNumBaseCnt};
+  var pageNumBaseCnt = ${pageNumBaseCnt};
+  var allPage = Math.ceil(allCnt / postNumBaseCnt); //페이징 몫 설정
 </script>
 <script type="text/javascript">
     $(function() {
@@ -151,112 +149,78 @@
       initNotice();
     });
 
-    function joinNext(){
-      if($('#seolmyeong_txt01').is(":checked") == true && $('#seolmyeong_txt02').is(":checked") == true){
-          location.href='./joinInfo.do'
-
-      }else{
-          alert("약관에 동의해 주세요.");
-      }
-    }
-
-    //최초 공지사항 출력
+    //최초 게시판 출력
     function initNotice(){
-      var str = "";
-
-      for (var i = 0; i < allList.length && i < 10; i++) {
-        var getList = allList[i];
-        str += '<tr>\n' +
-                '<td class="no">'+getList.seq+'</td>\n'
-        str +=  '<td class="title"><a href="javascript:toggleContent('+i+')">'+getList.title;
-        str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
-        str +=  '</a></td>\n'
-        str +=  '<td class="date">'+getList.reg_dt+'</td>\n'
-        str +=  '<td class="name">'+getList.name+'</td>\n'
-        str +=  '<td class="pv">'+getList.pv+'</td>\n'+
-                '</tr>';
-      }
-      $("#boardBody").html(str);
-
-      //페이징 메서드 호출
-      pagination(allPage);
-    }
-
-    var pageShowCnt = 10; //페이지당 기본 출력 개수
-    var nowPage = 1;
-    var pageGroup = Math.ceil(nowPage/pageShowCnt);
-
-    var last = pageGroup * pageShowCnt;
-    if(last > allPage) last = allPage;
-    var first = (pageGroup * 10 ) - 9;
-    if(first < 1) first = 1;
-    var next = nowPage + 1;
-    var prev = nowPage - 1;
-
-    function pagination(){
-      var pagingHtml = '';
-
-      pagingHtml += '<span class="prev"><a href="#"><img src="../img/prev_02.jpg"></a></span>'+
-                    '<span class="prev"><a href="#"><img src="../img/prev_01.jpg"></a></span>';
-
-      for (var i = first; i <= last; i++) {
-        if(i == nowPage){
-          pagingHtml += '<span class="on"><a href="#">'+i+'</a></span>';
-        }else{
-          pagingHtml += '<span><a href="javascript:paging('+i+')">'+i+'</a></span>';
-        }
-      }
-
-      pagingHtml += '<span class="next"><a href="#"><img src="../img/next_01.jpg"></a></span>'+
-                    '<span class="next"><a href="#"><img src="../img/next_02.jpg"></a></span>';
-
-      $('.list_btn').html(pagingHtml);
+      //페이징 호출
+      paging(1);
     }
 
     //페이징 버튼 클릭시 작동
-    /*function paging(currentPage) {
-      nowPage = currentPage;
+    function paging(currentPage) {
+      if(currentPage<1)currentPage=1; //버튼이 첫 페이지 아래로 설정된 경우 첫 페이지로 변경
+      else if(currentPage>allPage)currentPage=allPage; //버튼이 마지막 페이지 초과로 설정된 경우 마지막 페이지로 변경
+
+      var data = {
+        current_page: currentPage,
+        post_num_base_cnt: postNumBaseCnt
+      };
 
       $.ajax({
         type: 'POST',
-        url: '/support_notice',
-        data: {nowPage: nowPage, pageShowCnt: pageShowCnt},
+        contentType: "application/json",
+        dataType: 'json',
+        url: '/board/searchBoardContent.do',
+        data: JSON.stringify(data),
         success: function (data) {
-          pageGroup = Math.ceil(nowPage / pageShowCnt); //10개 단위의 페이지 그룹 숫자 (ex 1~10 = group 1 / 11~20 = group 2)
-
-          last = pageGroup * pageShowCnt;		//표기할 페이지의 마지막 페이지
-          if (last >= allPage) last = allPage;		// 최대 페이지가 10단위가 아닐경우
-          first = (pageGroup * 10) - 9; 		//표기할 페이지의 첫 페이지
-          if (first < 1) first = 1; 				//총 페이지가 10개보다 적을경우 최소페이지 지정
-          next = nowPage + 1;						//다음페이지 숫자
-          prev = nowPage - 1; 					//이전페이지 숫자
-
-          pagination(allPage);
-
           var str = "";
           for (var i = 0; i < data.length; i++) {
-            var list = data[i];
+            var getList = data[i];
 
             str += '<tr>\n' +
-                    '  <td class="no">' + list.seq + '</td>\n';
-            if (list.category == '0') {
-              str += '  <td class="type">공지사항</td>\n';
-            } else if (list.category == '1') {
-              str += '  <td class="type">이벤트</td>\n';
-            }
-            str += '  <td class="title">\n' +
-                    '      <a href="javascript:toggleContent(' + i + ')">' + list.title + '</a>\n' +
-                    '  </td>\n' +
-                    '  <td class="date">' + list.reg_dt + '</td>\n' +
-                    '</tr>' +
-                    '<tr>' +
-                    '<td class="contentBox" colspan="4" id="content_' + i + '"><div class="contentDiv"><p style="display: inline-block">' + list.content + '</p></div></td>' +
+                    '<td class="no">'+getList.seq+'</td>\n'
+            str +=  '<td class="title">'+getList.title;
+            str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
+            str +=  '</td>\n'
+            str +=  '<td class="date">'+getList.reg_dt+'</td>\n'
+            str +=  '<td class="name">'+getList.name+'</td>\n'
+            str +=  '<td class="pv">'+getList.pv+'</td>\n'+
                     '</tr>';
           }
-          $('#noticeBody').html(str);
+          $('#boardBody').html(str);
+
+          pagination(currentPage,data);
+        },
+        error : function(response){
+          console.log(response);
         }
       });
-    }*/
+
+      function pagination(currentPage){
+        var pageGroup = Math.ceil(currentPage / pageNumBaseCnt); //설정 단위의 페이지 그룹 숫자 (ex 1~10 = group 1 / 11~20 = group 2)
+        var firstPage = Math.floor(((pageGroup-1) * pageNumBaseCnt) + 1); //첫 시작 페이징 번호
+        var lastPage = allPage-(pageNumBaseCnt*(pageGroup-1))<pageNumBaseCnt
+                ? Math.floor((firstPage-1) + (allPage % pageNumBaseCnt))
+                : pageNumBaseCnt*pageGroup; //마지막 그룹의 페이지에 도달할 경우 남은 페이지 만큼 페이징 처리함
+
+        var pagingHtml = '';
+
+        pagingHtml += '<span class="prev"><a href="javascript:paging(1)"><img src="../img/prev_02.jpg"></a></span>'+
+                '<span class="prev"><a href="javascript:paging('+(currentPage-1)+')"><img src="../img/prev_01.jpg"></a></span>';
+
+        for (var i = firstPage; i <= lastPage; i++) {
+          if(i == currentPage){
+            pagingHtml += '<span class="on"><a href="#">'+i+'</a></span>';
+          }else{
+            pagingHtml += '<span><a href="javascript:paging('+i+')">'+i+'</a></span>';
+          }
+        }
+
+        pagingHtml += '<span class="next"><a href="javascript:paging('+(currentPage+1)+')"><img src="../img/next_01.jpg"></a></span>'+
+                '<span class="next"><a href="javascript:paging('+allPage+')")"><img src="../img/next_02.jpg"></a></span>';
+
+        $('.list_btn').html(pagingHtml);
+      }
+    }
 </script>
 
 </body>

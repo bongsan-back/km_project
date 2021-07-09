@@ -15,12 +15,21 @@ public class BoardDAO {
 
 	@Autowired 
 	private SqlSessionTemplate sqlSession;
+
+	/**
+     * 게시물 개수 가져오기
+     * @param board 게시물 Count
+     * @return
+     */
+    public int selectListCount(Board board) {
+    	return sqlSession.selectOne("board.selectListCount", board);
+	}
 	/**
      * 게시물 리스트 가져오기
      * @param board	추가 할 게시물 정보
      * @return
      */
-    public List<HashMap<String,Object>> selectList(Board board) {
+    public List<Board> selectList(Board board) {
     	return sqlSession.selectList("board.selectList", board);
 	}
     

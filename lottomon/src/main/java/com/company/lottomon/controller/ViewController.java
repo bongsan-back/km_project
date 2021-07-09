@@ -1,6 +1,5 @@
 package com.company.lottomon.controller;
 
-import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -12,12 +11,6 @@ import com.company.lottomon.common.Constant.boardCodeType;
 import com.company.lottomon.model.Board;
 import com.company.lottomon.service.BoardService;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -26,8 +19,7 @@ import javax.servlet.http.HttpSession;
 public class ViewController {
 
 	@Autowired
-	@Resource(name = "boardService")
-	private BoardService boardService;
+	BoardService boardService;
 	
     /**
      * 로그인 페이지
@@ -78,26 +70,22 @@ public class ViewController {
     /**
      * 자유게시판 페이지
      */
-    @RequestMapping(value = "/board/general.do", method = RequestMethod.GET)
-    public String boardGeneral(HttpServletRequest request, HttpSession session, Model model) {
-    	Board board = new Board();
-    	board.setType(boardCodeType.GENERAL.getTypeValue());
-    	
-    	List<HashMap<String, Object>> list = boardService.selectList(board);
+    @RequestMapping(value = "/board/bulletin.do", method = RequestMethod.GET)
+    public String boardBulletin(Model model) {
+        Board board = new Board();
+        board.setType(boardCodeType.BULLETIN.getTypeValue()); //게시물 종류 설정
+
+        int listCnt = boardService.selectListCount(board);
 
         try {
-            model.addAttribute("list", new ObjectMapper().writeValueAsString(list));
-            model.addAttribute("allCnt", list.size());
-            model.addAttribute("nowPage", 1);
-            model.addAttribute("allPage", (list.size()/10)+1);
+            model.addAttribute("listCnt", listCnt); //리스트 수
+            model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
+            model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
         } catch (Exception e) {
             e.printStackTrace();
         }
-    	
-        return "board/boardGeneral";
-    }
-    
-    
 
+        return "board/boardBulletin";
+    }
 
 }
