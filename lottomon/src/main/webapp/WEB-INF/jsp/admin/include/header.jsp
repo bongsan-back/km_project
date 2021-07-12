@@ -1,119 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<header id="header">
-    <h1 class="rogo"><a href="/index.do"><img src="/img/rogo_pc.png"></a></h1>
-
-    <div id="mobile">
-        <div>
-            <span></span>
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
         </div>
-    </div>
-
-    <div class="gnb">
-        <div class="wrap">
-            <ul>
-                <c:if test="${empty user_id }">
-                    <li><a href="/login/login.do">로그인</a></li>
-                    <li><a href="/login/join.do">회원가입</a></li>
-                </c:if>
-                <c:if test="${not empty user_id }">
-                    <li><a href="/login/login.do">로그아웃</a></li>
-                    <li><a href="/mypage.do">마이페이지</a></li>
-                    <c:if test="${role eq 'ADMIN'}">
-                        <li><a href="/admin/main.do">관리자 페이지</a></li>
-                    </c:if>
-                </c:if>
-
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#!">Logout</a></li>
             </ul>
-        </div>
-    </div>
-
-    <div class="numder">
-        <div><span>3</span></div>
-        <div><span>21</span></div>
-        <div><span>7</span></div>
-        <div><span>13</span></div>
-        <div><span>39</span></div>
-        <div><span>17</span></div>
-        <div><span>27</span></div>
-    </div>
-
-    <div class="light">
-        <div class="pcleft"><img src="/img/header-light-left.png"></div>
-        <div class="pcright"><img src="/img/header-light-right.png"></div>
-    </div>
-
-    <div class="menu">
-        <nav class="wrap menu_list">
-            <ul>
-                <li><a href="/winning.do">로또당첨결과</a></li>
-                <li><a href="/membership.do">멤버십안내</a></li>
-                <li><a href="/community.do">커뮤니티</a></li>
-                <li><a href="/mylotto.do">나의로또</a></li>
-                <li><a href="/notice.do">고객센터</a></li>
-            </ul>
-        </nav>
-
-        <nav class="menu_full">
-            <ul class="wrap">
-                <li class="rogin_m">
-                    <ul>
-                        <%if(session.getAttribute("user_id") != null){%>
-                            <li><a href="/member_rogin.do">로그아웃</a></li>
-                            <li><a href="/mypage.do">마이페이지</a></li>
-                            <%if(session.getAttribute("role").equals("ADMIN")){%>
-                                <li><a href="/adminPage.do">관리자 페이지</a></li>
-                            <%}%>
-                        <%}else{%>
-                            <li><a href="/member_rogin.do">로그인</a></li>
-                            <li><a href="/member_go.do">회원가입</a></li>
-                            <li><a href="/mypage.do">마이페이지</a></li>
-                        <%}%>
-                        <li id="mobile_x">
-                            <div id="mobile">
-                                <div>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <li><a href='/winning_seat.do'>당첨의 명당</a></li>
-                        <li><a href='/winning.do'>로또당첨결과</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <li><a href='/membership/membership.do'>멤버십 안내</a></li>
-                        <li><a href='/membership/membershipPay.do'>멤버십 결제</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <li><a href='/free.do'>자유게시판</a></li>
-                        <li><a href='/prayer.do'>당첨기원게시판</a></li>
-                        <li><a href='/debate.do'>토론방</a></li>
-                        <li><a href='/community.do'>1등 당첨자이야기</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <li><a href='/mylotto.do'>이번주 나의번호</a></li>
-                        <li><a href='/mylotto_payment.do'>결제내역</a></li>
-                        <li><a href='/mylotto_fix.do'>내 정보 수정</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <ul>
-                        <li><a href='/notice.do'>공지사항</a></li>
-                        <li><a href='/service.do'>1:1문의하기</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<div id="top"><a href="#"><img src="/img/top-btn.jpg"></a></div>
+        </li>
+    </ul>
+</nav>
 

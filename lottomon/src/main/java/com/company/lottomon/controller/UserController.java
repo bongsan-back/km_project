@@ -4,6 +4,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.company.lottomon.encrypt.AES256;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -23,10 +25,13 @@ import com.company.lottomon.service.UserService;
 @RequestMapping(value = "/user")
 @Component
 public class UserController {
+	Logger log = Logger.getLogger(this.getClass());
 	
 	@Autowired
 	@Resource(name = "userService")
 	private UserService userService;
+
+	static private AES256 AES = new AES256("LOTTOMON01234567");
 	
 	/**
      * 회원 가입 최종
@@ -34,9 +39,11 @@ public class UserController {
     @RequestMapping(value = "/join.do", method = RequestMethod.POST)
 	public @ResponseBody ServiceResult smsCert(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
     	try {
-    		System.out.println(param.getData().getName());
-    		
-    		userService.insertUser(param.getData());
+
+    		UserInfo userInfo = param.getData();
+    		userInfo.setPassword(AES.encryptStringToBase64(userInfo.getPassword()));
+
+    		userService.insertUser(userInfo);
     		
 		} catch (Exception e) {
 			
@@ -55,8 +62,6 @@ public class UserController {
     @RequestMapping(value = "/verifyUser.do", method = RequestMethod.POST)
 	public @ResponseBody ServiceResult verifyId(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
     	try {
-    		System.out.println(param.getData().getId());
-    		System.out.println(param.getData().getNickname());
     		int verifyCnt = userService.findUser(param.getData());
     		if(verifyCnt > 0 ) {
     			return ServiceResult.ALREADY_DATA;

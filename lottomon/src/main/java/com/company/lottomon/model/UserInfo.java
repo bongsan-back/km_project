@@ -9,6 +9,8 @@ public class UserInfo {
 	private String id;
 	private String password;
 	private String email;
+	private String grade;
+	private String role;
 	public String getTelNo() {
 		return telNo;
 	}
@@ -57,7 +59,45 @@ public class UserInfo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+	@Override
+	public String toString() {
+		return "UserInfo{" +
+				"telNo='" + telNo + '\'' +
+				", gender='" + gender + '\'' +
+				", name='" + name + '\'' +
+				", nickname='" + nickname + '\'' +
+				", birth='" + birth + '\'' +
+				", id='" + id + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", grade='" + grade + '\'' +
+				", role='" + role + '\'' +
+				'}';
+	}
 }
+

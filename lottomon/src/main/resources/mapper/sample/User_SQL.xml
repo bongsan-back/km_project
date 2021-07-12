@@ -51,15 +51,13 @@
 		</if>
 	</select>
 	
-	
-	<update id="updateHitCnt" parameterType="hashmap">
+	<select id="loginProc" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
 		<![CDATA[
-			UPDATE TB_BOARD 
-			SET
-				HIT_CNT = HIT_CNT+ 1
-			WHERE
-				SEQ = #{IDX}	
+		SELECT * FROM user WHERE
+			id = #{id}
+		AND
+			password = #{password}
 		]]>
-	</update>
+	</select>
 
 </mapper>

@@ -12,9 +12,18 @@
     <div class="gnb">
         <div class="wrap">
             <ul>
-                <li><a href="/Login/login.do">로그인</a></li>
-                <li><a href="/Login/join.do">회원가입</a></li>
-                <li><a href="/mypage.do">마이페이지</a></li>
+                <c:if test="${empty user_id }">
+                    <li><a href="/login/login.do">로그인</a></li>
+                    <li><a href="/login/join.do">회원가입</a></li>
+                </c:if>
+                <c:if test="${not empty user_id }">
+                    <li><a href="/login/login.do">로그아웃</a></li>
+                    <li><a href="/mypage.do">마이페이지</a></li>
+                    <c:if test="${role eq 'ADMIN'}">
+                        <li><a href="/admin/main.do">관리자 페이지</a></li>
+                    </c:if>
+                </c:if>
+
             </ul>
         </div>
     </div>
@@ -49,9 +58,17 @@
             <ul class="wrap">
                 <li class="rogin_m">
                     <ul>
-                        <li><a href="/member_rogin.do">로그인</a></li>
-                        <li><a href="/member_go.do">회원가입</a></li>
-                        <li><a href="/mypage.do">마이페이지</a></li>
+                        <%if(session.getAttribute("user_id") != null){%>
+                            <li><a href="/member_rogin.do">로그아웃</a></li>
+                            <li><a href="/mypage.do">마이페이지</a></li>
+                            <%if(session.getAttribute("role").equals("ADMIN")){%>
+                                <li><a href="/adminPage.do">관리자 페이지</a></li>
+                            <%}%>
+                        <%}else{%>
+                            <li><a href="/member_rogin.do">로그인</a></li>
+                            <li><a href="/member_go.do">회원가입</a></li>
+                            <li><a href="/mypage.do">마이페이지</a></li>
+                        <%}%>
                         <li id="mobile_x">
                             <div id="mobile">
                                 <div>
@@ -69,8 +86,8 @@
                 </li>
                 <li>
                     <ul>
-                        <li><a href='/membership.do'>멤버십 안내</a></li>
-                        <li><a href='/membership_pay.do'>멤버십 결제</a></li>
+                        <li><a href='/membership/membership.do'>멤버십 안내</a></li>
+                        <li><a href='/membership/membershipPay.do'>멤버십 결제</a></li>
                     </ul>
                 </li>
                 <li>
@@ -98,6 +115,5 @@
         </nav>
     </div>
 </header>
-
 <div id="top"><a href="#"><img src="/img/top-btn.jpg"></a></div>
 

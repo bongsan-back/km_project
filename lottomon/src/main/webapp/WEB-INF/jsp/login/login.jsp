@@ -77,17 +77,17 @@
                     <div class="login_box_wrap">
                         <h6>일반 로그인</h6>
                         <form action='#' method='post'>
-                            <input type='text' name='id' autocomplate='off' placeholder='아이디' required />
-                            <input type='password' name='password' autocomplate='off' placeholder='패스워드' required />
+                            <input type='text' name='id'  id='id' autocomplate='off' placeholder='아이디' required />
+                            <input type='password' name='password' id='password' autocomplate='off' placeholder='패스워드' required />
                             <div class="login">
-                                <label for="checkbox"><input type="checkbox" id="checkbox" checked> 자동로그인</label>
+                                <label for="autoLogin"><input type="checkbox" id="autoLogin"> 자동로그인</label>
                                 <ul>
                                     <li>
                                         <a href="./findUser.do">아이디</a>/<a href="./findUser.do">비밀번호 찾기</a> |
                                     </li>
                                     <li><a href="./joinAgree.do"> 회원가입</a></li>
                                 </ul>
-                                <input type='submit' value="로그인"><a href="#"></a></input>
+                                <input type='button' value="로그인" onclick="javascript:loginProc()"/>
                             </div>
                         </form>
                         <div class="simple">
@@ -109,6 +109,58 @@
 
 
 <script>
+    function loginProc(){
+        var id = $("#id").val();
+        var password = $("#password").val();
+
+        if(id == '' || password == ''){
+            alert("아이디와 비밀번호를 입력하세요.");
+            return;
+        }
+        var requestParam = {
+            "data":{
+                "id" : id,
+                "password": password
+            }
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/login/loginProc.do',
+            data: JSON.stringify(requestParam),
+            success: function(data) {
+                var message = data;
+
+                if(message == '"SUCCESS"'){
+                    alert('로그인에 성공하였습니다.');
+                    location.href="";
+                }else if(message == '"NOT_MATCHE"'){
+                    alert('아이디 혹은 비밀번호가 일치하지 않습니다.');
+                }else if(message == '"LEAVE"'){
+                    alert('회원탈퇴된 계정입니다.');
+                }else if(message == '"DORMANT"'){
+                    if(confirm('휴면처리된 계정입니다.\n본인인증을 하시면 휴면 해제를 해드립니다. \n이동하시겠습니까?')){
+                        location.href="";
+                    }else{
+
+                    }
+                }else if(message == '"BENNED"'){
+                    alert('정지 처리된 계정입니다.');
+                }else{
+                    alert('알 수 없는 오류입니다.');
+                }
+            },
+            error : function(request, status, error ) {
+                alert("알 수 없는 이유로 실패하였습니다. " + error);
+            },
+            contentType: "application/json",
+            dataType: 'text'
+        });
+
+
+
+
+
+    }
 </script>
 
 

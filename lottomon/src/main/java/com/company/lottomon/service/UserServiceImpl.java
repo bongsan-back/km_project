@@ -1,14 +1,18 @@
 package com.company.lottomon.service;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.company.lottomon.common.Constant.ServiceResult;
+import com.company.lottomon.common.Constant.*;
 import com.company.lottomon.mapper.UserDAO;
 import com.company.lottomon.model.UserInfo;
 
+import javax.servlet.http.HttpSession;
+
 @Service("userService")
 public class UserServiceImpl implements UserService{
+	Logger log = Logger.getLogger(this.getClass());
 	
 	@Autowired
 	private UserDAO userDAO;
@@ -23,5 +27,50 @@ public class UserServiceImpl implements UserService{
 	public int findUser(UserInfo userInfo) {
 		int userCnt = userDAO.findUser(userInfo);
 		return userCnt;
+	}
+
+	@Override
+	public LoginResult loginProc(UserInfo userInfo, HttpSession session) {
+		UserInfo result = userDAO.loginProc(userInfo);
+
+		if(result == null){
+			return LoginResult.NOT_MATCHE;
+		}else if(result.getGrade().equals("02")){
+			log.debug(result.toString());
+			return LoginResult.DORMANT;
+		}else if(result.getGrade().equals("03")){
+			log.debug(result.toString());
+			return LoginResult.LEAVE;
+		}else if(result.getGrade().equals("04")){
+			log.debug(result.toString());
+			return LoginResult.BENNED;
+		}else if(result.getGrade().equals("01")){
+			log.debug(result.toString());
+
+			session.setAttribute("user_id", result.getId());
+			session.setAttribute("user_name", result.getName());
+			session.setAttribute("user_nickname", result.getNickname());
+			session.setAttribute("grade_code", result.getGrade());
+			session.setAttribute("role", result.getRole());
+
+			switch (result.getGrade()){
+				case "11":
+					session.setAttribute("grade_name", "silver");
+					break;
+				case "12":
+					session.setAttribute("grade_name", "gold");
+					break;
+				case "13":
+					session.setAttribute("grade_name", "vip");
+					break;
+				case "99":
+					session.setAttribute("grade_name", "admin");
+					break;
+			}
+			return LoginResult.SUCCESS;
+		}else{
+			return LoginResult.NOT_MATCHE;
+		}
+
 	}
 }

@@ -1,10 +1,6 @@
-package com.mediage.imhealth.interceptor;
+package com.company.lottomon.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.mediage.imhealth.model.HospitalAdmin;
+import com.company.lottomon.model.UserInfo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.http.HttpStatus;
@@ -12,9 +8,9 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mediage.imhealth.annotation.SessionLogin;
-import com.mediage.imhealth.common.Constant;
-
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.net.URLEncoder;
 
 public class SessionLoginInterceptor implements HandlerInterceptor{
@@ -35,7 +31,7 @@ public class SessionLoginInterceptor implements HandlerInterceptor{
 
 		// 세션체크
 		HttpSession session = request.getSession();
-		HospitalAdmin account = (HospitalAdmin)session.getAttribute(Constant.ADMIN_MEM_SESSION);
+		UserInfo account = (UserInfo)session.getAttribute("userId");
 		if(account == null){
 			if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
 				response.setStatus(HttpStatus.UNAUTHORIZED.value());

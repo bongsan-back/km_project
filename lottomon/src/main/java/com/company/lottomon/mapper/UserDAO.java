@@ -28,6 +28,13 @@ public class UserDAO {
     public int findUser(UserInfo userInfo) {
     	return sqlSession.selectOne("user.findUser", userInfo);
 	}
-    
-    
+
+	/**
+	 * 로그인 확인
+	 * @param userInfo	추가 할 게시물 정보
+	 * @return
+	 */
+	public UserInfo loginProc(UserInfo userInfo) {
+		return sqlSession.selectOne("user.loginProc", userInfo);
+	}
 }

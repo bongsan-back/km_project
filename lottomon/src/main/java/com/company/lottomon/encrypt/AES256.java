@@ -1,4 +1,4 @@
-package first.common.util;
+package com.company.lottomon.encrypt;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
@@ -9,6 +9,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 import first.common.util.Base64Utils;
+import first.common.util.StringUtil;
 
 public class AES256 {
 
