@@ -5,5 +5,6 @@ import java.util.List;
 import com.company.lottomon.model.Board;
 
 public interface BoardService {
+	int selectListCount(Board board);
 	List<Board> selectList(Board board);
 }

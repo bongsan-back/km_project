@@ -424,10 +424,15 @@
 			<artifactId>geocoder-java</artifactId>
 			<version>0.16</version>
 		</dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
 
 
-
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<defaultGoal>install</defaultGoal>

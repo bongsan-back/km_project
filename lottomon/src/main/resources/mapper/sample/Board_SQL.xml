@@ -2,14 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="board">
-	
-	<select id="selectList" parameterType="map" resultType="list">
-		<![CDATA[
-			SELECT COUNT(*) FROM user
-			WHERE
-				type = #{type}
-			
-		]]>
+	<select id="selectListCount" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+		FROM board
+		WHERE type = #{type}
 	</select>
 
+	<select id="selectList" parameterType="map" resultType="map">
+		SELECT A.seq,
+			   A.title,
+			   A.content,
+			   B.name,
+			   A.pv,
+			   DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
+			   IF(A.reg_dt > date_sub(now(), interval 1 day),'Y','N') dsp_new_dt,
+			   (SELECT COUNT(*) FROM board_comment C WHERE A.seq = C.board_seq) AS comment
+		FROM board A
+		LEFT JOIN user B
+	    ON A.user_id = B.id
+		WHERE type = #{type}
+		ORDER BY A.seq DESC
+		LIMIT #{start_row_num}, #{post_num_base_cnt}
+	</select>
+
+	<insert id="insert" parameterType="map">
+		INSERT INTO
+		(seq, type, title, content, user_id, pv, show_yn, reg_dt)
+		VALUES (#{seq}, #{type}, #{title}, #{content}, #{user_id}, #{pv}, #{show_yn}, NOW())
+	</insert>
 </mapper>

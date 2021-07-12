@@ -1,61 +1,21 @@
 package com.company.lottomon.model;
 
-public class Board {
-	private String seq;
-	private String type;
-	private String title;
-	private String content;
-	private String show_yn;
-	private String reg_dt;
-	private String update_dt;
-	private String priority;
-	public String getSeq() {
-		return seq;
-	}
-	public void setSeq(String seq) {
-		this.seq = seq;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getShow_yn() {
-		return show_yn;
-	}
-	public void setShow_yn(String show_yn) {
-		this.show_yn = show_yn;
-	}
-	public String getReg_dt() {
-		return reg_dt;
-	}
-	public void setReg_dt(String reg_dt) {
-		this.reg_dt = reg_dt;
-	}
-	public String getUpdate_dt() {
-		return update_dt;
-	}
-	public void setUpdate_dt(String update_dt) {
-		this.update_dt = update_dt;
-	}
-	public String getPriority() {
-		return priority;
-	}
-	public void setPriority(String priority) {
-		this.priority = priority;
-	}
+import lombok.Data;
 
+@Data
+public class Board {
+	//Get ResponseBody
+	private String seq; //게시글 순번
+	private String type; //게시글 종류
+	private String title; //게시글 제목
+	private String content; //게시글 내용
+	private String show_yn; //게시글 표시 여부
+	private String reg_dt; //게시글 등록일자
+	private String update_dt; //게시글 수정일자
+	private String priority; //게시글 우선순위
+
+	//Get RequestBody
+	private Integer current_page; //현재 선택된 페이지
+	private Integer post_num_base_cnt; //기본 게시글 페이징 수
+	private Integer start_row_num; //페이징 시작 번호 수
 }

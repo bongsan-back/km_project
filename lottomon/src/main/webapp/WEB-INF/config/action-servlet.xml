@@ -31,7 +31,7 @@ http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 	
 	<aop:aspectj-autoproxy/>
 	<bean id="loggerAspect" class="first.common.logger.LoggerAspect" />
-	
+
     <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0" />
     <!-- <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" /> -->    
     <bean
