@@ -1,5 +1,6 @@
 package com.company.lottomon.controller;
 
+import com.company.lottomon.common.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -65,27 +66,4 @@ public class ViewController {
 
         return "login/joinSuc";
     }
-
-    
-    /**
-     * 자유게시판 페이지
-     */
-    @RequestMapping(value = "/board/bulletin.do", method = RequestMethod.GET)
-    public String boardBulletin(Model model) {
-        Board board = new Board();
-        board.setType(boardCodeType.BULLETIN.getTypeValue()); //게시물 종류 설정
-
-        int listCnt = boardService.selectListCount(board);
-
-        try {
-            model.addAttribute("listCnt", listCnt); //리스트 수
-            model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
-            model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "board/boardBulletin";
-    }
-
 }

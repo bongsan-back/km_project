@@ -23,12 +23,55 @@ import java.util.List;
 @RequestMapping(value = "/board")
 @Component
 public class BoardController {
+
 	@Autowired
-	@Resource(name = "boardService")
-	private BoardService boardService;
+	BoardService boardService;
 
 	/**
 	 * 자유게시판 페이지
+	 */
+	@RequestMapping(value = "/bulletin.do", method = RequestMethod.GET)
+	public String bulletin(Model model) {
+		Board board = new Board();
+		board.setType(Constant.boardCodeType.BULLETIN.getTypeValue()); //게시물 종류 설정
+
+		int listCnt = boardService.selectListCount(board);
+
+		try {
+			model.addAttribute("listCnt", listCnt); //리스트 수
+			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
+			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "board/bulletin";
+	}
+
+
+	/**
+	 * 당첨기원 페이지
+	 */
+	@RequestMapping(value = "/winPrayer.do", method = RequestMethod.GET)
+	public String winPrayer(Model model) {
+		Board board = new Board();
+		board.setType(Constant.boardCodeType.WINPRAYER.getTypeValue()); //게시물 종류 설정
+
+		int listCnt = boardService.selectListCount(board);
+
+		try {
+			model.addAttribute("listCnt", listCnt); //리스트 수
+			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
+			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "board/winPrayer";
+	}
+
+	/**
+	 * 게시판 내용 검색
 	 */
 	@RequestMapping(value = "/searchBoardContent.do", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<List<Board>> searchBoardContent(@RequestBody Board board, Model model) {

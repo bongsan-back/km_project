@@ -18,8 +18,8 @@ public class Constant {
 	
 	public enum boardCodeType {
 		BULLETIN("01"),		// 자유게시판
-		DEBATE("02"),  		// 토론방
-		HOPE_WIN("03"),		// 당첨기원
+		WINPRAYER("02"),	// 당첨기원
+		DEBATE("03"),  		// 토론방
 		WINNIG("04"),		// 당첨자이야기
 		NOTICE("05");		// 공지사항
 		boardCodeType(String type) {

@@ -25,7 +25,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
 
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -58,8 +57,8 @@
       <div class="left for">
         <h2>커뮤니티</h2>
         <div>
-          <a href="./free.php" class="on">자유게시판</a>
-          <a href="./prayer.php">당첨기원게시판</a>
+          <a href="./bulletin.do" >자유게시판</a>
+          <a href="./winPrayer.do" class="on">당첨기원게시판</a>
           <a href="./debate.php">토론방</a>
           <a href="./community.php">1등<span>당첨자</span>이야기</a>
         </div>
@@ -100,14 +99,6 @@
                   <td class="pv"></td>
                 </tr>
               </tbody>
-              <tr class="new">
-                <td>419</td>
-                <td>제목입니다.제목입니다[100]<span>new</span> - publishing 남겨놓았음. </td>
-                <td>2020-12-08</td>
-                <td>관리자</td>
-                <td>1512</td>
-              </tr>
-
             </table>
             <p class="btn"><a href="/">글쓰기</a></p>
           </div>
