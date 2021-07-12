@@ -98,7 +98,7 @@
 #sub .membership_login .login_box .login_box_wrap .login ul { display:inline-block; float:right;}
 #sub .membership_login .login_box .login_box_wrap .login ul li { display:inline-block; }
 #sub .membership_login .login_box .login_box_wrap .login ul li a { color:#505050; }
-#sub .membership_login .login_box .login_box_wrap form input[type=submit]{ padding:20px 0; width:100%; margin-top:25px; font-size:17px; }
+#sub .membership_login .login_box .login_box_wrap form input[type=button]{ padding:20px 0; width:100%; margin-top:25px; font-size:17px;color:#fff; background:#2e68bf; }
 #sub .membership_login .login_box .login_box_wrap .simple { margin-top:80px; }
 #sub .membership_login .login_box .login_box_wrap .simple .pcicon img { margin-bottom:10px;  }
 #sub .membership_login .login_box .login_box_wrap .simple .moicon { display:none; }
@@ -386,14 +386,14 @@
 #sub .membership_pay .wrap .content h6  { font-size:16px; margin:10px 0;}
 #sub .membership_pay .wrap .content form label { margin-bottom:30px; display:inline-block;}
 #sub .membership_pay .wrap .content form input[type=radio] { margin:0 5px 2px 13px; vertical-align:middle; }
-#sub .membership_pay .wrap .content form #tel_num { width:100px; height:40px; margin-bottom:30px; }
-#sub .membership_pay .wrap .content form #tel_num + span { margin:0 5px; display:inline-block;}
+#sub .membership_pay .wrap .content form .tel_num { width:100px; height:40px; margin-bottom:30px; }
+#sub .membership_pay .wrap .content form .tel_num + span { margin:0 5px; display:inline-block; position: relative; bottom: 12px;}
 #sub .membership_pay .wrap .content form #account { width:400px; height:45px; margin-bottom:30px; }
 #sub .membership_pay .wrap .content form #account_name { width:400px; height:45px; margin-bottom:30px; padding-left:10px; }
 #sub .membership_pay .wrap .content form .amount-of-payment { background:#fcfcfc; padding:15px; width:370px; box-sizing:border-box; margin-bottom:30px; }
 #sub .membership_pay .wrap .content form .amount-of-payment p { padding-bottom:15px; overflow:hidden; }
-#sub .membership_pay .wrap .content form .amount-of-payment p:first-child + p{ border-bottom:1px solid #dedede; }
-#sub .membership_pay .wrap .content form .amount-of-payment p:last-child {padding-bottom:0; margin-top:15px; }
+#sub .membership_pay .wrap .content form .amount-of-payment p:first-child + p{  }
+#sub .membership_pay .wrap .content form .amount-of-payment p:last-child {padding-bottom:0; padding-top:15px; border-top:1px solid #dedede;}
 #sub .membership_pay .wrap .content form .amount-of-payment p span { float:left;}
 #sub .membership_pay .wrap .content form .amount-of-payment p span:last-child { float:right; }
 #sub .membership_pay .wrap .content form .amount-of-payment p:last-child span:last-child { color:#ee1512; font-size:24px; font-weight:600;}

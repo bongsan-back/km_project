@@ -57,7 +57,7 @@
       <div class="left three">
         <h2>회원서비스</h2>
         <div>
-	        <a href="./login.do"  class="on">로그인</a>
+	        <a href="./login.do">로그인</a>
 	        <a href="./findUser.do">아이디<span>/패스워드</span> 찾기</a>
 	        <a href="./join.do" class="on">회원가입</a>
         </div>
@@ -66,9 +66,9 @@
         <div class="head">
           <h2>회원가입</h2>
           <h5>
-            <a href="/"><img src="./img/home.jpg"> 홈</a>
-            <a href="./login.do"><img src="./img/arrow.png"> 회원서비스</a>
-            <a href="./join.do"><img src="./img/arrow.png"> 회원가입</a>
+            <a href="/"><img src="/img/home.jpg"> 홈</a>
+            <a href="./login.do"><img src="/img/arrow.png"> 회원서비스</a>
+            <a href="./join.do"><img src="/img/arrow.png"> 회원가입</a>
           </h5>
         </div>
 

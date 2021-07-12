@@ -1,5 +1,10 @@
 package com.company.lottomon.controller;
 
+import com.company.lottomon.common.Constant;
+import com.company.lottomon.model.Membership;
+import com.company.lottomon.model.MembershipPrice;
+import com.company.lottomon.service.MembershipService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -12,6 +17,7 @@ import com.company.lottomon.model.Board;
 import com.company.lottomon.service.BoardService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,16 +27,23 @@ import javax.servlet.http.HttpSession;
 @Controller
 @Component
 public class ViewController {
+    Logger log = Logger.getLogger(this.getClass());
 
 	@Autowired
 	@Resource(name = "boardService")
 	private BoardService boardService;
+
+    @Autowired
+    @Resource(name = "membershipService")
+    private MembershipService membershipService;
 	
     /**
      * 로그인 페이지
      */
     @RequestMapping(value = "/login/login.do", method = RequestMethod.GET)
     public String login(HttpServletRequest request, HttpSession session) {
+        log.debug(session.getAttribute("user_id") + "세션 아이디입니다.");
+        System.out.println(session.getAttribute("user_id") + "세션 아이디입니다.");
 
         return "login/login";
     }
@@ -71,6 +84,51 @@ public class ViewController {
         return "login/joinSuc";
     }
 
+    /**
+     * 멤버쉽 페이지
+     */
+    @RequestMapping(value = "/membership.do", method = RequestMethod.GET)
+    public String membership(HttpServletRequest request, HttpSession session, Model model) {
+        try {
+            ArrayList<Membership> memberships = (ArrayList<Membership>) membershipService.selectList();
+            ArrayList<MembershipPrice> membershipPrice = (ArrayList<MembershipPrice>) membershipService.getPrice();
+
+            for (int i = 0; i < membershipPrice.size(); i++) {
+                MembershipPrice tmpMsp = (MembershipPrice)membershipPrice.get(i);
+                if(tmpMsp.getMembership_seq().equals("1")){
+                    model.addAttribute("vip"+tmpMsp.getMaintain_month(), tmpMsp.getPrice());
+                }else if(tmpMsp.getMembership_seq().equals("2")){
+                    model.addAttribute("gold"+tmpMsp.getMaintain_month(), tmpMsp.getPrice());
+                }else if(tmpMsp.getMembership_seq().equals("3")){
+                    model.addAttribute("silver"+tmpMsp.getMaintain_month(), tmpMsp.getPrice());
+                }
+            }
+            model.addAttribute("membershipList", memberships);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "membership/membership";
+    }
+
+    /**
+     * 멤버쉽 페이지
+     */
+    @RequestMapping(value = "/membershipPay.do", method = RequestMethod.GET)
+    public String membershipPay(HttpServletRequest request, HttpSession session, Model model) {
+        try {
+            ArrayList<Membership> memberships = (ArrayList<Membership>) membershipService.selectList();
+            ArrayList<MembershipPrice> membershipPrice = (ArrayList<MembershipPrice>) membershipService.getPrice();
+
+            model.addAttribute("membershipList", memberships);
+            model.addAttribute("membershipPriceList", membershipPrice);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "membership/membership_pay";
+    }
+
     
     /**
      * 자유게시판 페이지
@@ -81,7 +139,7 @@ public class ViewController {
     	board.setType(boardCodeType.GENERAL.getTypeValue());
     	
     	List<Board> list = boardService.selectList(board);
-    	
+
     	
     	
     	model.addAttribute("list", list);
