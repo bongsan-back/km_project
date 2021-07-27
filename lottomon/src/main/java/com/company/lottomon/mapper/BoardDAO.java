@@ -32,5 +32,21 @@ public class BoardDAO {
     public List<Board> selectList(Board board) {
     	return sqlSession.selectList("board.selectList", board);
 	}
+	/**
+     * 게시물 내용 가져오기
+     * @param board	추가 할 게시물 정보
+     * @return
+     */
+    public List<Board> selectPostBoard(Board board) {
+    	return sqlSession.selectList("board.selectPostBoard", board);
+	}
+	/**
+     * 게시물의 댓글 가져오기
+     * @param board	추가 할 게시물 정보
+     * @return
+     */
+    public List<Board> selectPostBoardDetail(Board board) {
+    	return sqlSession.selectList("board.selectPostBoardDetail", board);
+	}
     
 }

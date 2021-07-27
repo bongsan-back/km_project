@@ -46,7 +46,7 @@
 #sub  .list_btn .on { background:#0c5f9a; }
 #sub  .list_btn .on a { color:#fff; }
 #sub  .list_btn .btn_pocus a { color:#fff; }
-#sub #service_seclect { text-align:center; }
+#sub #service_select { text-align:center; }
 /*�떦泥④껐怨�*****�걹*****************************************/
 
 
@@ -165,7 +165,7 @@
 #sub .service_main .table table tr td:first-child + td + td + td +td { width:85px; }
 #sub .service_main .btn { text-align:right; margin-top:15px; }
 #sub .service_main .btn a { display:inline-block; background:#2e68bf; color:#fff; padding:7px 25px; }
-#sub .service_main #service_seclect { margin-top:20px; }
+#sub .service_main #service_select { margin-top:20px; }
 #sub .service_main .find { overflow:hidden; vertical-align:middle;}
 #sub .service_main .find select { height:auto; }
 #sub .service_main .find input[type=text] { float:left; width:95%; border:none; height:100%;  padding:12px 10px; outline:none; }

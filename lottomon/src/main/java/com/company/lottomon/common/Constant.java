@@ -27,17 +27,27 @@ public class Constant {
 	}
 	
 	public enum boardCodeType {
-		BULLETIN("01"),		// 자유게시판
-		WINPRAYER("02"),	// 당첨기원
-		DEBATE("03"),  		// 토론방
-		WINNIG("04"),		// 당첨자이야기
-		NOTICE("05");		// 공지사항
+		BULLETIN("01"),			// 자유게시판
+		WINPRAYER("02"),		// 당첨기원
+		DEBATEROOM("03"),  			// 토론방
+		THEFIRSTSTORY("04"),	// 당첨자이야기
+		NOTICE("05");			// 공지사항
 		boardCodeType(String type) {
 			this.type = type;
 		}
 		private String type;
 		public String getTypeValue() {
 			return this.type;
+		}
+	}
+
+	public static String boardCodeTypeName(String boardType) {
+		switch (boardType){
+			case "01": return "자유게시판";
+			case "02": return "당첨기원게시판";
+			case "03": return "토론방";
+			case "04": return "1등당첨자이야기";
+			default: return "기타";
 		}
 	}
 

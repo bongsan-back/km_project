@@ -20,9 +20,55 @@
 		FROM board A
 		LEFT JOIN user B
 	    ON A.user_id = B.id
-		WHERE type = #{type}
+		WHERE A.type = #{type}
+		<if test="search_type == 'all'">
+			AND 	(A.title 	LIKE CONCAT('%',#{search_word},'%')
+			OR 		A.content 	LIKE CONCAT('%',#{search_word},'%')
+			OR 		B.name 		LIKE CONCAT('%',#{search_word},'%'))
+		</if>
+		<if test="search_type == 'title'">
+			AND 	A.title 	LIKE CONCAT('%',#{search_word},'%')
+		</if>
+		<if test="search_type == 'content'">
+			AND		A.content 	LIKE CONCAT('%',#{search_word},'%')
+		</if>
+		<if test="search_type == 'title_content'">
+			AND		(A.title 	LIKE CONCAT('%',#{search_word},'%')
+			OR 		A.content 	LIKE CONCAT('%',#{search_word},'%'))
+		</if>
+		<if test="search_type == 'writer'">
+		AND 		B.name 		LIKE CONCAT('%',#{search_word},'%')
+		</if>
 		ORDER BY A.seq DESC
 		LIMIT #{start_row_num}, #{post_num_base_cnt}
+	</select>
+
+	<select id="selectPostBoard" parameterType="map" resultType="map">
+		SELECT  A.title,
+				A.content,
+				B.name,
+				DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
+				(SELECT COUNT(*) FROM board_comment C WHERE A.seq = C.board_seq) AS comment
+		FROM board A
+	 	LEFT JOIN user B
+	   	ON A.user_id = B.id
+		WHERE A.type = #{type}
+		AND A.seq = #{seq}
+		ORDER BY A.seq DESC;
+	</select>
+
+	<select id="selectPostBoardDetail" parameterType="map" resultType="map">
+		SELECT A.content,
+			   C.name,
+			   DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt
+		FROM board_comment A
+	 	JOIN board B
+	  	ON A.board_seq = B.seq
+	 	LEFT JOIN user C
+	   	ON A.user_id = C.id
+		WHERE B.type = #{type}
+		AND A.board_seq = #{seq}
+		ORDER BY reg_dt DESC;
 	</select>
 
 	<insert id="insert" parameterType="map">
