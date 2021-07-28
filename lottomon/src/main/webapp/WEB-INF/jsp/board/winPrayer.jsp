@@ -90,7 +90,7 @@
               <th>조회수</th>
             </tr>
             </thead>
-            <tbody id="body">
+            <tbody id="table_body">
             <tr>
               <td>no</td>
               <td>title</td>
@@ -108,7 +108,7 @@
         <div class="list_btn" style="text-align: center;"></div>
         <!-- 리스트 게시판 끝-->
 
-        <form id="service_select">
+        <form id="service_select" onsubmit="return false">
           <select id="content_search_option">
             <option value="all">전체</option>
             <option value="title">제목</option>
@@ -117,7 +117,7 @@
             <option value="writer">작성자</option>
           </select>
           <div id="search_button" class="find">
-            <input id="search_text" type="text" placeholder="검색어를 입력하세요." onkeydown="enter_find_board_contents()">
+            <input id="search_text" type="text" placeholder="검색어를 입력하세요." onkeypress="if(event.keyCode==13)find_board_contents()">
             <button type='button' value="검색" onclick="find_board_contents()"/><img src="../img/find.png"></button>
           </div>
         </form>
@@ -148,6 +148,10 @@
   //최초 게시판 출력
   function initNotice(){
     //페이징 호출
+    find_board_contents();
+  }
+
+  function find_board_contents() {
     paging(1);
   }
 
@@ -188,7 +192,7 @@
           str +=  '<td>'+getList.pv+'</td>\n' +
                   '</tr>';
         }
-        $('#body').html(str);
+        $('#table_body').html(str);
         table_click_function();
 
         pagination(currentPage,data);
@@ -227,18 +231,6 @@
     function table_click_function(){
       $("#table tr").click(function() {
         location.href="./readingPostBoard.do?type=02&seq=" + $(this).children().eq(0).text();//게시판 이동
-      });
-    }
-
-    function find_board_contents2() {
-      paging(1);
-    }
-
-    function enter_find_board_contents() {
-      $('#search_text').on('keypress', function (e) {
-        if(e.which === 13){
-          paging(1);
-        }
       });
     }
   }
