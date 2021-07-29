@@ -46,7 +46,7 @@ public class BoardController {
 			e.printStackTrace();
 		}
 
-		return "board/bulletin";
+		return "community/bulletin";
 	}
 
 	/**
@@ -67,7 +67,7 @@ public class BoardController {
 			e.printStackTrace();
 		}
 
-		return "board/winPrayer";
+		return "community/winPrayer";
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class BoardController {
 			e.printStackTrace();
 		}
 
-		return "board/debateRoom";
+		return "community/debateRoom";
 	}
 
 	/**
@@ -109,7 +109,49 @@ public class BoardController {
 			e.printStackTrace();
 		}
 
-		return "board/theFirstStory";
+		return "community/theFirstStory";
+	}
+
+	/**
+	 * 공지사항 페이지
+	 */
+	@RequestMapping(value = "/notice.do", method = RequestMethod.GET)
+	public String notice(Model model) {
+		Board board = new Board();
+		board.setType(Constant.boardCodeType.NOTICE.getTypeValue()); //게시물 종류 설정
+
+		int listCnt = boardService.selectListCount(board);
+
+		try {
+			model.addAttribute("listCnt", listCnt); //리스트 수
+			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
+			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "service_center/notice";
+	}
+
+	/**
+	 * 1:1문의하기 페이지
+	 */
+	@RequestMapping(value = "/mattersForInquiry.do", method = RequestMethod.GET)
+	public String mattersForInquiry(Model model) {
+		Board board = new Board();
+		board.setType(Constant.boardCodeType.MATTERSFORINQUIRY.getTypeValue()); //게시물 종류 설정
+
+		int listCnt = boardService.selectListCount(board);
+
+		try {
+			model.addAttribute("listCnt", listCnt); //리스트 수
+			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
+			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "service_center/mattersForInquiry";
 	}
 
 	/**
@@ -137,11 +179,13 @@ public class BoardController {
 	public String readingPostBoard(Board board, Model model) {
 		List<Board> post_board = boardService.selectPostBoard(board);
 
-		ResponseEntity<List<Board>> comment_list = searchBoardCommentContent(board, model);
 		try {
-			model.addAttribute("type_name", Constant.boardCodeTypeName(board.getType()));
-			model.addAttribute("post_board", new ObjectMapper().writeValueAsString(post_board));
-			model.addAttribute("comment_list", new ObjectMapper().writeValueAsString(comment_list.getBody()));
+			model.addAttribute("postNumBaseCnt", 5); //페이지당 게시글 기본 출력 개수
+			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+			model.addAttribute("type", board.getType()); //페이지 종류
+			model.addAttribute("type_name", Constant.boardCodeTypeName(board.getType())); //페이지 명
+			model.addAttribute("type_group_name", Constant.boardCodeTypeGroupName(board.getType())); //카테고리 명
+			model.addAttribute("post_board", new ObjectMapper().writeValueAsString(post_board)); //페이지 내용(list)
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,6 +199,8 @@ public class BoardController {
 	 */
 	@RequestMapping(value = "/searchBoardCommentContent.do", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<List<Board>> searchBoardCommentContent(@RequestBody Board board, Model model) {
+		board.setStart_row_num((board.getCurrent_page()-1) * board.getPost_num_base_cnt()); //페이징 시작 번호 수 설정
+
 		List<Board> list = boardService.selectPostBoardDetail(board);
 
 		try {

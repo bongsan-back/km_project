@@ -48,9 +48,9 @@
             <ul>
                 <li><a href="/winning.do">로또당첨결과</a></li>
                 <li><a href="/membership.do">멤버십안내</a></li>
-                <li><a href="/community.do">커뮤니티</a></li>
+                <li><a href="/board/bulletin.do">커뮤니티</a></li>
                 <li><a href="/mylotto.do">나의로또</a></li>
-                <li><a href="/notice.do">고객센터</a></li>
+                <li><a href="/board/notice.do">고객센터</a></li>
             </ul>
         </nav>
 
@@ -92,10 +92,10 @@
                 </li>
                 <li>
                     <ul>
-                        <li><a href='/free.do'>자유게시판</a></li>
-                        <li><a href='/prayer.do'>당첨기원게시판</a></li>
-                        <li><a href='/debate.do'>토론방</a></li>
-                        <li><a href='/community.do'>1등 당첨자이야기</a></li>
+                        <li><a href='/board/bulletin.do'>자유게시판</a></li>
+                        <li><a href='/board/winPrayer.do'>당첨기원게시판</a></li>
+                        <li><a href='/board/debateRoom.do'>토론방</a></li>
+                        <li><a href='/board/theFirstStory.do'>1등 당첨자이야기</a></li>
                     </ul>
                 </li>
                 <li>
@@ -107,8 +107,8 @@
                 </li>
                 <li>
                     <ul>
-                        <li><a href='/notice.do'>공지사항</a></li>
-                        <li><a href='/service.do'>1:1문의하기</a></li>
+                        <li><a href='/board/notice.do'>공지사항</a></li>
+                        <li><a href='/board/mattersForInquiry.do'>1:1문의하기</a></li>
                     </ul>
                 </li>
             </ul>

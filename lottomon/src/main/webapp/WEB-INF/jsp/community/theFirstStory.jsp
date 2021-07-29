@@ -56,52 +56,27 @@
       <div class="left for">
         <h2>커뮤니티</h2>
         <div>
-          <a href="./bulletin.do" class="on">자유게시판</a>
+          <a href="./bulletin.do">자유게시판</a>
           <a href="./winPrayer.do">당첨기원게시판</a>
           <a href="./debateRoom.do">토론방</a>
-          <a href="./theFirstStory.do">1등당첨자이야기</a>
+          <a href="./theFirstStory.do" class="on">1등당첨자이야기</a>
         </div>
       </div>
       <div class="content">
         <div class="head">
-          <h2>자유게시판</h2>
+          <h2>1등당첨자이야기</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
             <a href="#"><img src="../img/arrow.png"> 커뮤니티</a>
-            <a href="#"><img src="../img/arrow.png"> 자유게시판</a>
+            <a href="#"><img src="../img/arrow.png"> 1등당첨자이야기</a>
           </h5>
         </div>
 
-        <div class="table">
-          <table id="table" style="border-spacing:0px">
-            <colgroup>
-              <col width="75">
-              <col width="*">
-              <col width="100">
-              <col width="70">
-              <col width="100">
-            </colgroup>
-            <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>작성일</th>
-              <th>작성자</th>
-              <th>조회수</th>
-            </tr>
-            </thead>
-            <tbody id="table_body">
-            <tr>
-              <td>no</td>
-              <td>title</td>
-              <td>date</td>
-              <td>name</td>
-              <td>pv</td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="banner">
+          <img src="../img/theFirstStoryBanner.jpg">
+        </div>
 
-          <p class="btn"><a href="./editingPostBoard.do?type=01">글쓰기</a></p>
+        <div id="table_body">
         </div>
 
         <!--페이징-->
@@ -165,7 +140,7 @@
     var data = {
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
-      type : "01",
+      type : "04",
       search_type : $("#content_search_option option:selected").val(),
       search_word : search_word
     };
@@ -181,17 +156,23 @@
         for (var i = 0; i < data.length; i++) {
           var getList = data[i];
 
-          str +=  '<tr>\n' +
-                  '<td>'+getList.seq+'</td>\n'
-          str +=  '<td>'+getList.title;
-          str +=  getList.comment==0?'':'['+getList.comment+']';
-          str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
-          str +=  '</td>\n'
-          str +=  '<td>'+getList.reg_dt+'</td>\n'
-          str +=  '<td>'+getList.name+'</td>\n'
-          str +=  '<td>'+getList.pv+'</td>\n' +
-                  '</tr>';
+          str +=  '<div class="box">\n';
+          str +=  '<img src="../img/img.jpg">\n';
+          str +=  '<div class="txt">\n';
+          str +=  '<div id="'+ getList.seq +'" class="seq" style="display: none"></div>\n';
+          str +=  '<h4>\n' +
+                  getList.title
+          str +=  '</h4>\n';
+          str +=  '<span>\n' +
+                  getList.content
+          str +=  '</span>\n';
+          str +=  '<span class="txt_name">\n' +
+                  getList.name + ' | ' + getList.reg_dt
+          str +=  '</span>\n';
+          str +=  '</div>\n';
+          str +=  '</div>\n';
         }
+
         $('#table_body').html(str);
         table_click_function();
 
@@ -229,10 +210,8 @@
     }
 
     function table_click_function(){
-      $("#table tr").click(function() {
-        console.log($(this).children().eq(0));
-        if($(this).children().eq(0).text() === "번호")return;
-        location.href="./readingPostBoard.do?type=01&seq=" + $(this).children().eq(0).text();//게시판 이동
+      $('.box').click(function (){
+        location.href="/board/readingPostBoard.do?type=04&seq=" + $(this).children('.txt').children('.seq').attr('id');//게시판 이동
       });
     }
   }

@@ -50,86 +50,70 @@
   <%@include file="../include/quick.jsp"%>
 </section>
 
-
 <section id="sub">
   <div class="service_main">
     <div class="wrap">
-      <div class="left for" id="setting_menu">
-        <h2></h2>
-        <div></div>
+      <div class="left for">
+        <h2>커뮤니티</h2>
+        <div>
+          <a href="./bulletin.do">자유게시판</a>
+          <a href="./winPrayer.do">당첨기원게시판</a>
+          <a href="./debateRoom.do" class="on">토론방</a>
+          <a href="./theFirstStory.do">1등당첨자이야기</a>
+        </div>
       </div>
       <div class="content">
         <div class="head">
-          <h2 id="board_title">title</h2>
+          <h2>토론방</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
-            <img src="../img/arrow.png"><a href="#" id="board_type_group_name">type_group_name</a>
-            <img src="../img/arrow.png"><a href="#" id="board_type_name"> type_name</a>
+            <a href="#"><img src="../img/arrow.png"> 커뮤니티</a>
+            <a href="#"><img src="../img/arrow.png"> 토론방</a>
           </h5>
         </div>
-        <div id="table">
-          <div class="service_alert">
-            <form action="#" name="service_alert" class="title">
-              <dl>
-                <dt id="title">title</dt>
-                <p><span id="name">name</span><span id="reg_dt" class="day">reg_dt</span></p>
-                <dd id="content">content</dd>
-                <div class="filebox">
-                  <label for="file">첨부파일</label>
-                  <input type="file" id="file">
-                  <input class="upload-name" value="test.txt">
-                </div>
-              </dl>
-            </form>
 
-            <script>
-              $("#file").on('change', function() {
-                var fileName = $("#file").val();
-                $(".upload-name").val(fileName);
-              });
-            </script>
+        <div class="table">
+          <table id="table" style="border-spacing:0px">
+            <colgroup>
+              <col width="75">
+              <col width="*">
+              <col width="100">
+              <col width="70">
+              <col width="100">
+            </colgroup>
+            <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성일</th>
+              <th>작성자</th>
+              <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody id="table_body">
+            </tbody>
+          </table>
 
-            <div class="service_alert_list">
-              <span><a href="javascript:history.back()">목록</a></span>
-              <ul>
-                <li><a href="#">답글</a></li>
-                <li><a href="#">수정</a></li>
-                <li><a href="#">삭제</a></li>
-              </ul>
-            </div>
-            <div id="comment">
-              <div class="comment">
-                <h6>댓글<span id="comment_cnt">[comment]</span>개</h6>
-                <span class="comment focus">인기순</span>
-                <span class="comment2">최신순</span>
-                <form action="#" name="comment" class="com">
-                  <input type="text" name="comment">
-                  <input type="submit" value="댓글등록">
-                </form>
-                <div id= "comment_list">
-                </div>
-              </div>
-
-              <!--페이징-->
-              <div class="list_btn" style="text-align: center;"></div>
-              <!-- 리스트 게시판 끝-->
-
-              <table style="border-spacing:0px" ;="">
-                <tbody>
-                <tr>
-                  <th><a href="#">이전글<img src="../img/service_alert_top_btn.png"></a></th>
-                  <td><a href="#">제목입니다.</a></td>
-                </tr>
-                <tr>
-                  <th><a href="#">다음글<img src="../img/service_alert_bttom_btn.png"></a></th>
-                  <td><a href="#">제목입니다.</a></td>
-                </tr>
-                </tbody>
-              </table>
-              <img src="../img/theFirstStoryBanner.jpg" class="banner">
-            </div>
-          </div>
+          <p class="btn"><a href="/board/editingPostBoard.do?type=03">글쓰기</a></p>
         </div>
+
+        <!--페이징-->
+        <div class="list_btn" style="text-align: center;"></div>
+        <!-- 리스트 게시판 끝-->
+
+        <form id="service_select" onsubmit="return false">
+          <select id="content_search_option">
+            <option value="all">전체</option>
+            <option value="title">제목</option>
+            <option value="content">내용</option>
+            <option value="title_content">제목+내용</option>
+            <option value="writer">작성자</option>
+          </select>
+          <div id="search_button" class="find">
+            <input id="search_text" type="text" placeholder="검색어를 입력하세요." onkeypress="if(event.keyCode==13)find_board_contents()">
+            <button type='button' value="검색" onclick="find_board_contents()"/><img src="../img/find.png"></button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -139,18 +123,16 @@
 
 <script type="text/javascript">
   //최초 진입 시 페이징에 필요한 데이터
-  var allCnt = ${post_board}[0].comment;
+  var allCnt = ${listCnt};
   var postNumBaseCnt = ${postNumBaseCnt};
   var pageNumBaseCnt = ${pageNumBaseCnt};
   var allPage = Math.ceil(allCnt / postNumBaseCnt); //페이징 몫 설정
-
-  var seq = ${post_board}[0].seq;
-  var type = "${type}";
-  var type_name = "${type_name}";
-  var type_group_name = "${type_group_name}";
-  var post_board = ${post_board}[0];
 </script>
 <script type="text/javascript">
+  $(document).ready(function() {
+    // 테이블의 Row 클릭시 값 가져오기
+  });
+
   $(function() {
     //최초 진입 init
     initNotice();
@@ -158,83 +140,53 @@
 
   //최초 게시판 출력
   function initNotice(){
-    //게시판 setting
-    $("#board_title").text(" " + type_name)
-    $("#board_type_name").text(" " + type_name)
-    $("#board_type_group_name").text(" " + type_group_name)
-    $("#title").text(post_board.title)
-    $("#name").text(post_board.name)
-    $("#content").text(post_board.content)
-    $("#reg_dt").text(post_board.reg_dt)
-    $("#comment_cnt").text(post_board.comment)
-
-    //왼쪽 게시판 메뉴,헤더 Setting
-    var str = "";
-    str +=  '<h2>'+type_group_name+'</h2>\n';
-    if(type==="01" || type==="02" || type==="03" || type==="04"){
-      str +=  '<div>\n' +
-              '<a href="./bulletin.do"';
-      str +=  type==="01" ? 'class="on"' : '';
-      str +=  '>자유게시판</a>' +
-              '<a href="./winPrayer.do"';
-      str +=  type==="02" ? 'class="on"' : '';
-      str +=  '>당첨기원게시판</a>' +
-              '<a href="./debateRoom.do"';
-      str +=  type==="03" ? 'class="on"' : '';
-      str +=  '>토론방</a>' +
-              '<a href="./theFirstStory.do"';
-      str +=  type==="04" ? 'class="on"' : '';
-      str +=  '>1등당첨자이야기</a>';
-      str +=  '</div>';
-    }
-    else if(type==="11" || type==="12"){
-      str +=  '<div>' +
-              '<a href="./notice.do"';
-      str +=  type==="11" ? 'class="on"' : '';
-      str +=  '>공지사항</a>' +
-              '<a href="./mattersForInquiry.do"';
-      str +=  type==="12" ? 'class="on"' : '';
-      str +=  '>1:1문의하기</a>';
-      str +=  '</div>';
-    }
-    $('#setting_menu').html(str);
-
     //페이징 호출
+    find_board_contents();
+  }
+
+  function find_board_contents() {
     paging(1);
   }
 
   //페이징 버튼 클릭시 작동
   function paging(currentPage) {
-    if(allPage<1)currentPage=1; //버튼이 첫 페이지 아래로 설정된 경우 첫 페이지로 변경
+    if(currentPage<1)currentPage=1; //버튼이 첫 페이지 아래로 설정된 경우 첫 페이지로 변경
     else if(currentPage>allPage)currentPage=allPage; //버튼이 마지막 페이지 초과로 설정된 경우 마지막 페이지로 변경
+
+    var search_word = $("#search_text").val()==""? "%" : $("#search_text").val();
 
     var data = {
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
-      type : type,
-      seq : seq
+      type : "03",
+      search_type : $("#content_search_option option:selected").val(),
+      search_word : search_word
     };
 
     $.ajax({
       type: 'POST',
       contentType: "application/json",
       dataType: 'json',
-      url: '/board/searchBoardCommentContent.do',
+      url: '/board/searchBoardContent.do',
       data: JSON.stringify(data),
       success: function (data) {
         var str = "";
         for (var i = 0; i < data.length; i++) {
           var getList = data[i];
-          console.log(getList.content);
-          str +=  '<dl class="comment_list">\n';
-          str +=  '<dt>\n'+ '<img src="../img/humen.png">' + getList.name + '</dt>\n';
-          str +=  '<dd>\n'+ '<span>' + getList.reg_dt + '</span>\n' + '<span>' + getList.reg_dt_hms + '</span>' +
-                  '<span><a href="#">' + '수정' + '</a></span>\n' + '<span class="delete"><a href="#">' + '삭제' + '</a></span></dd>\n';
-          str +=  '<dd class="txt">' + getList.content + '</dd>\n';
-          str +=  '<p><img src="../img/good.png">' + 35 + '</p>\n';
-          str +=  '</dl>';
+
+          str +=  '<tr>\n' +
+                  '<td>'+getList.seq+'</td>\n'
+          str +=  '<td>'+getList.title;
+          str +=  getList.comment==0?'':'['+getList.comment+']';
+          str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
+          str +=  '</td>\n'
+          str +=  '<td>'+getList.reg_dt+'</td>\n'
+          str +=  '<td>'+getList.name+'</td>\n'
+          str +=  '<td>'+getList.pv+'</td>\n' +
+                  '</tr>';
         }
-        $('#comment_list').html(str);
+        $('#table_body').html(str);
+        table_click_function();
 
         pagination(currentPage,data);
       },
@@ -267,6 +219,12 @@
               '<span class="next"><a href="javascript:paging('+allPage+')")"><img src="../img/next_02.jpg"></a></span>';
 
       $('.list_btn').html(pagingHtml);
+    }
+
+    function table_click_function(){
+      $("#table tr").click(function() {
+        location.href="/board/readingPostBoard.do?type=03&seq=" + $(this).children().eq(0).text();//게시판 이동
+      });
     }
   }
 </script>

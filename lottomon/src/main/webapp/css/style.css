@@ -5,7 +5,7 @@
 #sub .list div a { display:block; border:1px solid #ccc; border-bottom:none; box-sizing:border-box;}
 #sub .list div a:last-child { border-bottom:1px solid #ccc; }
 #sub .list div a p { padding:15px 0 15px 15px; width:200px; position:relative; }
-#sub .list div .pocus { background:#2e68bf; color:#fff; background-image:url("../img/arrow2.png"); background-repeat:no-repeat; border:1px solid #2e68bf;
+#sub .list div .focus { background:#2e68bf; color:#fff; background-image:url("../img/arrow2.png"); background-repeat:no-repeat; border:1px solid #2e68bf;
   background-position:200px center; }
 #sub .wrap1000 .head { padding-bottom:30px; border-bottom:1px solid #dedede; margin-bottom:30px; }
 #sub .wrap1000 .head h2 { display:inline-block; vertical-align:top;}
@@ -45,7 +45,7 @@
 #sub  .list_btn span a { display:block; }
 #sub  .list_btn .on { background:#0c5f9a; }
 #sub  .list_btn .on a { color:#fff; }
-#sub  .list_btn .btn_pocus a { color:#fff; }
+#sub  .list_btn .btn_focus a { color:#fff; }
 #sub #service_select { text-align:center; }
 /*�떦泥④껐怨�*****�걹*****************************************/
 
@@ -165,6 +165,7 @@
 #sub .service_main .table table tr td:first-child + td + td + td +td { width:85px; }
 #sub .service_main .btn { text-align:right; margin-top:15px; }
 #sub .service_main .btn a { display:inline-block; background:#2e68bf; color:#fff; padding:7px 25px; }
+#sub .service_main .p { background:#f8f8f8; padding:17px 0; text-align:center; font-size:15px; margin-bottom:15px; color:#505050; }
 #sub .service_main #service_select { margin-top:20px; }
 #sub .service_main .find { overflow:hidden; vertical-align:middle;}
 #sub .service_main .find select { height:auto; }
@@ -189,8 +190,8 @@
 #sub .service_alert .comment h6 { font-size:15px; padding:45px 0 15px 0; border-bottom:1px solid #dedede; }
 #sub .service_alert .comment h6 span { color:#2e68bf;}
 #sub .service_alert .comment > span { border:1px solid #bbbbbb; color:#bbbbbb; background:#fff; padding:10px 37px; margin:10px 0;}
-#sub .service_alert .comment .pocus { border:none; background:#6e6e6e; color:#fff;}
-#sub .service_alert .comment .ajax, #sub .service_alert .comment .ajax2
+#sub .service_alert .comment .focus { border:none; background:#6e6e6e; color:#fff;}
+#sub .service_alert .comment .comment, #sub .service_alert .comment .comment2
  { cursor:pointer; }
 #sub .service_alert .comment .com { overflow:hidden; }
 #sub .service_alert .comment .com input { float:left; height:100px;  }
@@ -215,7 +216,7 @@
 #sub .service_alert table tr th { box-sizing:border-box; float:left; width:12%;  background:#f4f7f8; border-right:1px solid #dedede; }
 #sub .service_alert table tr th img { margin-left:10px; vertical-align:middle; }
 #sub .service_alert table tr td { box-sizing:border-box; width:88%; float:left; border-bottom:1px solid #dedede; }
-#sub .service_alert .bener { width:100%; }
+#sub .service_alert .banner { width:100%; }
 #sub .service_alert .filebox { text-align:left; }
 #sub .service_alert .filebox label { margin-left:0; }
 
@@ -305,23 +306,23 @@
 
 
 /********************而ㅻ�ㅻ땲�떚******************/
-#sub .community_one .bener img { width:100%; }
-#sub .community_one .box { overflow:hidden; border:1px solid #ccc; height:160px; display:flex; margin-top:20px; }
-#sub .community_one .box h4 { font-size:16px; margin-bottom:10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-#sub .community_one .box span { font-size:14px; text-overflow:ellipsis; overflow:hidden; display:inline-block; white-space: normal; line-height:20px; height:60px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; }
-#sub .community_one .box .txt_name { display:block; color:#505050; font-size:13px; position:absolute; bottom:-25px; }
-#sub .community_one .box img { display:inline-block; background:#ccc;}
-#sub .community_one .box .txt { cursor:pointer; display:inline-block; padding:10px 20px 0 10px; box-sizing:border-box; overflow:hidden; position:relative;}
-#sub .community_one .box .txt a { display:block; }
-#sub .community_one form { width:100%; text-align:center; }
-#sub .community_one .list_btn { margin-bottom:20px; }
-#sub .community_one .btn { text-align:right; margin-top:20px; }
-#sub .community_one .btn a { background:#2e68bf; color:#fff; padding:5px 20px; }
-#sub .community_one .find { overflow:hidden; vertical-align:middle;}
-#sub .community_one .find select { height:auto; }
-#sub .community_one .find input[type=text] { float:left; width:95%; border:none; height:100%;  padding:12px 10px; outline:none; }
-#sub .community_one .find button { float:left; width:5%; cursor:pointer; }
-#sub .community_one .find button img { margin-top:9px; }
+#sub .service_main .banner img {width: 100%;}
+#sub .service_main .box { overflow:hidden; border:1px solid #ccc; height:160px; display:flex; margin-top:20px; }
+#sub .service_main .box h4 { font-size:16px; margin-bottom:10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+#sub .service_main .box span { font-size:14px; text-overflow:ellipsis; overflow:hidden; display:inline-block; white-space: normal; line-height:20px; height:60px; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; }
+#sub .service_main .box .txt_name { display:block; color:#505050; font-size:13px; position:absolute; bottom:-25px; }
+#sub .service_main .box img { display:inline-block; background:#ccc;}
+#sub .service_main .box .txt { cursor:pointer; display:inline-block; padding:10px 20px 0 10px; box-sizing:border-box; overflow:hidden; position:relative;}
+#sub .service_main .box .txt a { display:block; }
+#sub .service_main form { width:100%; text-align:center; }
+#sub .service_main .list_btn { margin-bottom:20px; }
+#sub .service_main .btn { text-align:right; margin-top:20px; }
+#sub .service_main .btn a { background:#2e68bf; color:#fff; padding:5px 20px; }
+#sub .service_main .find { overflow:hidden; vertical-align:middle;}
+#sub .service_main .find select { height:auto; }
+#sub .service_main .find input[type=text] { float:left; width:95%; border:none; height:100%;  padding:12px 10px; outline:none; }
+#sub .service_main .find button { float:left; width:5%; cursor:pointer; }
+#sub .service_main .find button img { margin-top:9px; }
 
 /********************移대�ㅻ땲�떚******�걹************/
 
@@ -445,8 +446,8 @@
  #sub .wrap .left div a span { display:none;}
  #sub .wrap1000 { position:static; width:70%; float:right; padding-right:50px; box-sizing:border-box; }
  #sub .wrap1000 .head { padding-bottom:20px; margin-bottom:25px; }
- #sub .community_one .box { height:132px; }
- #sub .community_one .box span { -webkit-line-clamp: 2; height:40px;}
+ #sub .service_main .box { height:132px; }
+ #sub .service_main .box span { -webkit-line-clamp: 2; height:40px;}
  #sub .membership .box_vip div .txt { padding:15px 10px; }
  /* �궡�젙蹂댁닔�젙 */
  #sub .mylotto_fix .fix .account input { width:300px; height:40px; }
@@ -472,7 +473,7 @@
  #sub .member_go .sign_Up span { margin:0 20px; }
  #sub .member_go .seolmyeong p { font-size:16px; margin:15px 0;}
 /* 1�벑 �떦泥⑥옄�씠�빞湲� */
- #sub .community_one .box .txt_name { bottom:-15px; }
+ #sub .service_main .box .txt_name { bottom:-15px; }
 /* 寃뚯떆�뙋 �긽�꽭 */
  #sub .service_alert .comment .com input[type=text] { width:80%; }
  #sub .service_alert .comment .com input[type=submit] { width:20%; }
@@ -507,7 +508,7 @@
   #sub div .list { width:100%; margin-bottom:60px; position:static; }
   #sub div .list div a { float:left; width:50%; box-sizing: border-box;}
   #sub .list h2 { text-align:center; }
-  #sub .list div .pocus { background-position:95% center; }
+  #sub .list div .focus { background-position:95% center; }
   /* 硫ㅻ쾭�돺 */
   #sub .membership .box_vip div .txt span { font-size:13px;}
   #sub .membership_login .login_box { padding:30px 0;}
@@ -525,11 +526,11 @@
 /* 1�벑 �떦泥⑥옄�씠�빞湲� */
   #sub  select { width:100%; margin-bottom:0px;  }
   #sub .find { width:100%; box-sizing:border-box; }
-  #sub .community_one .box { height:110px; }
-  #sub .community_one .box .txt { padding:10px 5px 0px 5px;}
-  #sub .community_one .box h4 { margin-bottom:3px; font-size:14px; }
-  #sub .community_one .box span { font-size:11px; }
-  #sub .community_one .box .txt_name { margin-top:10px; font-size:10px;}
+  #sub .service_main .box { height:110px; }
+  #sub .service_main .box .txt { padding:10px 5px 0px 5px;}
+  #sub .service_main .box h4 { margin-bottom:3px; font-size:14px; }
+  #sub .service_main .box span { font-size:11px; }
+  #sub .service_main .box .txt_name { margin-top:10px; font-size:10px;}
   /* 硫ㅻ쾭�떗寃곗젣 */
   #sub .membership .box_vip div .txt { padding:15px 5px;}
 
@@ -604,7 +605,7 @@
   #sub .winning .table h3 { padding:35px 0 20px 0; }
   #sub .winning .result > div h6 { font-size:17px; }
 
-  #sub .community_one .find { margin-top:10px; }
+  #sub .service_main .find { margin-top:10px; }
   #sub .mylotto h6 { font-size:14px; padding:9px 0;}
   #sub .mylotto .mylotto_box_now h6 span { padding:2px 10px; }
   #sub .mylotto .lotto-numder { padding:10px 0; }
@@ -635,7 +636,7 @@
  { display: inline-block;}
  #sub .list_btn .prev,#sub .list_btn .next { width:11.1%}
  #sub .list_btn span { width:11.1%; margin:0; box-sizing:border-box; height:auto}
- #sub .list div .pocus { background-position:90% center; }
+ #sub .list div .focus { background-position:90% center; }
   /* 濡쒕삉�떦泥④껐怨� */
   #sub .list h2 { margin-bottom:10px; }
   #sub .winning .result > div h6,
@@ -759,7 +760,7 @@
   #sub .service_alert .service_alert_list span { padding:5px 10px; }
   #sub .service_alert .service_alert_list ul li { padding:5px 10px; font-size:13px; }
   #sub .service_alert .comment > span { width:49%; box-sizing:border-box; text-align:center;}
-  #sub .service_alert .comment > .pocus {}
+  #sub .service_alert .comment > .focus {}
   #sub .service_alert .comment .com { clear:right; }
   #sub .service_alert .comment .com input { height:60px; }
   #sub input[type=submit] { font-size:12px; }

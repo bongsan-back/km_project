@@ -106,8 +106,8 @@
             <div id="ajax">
               <div class="comment">
                 <h6>댓글<span>[287]</span>개</h6>
-                <span class="ajax pocus">인기순</span>
-                <span class="ajax2">최신순</span>
+                <span class="comment focus">인기순</span>
+                <span class="comment2">최신순</span>
                 <form action="#" name="comment" class="com">
                   <input type="text" name="comment">
                   <input type="submit" value="댓글등록">
@@ -142,7 +142,7 @@
                 </tr>
                 </tbody>
               </table>
-              <img src="../img/1st_story_bener.jpg" class="bener">
+              <img src="../img/theFirstStoryBanner.jpg" class="bavver">
             </div>
           </div>
         </div>

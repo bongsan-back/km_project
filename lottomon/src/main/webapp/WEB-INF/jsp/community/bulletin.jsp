@@ -56,19 +56,19 @@
       <div class="left for">
         <h2>커뮤니티</h2>
         <div>
-          <a href="./bulletin.do">자유게시판</a>
+          <a href="./bulletin.do" class="on">자유게시판</a>
           <a href="./winPrayer.do">당첨기원게시판</a>
           <a href="./debateRoom.do">토론방</a>
-          <a href="./theFirstStory.do" class="on">1등당첨자이야기</a>
+          <a href="./theFirstStory.do">1등당첨자이야기</a>
         </div>
       </div>
       <div class="content">
         <div class="head">
-          <h2>1등당첨자이야기</h2>
+          <h2>자유게시판</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
             <a href="#"><img src="../img/arrow.png"> 커뮤니티</a>
-            <a href="#"><img src="../img/arrow.png"> 1등당첨자이야기</a>
+            <a href="#"><img src="../img/arrow.png"> 자유게시판</a>
           </h5>
         </div>
 
@@ -91,17 +91,10 @@
             </tr>
             </thead>
             <tbody id="table_body">
-            <tr>
-              <td>no</td>
-              <td>title</td>
-              <td>date</td>
-              <td>name</td>
-              <td>pv</td>
-            </tr>
             </tbody>
           </table>
 
-          <p class="btn"><a href="./editingPostBoard.do?type=04">글쓰기</a></p>
+          <p class="btn"><a href="/board/editingPostBoard.do?type=01">글쓰기</a></p>
         </div>
 
         <!--페이징-->
@@ -165,7 +158,7 @@
     var data = {
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
-      type : "04",
+      type : "01",
       search_type : $("#content_search_option option:selected").val(),
       search_word : search_word
     };
@@ -230,7 +223,9 @@
 
     function table_click_function(){
       $("#table tr").click(function() {
-        location.href="./readingPostBoard.do?type=04&seq=" + $(this).children().eq(0).text();//게시판 이동
+        console.log($(this).children().eq(0));
+        if($(this).children().eq(0).text() === "번호")return;
+        location.href="/board/readingPostBoard.do?type=01&seq=" + $(this).children().eq(0).text();//게시판 이동
       });
     }
   }

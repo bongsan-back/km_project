@@ -57,18 +57,18 @@
         <h2>커뮤니티</h2>
         <div>
           <a href="./bulletin.do">자유게시판</a>
-          <a href="./winPrayer.do">당첨기원게시판</a>
-          <a href="./debateRoom.do" class="on">토론방</a>
+          <a href="./winPrayer.do" class="on">당첨기원게시판</a>
+          <a href="./debateRoom.do">토론방</a>
           <a href="./theFirstStory.do">1등당첨자이야기</a>
         </div>
       </div>
       <div class="content">
         <div class="head">
-          <h2>토론방</h2>
+          <h2>당첨기원게시판</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
             <a href="#"><img src="../img/arrow.png"> 커뮤니티</a>
-            <a href="#"><img src="../img/arrow.png"> 토론방</a>
+            <a href="#"><img src="../img/arrow.png"> 당첨기원게시판</a>
           </h5>
         </div>
 
@@ -91,17 +91,10 @@
             </tr>
             </thead>
             <tbody id="table_body">
-            <tr>
-              <td>no</td>
-              <td>title</td>
-              <td>date</td>
-              <td>name</td>
-              <td>pv</td>
-            </tr>
             </tbody>
           </table>
 
-          <p class="btn"><a href="./editingPostBoard.do?type=03">글쓰기</a></p>
+          <p class="btn"><a href="/board/editingPostBoard.do?type=02">글쓰기</a></p>
         </div>
 
         <!--페이징-->
@@ -165,7 +158,7 @@
     var data = {
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
-      type : "03",
+      type : "02",
       search_type : $("#content_search_option option:selected").val(),
       search_word : search_word
     };
@@ -230,7 +223,7 @@
 
     function table_click_function(){
       $("#table tr").click(function() {
-        location.href="./readingPostBoard.do?type=03&seq=" + $(this).children().eq(0).text();//게시판 이동
+        location.href="/board/readingPostBoard.do?type=02&seq=" + $(this).children().eq(0).text();//게시판 이동
       });
     }
   }

@@ -15,6 +15,9 @@ public class Board {
 	private String update_dt; //게시글 수정일자
 	private String priority; //게시글 우선순위
 
+	private Integer comment; //댓글 수
+	private String reg_dt_hms; //댓글 시간
+
 	//Get RequestBody
 	private Integer current_page; //현재 선택된 페이지
 	private Integer post_num_base_cnt; //기본 게시글 페이징 수

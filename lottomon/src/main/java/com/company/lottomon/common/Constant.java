@@ -27,11 +27,12 @@ public class Constant {
 	}
 	
 	public enum boardCodeType {
-		BULLETIN("01"),			// 자유게시판
-		WINPRAYER("02"),		// 당첨기원
+		BULLETIN("01"),				// 자유게시판
+		WINPRAYER("02"),			// 당첨기원
 		DEBATEROOM("03"),  			// 토론방
-		THEFIRSTSTORY("04"),	// 당첨자이야기
-		NOTICE("05");			// 공지사항
+		THEFIRSTSTORY("04"),		// 당첨자이야기
+		NOTICE("11"),				// 공지사항
+		MATTERSFORINQUIRY("12");	// 1:1문의하기
 		boardCodeType(String type) {
 			this.type = type;
 		}
@@ -47,6 +48,22 @@ public class Constant {
 			case "02": return "당첨기원게시판";
 			case "03": return "토론방";
 			case "04": return "1등당첨자이야기";
+			case "11": return "공지사항";
+			case "12": return "1:1문의하기";
+			default: return "기타";
+		}
+	}
+
+	public static String boardCodeTypeGroupName(String boardType) {
+		switch (boardType){
+			case "01":
+			case "02":
+			case "03":
+			case "04":
+				return "커뮤니티";
+			case "11":
+			case "12":
+				return "고객센터";
 			default: return "기타";
 		}
 	}
