@@ -42,6 +42,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+			model.addAttribute("type", Constant.boardCodeType.BULLETIN.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -63,6 +64,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+			model.addAttribute("type", Constant.boardCodeType.WINPRAYER.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -84,6 +86,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+			model.addAttribute("type", Constant.boardCodeType.DEBATEROOM.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -105,6 +108,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+			model.addAttribute("type", Constant.boardCodeType.THEFIRSTSTORY.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -126,6 +130,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+			model.addAttribute("type", Constant.boardCodeType.NOTICE.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -147,6 +152,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
+			model.addAttribute("type", Constant.boardCodeType.MATTERSFORINQUIRY.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

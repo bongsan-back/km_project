@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="/css/swiper-min.css" />
   <script src="/js/swiper.min.js"></script>
   <script src="/js/common.js"></script>
+  <script src="/js/menu.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/font.css" />
   <link rel="stylesheet" type="text/css" href="/css/common.css" />
   <link rel="stylesheet" type="text/css" href="/css/layout.css" />
@@ -63,8 +64,8 @@
           <h2 id="board_title">title</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
-            <img src="../img/arrow.png"><a href="#" id="board_type_group_name">type_group_name</a>
-            <img src="../img/arrow.png"><a href="#" id="board_type_name"> type_name</a>
+            <img src="../img/arrow.png"><a href="javascript:goToCategoryMenu(type)" id="board_type_group_name">type_group_name</a>
+            <img src="../img/arrow.png"><a href="javascript:goToMenu(type)" id="board_type_name"> type_name</a>
           </h5>
         </div>
         <div id="table">
@@ -90,7 +91,7 @@
             </script>
 
             <div class="service_alert_list">
-              <span><a href="javascript:goToMenu()">목록</a></span>
+              <span><a href="javascript:goToMenu(type)">목록</a></span>
               <ul>
                 <li><a href="#">답글</a></li>
                 <li><a href="#">수정</a></li>
@@ -146,8 +147,8 @@
 
   var seq = ${post_board}[0].seq;
   var type = "${type}";
-  var type_name = "${type_name}";
   var type_group_name = "${type_group_name}";
+  var type_name = "${type_name}";
   var post_board = ${post_board}[0];
   var prev_seq = ${post_board}[0].prev_seq;
   var next_seq = ${post_board}[0].next_seq;
@@ -162,8 +163,8 @@
   function initNotice(){
     //게시판 setting
     $("#board_title").text(" " + type_name)
-    $("#board_type_name").text(" " + type_name)
     $("#board_type_group_name").text(" " + type_group_name)
+    $("#board_type_name").text(" " + type_name)
     $("#title").text(post_board.title)
     $("#name").text(post_board.name)
     $("#content").text(post_board.content)
@@ -280,22 +281,6 @@
               '<span class="next"><a href="javascript:paging('+allPage+')")"><img src="../img/next_02.jpg"></a></span>';
 
       $('.list_btn').html(pagingHtml);
-    }
-  }
-
-  function goToMenu(){
-    if(type==="01") {
-      location.href = "./bulletin.do";//게시판 이동
-    } else if(type==="02") {
-      location.href = "./winPrayer.do";//게시판 이동
-    } else if(type==="03") {
-      location.href = "./debateRoom.do";//게시판 이동
-    } else if(type==="04") {
-      location.href = "./theFirstStory.do";//게시판 이동
-    } else if(type==="11") {
-      location.href = "./notice.do";//게시판 이동
-    } else if(type==="12") {
-      location.href = "./mattersForInquiry.do";//게시판 이동
     }
   }
 </script>

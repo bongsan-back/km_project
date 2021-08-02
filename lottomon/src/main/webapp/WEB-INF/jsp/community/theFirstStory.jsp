@@ -30,6 +30,7 @@
 
   <link rel="stylesheet" href="/css/swiper-min.css" />
   <script src="/js/swiper.min.js"></script>
+  <script src="/js/menu.js"></script>
   <script src="/js/common.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/font.css" />
   <link rel="stylesheet" type="text/css" href="/css/common.css" />
@@ -67,8 +68,8 @@
           <h2>1등당첨자이야기</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
-            <a href="#"><img src="../img/arrow.png"> 커뮤니티</a>
-            <a href="#"><img src="../img/arrow.png"> 1등당첨자이야기</a>
+            <a href="javascript:goToCategoryMenu(type)"><img src="../img/arrow.png"> 커뮤니티</a>
+            <a href="javascript:goToMenu(type)"><img src="../img/arrow.png"> 1등당첨자이야기</a>
           </h5>
         </div>
 
@@ -113,6 +114,7 @@
   var postNumBaseCnt = ${postNumBaseCnt};
   var pageNumBaseCnt = ${pageNumBaseCnt};
   var allPage = Math.ceil(allCnt / postNumBaseCnt); //페이징 몫 설정
+  var type = "${type}";
 </script>
 <script type="text/javascript">
   $(document).ready(function() {
