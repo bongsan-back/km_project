@@ -49,7 +49,11 @@
 				A.content,
 				B.name,
 				DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
-				(SELECT COUNT(*) FROM board_comment C WHERE A.seq = C.board_seq) AS comment
+				(SELECT COUNT(*) FROM board_comment C WHERE A.seq = C.board_seq) AS comment,
+				(SELECT D.title FROM board D WHERE D.type= A.type AND D.seq &lt; #{seq} ORDER BY seq DESC LIMIT 1) AS prev_page_title,
+				(SELECT D.title FROM board D WHERE D.type= A.type AND D.seq &gt; #{seq} ORDER BY seq ASC LIMIT 1) AS next_page_title,
+				(SELECT D.seq FROM board D WHERE D.type= A.type AND D.seq &lt; #{seq} ORDER BY seq DESC LIMIT 1) AS prev_seq,
+				(SELECT D.seq FROM board D WHERE D.type= A.type AND D.seq &gt; #{seq} ORDER BY seq ASC LIMIT 1) AS next_seq
 		FROM board A
 	 	LEFT JOIN user B
 	   	ON A.user_id = B.id

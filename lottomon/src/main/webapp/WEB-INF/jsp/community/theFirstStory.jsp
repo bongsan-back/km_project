@@ -79,6 +79,10 @@
         <div id="table_body">
         </div>
 
+        <div class="table">
+          <p class="btn"><a href="/board/editingPostBoard.do?type=04">글쓰기</a></p>
+        </div>
+
         <!--페이징-->
         <div class="list_btn" style="text-align: center;"></div>
         <!-- 리스트 게시판 끝-->

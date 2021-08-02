@@ -221,7 +221,6 @@
 
     function table_click_function(){
       $("#table tr").click(function() {
-        console.log($(this).children().eq(0));
         if($(this).children().eq(0).text() === "번호")return;
         location.href="/board/readingPostBoard.do?type=11&seq=" + $(this).children().eq(0).text();//게시판 이동
       });

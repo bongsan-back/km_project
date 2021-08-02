@@ -51,13 +51,13 @@
 </section>
 
 <section id="sub">
-  <div class="service">
+  <div class="service_main">
     <div class="wrap">
       <div class="left for">
         <h2>고객센터</h2>
         <div>
           <a href="./notice.do">공지사항</a>
-          <a href="./mattersForInquiry.jsp.do" class="on">1:1문의하기</a>
+          <a href="./mattersForInquiry.do" class="on">1:1문의하기</a>
         </div>
       </div>
       <div class="content">
@@ -178,7 +178,7 @@
           str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
           str +=  '</td>\n'
           str +=  '<td>'+getList.reg_dt+'</td>\n'
-          str +=  '<td>'+getList.name+'</td>\n'+
+          str +=  '<td>'+getList.name+'</td>\n' +
                   '</tr>';
         }
         $('#table_body').html(str);
@@ -219,6 +219,7 @@
 
     function table_click_function(){
       $("#table tr").click(function() {
+        if($(this).children().eq(0).text() === "번호")return;
         location.href="/board/readingPostBoard.do?type=12&seq=" + $(this).children().eq(0).text();//게시판 이동
       });
     }

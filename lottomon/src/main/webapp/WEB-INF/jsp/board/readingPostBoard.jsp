@@ -90,7 +90,7 @@
             </script>
 
             <div class="service_alert_list">
-              <span><a href="javascript:history.back()">목록</a></span>
+              <span><a href="javascript:goToMenu()">목록</a></span>
               <ul>
                 <li><a href="#">답글</a></li>
                 <li><a href="#">수정</a></li>
@@ -117,12 +117,12 @@
               <table style="border-spacing:0px" ;="">
                 <tbody>
                 <tr>
-                  <th><a href="#">이전글<img src="../img/service_alert_top_btn.png"></a></th>
-                  <td><a href="#">제목입니다.</a></td>
+                  <th><a>이전글<img src="../img/service_alert_top_btn.png"></a></th>
+                  <td id="prev_page_title"><a href="#">제목입니다.</a></td>
                 </tr>
                 <tr>
-                  <th><a href="#">다음글<img src="../img/service_alert_bttom_btn.png"></a></th>
-                  <td><a href="#">제목입니다.</a></td>
+                  <th><a>다음글<img src="../img/service_alert_bttom_btn.png"></a></th>
+                  <td id="next_page_title"><a href="#">제목입니다.</a></td>
                 </tr>
                 </tbody>
               </table>
@@ -149,6 +149,8 @@
   var type_name = "${type_name}";
   var type_group_name = "${type_group_name}";
   var post_board = ${post_board}[0];
+  var prev_seq = ${post_board}[0].prev_seq;
+  var next_seq = ${post_board}[0].next_seq;
 </script>
 <script type="text/javascript">
   $(function() {
@@ -167,7 +169,6 @@
     $("#content").text(post_board.content)
     $("#reg_dt").text(post_board.reg_dt)
     $("#comment_cnt").text(post_board.comment)
-
     //왼쪽 게시판 메뉴,헤더 Setting
     var str = "";
     str +=  '<h2>'+type_group_name+'</h2>\n';
@@ -199,6 +200,19 @@
     }
     $('#setting_menu').html(str);
 
+    var page_str = "";
+    var page_link = "";
+
+    page_str = post_board.prev_page_title === undefined ? '이전글이 없습니다.' : post_board.prev_page_title;
+    page_link = prev_seq === undefined ? '<a>' : '<a href=' + "/board/readingPostBoard.do?type=" + type + "&seq=" + prev_seq + '>';
+    $('#prev_page_title').html(page_link + page_str + '</a>')
+
+    page_str = post_board.next_page_title === undefined ? '다음글이 없습니다.' : post_board.next_page_title;
+    page_link = next_seq === undefined ? '<a>' : '<a href=' + "/board/readingPostBoard.do?type=" + type + "&seq=" + next_seq + '>';
+    $('#next_page_title').html(page_link + page_str + '</a>')
+
+
+
     //페이징 호출
     paging(1);
   }
@@ -225,7 +239,6 @@
         var str = "";
         for (var i = 0; i < data.length; i++) {
           var getList = data[i];
-          console.log(getList.content);
           str +=  '<dl class="comment_list">\n';
           str +=  '<dt>\n'+ '<img src="../img/humen.png">' + getList.name + '</dt>\n';
           str +=  '<dd>\n'+ '<span>' + getList.reg_dt + '</span>\n' + '<span>' + getList.reg_dt_hms + '</span>' +
@@ -267,6 +280,22 @@
               '<span class="next"><a href="javascript:paging('+allPage+')")"><img src="../img/next_02.jpg"></a></span>';
 
       $('.list_btn').html(pagingHtml);
+    }
+  }
+
+  function goToMenu(){
+    if(type==="01") {
+      location.href = "./bulletin.do";//게시판 이동
+    } else if(type==="02") {
+      location.href = "./winPrayer.do";//게시판 이동
+    } else if(type==="03") {
+      location.href = "./debateRoom.do";//게시판 이동
+    } else if(type==="04") {
+      location.href = "./theFirstStory.do";//게시판 이동
+    } else if(type==="11") {
+      location.href = "./notice.do";//게시판 이동
+    } else if(type==="12") {
+      location.href = "./mattersForInquiry.do";//게시판 이동
     }
   }
 </script>
