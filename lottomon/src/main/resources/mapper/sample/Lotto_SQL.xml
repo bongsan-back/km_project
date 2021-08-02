@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lotto">
+
+	<select id="select" resultType="com.company.lottomon.model.LottoData">
+		<![CDATA[
+		SELECT *, MAX(drwNo) AS last_drwNo FROM lotto_data WHERE drwNo = (SELECT MAX(drwNo) FROM lotto_data)
+		]]>
+	</select>
+
+	<select id="selectNo" parameterType="map" resultType="com.company.lottomon.model.LottoData">
+		<![CDATA[
+		SELECT * FROM lotto_data WHERE drwNo = #{drwNo}
+		]]>
+	</select>
+</mapper>

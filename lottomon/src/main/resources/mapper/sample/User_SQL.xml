@@ -50,6 +50,13 @@
 			AND nickname = #{nickname}
 		</if>
 	</select>
+
+	<select id="getUserInfo" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
+		<![CDATA[
+		SELECT * FROM user WHERE
+			id = #{id}
+		]]>
+	</select>
 	
 	<select id="loginProc" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
 		<![CDATA[

@@ -16,6 +16,7 @@
 
 /* 메인 */
 /*로또 번호 공*/
+.yellow { background: #fbc400; }
 .red { background:#f05553; }
 .orange { background:#e38a2c; }
 .green { background:#68be56; }
@@ -216,7 +217,7 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
 @media screen and (max-width:1200px) {
   .main { margin-top:30px; }
   .main .main-1 .swiper-wrapper .swiper-slide h3 { font-size:18px; }
-  .main .main-1 .swiper-wrapper .swiper-slide h3 span { font-weight:25px; }
+  .main .main-1 .swiper-wrapper .swiper-slide h3 span { font-weight:600; }
   .lotto-numder .plus { width:5px; height:5px; }
   .lotto-numder span { width:27px; height:27px; line-height:27px; font-size:13px; }
   .main .main-contents .main-1 table colgroup col:first-child + col + col { display:none; }
@@ -288,7 +289,7 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
  .main .main-contents .main-1 div:first-child + div + div { display:none; }
 
   .main .main-1 .swiper-wrapper .swiper-slide { }
-  .main .main-contents .main-1 table th, {font-size:20px; }
+  .main .main-contents .main-1 table th {font-size:20px; }
   .main .main-2 > div:first-child { box-sizing:border-box; }
   .main .main-2 .main-2_number { border:none; }
   .main .main-2 a { font-size:15px; width:40%; }
@@ -350,7 +351,7 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
 
 #sub select { width:130px; height:42px; }
 #sub .find { width:535px; border:1px solid #dedede; display:inline-block; overflow:hidden; padding-right:10px; }
-#sub .find button { flex:right; outline:none; }
+#sub .find button { outline:none; }
 #sub input[type=submit] { color:#fff; background:#2e68bf; font-weight:600; outline:none; }
 #sub table .gray { background:#f4f7f8;}
 #sub table .gray th { background:#f4f7f8;}

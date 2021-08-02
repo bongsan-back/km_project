@@ -9,11 +9,11 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link" href="admin/user.do">
+                <a class="nav-link" href="/admin/user.do">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     회원관리
                 </a>
-                <a class="nav-link" href="admin/lotto.do">
+                <a class="nav-link" href="/admin/lotto.do">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     로또 정보 관리
                 </a>

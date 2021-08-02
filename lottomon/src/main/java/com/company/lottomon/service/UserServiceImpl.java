@@ -30,6 +30,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public UserInfo getUserInfo(String id) {
+		return userDAO.getUserInfo(id);
+	}
+
+	@Override
 	public LoginResult loginProc(UserInfo userInfo, HttpSession session) {
 		UserInfo result = userDAO.loginProc(userInfo);
 
@@ -66,7 +71,11 @@ public class UserServiceImpl implements UserService{
 				case "99":
 					session.setAttribute("grade_name", "admin");
 					break;
+				default:
+					session.setAttribute("grade_name", "normal");
 			}
+			//세션 유지 시간 1시간
+			session.setMaxInactiveInterval(60 * 60);
 			return LoginResult.SUCCESS;
 		}else{
 			return LoginResult.NOT_MATCHE;

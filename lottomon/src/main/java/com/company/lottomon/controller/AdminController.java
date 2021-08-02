@@ -1,18 +1,14 @@
 package com.company.lottomon.controller;
 
-import com.company.lottomon.common.Constant;
 import com.company.lottomon.encrypt.AES256;
-import com.company.lottomon.model.UserInfo;
-import com.company.lottomon.result.LMServiceParam;
-import com.company.lottomon.service.UserService;
+import com.company.lottomon.service.AdminService;
 import org.apache.log4j.Logger;
+import org.apache.maven.model.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -25,8 +21,8 @@ public class AdminController {
     Logger log = Logger.getLogger(this.getClass());
 
     @Autowired
-    @Resource(name = "userService")
-    private UserService userService;
+    @Resource(name = "adminService")
+    private AdminService adminService;
 
     static private AES256 AES = new AES256("LOTTOMON01234567");
 
@@ -54,6 +50,25 @@ public class AdminController {
      */
     @RequestMapping(value = "/lotto.do", method = RequestMethod.GET)
     public String lotto(HttpServletRequest request, HttpSession session) {
+
+        return "admin/lotto";
+    }
+
+    /**
+     * 관리자 페이지 lotto 데이터 업데이트
+     */
+    @SuppressWarnings("resource")
+    @RequestMapping(value = "/lottoUpdate.do", method = RequestMethod.POST, consumes ={"multipart/form-data"})
+    public @ResponseBody Object lottoUpdate(@RequestParam(value = "lottoFile") MultipartFile excelFile, HttpSession session, Model model) throws Exception{
+        System.out.println("엑셀 파일 업로드 시작");
+
+        try {
+            adminService.insertLottoData(excelFile );
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
         return "admin/lotto";
     }

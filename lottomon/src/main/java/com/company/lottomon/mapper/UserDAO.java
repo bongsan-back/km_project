@@ -12,8 +12,8 @@ public class UserDAO {
 	@Autowired 
 	private SqlSessionTemplate sqlSession;
 	/**
-     * 게시물 추가 하기
-     * @param userInfo	추가 할 게시물 정보
+     * 유저 회원가입
+     * @param userInfo	유저 정보
      * @return
      */
     public void insert(UserInfo userInfo) {
@@ -21,8 +21,8 @@ public class UserDAO {
 	}
     
 	/**
-     * 게시물 추가 하기
-     * @param userInfo	추가 할 게시물 정보
+     * 유저 정보가 있는지 유무 (count)
+     * @param userInfo	유저 정보
      * @return
      */
     public int findUser(UserInfo userInfo) {
@@ -31,7 +31,16 @@ public class UserDAO {
 
 	/**
 	 * 로그인 확인
-	 * @param userInfo	추가 할 게시물 정보
+	 * @param id	유저 아이디
+	 * @return
+	 */
+	public UserInfo getUserInfo(String id) {
+		return sqlSession.selectOne("user.getUserInfo", id);
+	}
+
+	/**
+	 * 로그인 확인
+	 * @param userInfo	유저 정보
 	 * @return
 	 */
 	public UserInfo loginProc(UserInfo userInfo) {

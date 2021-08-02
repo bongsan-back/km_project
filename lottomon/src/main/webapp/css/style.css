@@ -16,7 +16,7 @@
 #sub .wrap1500 .wrap1000 .filebox label { display:inline-block; padding:7px 12px;  color:#fff;  vertical-align:middle;  background-color:#2e68bf;  cursor:pointer;  font-size:13px; }
 #sub .wrap1500 .wrap1000 .filebox .upload-name { display:inline-block; font-size:13px; padding:7px 12px; vertical-align:middle; border:1px solid #dedede;  background:#fff; color:#505050; outline:none; }
 /*�떦泥④껐怨�**********************************************/
-#sub .winning form select { padding:13px 10px; width:130px; color:#505050; font-size:13px; margin-bottom:20px; }
+#sub .winning form select { padding:13px 10px; width:90px; color:#505050; font-size:13px; margin-bottom:20px; }
 #sub .winning .result .result_num div span {  }
 #sub .winning .result > div { border:1px solid #dedede;}
 #sub .winning .result > div h6 { padding:20px 0; text-align:center; font-size:19px; background:#f4f7f8; }

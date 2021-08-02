@@ -13,7 +13,7 @@
     <link href="../css/adminStyles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
-<title>로또몬 관리자페이지</title>
+<title>관리자페이지</title>
 
 
 
@@ -28,24 +28,20 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">로또 관리 페이지</h1>
+                <h1 class="mt-4">관리 페이지</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">로또 관리 페이지</li>
                 </ol>
+                <form action="/admin/lottoUpdate.do" name="excleUpload" id="excleUpload" method="POST" enctype="multipart/form-data">
+                    <div>아래의 링크로 이동하여 회차별 당첨번호 엑셀다운로드 한 뒤, 업로드 버튼 클릭</div><br>
+                    <a href="https://dhlottery.co.kr/gameResult.do?method=byWin">동행복권 이동하기</a><br>
+                    <input type="file" id="lottoFile" name="lottoFile">
+                    <input type="button" value="업로드" id="addBtn">
+                </form>
+
             </div>
         </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                    <div>
-                        <a href="#">Privacy Policy</a>
-                        &middot;
-                        <a href="#">Terms &amp; Conditions</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <%@include file="./include/footer.jsp"%>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -56,4 +52,40 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="../js/datatables-simple-demo.js"></script>
 </body>
+<script>
+    $(document).ready(function(){
+
+        $("#addBtn").on('click', function(){
+            let upFile = $('#lottoFile')[0];
+
+            let form = $('#excleUpload')[0];
+            let frmData = new FormData(form);
+
+            var fileName = $("#lottoFile").val();
+
+            if(fileName.indexOf('.xls') < 0 || fileName == ''){
+                alert('동행복권에서 다운받은 xls파일만 올려주세요.');
+                return;
+            }
+
+            $.ajax({
+                enctype: 'multipart/form-data',
+                type: 'POST',
+                url: '/admin/lottoUpdate.do',
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: frmData,
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(e) {
+                    console.log(e);
+                    alert('파일업로드 실패');
+                }
+            });
+        })
+
+    })
+</script>
 </html>

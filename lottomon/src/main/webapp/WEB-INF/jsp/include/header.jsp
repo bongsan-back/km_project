@@ -80,14 +80,13 @@
                 </li>
                 <li>
                     <ul>
-                        <li><a href='/winning_seat.do'>당첨의 명당</a></li>
                         <li><a href='/winning.do'>로또당첨결과</a></li>
                     </ul>
                 </li>
                 <li>
                     <ul>
-                        <li><a href='/membership/membership.do'>멤버십 안내</a></li>
-                        <li><a href='/membership/membershipPay.do'>멤버십 결제</a></li>
+                        <li><a href='/membership.do'>멤버십 안내</a></li>
+                        <li><a href='/membershipPay.do'>멤버십 결제</a></li>
                     </ul>
                 </li>
                 <li>
@@ -102,7 +101,7 @@
                     <ul>
                         <li><a href='/mylotto.do'>이번주 나의번호</a></li>
                         <li><a href='/mylotto_payment.do'>결제내역</a></li>
-                        <li><a href='/mylotto_fix.do'>내 정보 수정</a></li>
+                        <li><a href='/myUpdate.do'>내 정보 수정</a></li>
                     </ul>
                 </li>
                 <li>
