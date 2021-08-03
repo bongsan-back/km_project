@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <title>프로젝트Sample</title>
+  <title>로또몬</title>
 
   <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
@@ -145,9 +145,6 @@
         var str = "";
         for (var i = 0; i < data.length; i++) {
           var getList = data[i];
-          console.log(getList);
-          console.log(getList.drwtNo1);
-          console.log(settingColor(getList.drwtNo1));
 
           str +=  '<h6>\n' + getList.drwNo + '회차 나의번호' + '</h6>\n';
           str +=  '<div class="lotto-number">';
@@ -156,9 +153,7 @@
           str +=  '<span class="' + settingColor(getList.drwtNo3) + '">' + getList.drwtNo3 + '</span>';
           str +=  '<span class="' + settingColor(getList.drwtNo4) + '">' + getList.drwtNo4 + '</span>';
           str +=  '<span class="' + settingColor(getList.drwtNo5) + '">' + getList.drwtNo5 + '</span>';
-          str +=  '<span class="' + settingColor(getList.drwtNo6) + '">' + getList.drwtNo6 + '</span>';
-          str +=  '<span class="plus">+</span>';
-          str +=  '<span class="' + settingColor(getList.bNusNo) + '">' + getList.bNusNo + '</span>' +
+          str +=  '<span class="' + settingColor(getList.drwtNo6) + '">' + getList.drwtNo6 + '</span>' +
                   '</div>';
         }
         $('#mylotto_box').html(str);

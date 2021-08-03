@@ -16,7 +16,6 @@
 			   A.drwtNo4,
 			   A.drwtNo5,
 			   A.drwtNo6,
-			   A.bNusNo,
 			   A.reg_dt
 		FROM my_lotto A
 		ORDER BY A.seq DESC

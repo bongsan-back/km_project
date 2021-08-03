@@ -14,7 +14,6 @@ public class MyLotto {
     private int drwtNo4; //4번째 번호
     private int drwtNo5; //5번째 번호
     private int drwtNo6; //6번째 번호
-    private int bnusNo; //보너스 번호
     private String reg_dt; //등록일
 
     //Get RequestBody
