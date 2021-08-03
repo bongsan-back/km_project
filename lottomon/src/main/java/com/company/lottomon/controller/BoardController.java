@@ -34,7 +34,7 @@ public class BoardController {
 	@RequestMapping(value = "/bulletin.do", method = RequestMethod.GET)
 	public String bulletin(Model model) {
 		Board board = new Board();
-		board.setType(Constant.boardCodeType.BULLETIN.getTypeValue()); //게시물 종류 설정
+		board.setType(Constant.menuCodeType.BULLETIN.getTypeValue()); //게시물 종류 설정
 
 		int listCnt = boardService.selectListCount(board);
 
@@ -42,7 +42,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-			model.addAttribute("type", Constant.boardCodeType.BULLETIN.getTypeValue()); //게시판 type
+			model.addAttribute("type", Constant.menuCodeType.BULLETIN.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,7 +56,7 @@ public class BoardController {
 	@RequestMapping(value = "/winPrayer.do", method = RequestMethod.GET)
 	public String winPrayer(Model model) {
 		Board board = new Board();
-		board.setType(Constant.boardCodeType.WINPRAYER.getTypeValue()); //게시물 종류 설정
+		board.setType(Constant.menuCodeType.WINPRAYER.getTypeValue()); //게시물 종류 설정
 
 		int listCnt = boardService.selectListCount(board);
 
@@ -64,7 +64,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-			model.addAttribute("type", Constant.boardCodeType.WINPRAYER.getTypeValue()); //게시판 type
+			model.addAttribute("type", Constant.menuCodeType.WINPRAYER.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -78,7 +78,7 @@ public class BoardController {
 	@RequestMapping(value = "/debateRoom.do", method = RequestMethod.GET)
 	public String debate(Model model) {
 		Board board = new Board();
-		board.setType(Constant.boardCodeType.DEBATEROOM.getTypeValue()); //게시물 종류 설정
+		board.setType(Constant.menuCodeType.DEBATEROOM.getTypeValue()); //게시물 종류 설정
 
 		int listCnt = boardService.selectListCount(board);
 
@@ -86,7 +86,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-			model.addAttribute("type", Constant.boardCodeType.DEBATEROOM.getTypeValue()); //게시판 type
+			model.addAttribute("type", Constant.menuCodeType.DEBATEROOM.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -100,7 +100,7 @@ public class BoardController {
 	@RequestMapping(value = "/theFirstStory.do", method = RequestMethod.GET)
 	public String theFirstStory(Model model) {
 		Board board = new Board();
-		board.setType(Constant.boardCodeType.THEFIRSTSTORY.getTypeValue()); //게시물 종류 설정
+		board.setType(Constant.menuCodeType.THEFIRSTSTORY.getTypeValue()); //게시물 종류 설정
 
 		int listCnt = boardService.selectListCount(board);
 
@@ -108,7 +108,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-			model.addAttribute("type", Constant.boardCodeType.THEFIRSTSTORY.getTypeValue()); //게시판 type
+			model.addAttribute("type", Constant.menuCodeType.THEFIRSTSTORY.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -122,7 +122,7 @@ public class BoardController {
 	@RequestMapping(value = "/notice.do", method = RequestMethod.GET)
 	public String notice(Model model) {
 		Board board = new Board();
-		board.setType(Constant.boardCodeType.NOTICE.getTypeValue()); //게시물 종류 설정
+		board.setType(Constant.menuCodeType.NOTICE.getTypeValue()); //게시물 종류 설정
 
 		int listCnt = boardService.selectListCount(board);
 
@@ -130,7 +130,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-			model.addAttribute("type", Constant.boardCodeType.NOTICE.getTypeValue()); //게시판 type
+			model.addAttribute("type", Constant.menuCodeType.NOTICE.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -144,7 +144,7 @@ public class BoardController {
 	@RequestMapping(value = "/mattersForInquiry.do", method = RequestMethod.GET)
 	public String mattersForInquiry(Model model) {
 		Board board = new Board();
-		board.setType(Constant.boardCodeType.MATTERSFORINQUIRY.getTypeValue()); //게시물 종류 설정
+		board.setType(Constant.menuCodeType.MATTERSFORINQUIRY.getTypeValue()); //게시물 종류 설정
 
 		int listCnt = boardService.selectListCount(board);
 
@@ -152,7 +152,7 @@ public class BoardController {
 			model.addAttribute("listCnt", listCnt); //리스트 수
 			model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-			model.addAttribute("type", Constant.boardCodeType.MATTERSFORINQUIRY.getTypeValue()); //게시판 type
+			model.addAttribute("type", Constant.menuCodeType.MATTERSFORINQUIRY.getTypeValue()); //게시판 type
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -189,8 +189,8 @@ public class BoardController {
 			model.addAttribute("postNumBaseCnt", 5); //페이지당 게시글 기본 출력 개수
 			model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
 			model.addAttribute("type", board.getType()); //페이지 종류
-			model.addAttribute("type_name", Constant.boardCodeTypeName(board.getType())); //페이지 명
-			model.addAttribute("type_group_name", Constant.boardCodeTypeGroupName(board.getType())); //카테고리 명
+			model.addAttribute("type_name", Constant.menuCodeTypeName(board.getType())); //페이지 명
+			model.addAttribute("type_group_name", Constant.menuCodeTypeGroupName(board.getType())); //카테고리 명
 			model.addAttribute("post_board", new ObjectMapper().writeValueAsString(post_board)); //페이지 내용(list)
 
 		} catch (Exception e) {
@@ -225,7 +225,7 @@ public class BoardController {
 	public String editingPostBoard(Board board, Model model) {
 		try {
 			model.addAttribute("type", board.getType());
-			model.addAttribute("type_name", Constant.boardCodeTypeName(board.getType()));
+			model.addAttribute("type_name", Constant.menuCodeTypeName(board.getType()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

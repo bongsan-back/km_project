@@ -160,7 +160,7 @@
     var data = {
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
-      type : "01",
+      type : type,
       search_type : $("#content_search_option option:selected").val(),
       search_word : search_word
     };

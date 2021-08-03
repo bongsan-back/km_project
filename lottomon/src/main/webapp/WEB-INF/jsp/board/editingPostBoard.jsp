@@ -70,7 +70,7 @@
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
             <a href="#"><img src="../img/arrow.png"> 커뮤니티</a>
-            <a href="#" id="board_type_name"><img src="../img/arrow.png"> type input공간입니다</a>
+            <a href="#" id="menu_type_name"><img src="../img/arrow.png"> type input공간입니다</a>
           </h5>
         </div>
         <div id="table">
@@ -168,7 +168,7 @@
     function initNotice(){
       //페이징 호출
       //paging(1);
-      $("#board_type_name").text(type_name)
+      $("#menu_type_name").text(type_name)
     }
 
     //페이징 버튼 클릭시 작동
@@ -179,7 +179,7 @@
       var data = {
         current_page: currentPage,
         post_num_base_cnt: postNumBaseCnt,
-        type : "01"
+        type : type
       };
 
       $.ajax({

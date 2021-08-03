@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header id="header">
-    <h1 class="rogo"><a href="/index.do"><img src="/img/rogo_pc.png"></a></h1>
+    <h1 class="logo"><a href="/index.do"><img src="/img/logo_pc.png"></a></h1>
 
     <div id="mobile">
         <div>
@@ -49,7 +49,7 @@
                 <li><a href="/winning.do">로또당첨결과</a></li>
                 <li><a href="/membership.do">멤버십안내</a></li>
                 <li><a href="/board/bulletin.do">커뮤니티</a></li>
-                <li><a href="/mylotto.do">나의로또</a></li>
+                <li><a href="/mylotto/thisWeeksNumber.do">나의로또</a></li>
                 <li><a href="/board/notice.do">고객센터</a></li>
             </ul>
         </nav>
@@ -59,13 +59,13 @@
                 <li class="rogin_m">
                     <ul>
                         <%if(session.getAttribute("user_id") != null){%>
-                            <li><a href="/member_rogin.do">로그아웃</a></li>
+                            <li><a href="/member_login.do">로그아웃</a></li>
                             <li><a href="/mypage.do">마이페이지</a></li>
                             <%if(session.getAttribute("role").equals("ADMIN")){%>
                                 <li><a href="/adminPage.do">관리자 페이지</a></li>
                             <%}%>
                         <%}else{%>
-                            <li><a href="/member_rogin.do">로그인</a></li>
+                            <li><a href="/member_login.do">로그인</a></li>
                             <li><a href="/member_go.do">회원가입</a></li>
                             <li><a href="/mypage.do">마이페이지</a></li>
                         <%}%>
@@ -99,7 +99,7 @@
                 </li>
                 <li>
                     <ul>
-                        <li><a href='/mylotto.do'>이번주 나의번호</a></li>
+                        <li><a href='/lotto/thisWeeksNumber.do'>이번주 나의번호</a></li>
                         <li><a href='/mylotto_payment.do'>결제내역</a></li>
                         <li><a href='/myUpdate.do'>내 정보 수정</a></li>
                     </ul>

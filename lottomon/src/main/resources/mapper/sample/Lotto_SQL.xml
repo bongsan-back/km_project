@@ -2,6 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="lotto">
+	<select id="selectThisWeeksNumberListCount" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+		FROM my_lotto
+	</select>
+
+	<select id="selectThisWeeksNumberList" parameterType="map" resultType="map">
+		SELECT A.seq,
+			   A.drwNo,
+			   A.drwtNo1,
+			   A.drwtNo2,
+			   A.drwtNo3,
+			   A.drwtNo4,
+			   A.drwtNo5,
+			   A.drwtNo6,
+			   A.bNusNo,
+			   A.reg_dt
+		FROM my_lotto A
+		ORDER BY A.seq DESC
+		LIMIT #{start_row_num}, #{post_num_base_cnt}
+	</select>
 
 	<select id="select" resultType="com.company.lottomon.model.LottoData">
 		<![CDATA[

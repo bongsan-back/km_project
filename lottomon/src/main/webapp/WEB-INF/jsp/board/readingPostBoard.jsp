@@ -61,11 +61,11 @@
       </div>
       <div class="content">
         <div class="head">
-          <h2 id="board_title">title</h2>
+          <h2 id="menu_title">title</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
-            <img src="../img/arrow.png"><a href="javascript:goToCategoryMenu(type)" id="board_type_group_name">type_group_name</a>
-            <img src="../img/arrow.png"><a href="javascript:goToMenu(type)" id="board_type_name"> type_name</a>
+            <img src="../img/arrow.png"><a href="javascript:goToCategoryMenu(type)" id="menu_type_group_name">type_group_name</a>
+            <img src="../img/arrow.png"><a href="javascript:goToMenu(type)" id="menu_type_name"> type_name</a>
           </h5>
         </div>
         <div id="table">
@@ -162,43 +162,16 @@
   //최초 게시판 출력
   function initNotice(){
     //게시판 setting
-    $("#board_title").text(" " + type_name)
-    $("#board_type_group_name").text(" " + type_group_name)
-    $("#board_type_name").text(" " + type_name)
+    $("#menu_title").text(" " + type_name)
+    $("#menu_type_group_name").text(" " + type_group_name)
+    $("#menu_type_name").text(" " + type_name)
     $("#title").text(post_board.title)
     $("#name").text(post_board.name)
     $("#content").text(post_board.content)
     $("#reg_dt").text(post_board.reg_dt)
     $("#comment_cnt").text(post_board.comment)
     //왼쪽 게시판 메뉴,헤더 Setting
-    var str = "";
-    str +=  '<h2>'+type_group_name+'</h2>\n';
-    if(type==="01" || type==="02" || type==="03" || type==="04"){
-      str +=  '<div>\n' +
-              '<a href="./bulletin.do"';
-      str +=  type==="01" ? 'class="on"' : '';
-      str +=  '>자유게시판</a>' +
-              '<a href="./winPrayer.do"';
-      str +=  type==="02" ? 'class="on"' : '';
-      str +=  '>당첨기원게시판</a>' +
-              '<a href="./debateRoom.do"';
-      str +=  type==="03" ? 'class="on"' : '';
-      str +=  '>토론방</a>' +
-              '<a href="./theFirstStory.do"';
-      str +=  type==="04" ? 'class="on"' : '';
-      str +=  '>1등당첨자이야기</a>';
-      str +=  '</div>';
-    }
-    else if(type==="11" || type==="12"){
-      str +=  '<div>' +
-              '<a href="./notice.do"';
-      str +=  type==="11" ? 'class="on"' : '';
-      str +=  '>공지사항</a>' +
-              '<a href="./mattersForInquiry.do"';
-      str +=  type==="12" ? 'class="on"' : '';
-      str +=  '>1:1문의하기</a>';
-      str +=  '</div>';
-    }
+    var str = menu.createLeftMenu(type,type_group_name);
     $('#setting_menu').html(str);
 
     var page_str = "";
@@ -211,8 +184,6 @@
     page_str = post_board.next_page_title === undefined ? '다음글이 없습니다.' : post_board.next_page_title;
     page_link = next_seq === undefined ? '<a>' : '<a href=' + "/board/readingPostBoard.do?type=" + type + "&seq=" + next_seq + '>';
     $('#next_page_title').html(page_link + page_str + '</a>')
-
-
 
     //페이징 호출
     paging(1);

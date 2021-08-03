@@ -52,69 +52,33 @@
 </section>
 
 <section id="sub">
-  <div class="service_main">
+  <div class="mylotto">
     <div class="wrap">
       <div class="left for">
-        <h2>커뮤니티</h2>
+        <h2>나의로또</h2>
         <div>
-          <a href="./bulletin.do">자유게시판</a>
-          <a href="./winPrayer.do" class="on">당첨기원게시판</a>
-          <a href="./debateRoom.do">토론방</a>
-          <a href="./theFirstStory.do">1등당첨자이야기</a>
+          <a href="./thisWeeksNumber.do" class="on">이번주 나의번호</a>
+          <a href="#">결제내역</a>
+          <a href="#">내 정보 수정</a>
         </div>
       </div>
       <div class="content">
         <div class="head">
-          <h2>당첨기원게시판</h2>
+          <h2>이번주 나의번호</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
-            <a href="javascript:goToCategoryMenu(type)"><img src="../img/arrow.png"> 커뮤니티</a>
-            <a href="javascript:goToMenu(type)"><img src="../img/arrow.png"> 당첨기원게시판</a>
+            <a href="javascript:goToCategoryMenu(type)"><img src="../img/arrow.png"> 나의로또</a>
+            <a href="javascript:goToMenu(type)"><img src="../img/arrow.png"> 이번주 나의번호</a>
           </h5>
         </div>
 
-        <div class="table">
-          <table id="table" style="border-spacing:0px">
-            <colgroup>
-              <col width="75">
-              <col width="*">
-              <col width="100">
-              <col width="70">
-              <col width="100">
-            </colgroup>
-            <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>작성일</th>
-              <th>작성자</th>
-              <th>조회수</th>
-            </tr>
-            </thead>
-            <tbody id="table_body">
-            </tbody>
-          </table>
-
-          <p class="btn"><a href="/board/editingPostBoard.do?type=02">글쓰기</a></p>
+        <%--<div class="mylotto_box_now box">--%>
+        <div id="mylotto_box" class="mylotto_box box">
         </div>
 
         <!--페이징-->
         <div class="list_btn" style="text-align: center;"></div>
         <!-- 리스트 게시판 끝-->
-
-        <form id="service_select" onsubmit="return false">
-          <select id="content_search_option">
-            <option value="all">전체</option>
-            <option value="title">제목</option>
-            <option value="content">내용</option>
-            <option value="title_content">제목+내용</option>
-            <option value="writer">작성자</option>
-          </select>
-          <div id="search_button" class="find">
-            <input id="search_text" type="text" placeholder="검색어를 입력하세요." onkeypress="if(event.keyCode==13)find_board_contents()">
-            <button type='button' value="검색" onclick="find_board_contents()"/><img src="../img/find.png"></button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
@@ -150,45 +114,54 @@
     paging(1);
   }
 
+  function settingColor(number) {
+    var color = "";
+    if(number >= 1 && number <= 10) color = "red";
+    if(number > 10 && number <= 20) color = "orange";
+    if(number > 20 && number <= 30) color = "green";
+    if(number > 30 && number <= 40) color = "blue";
+    if(number > 40 && number <= 45) color = "pup";
+    return color;
+  }
+
   //페이징 버튼 클릭시 작동
   function paging(currentPage) {
     if(currentPage<1)currentPage=1; //버튼이 첫 페이지 아래로 설정된 경우 첫 페이지로 변경
     else if(currentPage>allPage)currentPage=allPage; //버튼이 마지막 페이지 초과로 설정된 경우 마지막 페이지로 변경
 
-    var search_word = $("#search_text").val()==""? "%" : $("#search_text").val();
-
     var data = {
       current_page: currentPage,
-      post_num_base_cnt: postNumBaseCnt,
-      type : type,
-      search_type : $("#content_search_option option:selected").val(),
-      search_word : search_word
+      post_num_base_cnt: postNumBaseCnt
+      //id : id
     };
 
     $.ajax({
       type: 'POST',
       contentType: "application/json",
       dataType: 'json',
-      url: '/board/searchBoardContent.do',
+      url: '/lotto/searchContent.do',
       data: JSON.stringify(data),
       success: function (data) {
         var str = "";
         for (var i = 0; i < data.length; i++) {
           var getList = data[i];
+          console.log(getList);
+          console.log(getList.drwtNo1);
+          console.log(settingColor(getList.drwtNo1));
 
-          str +=  '<tr>\n' +
-                  '<td>'+getList.seq+'</td>\n'
-          str +=  '<td>'+getList.title;
-          str +=  getList.comment==0?'':'['+getList.comment+']';
-          str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
-          str +=  '</td>\n'
-          str +=  '<td>'+getList.reg_dt+'</td>\n'
-          str +=  '<td>'+getList.name+'</td>\n'
-          str +=  '<td>'+getList.pv+'</td>\n' +
-                  '</tr>';
+          str +=  '<h6>\n' + getList.drwNo + '회차 나의번호' + '</h6>\n';
+          str +=  '<div class="lotto-number">';
+          str +=  '<span class="' + settingColor(getList.drwtNo1) + '">' + getList.drwtNo1 + '</span>';
+          str +=  '<span class="' + settingColor(getList.drwtNo2) + '">' + getList.drwtNo2 + '</span>';
+          str +=  '<span class="' + settingColor(getList.drwtNo3) + '">' + getList.drwtNo3 + '</span>';
+          str +=  '<span class="' + settingColor(getList.drwtNo4) + '">' + getList.drwtNo4 + '</span>';
+          str +=  '<span class="' + settingColor(getList.drwtNo5) + '">' + getList.drwtNo5 + '</span>';
+          str +=  '<span class="' + settingColor(getList.drwtNo6) + '">' + getList.drwtNo6 + '</span>';
+          str +=  '<span class="plus">+</span>';
+          str +=  '<span class="' + settingColor(getList.bNusNo) + '">' + getList.bNusNo + '</span>' +
+                  '</div>';
         }
-        $('#table_body').html(str);
-        table_click_function();
+        $('#mylotto_box').html(str);
 
         pagination(currentPage,data);
       },
@@ -221,13 +194,6 @@
               '<span class="next"><a href="javascript:paging('+allPage+')")"><img src="../img/next_02.jpg"></a></span>';
 
       $('.list_btn').html(pagingHtml);
-    }
-
-    function table_click_function(){
-      $("#table tr").click(function() {
-        if($(this).children().eq(0).text() === "번호")return;
-        location.href="/board/readingPostBoard.do?type=02&seq=" + $(this).children().eq(0).text();//게시판 이동
-      });
     }
   }
 </script>

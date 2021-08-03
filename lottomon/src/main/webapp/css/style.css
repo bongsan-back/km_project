@@ -20,9 +20,9 @@
 #sub .winning .result .result_num div span {  }
 #sub .winning .result > div { border:1px solid #dedede;}
 #sub .winning .result > div h6 { padding:20px 0; text-align:center; font-size:19px; background:#f4f7f8; }
-#sub .winning .result .lotto-numder { border-top:1px solid #dedede; text-align:center; padding:20px 0; }
-#sub .winning .result .lotto-numder .plus { width:20px; font-size:21px; }
-  #sub .lotto-numder span { width:36px; height:36px; line-height:36px; font-size:16px; }
+#sub .winning .result .lotto-number { border-top:1px solid #dedede; text-align:center; padding:20px 0; }
+#sub .winning .result .lotto-number .plus { width:20px; font-size:21px; }
+  #sub .lotto-number span { width:36px; height:36px; line-height:36px; font-size:16px; }
 #sub .winning .table table { border:1px solid #dedede; color:#505050; margin-top:10px; width:100%; border-bottom:none; text-align:center; }
 #sub .winning .table .top { text-align:right; }
 #sub .winning .table  table tr th { background:#f4f7f8; padding:10px 0px; text-align:center; font-size:15px; border-right:1px solid #dedede; }
@@ -245,14 +245,14 @@
 
 #sub .mylotto h6 { font-size:17px; text-align:center; background:#f4f7f8; border-top:2px solid #dedede; border-bottom:1px solid #dedede; padding:13px 0; font-weight:bold; }
 #sub .mylotto .box { border-bottom:1px solid #ccc; }
-#sub .mylotto .lotto-numder {text-align:center; }
+#sub .mylotto .lotto-number {text-align:center; }
 #sub .mylotto .mylotto_box_now h6 { color:#fff; background:#2e68bf; border-top:none; border-bottom:none; font-weight:400;  }
 #sub .mylotto .mylotto_box_now h6 span { margin-left:6px; font-size:13px; background:#fff; color:#2e68bf; padding:4px 15px; border-radius:20px; font-weight:bold; }
-#sub .mylotto .mylotto_box_now .lotto-numder { background:#effbff;}
+#sub .mylotto .mylotto_box_now .lotto-number { background:#effbff;}
 #sub .mylotto .box { margin-bottom:18px; }
-#sub .mylotto .lotto-numder { padding:20px 0; }
-#sub .mylotto .lotto-numder span { vertical-align:middle; }
-#sub .mylotto .lotto-numder .plus { width:20px; font-size:21px; vertical-align:top; }
+#sub .mylotto .lotto-number { padding:20px 0; }
+#sub .mylotto .lotto-number span { vertical-align:middle; }
+#sub .mylotto .lotto-number .plus { width:20px; font-size:21px; vertical-align:top; }
 #sub .mylotto .list_btn { margin-top:55px; }
 /********************�굹�쓽濡쒕삉******�걹************/
 
@@ -608,7 +608,7 @@
   #sub .service_main .find { margin-top:10px; }
   #sub .mylotto h6 { font-size:14px; padding:9px 0;}
   #sub .mylotto .mylotto_box_now h6 span { padding:2px 10px; }
-  #sub .mylotto .lotto-numder { padding:10px 0; }
+  #sub .mylotto .lotto-number { padding:10px 0; }
   #sub .mylotto_fix .fix .information input[type=text] { height:33px; }
   #sub select { height:33px; }
   #sub .mylotto_fix .fix .information button { height:33px; }
@@ -623,8 +623,8 @@
   #sub .wrap1500 .wrap1000 colgroup col:first-child { width:55px; }
   #sub .wrap1500 .wrap1000 colgroup col:first-child + col + col +col{ display:none; }
   #sub div .list { font-size:13px; }
-  #sub .lotto-numder span { width:30px; height:30px; line-height:30px; padding-right:1px; font-size:14px; margin-left:0;}
-  #sub .winning .result .lotto-numder { padding:10px 0;}
+  #sub .lotto-number span { width:30px; height:30px; line-height:30px; padding-right:1px; font-size:14px; margin-left:0;}
+  #sub .winning .result .lotto-number { padding:10px 0;}
   #sub .list_btn span { display:none; }
   #sub .list_btn .prev,
   #sub .list_btn .next,

@@ -125,6 +125,7 @@
   var postNumBaseCnt = ${postNumBaseCnt};
   var pageNumBaseCnt = ${pageNumBaseCnt};
   var allPage = Math.ceil(allCnt / postNumBaseCnt); //페이징 몫 설정
+  var type = "${type}";
 </script>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -156,7 +157,7 @@
     var data = {
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
-      type : "12",
+      type : type,
       search_type : $("#content_search_option option:selected").val(),
       search_word : search_word
     };

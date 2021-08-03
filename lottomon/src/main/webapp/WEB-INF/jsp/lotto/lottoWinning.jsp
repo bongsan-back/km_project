@@ -79,7 +79,7 @@
         <div class="result">
           <div id="drwNoInfo">
             <h6><b>${lottoData.drwNo}회차 </b>당첨 결과</h6>
-            <div class="lotto-numder">
+            <div class="lotto-number">
               <span id="drwNo1_span">${lottoData.drwtNo1}</span>
               <span id="drwNo2_span">${lottoData.drwtNo2}</span>
               <span id="drwNo3_span">${lottoData.drwtNo3}</span>
@@ -170,7 +170,7 @@ $("#drwSelect").on('change', function(){
     success: function (data) {
       var infoStr = "";
       infoStr +='<h6><b>${data.drwNo}회차 </b>당첨 결과</h6>'+
-              '<div class="lotto-numder">'+
+              '<div class="lotto-number">'+
               '<span id="drwNo1_span">'+data.drwtNo1+'</span>'+
               '<span id="drwNo2_span">'+data.drwtNo2+'</span>'+
               '<span id="drwNo3_span">'+data.drwtNo3+'</span>'+

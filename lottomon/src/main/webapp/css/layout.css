@@ -23,7 +23,7 @@
 .blue { background:#5da6db; }
 .pup { background:#8756be; }
 .plus { color:#0c5f9a!important; font-size:20px; margin:0; width:12px; height:12px; font-weight:bold; }
-.lotto-numder span { font-size:16px; font-weight:bold; color:#fff; width:38px; height:38px; display:inline-block; border-radius:50%; text-align:center; line-height:38px; margin-left:3px; }
+.lotto-number span { font-size:16px; font-weight:bold; color:#fff; width:38px; height:38px; display:inline-block; border-radius:50%; text-align:center; line-height:38px; margin-left:3px; }
 
 .main { font-family:"Noto Sans KR", sans-serif !important; width:100%; margin-top:60px; }
 .main .main-contents { overflow:hidden; }
@@ -53,7 +53,7 @@
 .main .main-1 .swiper-wrapper .swiper-slide h3 { font-size:24px; text-align:center; font-weight:600; margin-top:20px; height:60px; }
 .main .main-1 .swiper-wrapper .swiper-slide h3 span { font-size:30px; }
 .main .main-1 .swiper-wrapper .swiper-slide p { font-size:13px; text-align:center; }
-.main .main-1 .swiper-wrapper .swiper-slide .lotto-numder { display:block; margin-top:45px; text-align:center; }
+.main .main-1 .swiper-wrapper .swiper-slide .lotto-number { display:block; margin-top:45px; text-align:center; }
 
 
 
@@ -218,8 +218,8 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
   .main { margin-top:30px; }
   .main .main-1 .swiper-wrapper .swiper-slide h3 { font-size:18px; }
   .main .main-1 .swiper-wrapper .swiper-slide h3 span { font-weight:600; }
-  .lotto-numder .plus { width:5px; height:5px; }
-  .lotto-numder span { width:27px; height:27px; line-height:27px; font-size:13px; }
+  .lotto-number .plus { width:5px; height:5px; }
+  .lotto-number span { width:27px; height:27px; line-height:27px; font-size:13px; }
   .main .main-contents .main-1 table colgroup col:first-child + col + col { display:none; }
   .main .main-contents .main-1 table tr td:first-child + td + td { display:none; }
   .main .main-contents .main-1 table tr th:first-child + th + th { display:none; }
@@ -275,13 +275,13 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
  .main .main-1 .swiper-wrapper .swiper-slide h3 { font-size:24px; text-align:center; font-weight:600; margin-top:20px; height:60px; }
  .main .main-1 .swiper-wrapper .swiper-slide h3 span { font-size:30px; }
  .main .main-1 .swiper-wrapper .swiper-slide p { font-size:13px; text-align:center; }
- .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder { display:block; margin-top:45px; text-align:center; }
- .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder span { font-size:16px; font-weight:bold; color:#fff; width:38px; height:38px; display:inline-block; border-radius:50%; text-align:center; line-height:38px; margin-left:3px; }
- .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder .red { background:#f05553; }
- .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder .orange { background:#e38a2c; }
- .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder .green { background:#68be56; }
- .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder .pup { background:#8756be; }
- .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder .plus { color:#0c5f9a; font-size:20px; margin:0; width:12px; height:12px; }
+ .main .main-1 .swiper-wrapper .swiper-slide .lotto-number { display:block; margin-top:45px; text-align:center; }
+ .main .main-1 .swiper-wrapper .swiper-slide .lotto-number span { font-size:16px; font-weight:bold; color:#fff; width:38px; height:38px; display:inline-block; border-radius:50%; text-align:center; line-height:38px; margin-left:3px; }
+ .main .main-1 .swiper-wrapper .swiper-slide .lotto-number .red { background:#f05553; }
+ .main .main-1 .swiper-wrapper .swiper-slide .lotto-number .orange { background:#e38a2c; }
+ .main .main-1 .swiper-wrapper .swiper-slide .lotto-number .green { background:#68be56; }
+ .main .main-1 .swiper-wrapper .swiper-slide .lotto-number .pup { background:#8756be; }
+ .main .main-1 .swiper-wrapper .swiper-slide .lotto-number .plus { color:#0c5f9a; font-size:20px; margin:0; width:12px; height:12px; }
 
 
  .main .main-contents > div > div { width:99.9%; max-height:50%; box-sizing:content-box; padding:10px; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd; box-sizing:border-box;}
@@ -419,7 +419,7 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
 
 @media screen and (max-width:640px) {
   #sub .wrap .left div a { width:50%;}
-  .main .main-1 .swiper-wrapper .swiper-slide .lotto-numder span { width:33px; height:33px; line-height:33px; font-size:15px; }
+  .main .main-1 .swiper-wrapper .swiper-slide .lotto-number span { width:33px; height:33px; line-height:33px; font-size:15px; }
   .main .main-contents .main-1 table, .main .main-contents .main-2 table { font-size:17px; }
   .main .main-3 .main-3_1box .main3-story span { padding-left:10px; }
   #sub .wrap .left.three div a span { display:none;}

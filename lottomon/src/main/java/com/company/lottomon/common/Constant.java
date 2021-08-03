@@ -26,14 +26,15 @@ public class Constant {
 		LOGIN_ERROR
 	}
 	
-	public enum boardCodeType {
+	public enum menuCodeType {
 		BULLETIN("01"),				// 자유게시판
 		WINPRAYER("02"),			// 당첨기원
 		DEBATEROOM("03"),  			// 토론방
 		THEFIRSTSTORY("04"),		// 당첨자이야기
 		NOTICE("11"),				// 공지사항
-		MATTERSFORINQUIRY("12");	// 1:1문의하기
-		boardCodeType(String type) {
+		MATTERSFORINQUIRY("12"),	// 1:1문의하기
+		THISWEEKSNUMBER("21");		// 이번주 나의번호
+		menuCodeType(String type) {
 			this.type = type;
 		}
 		private String type;
@@ -42,7 +43,7 @@ public class Constant {
 		}
 	}
 
-	public static String boardCodeTypeName(String boardType) {
+	public static String menuCodeTypeName(String boardType) {
 		switch (boardType){
 			case "01": return "자유게시판";
 			case "02": return "당첨기원게시판";
@@ -50,11 +51,12 @@ public class Constant {
 			case "04": return "1등당첨자이야기";
 			case "11": return "공지사항";
 			case "12": return "1:1문의하기";
+			case "21": return "이번주 나의번호";
 			default: return "기타";
 		}
 	}
 
-	public static String boardCodeTypeGroupName(String boardType) {
+	public static String menuCodeTypeGroupName(String boardType) {
 		switch (boardType){
 			case "01":
 			case "02":
@@ -64,6 +66,8 @@ public class Constant {
 			case "11":
 			case "12":
 				return "고객센터";
+			case "21":
+				return "나의로또";
 			default: return "기타";
 		}
 	}
