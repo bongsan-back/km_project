@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<title>프로젝트Sample</title>
+<title>로또몬</title>
 
 <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
