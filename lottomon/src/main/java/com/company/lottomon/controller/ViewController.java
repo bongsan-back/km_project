@@ -1,8 +1,10 @@
 package com.company.lottomon.controller;
 
 import com.company.lottomon.common.Constant.*;
+import com.company.lottomon.model.LottoData;
 import com.company.lottomon.model.Membership;
 import com.company.lottomon.model.MembershipPrice;
+import com.company.lottomon.service.LottoService;
 import com.company.lottomon.service.MembershipService;
 import org.apache.log4j.Logger;
 
@@ -36,6 +38,11 @@ public class ViewController {
     @Resource(name = "membershipService")
     private MembershipService membershipService;
 
+    @Autowired
+    @Resource(name = "lottoService")
+    private LottoService lottoService;
+
+
     /**
      * 로그인 페이지
      */
@@ -46,7 +53,7 @@ public class ViewController {
 
         return "login/login";
     }
-    
+
     /**
      * 회원 가입 약관 동의 페이지 호출
      */
@@ -55,7 +62,7 @@ public class ViewController {
 
         return "login/joinAgree";
     }
-    
+
     /**
      * 회원 가입 정보 입력 페이지 호출
      */
@@ -64,7 +71,7 @@ public class ViewController {
 
         return "login/joinInfo";
     }
-    
+
     /**
      * 회원 정보 찾기 페이지
      */
@@ -73,7 +80,7 @@ public class ViewController {
 
         return "login/findUser";
     }
-    
+
     /**
      * 회원 가입 완료
      */
@@ -82,6 +89,20 @@ public class ViewController {
 
         return "login/joinSuc";
     }
+
+    /**
+     * 메인 페이지
+     */
+    @RequestMapping(value = "/main.do", method = RequestMethod.GET)
+    public String main(HttpServletRequest request, HttpSession session, Model model) {
+        try {
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "main";
+    }
+
 
     /**
      * 멤버쉽 페이지
@@ -111,7 +132,7 @@ public class ViewController {
     }
 
     /**
-     * 멤버쉽 페이지
+     * 멤버쉽 결제 페이지
      */
     @RequestMapping(value = "/membershipPay.do", method = RequestMethod.GET)
     public String membershipPay(HttpServletRequest request, HttpSession session, Model model) {
@@ -129,25 +150,20 @@ public class ViewController {
     }
 
     /**
-     * 자유게시판 페이지
+     * 로또당첨결과 페이지
      */
-    @RequestMapping(value = "/board/bulletin.do", method = RequestMethod.GET)
-    public String boardBulletin(Model model) {
-        Board board = new Board();
-        board.setType(boardCodeType.BULLETIN.getTypeValue()); //게시물 종류 설정
-
-        int listCnt = boardService.selectListCount(board);
-
+    @RequestMapping(value = "/winning.do", method = RequestMethod.GET)
+    public String winning(HttpServletRequest request, HttpSession session, Model model) {
         try {
-            model.addAttribute("listCnt", listCnt); //리스트 수
-            model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
-            model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-        } catch (Exception e) {
+            LottoData lottoData = lottoService.selectData();
+
+            model.addAttribute("lottoData", lottoData);
+        }catch (Exception e){
             e.printStackTrace();
         }
-
-        return "board/boardBulletin";
+        return "lotto/lottoWinning";
     }
+
 
 
 }

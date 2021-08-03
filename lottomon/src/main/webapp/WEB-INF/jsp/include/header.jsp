@@ -17,6 +17,13 @@
                     <li><a href="/login/join.do">회원가입</a></li>
                 </c:if>
                 <c:if test="${not empty user_id }">
+                    <c:if test="${grade_name == 'normal'}">
+                        <li><a href="#none" style="cursor: default">${user_nickname} 님</a></li>
+                    </c:if>
+                    <c:if test="${grade_name != 'normal'}">
+                        <li><a href="#none" style="cursor: default">${user_nickname}(${grade_name}) 님</a></li>
+                    </c:if>
+
                     <li><a href="/login/login.do">로그아웃</a></li>
                     <li><a href="/mypage.do">마이페이지</a></li>
                     <c:if test="${role eq 'ADMIN'}">

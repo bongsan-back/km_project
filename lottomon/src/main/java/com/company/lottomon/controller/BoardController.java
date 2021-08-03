@@ -2,7 +2,6 @@ package com.company.lottomon.controller;
 
 import com.company.lottomon.common.Constant;
 import com.company.lottomon.model.Board;
-import com.sun.org.apache.bcel.internal.Const;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService{
 		}else if(result.getGrade().equals("04")){
 			log.debug(result.toString());
 			return LoginResult.BENNED;
-		}else if(result.getGrade().equals("01")){
+		}else if(result.getGrade().equals("01") || result.getGrade().equals("99")){
 			log.debug(result.toString());
 
 			session.setAttribute("user_id", result.getId());

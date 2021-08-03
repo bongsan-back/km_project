@@ -169,7 +169,7 @@ $("#drwSelect").on('change', function(){
     data: JSON.stringify(requestParam),
     success: function (data) {
       var infoStr = "";
-      infoStr +='<h6><b>${data.drwNo}회차 </b>당첨 결과</h6>'+
+      infoStr +='<h6><b>'+data.drwNo+'회차 </b>당첨 결과</h6>'+
               '<div class="lotto-number">'+
               '<span id="drwNo1_span">'+data.drwtNo1+'</span>'+
               '<span id="drwNo2_span">'+data.drwtNo2+'</span>'+

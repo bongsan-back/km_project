@@ -155,12 +155,14 @@
             contentType: "application/json",
             dataType: 'text'
         });
-
-
-
-
-
     }
+
+    $(document).ready(function(){
+       if(${user_id != null}){
+           alert("이미 로그인이 되어있습니다. href > main 개발 이후 진행");
+        }
+    });
+
 </script>
 
 
