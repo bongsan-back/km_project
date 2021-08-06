@@ -223,8 +223,9 @@ public class BoardController {
 	@RequestMapping(value = "/editingPostBoard.do", method = RequestMethod.GET)
 	public String editingPostBoard(Board board, Model model) {
 		try {
-			model.addAttribute("type", board.getType());
-			model.addAttribute("type_name", Constant.menuCodeTypeName(board.getType()));
+			model.addAttribute("type", board.getType()); //페이지 종류
+			model.addAttribute("type_name", Constant.menuCodeTypeName(board.getType())); //페이지 명
+			model.addAttribute("type_group_name", Constant.menuCodeTypeGroupName(board.getType())); //카테고리 명
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -232,4 +233,20 @@ public class BoardController {
 		return "board/editingPostBoard";
 	}
 
+	/**
+	 * 글쓰기 페이지
+	 */
+	@RequestMapping(value = "/insertBoardContent.do", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<Integer> insertBoardContent(@RequestBody Board board, Model model) {
+		try {
+			board.setPv("0"); //조회수 기본세팅
+			board.setShow_yn("Y"); //show_yn 기본세팅
+
+			boardService.insertBoardContent(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ResponseEntity<>(board.getSeq(), HttpStatus.OK);
+	}
 }

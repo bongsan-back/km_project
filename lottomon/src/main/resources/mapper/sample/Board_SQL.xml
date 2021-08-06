@@ -78,9 +78,9 @@
 		LIMIT #{start_row_num}, #{post_num_base_cnt}
 	</select>
 
-	<insert id="insert" parameterType="map">
-		INSERT INTO
-		(seq, type, title, content, user_id, pv, show_yn, reg_dt)
-		VALUES (#{seq}, #{type}, #{title}, #{content}, #{user_id}, #{pv}, #{show_yn}, NOW())
+	<insert id="insertBoardContent" parameterType="map" useGeneratedKeys="true" keyProperty="seq">
+		INSERT INTO board
+		(type, title, content, user_id, pv, show_yn, reg_dt)
+		VALUES (#{type}, #{title}, #{content}, #{user_id}, #{pv}, #{show_yn}, NOW())
 	</insert>
 </mapper>

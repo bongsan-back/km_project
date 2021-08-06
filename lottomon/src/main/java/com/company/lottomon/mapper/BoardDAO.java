@@ -1,6 +1,5 @@
 package com.company.lottomon.mapper;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.company.lottomon.model.Board;
-import com.company.lottomon.model.UserInfo;
 
 @Repository
 public class BoardDAO {
@@ -47,6 +45,14 @@ public class BoardDAO {
      */
     public List<Board> selectPostBoardDetail(Board board) {
     	return sqlSession.selectList("board.selectPostBoardDetail", board);
+	}
+	/**
+     * 게시물 Insert
+     * @param board Insert 할 게시물 정보
+     * @return
+     */
+    public int insertBoardContent(Board board) {
+    	return sqlSession.insert("board.insertBoardContent", board);
 	}
     
 }

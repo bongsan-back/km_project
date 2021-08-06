@@ -9,4 +9,5 @@ public interface BoardService {
 	List<Board> selectList(Board board);
 	List<Board> selectPostBoard(Board board);
 	List<Board> selectPostBoardDetail(Board board);
+	int insertBoardContent(Board board);
 }
