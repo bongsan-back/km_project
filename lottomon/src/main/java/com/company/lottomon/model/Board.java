@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Board {
 	//Get ResponseBody
-	private String seq; //게시글 순번
+	private int seq; //게시글 순번
 	private String type; //게시글 종류
 	private String title; //게시글 제목
 	private String content; //게시글 내용
@@ -24,6 +24,10 @@ public class Board {
 	private Integer start_row_num; //페이징 시작 번호 수
 	private String search_type; //검색 종류
 	private String search_word; //검색어
+
+	//Set RequestBody
+	private String user_id; //사용자 id
+	private String pv; //조회수 - default 값 : 0
 
 	private String type_name; //게시글 카테고리명
 }

@@ -163,9 +163,12 @@
 #sub .service_main .table table tr td:first-child + td + td,
 #sub .service_main .table table tr td:first-child + td + td + td,
 #sub .service_main .table table tr td:first-child + td + td + td +td { width:85px; }
-#sub .service_main .btn { text-align:right; margin-top:15px; }
-#sub .service_main .btn a { display:inline-block; background:#2e68bf; color:#fff; padding:7px 25px; }
-#sub .service_main .p { background:#f8f8f8; padding:17px 0; text-align:center; font-size:15px; margin-bottom:15px; color:#505050; }
+#sub .service_main .edit { text-align:right; margin-top:15px;}
+#sub .service_main .btn { text-align:right; margin-top:15px; cursor: pointer;}
+#sub .service_main .btn a { display:inline-block; background:#2e68bf; color:#fff; padding:7px 25px; border: 1px solid #ebebeb;}
+#sub .service_main .btn_cancel { text-align:right; margin-top:15px; cursor: pointer;}
+#sub .service_main .btn_cancel a { display:inline-block; background:#fff; color:#000000; padding:7px 25px; border: 1px solid #ebebeb;}
+#sub .service_main .p { background:#f8f8f8; padding:17px 0; text-align:center; font-size:15px; margin-bottom:15px; color:#505050;}
 #sub .service_main #service_select { margin-top:20px; }
 #sub .service_main .find { overflow:hidden; vertical-align:middle;}
 #sub .service_main .find select { height:auto; }
@@ -177,6 +180,7 @@
 #sub .service_alert span { display:inline-block;}
 #sub .service_alert dl dt { font-size:15px; padding:15px; font-weight:600; }
 #sub .service_alert .title dl dt { background:#f4f7f8; border-top:2px solid #dedede; border-bottom:1px solid #dedede;}
+#sub .service_alert .title dl dt textarea { margin:0; padding: 10px 5px 5px; box-sizing:border-box; border:1px solid #e8e8e8; vertical-align:middle;}
 #sub .service_alert .title dl p { font-size:13px; border-bottom:1px solid #dedede; padding:15px; position:relative; }
 #sub .service_alert .title dl p .day { position:absolute; right:15px; color:#000;}
 #sub .service_alert .title dl dd { padding:10px 15px; min-height:320px; }
@@ -316,8 +320,8 @@
 #sub .service_main .box .txt a { display:block; }
 #sub .service_main form { width:100%; text-align:center; }
 #sub .service_main .list_btn { margin-bottom:20px; }
-#sub .service_main .btn { text-align:right; margin-top:20px; }
-#sub .service_main .btn a { background:#2e68bf; color:#fff; padding:5px 20px; }
+/*#sub .service_main .btn { text-align:right; margin-top:20px; }
+#sub .service_main .btn a { background:#2e68bf; color:#fff; padding:5px 20px; }*/
 #sub .service_main .find { overflow:hidden; vertical-align:middle;}
 #sub .service_main .find select { height:auto; }
 #sub .service_main .find input[type=text] { float:left; width:95%; border:none; height:100%;  padding:12px 10px; outline:none; }
