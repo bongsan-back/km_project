@@ -6,7 +6,9 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.company.lottomon.common.Constant;
 import org.apache.commons.lang.RandomStringUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -59,4 +61,22 @@ public class AuthController {
     	
 		return null;
 	}
+
+	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
+	public @ResponseBody
+	Object logout(HttpServletRequest request, HttpSession session) {
+		try {
+
+			System.out.println("세션제거");
+			session.invalidate();
+			return Constant.ServiceResult.SUCCESS;
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return Constant.ServiceResult.FAIL;
+			// TODO: handle exception
+		}
+	}
+
+
 }

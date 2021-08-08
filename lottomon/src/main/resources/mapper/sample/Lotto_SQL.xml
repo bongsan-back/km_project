@@ -7,6 +7,11 @@
 		FROM my_lotto
 	</select>
 
+	<select id="selectLastDrwNo" parameterType="map" resultType="int">
+		SELECT MAX(drwNo)
+		FROM lotto_data
+	</select>
+
 	<select id="selectThisWeeksNumberList" parameterType="map" resultType="map">
 		SELECT A.seq,
 			   A.drwNo,
@@ -22,6 +27,15 @@
 		LIMIT #{start_row_num}, #{post_num_base_cnt}
 	</select>
 
+	<select id="select3WeeksNumberList" resultType="com.company.lottomon.model.LottoData">
+		select * from lotto_data ORDER BY drwNo DESC LIMIT 5
+	</select>
+
+	<select id="selectOrderingNo1" resultType="com.company.lottomon.model.LottoData">
+		select * from lotto_data ORDER BY placeNo1_price * 1 DESC LIMIT 5
+	</select>
+
+
 	<select id="select" resultType="com.company.lottomon.model.LottoData">
 		<![CDATA[
 		SELECT *, MAX(drwNo) AS last_drwNo FROM lotto_data WHERE drwNo = (SELECT MAX(drwNo) FROM lotto_data)
@@ -33,4 +47,31 @@
 		SELECT * FROM lotto_data WHERE drwNo = #{drwNo}
 		]]>
 	</select>
+
+
+	<update id="insertLottoPlaceData" parameterType="java.util.List">
+		INSERT INTO lotto_place
+		(
+		drwNo, name, addr, reg_dt, type
+		)
+		VALUES
+		<foreach collection="list" item="items" separator="),(" open="(" close=")">
+			${items.drwNo},' ${items.name}',' ${items.address}', now(), '${items.type}'
+		</foreach>
+	</update>
+
+	<select id="selectPlaceData" resultType="int">
+		<![CDATA[
+		SELECT MAX(drwNo) AS last_drwNo FROM lotto_place WHERE drwNo = (SELECT MAX(drwNo) FROM lotto_place GROUP BY drwNo)
+		]]>
+	</select>
+
+
+	<select id="selectPlaceList" resultType="com.company.lottomon.model.LottoPlace">
+		<![CDATA[
+		SELECT * FROM lotto_place WHERE drwNo =(select MAX(drwNo) from lotto_place) ORDER BY drwNo DESC LIMIT 0, 5
+		]]>
+	</select>
+
+
 </mapper>

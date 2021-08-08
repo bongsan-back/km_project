@@ -97,6 +97,31 @@ public class ViewController {
     public String main(HttpServletRequest request, HttpSession session, Model model) {
         try {
 
+            model.addAttribute("lottoData3Week", lottoService.select3WeeksNumberList());
+            model.addAttribute("selectOrderingNo1", lottoService.selectOrderingNo1());
+            model.addAttribute("selectPlaceList", lottoService.selectPlaceList());
+
+            Board board = new Board();
+            board.setStart_row_num(0);
+            board.setPost_num_base_cnt(5);
+
+            board.setType("01");
+            model.addAttribute("board_free", boardService.selectList(board));
+            board.setType("02");
+            model.addAttribute("board_debate", boardService.selectList(board));
+            board.setType("03");
+            model.addAttribute("board_winhope", boardService.selectList(board));
+            board.setType("04");
+            model.addAttribute("board_win", boardService.selectList(board));
+
+
+
+
+
+
+
+
+
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -364,6 +364,14 @@
 			<version>1.4-dev-2</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup java 웹 크롤링 -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.13.1</version>
+		</dependency>
+
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>

@@ -132,7 +132,7 @@
 
                 if(message == '"SUCCESS"'){
                     alert('로그인에 성공하였습니다.');
-                    location.href="";
+                    location.href="../main.do";
                 }else if(message == '"NOT_MATCHE"'){
                     alert('아이디 혹은 비밀번호가 일치하지 않습니다.');
                 }else if(message == '"LEAVE"'){
@@ -159,7 +159,8 @@
 
     $(document).ready(function(){
        if(${user_id != null}){
-           alert("이미 로그인이 되어있습니다. href > main 개발 이후 진행");
+           alert("이미 로그인이 되어있습니다.");
+           location.href="../main.do";
         }
     });
 
