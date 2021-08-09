@@ -109,6 +109,15 @@
 
 
 <script>
+    var message = '${message}';
+    var redirectUrl = '${redirectUrl}';
+
+    $(document).ready(function(){
+        if('${message}' != ''){
+            alert('${message}');
+        };
+    })
+
     function loginProc(){
         var id = $("#id").val();
         var password = $("#password").val();
@@ -132,7 +141,11 @@
 
                 if(message == '"SUCCESS"'){
                     alert('로그인에 성공하였습니다.');
-                    location.href="../main.do";
+                    if('${redirectUrl}' == null || '${redirectUrl}' == '' ){
+                        location.href="../main.do";
+                    }else{
+                        location.reload();
+                    }
                 }else if(message == '"NOT_MATCHE"'){
                     alert('아이디 혹은 비밀번호가 일치하지 않습니다.');
                 }else if(message == '"LEAVE"'){

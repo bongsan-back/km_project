@@ -239,7 +239,7 @@
     <div class="main-3_1box">
       <div class="main3-title">
         <h3><span>1등 당첨자</span> 이야기</h3>
-        <h6><a href="/community.php">더보기<img src="./img/arrow.png"></a></h6>
+        <h6><a href="/board/theFirstStory.do">더보기<img src="./img/arrow.png"></a></h6>
       </div>
       <div class="main3-story">
         <a href="#">
@@ -321,7 +321,7 @@
   <div class="main-5">
     <div class="main-5box_1 main-5box">
       <h3><span>당첨 기원 </span>게시판</h3>
-      <h6><a href="./prayer.php">더보기<img src="./img/arrow.png"></a></h6>
+      <h6><a href="/board/winPrayer.do">더보기<img src="./img/arrow.png"></a></h6>
       <ol>
         <li><a href="#"><span>1 </span> ${board_winhope[0].title}</a></li>
         <li><a href="#"><span>2 </span> ${board_winhope[1].title}</a></li>
@@ -332,7 +332,7 @@
     </div>
     <div class="main-5box_2 main-5box">
       <h3><span>자유 </span>게시판</h3>
-      <h6><a href="./free.php">더보기<img src="./img/arrow.png"></a></h6>
+      <h6><a href="/board/bulletin.do">더보기<img src="./img/arrow.png"></a></h6>
       <ol>
         <li><a href="#"><span>1 </span> ${board_free[0].title}</a></li>
         <li><a href="#"><span>2 </span> ${board_free[1].title}</a></li>
@@ -348,16 +348,16 @@
           <!-- Slides -->
           <div class="swiper-slide sd1">
             <span>로또몬 1 로또몬 1</span>
-            <a href="#">멤버십가입Go</a>
+            <a href="/membership.do">멤버십가입Go</a>
             <!-- <img src="./img/swiper-img-btn.png"> -->
           </div>
           <div class="swiper-slide sd1">
             <span>로또몬 2 로또몬 2</span>
-            <a href="#">멤버십가입Go</a>
+            <a href="/membership.do">멤버십가입Go</a>
           </div>
           <div class="swiper-slide sd1">
             <span>로또몬 3 로또몬 3</span>
-            <a href="#">멤버십가입Go</a>
+            <a href="/membership.do">멤버십가입Go</a>
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -381,11 +381,11 @@
     </div>
   </div>
   <div class="main-6">
-    <div class="coll"><a href="#"><img src="/img/coll_img.jpg"></a></div>
-    <div class="bank"><a href="#"><img src="/img/bank_img.jpg"></a></div>
+    <div class="coll"><a href="#none" style="cursor: default"><img src="/img/coll_img.jpg"></a></div>
+    <div class="bank"><a href="#none" style="cursor: default"><img src="/img/bank_img.jpg"></a></div>
     <div class="main-6box">
       <h3>로또몬<span> 토론실</span></h3>
-      <h6><a href="/debate.php">더보기<img src="/img/arrow.png"></a></h6>
+      <h6><a href="/board/debateRoom.do">더보기<img src="/img/arrow.png"></a></h6>
       <ol>
         <li><a href="#"><span>1 </span> ${board_debate[0].title}</a></li>
         <li><a href="#"><span>2 </span> ${board_debate[1].title}</a></li>
@@ -459,7 +459,7 @@
         url: '/auth/logout.do',
         success: function (data) {
           alert("정상적으로 로그아웃 되었습니다.");
-          location.reload();
+          location.href="/main.do";
         },
         error: function (request, status, error) {
           alert("알 수 없는 이유로 실패하였습니다. " + error + "\n" + status + "\n" + request);

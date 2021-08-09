@@ -14,7 +14,7 @@
             <ul>
                 <c:if test="${empty user_id }">
                     <li><a href="/login/login.do">로그인</a></li>
-                    <li><a href="/login/join.do">회원가입</a></li>
+                    <li><a href="/login/joinAgree.do">회원가입</a></li>
                 </c:if>
                 <c:if test="${not empty user_id }">
                     <c:if test="${grade_name == 'normal'}">
@@ -24,8 +24,8 @@
                         <li><a href="#none" style="cursor: default">${user_nickname}(${grade_name}) 님</a></li>
                     </c:if>
 
-                    <li><a href="/login/login.do">로그아웃</a></li>
-                    <li><a href="/mypage.do">마이페이지</a></li>
+                    <li><a href="javascript:logout()">로그아웃</a></li>
+                    <li><a href="/myUpdate.do">마이페이지</a></li>
                     <c:if test="${role eq 'ADMIN'}">
                         <li><a href="/admin/main.do">관리자 페이지</a></li>
                     </c:if>
@@ -67,14 +67,14 @@
                     <ul>
                         <%if(session.getAttribute("user_id") != null){%>
                             <li><a href="/member_login.do">로그아웃</a></li>
-                            <li><a href="/mypage.do">마이페이지</a></li>
+                            <li><a href="/myUpdate.do">마이페이지</a></li>
                             <%if(session.getAttribute("role").equals("ADMIN")){%>
                                 <li><a href="/adminPage.do">관리자 페이지</a></li>
                             <%}%>
                         <%}else{%>
                             <li><a href="/member_login.do">로그인</a></li>
                             <li><a href="/member_go.do">회원가입</a></li>
-                            <li><a href="/mypage.do">마이페이지</a></li>
+                        <li><a href="/myUpdate.do">마이페이지</a></li>
                         <%}%>
                         <li id="mobile_x">
                             <div id="mobile">
@@ -122,4 +122,24 @@
     </div>
 </header>
 <div id="top"><a href="#"><img src="/img/top-btn.jpg"></a></div>
+
+<script>
+    function logout() {
+        $.ajax({
+            type: 'GET',
+            url: '/auth/logout.do',
+            success: function (data) {
+                alert("정상적으로 로그아웃 되었습니다.");
+                location.href="/main.do";
+            },
+            error: function (request, status, error) {
+                alert("알 수 없는 이유로 실패하였습니다. " + error + "\n" + status + "\n" + request);
+
+            },
+            contentType: "application/json",
+            dataType: 'text'
+        });
+    }
+
+</script>
 

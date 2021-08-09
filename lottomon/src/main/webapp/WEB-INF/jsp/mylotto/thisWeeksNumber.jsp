@@ -59,7 +59,7 @@
         <div>
           <a href="./thisWeeksNumber.do" class="on">이번주 나의번호</a>
           <a href="#">결제내역</a>
-          <a href="#">내 정보 수정</a>
+          <a href="/myUpdate.do">내 정보 수정</a>
         </div>
       </div>
       <div class="content">

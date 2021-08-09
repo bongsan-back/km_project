@@ -60,14 +60,14 @@
       <div class="left three">
         <h2>회원서비스</h2>
         <div>
-          	<a href="./login.do"  class="on">로그인</a>
-	        <a href="./findUser.do">아이디<span>/패스워드</span> 찾기</a>
-	        <a href="./join.do" class="on">회원가입</a>
+          <a href="./thisWeeksNumber.do">이번주 나의번호</a>
+          <a href="#">결제내역</a>
+          <a href="/myUpdate.do" class="on">내 정보 수정</a>
         </div>
       </div>
       <div class="content">
         <div class="head">
-          <h2>회원가입</h2>
+          <h2>내 정보 수정</h2>
           <h5>
             <a href="/"><img src="./img/home.jpg"> 홈</a>
             <a href="./login.do"><img src="./img/arrow.png"> 회원서비스</a>

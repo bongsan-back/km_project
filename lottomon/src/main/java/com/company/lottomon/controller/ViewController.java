@@ -1,11 +1,10 @@
 package com.company.lottomon.controller;
 
 import com.company.lottomon.common.Constant.*;
-import com.company.lottomon.model.LottoData;
-import com.company.lottomon.model.Membership;
-import com.company.lottomon.model.MembershipPrice;
+import com.company.lottomon.model.*;
 import com.company.lottomon.service.LottoService;
 import com.company.lottomon.service.MembershipService;
+import com.company.lottomon.service.UserService;
 import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.company.lottomon.model.Board;
 import com.company.lottomon.service.BoardService;
 
 import java.util.ArrayList;
@@ -41,6 +39,10 @@ public class ViewController {
     @Autowired
     @Resource(name = "lottoService")
     private LottoService lottoService;
+
+    @Autowired
+    @Resource(name = "userService")
+    private UserService userService;
 
 
     /**
@@ -88,6 +90,22 @@ public class ViewController {
     public String joinSuc(HttpServletRequest request, HttpSession session) {
 
         return "login/joinSuc";
+    }
+
+    /**
+     * 계정 정보 변경
+     */
+    @RequestMapping(value = "/myUpdate.do", method = RequestMethod.GET)
+    public String myUpdate(HttpServletRequest request, HttpSession session, Model model) {
+        if(session.getAttribute("user_id") == null){
+            model.addAttribute("message","로그인이 필요한 서비스입니다.");
+            model.addAttribute("redirectUrl","/myUpdate.do");
+            return "/login/login";
+        }
+        UserInfo userInfo = new UserInfo();
+        model.addAttribute("userInfo", userService.getUserInfo((String)session.getAttribute("user_id")));
+
+        return "login/myUpdate";
     }
 
     /**
