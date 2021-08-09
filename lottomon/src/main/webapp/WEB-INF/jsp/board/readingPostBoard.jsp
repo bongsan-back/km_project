@@ -185,6 +185,8 @@
     page_link = next_seq === undefined ? '<a>' : '<a href=' + "/board/readingPostBoard.do?type=" + type + "&seq=" + next_seq + '>';
     $('#next_page_title').html(page_link + page_str + '</a>')
 
+    //조회수 업데이트 호출
+    boardViewUp();
     //페이징 호출
     paging(1);
   }
@@ -252,6 +254,31 @@
               '<span class="next"><a href="javascript:paging('+allPage+')")"><img src="../img/next_02.jpg"></a></span>';
 
       $('.list_btn').html(pagingHtml);
+    }
+  }
+
+  function boardViewUp() {
+    if(getCookie("boardViewSeq" + seq) === undefined){
+      setCookie("boardViewSeq" + seq, seq, '1');
+
+      var data = {
+        seq : seq
+      };
+
+      $.ajax({
+        type: 'POST',
+        contentType: "application/json",
+        dataType: 'json',
+        url: '/board/updateBoardViewUp.do',
+        data: JSON.stringify(data),
+        success: function (data) {
+        },
+        error : function(response){
+          console.log(response);
+        }
+      });
+    } else if(getCookie("boardViewSeq" + seq) === seq){
+      return;
     }
   }
 </script>

@@ -54,5 +54,12 @@ public class BoardDAO {
     public int insertBoardContent(Board board) {
     	return sqlSession.insert("board.insertBoardContent", board);
 	}
-    
+	/**
+	 * 게시물 조회수 Update
+	 * @param seq viewUp 할 게시물 seq
+	 * @return
+	 */
+    public int updateBoardViewUp(int seq) {
+		return sqlSession.update("board.updateBoardViewUp", seq);
+    }
 }

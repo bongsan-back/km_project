@@ -17,6 +17,9 @@ import com.company.lottomon.service.BoardService;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -181,7 +184,7 @@ public class BoardController {
 	 * 게시판 내용 (읽기) 페이지
 	 */
 	@RequestMapping(value = "/readingPostBoard.do", method = RequestMethod.GET)
-	public String readingPostBoard(Board board, Model model) {
+	public String readingPostBoard(HttpServletRequest request, HttpServletResponse response, Board board, Model model) {
 		List<Board> post_board = boardService.selectPostBoard(board);
 
 		try {
@@ -191,7 +194,6 @@ public class BoardController {
 			model.addAttribute("type_name", Constant.menuCodeTypeName(board.getType())); //페이지 명
 			model.addAttribute("type_group_name", Constant.menuCodeTypeGroupName(board.getType())); //카테고리 명
 			model.addAttribute("post_board", new ObjectMapper().writeValueAsString(post_board)); //페이지 내용(list)
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -248,5 +250,19 @@ public class BoardController {
 		}
 
 		return new ResponseEntity<>(board.getSeq(), HttpStatus.OK);
+	}
+
+	/**
+	 * 조회수 업데이트 처리
+	 */
+	@RequestMapping(value = "/updateBoardViewUp.do", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<Integer> updateBoardViewUp(@RequestBody Board board) {
+		try {
+			//조회수 증가시킴
+			boardService.updateBoardViewUp(board.getSeq());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<>(1, HttpStatus.OK);
 	}
 }

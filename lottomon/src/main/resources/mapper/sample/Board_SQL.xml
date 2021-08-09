@@ -83,4 +83,10 @@
 		(type, title, content, user_id, pv, show_yn, reg_dt)
 		VALUES (#{type}, #{title}, #{content}, #{user_id}, #{pv}, #{show_yn}, NOW())
 	</insert>
+
+	<update id="updateBoardViewUp" parameterType="map">
+		UPDATE board
+		SET pv = pv + 1
+		WHERE seq = #{seq}
+	</update>
 </mapper>

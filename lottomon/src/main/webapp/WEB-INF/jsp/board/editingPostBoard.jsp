@@ -33,11 +33,11 @@
   <script src="/js/common.js"></script>
   <script src="/js/menu.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/font.css" />
-  <link rel="stylesheet" type="text/css" href="/css/common.css" />
+  <link rel="stylesheet" type="text/css" href="/css/common.css?ver=1.0.1" />
   <link rel="stylesheet" type="text/css" href="/css/layout.css" />
   <link rel="stylesheet" type="text/css" href="/css/header.css" />
   <link rel="stylesheet" type="text/css" href="/css/footer.css" />
-  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css?ver=1.0.2" />
 
   <style type="text/css">
     .placeholder { color: #aaa; }
