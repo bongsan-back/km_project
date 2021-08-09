@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header id="header">
-    <h1 class="logo"><a href="/index.do"><img src="/img/logo_pc.png"></a></h1>
+    <h1 class="logo"><a href="/main.do"><img src="/img/logo_pc.png"></a></h1>
 
     <div id="mobile">
         <div>
