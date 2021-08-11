@@ -105,9 +105,11 @@
 
 <script type="text/javascript">
   //최초 진입 시 페이징에 필요한 데이터
+  var seq = "${seq}";
   var type = "${type}";
   var type_group_name = "${type_group_name}";
   var type_name = "${type_name}";
+  var post_board = ${post_board} == null ? null : ${post_board}[0];
 </script>
 <script type="text/javascript">
   $(function() {
@@ -121,6 +123,11 @@
     $("#menu_title").text(" " + type_name);
     $("#menu_type_group_name").text(" " + type_group_name);
     $("#menu_type_name").text(" " + type_name);
+
+    if(post_board != null){
+      $("#post_title").text(post_board.title)
+      $("#post_contents").text(post_board.content)
+    }
 
     var today = new Date();
     $("#reg_dt").text(today.getFullYear()+'-'+('0' + (today.getMonth() + 1)).slice(-2)+'-'+('0' + today.getDate()).slice(-2));
@@ -143,6 +150,7 @@
     var data = {
       user_id : "bolee", //아이디는 코딩이 되면 아래 내용으로 변경
       //user_id : user_id,
+      seq : seq,
       type : type,
       title : $("#post_title").val(),
       content : $("#post_contents").val()

@@ -55,6 +55,14 @@ public class BoardDAO {
     	return sqlSession.insert("board.insertBoardContent", board);
 	}
 	/**
+     * 게시물 Delete
+     * @param seq Insert 할 게시물 정보
+     * @return
+     */
+    public int deleteBoardContent(int seq) {
+    	return sqlSession.delete("board.deleteBoardContent", seq);
+	}
+	/**
 	 * 게시물 조회수 Update
 	 * @param seq viewUp 할 게시물 seq
 	 * @return

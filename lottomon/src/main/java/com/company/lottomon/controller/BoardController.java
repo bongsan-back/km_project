@@ -225,9 +225,17 @@ public class BoardController {
 	@RequestMapping(value = "/editingPostBoard.do", method = RequestMethod.GET)
 	public String editingPostBoard(Board board, Model model) {
 		try {
+			List<Board> post_board = null;
+
+			if(board.getOption() != null && board.getOption().equals("edit")){
+				post_board = boardService.selectPostBoard(board); //글 수정일 경우 기존 내용을 불러움
+			}
+
+			model.addAttribute("seq", board.getSeq()); //게시클 시퀀스
 			model.addAttribute("type", board.getType()); //페이지 종류
 			model.addAttribute("type_name", Constant.menuCodeTypeName(board.getType())); //페이지 명
 			model.addAttribute("type_group_name", Constant.menuCodeTypeGroupName(board.getType())); //카테고리 명
+			model.addAttribute("post_board", new ObjectMapper().writeValueAsString(post_board)); //페이지 내용
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -236,10 +244,10 @@ public class BoardController {
 	}
 
 	/**
-	 * 글쓰기 페이지
+	 * 글쓰기 insert
 	 */
 	@RequestMapping(value = "/insertBoardContent.do", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<Integer> insertBoardContent(@RequestBody Board board, Model model) {
+	public @ResponseBody ResponseEntity<Integer> insertBoardContent(@RequestBody Board board) {
 		try {
 			board.setPv("0"); //조회수 기본세팅
 			board.setShow_yn("Y"); //show_yn 기본세팅
@@ -250,6 +258,20 @@ public class BoardController {
 		}
 
 		return new ResponseEntity<>(board.getSeq(), HttpStatus.OK);
+	}
+
+	/**
+	 * 글쓰기 delete
+	 */
+	@RequestMapping(value = "/deleteBoardContent.do", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<Integer> deleteBoardContent(@RequestBody Board board) {
+		try {
+			boardService.deleteBoardContent(board.getSeq());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ResponseEntity<>(1, HttpStatus.OK);
 	}
 
 	/**

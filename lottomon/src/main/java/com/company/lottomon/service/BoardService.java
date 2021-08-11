@@ -10,5 +10,6 @@ public interface BoardService {
 	List<Board> selectPostBoard(Board board);
 	List<Board> selectPostBoardDetail(Board board);
 	int insertBoardContent(Board board);
-    int updateBoardViewUp(int seq);
+	int deleteBoardContent(int seq);
+	int updateBoardViewUp(int seq);
 }

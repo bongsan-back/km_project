@@ -93,9 +93,9 @@
             <div class="service_alert_list">
               <span><a href="javascript:goToMenu(type)">목록</a></span>
               <ul>
-                <li><a href="#">답글</a></li>
-                <li><a href="#">수정</a></li>
-                <li><a href="#">삭제</a></li>
+                <%--<li><a href="#">답글</a></li>--%>
+                <li><a href="javascript:editToBoard()">수정</a></li>
+                <li><a href="javascript:deleteToBoard()">삭제</a></li>
               </ul>
             </div>
             <div id="comment">
@@ -279,6 +279,34 @@
       });
     } else if(getCookie("boardViewSeq" + seq) === seq){
       return;
+    }
+  }
+
+  function editToBoard(){
+    location.href="/board/editingPostBoard.do?type=" + type + "&seq=" + seq + "&option=edit";
+  }
+
+  function deleteToBoard(){
+    if(confirm("작성글을 삭제하시겠습니까?")){
+      var data = {
+        seq : seq
+      };
+
+      $.ajax({
+        type: 'POST',
+        contentType: "application/json",
+        dataType: 'json',
+        url: '/board/deleteBoardContent.do',
+        data: JSON.stringify(data),
+        success: function (data) {
+          javascript:goToMenu(type);
+        },
+        error : function(response){
+          console.log(response);
+        }
+      });
+    } else{
+
     }
   }
 </script>

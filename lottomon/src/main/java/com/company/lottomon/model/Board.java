@@ -24,6 +24,7 @@ public class Board {
 	private Integer start_row_num; //페이징 시작 번호 수
 	private String search_type; //검색 종류
 	private String search_word; //검색어
+	private String option; //게시글 옵션
 
 	//Set RequestBody
 	private String user_id; //사용자 id
