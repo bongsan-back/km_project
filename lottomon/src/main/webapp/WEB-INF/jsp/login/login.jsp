@@ -93,7 +93,7 @@
                         <div class="simple">
                             <h6>간편 로그인</h6>
                             <a href="#" class="pcicon"><img src="/img/kakao_login.jpg"></a>
-                            <a href="#" class="pcicon"><img src="/img/naver_login.jpg"></a>
+                            <a href="#none" id="naver_id_login" class="pcicon"><img src="/img/naver_login.jpg"></a>
                             <a href="#" class="pcicon"><img src="/img/facebook_login.jpg"></a>
                             <a href="#" class="moicon"><img src="/img/kakao_icon_m.jpg"></a>
                             <a href="#" class="moicon"><img src="/img/naver_icon_m.jpg"></a>
@@ -107,7 +107,8 @@
 </section>
 <%@include file="../include/footer.jsp"%>
 
-
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
     var message = '${message}';
     var redirectUrl = '${redirectUrl}';
@@ -176,6 +177,20 @@
            location.href="../main.do";
         }
     });
+
+
+    //naver 로그인 변수
+    var naver_id_login = new naver_id_login("OE2CmixkLpQy33V4vswA", "http://localhost:8080/login/naverCallback.do");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("green", 3,490)
+    naver_id_login.setDomain("http://localhost:8080/");
+    naver_id_login.setState(state);
+    naver_id_login.setPopup();
+    naver_id_login.init_naver_id_login();
+
+
+
+
 
 </script>
 

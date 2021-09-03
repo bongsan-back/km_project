@@ -180,6 +180,11 @@ public class ViewController {
     @RequestMapping(value = "/membershipPay.do", method = RequestMethod.GET)
     public String membershipPay(HttpServletRequest request, HttpSession session, Model model) {
         try {
+            if(session.getAttribute("user_id") == null){
+                model.addAttribute("message","로그인이 필요한 서비스입니다.");
+                model.addAttribute("redirectUrl","/myUpdate.do");
+                return "/login/login";
+            }
             ArrayList<Membership> memberships = (ArrayList<Membership>) membershipService.selectList();
             ArrayList<MembershipPrice> membershipPrice = (ArrayList<MembershipPrice>) membershipService.getPrice();
 

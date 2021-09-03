@@ -46,4 +46,22 @@ public class UserDAO {
 	public UserInfo loginProc(UserInfo userInfo) {
 		return sqlSession.selectOne("user.loginProc", userInfo);
 	}
+
+	/**
+	 * SNS 로그인 확인
+	 * @param userInfo	유저 정보
+	 * @return
+	 */
+	public UserInfo snsLoginProc(UserInfo userInfo) {
+		return sqlSession.selectOne("user.snsLoginProc", userInfo);
+	}
+
+	/**
+	 * SNS > Email 로그인 확인
+	 * @param userInfo	유저 정보
+	 * @return
+	 */
+	public UserInfo loginChk(UserInfo userInfo) {
+		return sqlSession.selectOne("user.loginChk", userInfo);
+	}
 }

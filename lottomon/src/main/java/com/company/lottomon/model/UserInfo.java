@@ -11,6 +11,8 @@ public class UserInfo {
 	private String email;
 	private String grade;
 	private String role;
+	private String sns_token;
+	private String join_type;
 	public String getTelNo() {
 		return telNo;
 	}
@@ -84,6 +86,22 @@ public class UserInfo {
 		this.grade = grade;
 	}
 
+	public String getSns_token() {
+		return sns_token;
+	}
+
+	public void setSns_token(String sns_token) {
+		this.sns_token = sns_token;
+	}
+
+	public String getJoin_type() {
+		return join_type;
+	}
+
+	public void setJoin_type(String join_type) {
+		this.join_type = join_type;
+	}
+
 	@Override
 	public String toString() {
 		return "UserInfo{" +
@@ -97,6 +115,7 @@ public class UserInfo {
 				", email='" + email + '\'' +
 				", grade='" + grade + '\'' +
 				", role='" + role + '\'' +
+				", sns_token='" + sns_token + '\'' +
 				'}';
 	}
 }

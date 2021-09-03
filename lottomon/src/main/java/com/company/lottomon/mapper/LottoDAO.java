@@ -90,11 +90,19 @@ public class LottoDAO {
     }
 
     /**
-     * 로또정보 가져오기
+     * 로또 매장 정보 Insert
      * @return void
      */
     public void insertLottoPlaceData(List<LottoPlace> list) {
         sqlSession.update("lotto.insertLottoPlaceData", list);
+    }
+
+    /**
+     * 로또정보 Insert
+     * @return void
+     */
+    public void insertLottoData(LottoData lottoData) {
+        sqlSession.update("lotto.insertLottoData", lottoData);
     }
 
 

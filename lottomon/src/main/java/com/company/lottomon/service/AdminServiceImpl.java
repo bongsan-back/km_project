@@ -2,7 +2,6 @@ package com.company.lottomon.service;
 
 import com.company.lottomon.common.Constant.*;
 import com.company.lottomon.mapper.AdminDAO;
-import com.company.lottomon.mapper.BoardDAO;
 import com.company.lottomon.model.LottoData;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;

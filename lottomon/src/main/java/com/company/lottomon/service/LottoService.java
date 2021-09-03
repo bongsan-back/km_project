@@ -17,4 +17,5 @@ public interface LottoService {
 	LottoData selectData();
 	LottoData selectData(LottoData lottoData);
 	void insertLottoPlaceData(List<LottoPlace> lottoPlace);
+	void insertLottoData(LottoData lottoData);
 }

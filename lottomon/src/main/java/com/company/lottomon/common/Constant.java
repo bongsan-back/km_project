@@ -90,4 +90,14 @@ public class Constant {
 			return this.title;
 		}
 	}
+
+	public static String SnsType(String SnsType) {
+		switch (SnsType){
+			case "kakao": return "02";
+			case "naver": return "03";
+			case "google": return "04";
+			case "facebook": return "05";
+			default: return "01";
+		}
+	}
 }

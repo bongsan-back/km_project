@@ -66,4 +66,9 @@ public class LottoServiceImpl implements LottoService{
 		lottoDAO.insertLottoPlaceData(lottoPlace);
 	}
 
+	@Override
+	public void insertLottoData(LottoData lottoData) {
+		lottoDAO.insertLottoData(lottoData);
+	}
+
 }

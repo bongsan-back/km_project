@@ -26,6 +26,6 @@
 <body>
 </body>
 <script type="text/javascript">
-	location.href = "/login/login.do"; //로그인으로 이동
+	location.href = "/main.do"; //로그인으로 이동
 </script>
 </html>

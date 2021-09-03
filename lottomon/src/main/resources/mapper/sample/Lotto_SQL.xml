@@ -56,13 +56,28 @@
 		)
 		VALUES
 		<foreach collection="list" item="items" separator="),(" open="(" close=")">
-			${items.drwNo},' ${items.name}',' ${items.address}', now(), '${items.type}'
+			${items.drwNo},' ${items.name}',' ${items.addr}', now(), '${items.type}'
 		</foreach>
+	</update>
+
+	<update id="insertLottoData" parameterType="com.company.lottomon.model.LottoData">
+		INSERT INTO lotto_data
+		(
+			drwNo, drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6, bnusNo, dwr_dt,
+		 	placeNo1_cnt, placeNo2_cnt, placeNo3_cnt, placeNo4_cnt, placeNo5_cnt,
+		 	placeNo1_price, placeNo2_price, placeNo3_price, placeNo4_price, placeNo5_price
+		)
+		VALUES
+		(
+			${drwNo}, ${drwtNo1}, ${drwtNo2}, ${drwtNo3}, ${drwtNo4}, ${drwtNo5}, ${drwtNo6}, ${bnusNo}, '${dwr_dt}',
+			${placeNo1_cnt}, ${placeNo2_cnt}, ${placeNo3_cnt}, ${placeNo4_cnt}, ${placeNo5_cnt},
+			'${placeNo1_price}', '${placeNo2_price}', '${placeNo3_price}', '${placeNo4_price}', '${placeNo5_price}'
+		)
 	</update>
 
 	<select id="selectPlaceData" resultType="int">
 		<![CDATA[
-		SELECT MAX(drwNo) AS last_drwNo FROM lotto_place WHERE drwNo = (SELECT MAX(drwNo) FROM lotto_place GROUP BY drwNo)
+		SELECT MAX(drwNo) AS last_drwNo FROM lotto_place WHERE drwNo = (SELECT MAX(drwNo) FROM lotto_place GROUP BY drwNo ORDER BY drwNo DESC LIMIT 1);
 		]]>
 	</select>
 

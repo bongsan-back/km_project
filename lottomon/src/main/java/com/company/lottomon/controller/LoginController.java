@@ -56,4 +56,48 @@ public class LoginController {
             // TODO: handle exception
         }
     }
+
+
+    /**
+     * 로그인 페이지
+     */
+    @RequestMapping(value = "/naverLogin.do", method = RequestMethod.GET)
+    public String naverLogin(HttpServletRequest request, HttpSession session) {
+
+        return "login/naverLogin";
+    }
+
+    /**
+     * 로그인 페이지
+     */
+    @RequestMapping(value = "/naverCallback.do", method = RequestMethod.GET)
+    public String naverCallBack(HttpServletRequest request, HttpSession session) {
+
+        return "login/naverCallback";
+    }
+
+
+    /**
+     * SNS 로그인 체크
+     */
+
+    @RequestMapping(value = "/snsLoginChk.do", method = RequestMethod.POST)
+    public @ResponseBody
+    Object snsLoginChk(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
+        try {
+
+            log.debug(param.getData());
+            UserInfo userInfo = param.getData();
+            userInfo.setJoin_type(Constant.SnsType(userInfo.getJoin_type()));
+
+            Constant.LoginResult result = userService.snsLoginProc(userInfo, session);
+
+            return result;
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return Constant.ServiceResult.FAIL;
+            // TODO: handle exception
+        }
+    }
 }

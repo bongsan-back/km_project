@@ -34,7 +34,7 @@
 <script src="/js/common.js"></script>
 <link rel="stylesheet" type="text/css" href="/css/font.css" />
 <link rel="stylesheet" type="text/css" href="/css/common.css" />
-<link rel="stylesheet" type="text/css" href="/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="/css/layout.css?ver=0.01" />
 <link rel="stylesheet" type="text/css" href="/css/header.css" />
 <link rel="stylesheet" type="text/css" href="/css/footer.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css?ver=0.01" />

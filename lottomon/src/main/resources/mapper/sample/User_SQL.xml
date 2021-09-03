@@ -67,4 +67,18 @@
 		]]>
 	</select>
 
+	<select id="loginProc" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
+		<![CDATA[
+		SELECT * FROM user WHERE
+			email = #{email} AND join_type = #{join_type} AND sns_tocken = #{sns_tocken}
+		]]>
+	</select>
+
+	<select id="loginChk" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
+		<![CDATA[
+		SELECT * FROM user WHERE
+			id = #{email} AND join_type = '01'
+		]]>
+	</select>
+
 </mapper>
