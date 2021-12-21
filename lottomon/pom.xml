@@ -9,9 +9,9 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.8</java-version>
-		<org.springframework-version>5.3.7</org.springframework-version>
+		<org.springframework-version>5.3.13</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
-		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<org.slf4j-version>1.7.25</org.slf4j-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -145,7 +145,7 @@
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-dbcp</artifactId>
 			<scope>provided</scope>
-			<version>7.0.53</version>
+			<version>8.5.73</version>
 		</dependency>
 
 		<dependency>
@@ -155,7 +155,7 @@
 		</dependency>
 
 		<!-- Oracle -->
-		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc6</artifactId> 
+		<!-- <dependency> <groupId>com.oracle</groupId> <artifactId>ojdbc6</artifactId>
 			<version>11.2.0.3</version> </dependency> -->
 
 		<!-- MySql -->
@@ -185,10 +185,10 @@
 		</dependency>
 
 		<!-- Web -->
-		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId> 
-			<scope>provided</scope> <version>2.5</version> </dependency> <dependency> 
-			<groupId>javax.servlet.jsp</groupId> <artifactId>jsp-api</artifactId> <scope>provided</scope> 
-			<version>2.1</version> </dependency> <dependency> <groupId>javax.servlet</groupId> 
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>servlet-api</artifactId>
+			<scope>provided</scope> <version>2.5</version> </dependency> <dependency>
+			<groupId>javax.servlet.jsp</groupId> <artifactId>jsp-api</artifactId> <scope>provided</scope>
+			<version>2.1</version> </dependency> <dependency> <groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId> <version>1.2</version> </dependency> -->
 		<!-- Servlet -->
 		<dependency>
@@ -317,7 +317,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
+			<version>1.2.17</version>
 			<exclusions>
 				<exclusion>
 					<groupId>javax.mail</groupId>
@@ -348,7 +348,7 @@
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-war-plugin</artifactId>
-			<version>2.3</version>
+			<version>3.2.3</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
@@ -417,7 +417,7 @@
 			<version>4.5.1</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>lpoint</groupId> <artifactId>openpoint.aria</artifactId> 
+		<!-- <dependency> <groupId>lpoint</groupId> <artifactId>openpoint.aria</artifactId>
 			<version>1.0</version> </dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/com.google.gcm/gcm-server -->
