@@ -6,10 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import com.company.lottomon.model.UserInfo;
 
+import java.util.List;
+import java.util.Map;
+
 @Repository
 public class UserDAO {
 
-	@Autowired 
+	@Autowired
 	private SqlSessionTemplate sqlSession;
 	/**
      * 유저 회원가입
@@ -19,7 +22,7 @@ public class UserDAO {
     public void insert(UserInfo userInfo) {
     	sqlSession.insert("user.insertUser", userInfo);
 	}
-    
+
 	/**
      * 유저 정보가 있는지 유무 (count)
      * @param userInfo	유저 정보
@@ -36,6 +39,14 @@ public class UserDAO {
 	 */
 	public UserInfo getUserInfo(String id) {
 		return sqlSession.selectOne("user.getUserInfo", id);
+	}
+
+	/**
+	 * 로그인 확인
+	 * @return
+	 */
+	public List<UserInfo> getUserInfo() {
+		return sqlSession.selectList("user.getUserInfoList");
 	}
 
 	/**
@@ -63,5 +74,13 @@ public class UserDAO {
 	 */
 	public UserInfo loginChk(UserInfo userInfo) {
 		return sqlSession.selectOne("user.loginChk", userInfo);
+	}
+
+	/**
+	 * 유저 등급 변경
+	 * @return
+	 */
+	public void changeGrade(UserInfo userInfo) {
+		sqlSession.update("user.changeGrade", userInfo);
 	}
 }

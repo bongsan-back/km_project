@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -90,7 +90,7 @@
                                 <input type='button' value="로그인" onclick="javascript:loginProc()"/>
                             </div>
                         </form>
-                        <div class="simple">
+                       <%-- <div class="simple">
                             <h6>간편 로그인</h6>
                             <a href="#" class="pcicon"><img src="/img/kakao_login.jpg"></a>
                             <a href="#none" id="naver_id_login" class="pcicon"><img src="/img/naver_login.jpg"></a>
@@ -98,7 +98,7 @@
                             <a href="#" class="moicon"><img src="/img/kakao_icon_m.jpg"></a>
                             <a href="#" class="moicon"><img src="/img/naver_icon_m.jpg"></a>
                             <a href="#" class="moicon"><img src="/img/facebook_icon_m.jpg"></a>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
             </div>

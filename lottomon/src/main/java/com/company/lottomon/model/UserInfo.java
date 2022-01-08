@@ -1,6 +1,7 @@
 package com.company.lottomon.model;
 
 public class UserInfo {
+	private int seq;
 	private String telNo;
 	private String gender;
 	private String name;
@@ -13,6 +14,15 @@ public class UserInfo {
 	private String role;
 	private String sns_token;
 	private String join_type;
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+
 	public String getTelNo() {
 		return telNo;
 	}

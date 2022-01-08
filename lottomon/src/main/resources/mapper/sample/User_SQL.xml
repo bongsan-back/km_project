@@ -58,6 +58,12 @@
 		]]>
 	</select>
 
+	<select id="getUserInfoList" resultType="com.company.lottomon.model.UserInfo">
+		<![CDATA[
+		SELECT seq,id,birth,role,name,nickname,telNo,grade FROM user
+		]]>
+	</select>
+
 	<select id="loginProc" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
 		<![CDATA[
 		SELECT * FROM user WHERE
@@ -80,5 +86,14 @@
 			id = #{email} AND join_type = '01'
 		]]>
 	</select>
+
+
+	<update id="changeGrade" parameterType="map">
+		<![CDATA[
+		UPDATE user SET grade = #{grade}, grade_start_dt = NOW() WHERE seq = #{seq}
+		]]>
+
+
+	</update>
 
 </mapper>

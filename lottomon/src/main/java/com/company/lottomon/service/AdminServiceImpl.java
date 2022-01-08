@@ -2,7 +2,9 @@ package com.company.lottomon.service;
 
 import com.company.lottomon.common.Constant.*;
 import com.company.lottomon.mapper.AdminDAO;
+import com.company.lottomon.mapper.UserDAO;
 import com.company.lottomon.model.LottoData;
+import com.company.lottomon.model.UserInfo;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -13,14 +15,28 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @Service("adminService")
 public class AdminServiceImpl implements AdminService{
-	
+
 	@Autowired
 	private AdminDAO adminDAO;
 
+	@Autowired
+	private UserDAO userDAO;
+
+	@Override
+	public List<UserInfo> selectUserInfo(){
+		List<UserInfo> userInfo = null;
+		try {
+			userInfo = userDAO.getUserInfo();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return userInfo;
+	}
 
 	@Override
 	public ServiceResult insertLottoData(MultipartFile excelFile) {
@@ -125,13 +141,11 @@ public class AdminServiceImpl implements AdminService{
 		}catch (Exception e){
 			e.printStackTrace();
 		}
-
-
-
-
-
-
 		return ServiceResult.SUCCESS;
 	}
-	
+
+	@Override
+	public void changeGrade(UserInfo userInfo) {
+		userDAO.changeGrade(userInfo);
+	}
 }
