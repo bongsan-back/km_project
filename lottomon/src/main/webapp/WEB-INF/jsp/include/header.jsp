@@ -101,7 +101,7 @@
                         <li><a href='/board/bulletin.do'>자유게시판</a></li>
                         <li><a href='/board/winPrayer.do'>당첨기원게시판</a></li>
                         <li><a href='/board/debateRoom.do'>토론방</a></li>
-                        <li><a href='/board/theFirstStory.do'>1등 당첨자이야기</a></li>
+                        <%--<li><a href='/board/theFirstStory.do'>1등 당첨자이야기</a></li>--%>
                     </ul>
                 </li>
                 <li>

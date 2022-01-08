@@ -70,4 +70,28 @@ public class BoardDAO {
     public int updateBoardViewUp(int seq) {
 		return sqlSession.update("board.updateBoardViewUp", seq);
     }
+	/**
+     * 댓글 Insert
+     * @param boardComment Insert 할 댓글 정보
+     * @return
+     */
+    public int insertBoardCommentContent(Board.Comment boardComment) {
+    	return sqlSession.insert("board.insertBoardCommentContent", boardComment);
+	}
+	/**
+     * 댓글 Edit
+     * @param boardComment edit 할 댓글 정보
+     * @return
+     */
+    public int editBoardCommentContent(Board.Comment boardComment) {
+    	return sqlSession.insert("board.editBoardCommentContent", boardComment);
+	}
+	/**
+     * 댓글 Delete
+     * @param seq Insert 할 댓글 정보
+     * @return
+     */
+    public int deleteBoardCommentContent(int seq) {
+    	return sqlSession.delete("board.deleteBoardCommentContent", seq);
+	}
 }

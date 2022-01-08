@@ -40,10 +40,10 @@ var menu = {
             str +=  '>당첨기원게시판</a>' +
                 '<a href="./debateRoom.do"';
             str +=  type==="03" ? 'class="on"' : '';
-            str +=  '>토론방</a>' +
-                '<a href="./theFirstStory.do"';
+            str +=  '>토론방</a>';
+            /*str +=  '<a href="./theFirstStory.do"';
             str +=  type==="04" ? 'class="on"' : '';
-            str +=  '>1등당첨자이야기</a>';
+            str +=  '>1등당첨자이야기</a>';*/
         }
         else if(type==="11" || type==="12"){
             str +=  '<a href="./notice.do"';

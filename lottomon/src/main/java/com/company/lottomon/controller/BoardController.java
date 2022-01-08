@@ -287,4 +287,46 @@ public class BoardController {
 		}
 		return new ResponseEntity<>(1, HttpStatus.OK);
 	}
+
+	/**
+	 * 댓글 insert
+	 */
+	@RequestMapping(value = "/insertBoardCommentContent.do", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<Integer> insertBoardCommentContent(@RequestBody Board.Comment boardComment) {
+		try {
+			boardService.insertBoardCommentContent(boardComment);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ResponseEntity<>(boardComment.getSeq(), HttpStatus.OK);
+	}
+
+	/**
+	 * 댓글 edit
+	 */
+	@RequestMapping(value = "/editBoardCommentContent.do", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<Integer> editBoardCommentContent(@RequestBody Board.Comment boardComment) {
+		try {
+			boardService.editBoardCommentContent(boardComment);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ResponseEntity<>(boardComment.getSeq(), HttpStatus.OK);
+	}
+
+	/**
+	 * 댓글 delete
+	 */
+	@RequestMapping(value = "/deleteBoardCommentContent.do", method = RequestMethod.POST)
+	public @ResponseBody ResponseEntity<Integer> deleteBoardCommentContent(@RequestBody Board.Comment boardComment) {
+		try {
+			boardService.deleteBoardCommentContent(boardComment.getSeq());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new ResponseEntity<>(boardComment.getSeq(), HttpStatus.OK);
+	}
 }

@@ -66,7 +66,9 @@
 		SELECT A.content,
 			   C.name,
 			   DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
-			   REPLACE(REPLACE(DATE_FORMAT(A.reg_dt,'%p %H:%i'),'AM','오전'),'PM','오후') reg_dt_hms
+			   REPLACE(REPLACE(DATE_FORMAT(A.reg_dt,'%p %H:%i'),'AM','오전'),'PM','오후') reg_dt_hms,
+			   A.user_id,
+			   (SELECT COUNT(*) FROM board_comment_like_count D WHERE A.seq = D.seq AND A.board_seq = D.board_seq) AS comment_like_count
 		FROM board_comment A
 	 	JOIN board B
 	  	ON A.board_seq = B.seq
@@ -86,7 +88,7 @@
 		</if>
 		<if test="seq > 0">
 			UPDATE board
-			SET title = #{title}, content = #{content}
+			SET title = #{title}, content = #{content}, update_dt = NOW()
 			WHERE seq = #{seq}
 		</if>
 	</insert>
@@ -108,5 +110,37 @@
 		UPDATE board
 		SET pv = pv + 1
 		WHERE seq = #{seq}
+	</update>
+
+	<insert id="insertBoardCommentContent" parameterType="map" useGeneratedKeys="true" keyProperty="seq">
+		<if test="seq == 0">
+			INSERT INTO board_comment
+			(board_seq, content, user_id, reg_dt)
+			VALUES (#{board_seq}, #{content}, #{user_id}, NOW())
+		</if>
+		<if test="seq > 0">
+			UPDATE board_comment
+			SET content = #{content}, update_dt = NOW()
+			WHERE seq = #{seq}
+		</if>
+	</insert>
+
+	<insert id="editBoardCommentContent" parameterType="map">
+		UPDATE board_comment set
+						 content = #{content}
+						 update_dt = NOW()
+		WHERE
+	</insert>
+
+	<delete id="deleteBoardCommentContent" parameterType="map">
+		DELETE FROM board_comment
+		WHERE seq = #{seq}
+	</delete>
+
+	<update id="updateBoardCommentLikePv" parameterType="map">
+		UPDATE board_comment_like_pv set
+			content = #{content}
+			update_dt = NOW()
+		WHERE
 	</update>
 </mapper>

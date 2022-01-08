@@ -75,11 +75,11 @@
                 <dt id="title">title</dt>
                 <p><span id="name">name</span><span id="reg_dt" class="day">reg_dt</span></p>
                 <dd id="content">content</dd>
-                <div class="filebox">
+                <%--<div class="filebox">
                   <label for="file">첨부파일</label>
                   <input type="file" id="file">
                   <input class="upload-name" value="test.txt">
-                </div>
+                </div>--%>
               </dl>
             </form>
 
@@ -92,7 +92,7 @@
 
             <div class="service_alert_list">
               <span><a href="javascript:goToMenu(type)">목록</a></span>
-              <ul>
+              <ul id="board_editing_btn_group">
                 <%--<li><a href="#">답글</a></li>--%>
                 <li><a href="javascript:editToBoard()">수정</a></li>
                 <li><a href="javascript:deleteToBoard()">삭제</a></li>
@@ -104,8 +104,8 @@
                 <span class="comment focus">인기순</span>
                 <span class="comment2">최신순</span>
                 <form action="#" name="comment" class="com">
-                  <input type="text" name="comment">
-                  <input type="submit" value="댓글등록">
+                  <textarea type="text" id="comment_contents" required wrap="soft" placeholder="댓글을 작성하세요."></textarea>
+                  <input type="submit" id="insert" value="댓글등록" onclick="insertBoardComment()"/>
                 </form>
                 <div id= "comment_list">
                 </div>
@@ -145,13 +145,15 @@
   var pageNumBaseCnt = ${pageNumBaseCnt};
   var allPage = Math.ceil(allCnt / postNumBaseCnt); //페이징 몫 설정
 
-  var seq = ${post_board}[0].seq;
+  var board_seq = ${post_board}[0].seq;
   var type = "${type}";
   var type_group_name = "${type_group_name}";
   var type_name = "${type_name}";
   var post_board = ${post_board}[0];
   var prev_seq = ${post_board}[0].prev_seq;
   var next_seq = ${post_board}[0].next_seq;
+
+  var user_id = '<%=(String)session.getAttribute("user_id")%>';
 </script>
 <script type="text/javascript">
   $(function() {
@@ -162,6 +164,7 @@
   //최초 게시판 출력
   function initNotice(){
     //게시판 setting
+    $('#comment_contents').blur();
     $("#menu_title").text(" " + type_name)
     $("#menu_type_group_name").text(" " + type_group_name)
     $("#menu_type_name").text(" " + type_name)
@@ -200,7 +203,7 @@
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
       type : type,
-      seq : seq
+      seq : board_seq
     };
 
     $.ajax({
@@ -215,10 +218,16 @@
           var getList = data[i];
           str +=  '<dl class="comment_list">\n';
           str +=  '<dt>\n'+ '<img src="../img/humen.png">' + getList.name + '</dt>\n';
-          str +=  '<dd>\n'+ '<span>' + getList.reg_dt + '</span>\n' + '<span>' + getList.reg_dt_hms + '</span>' +
-                  '<span><a href="#">' + '수정' + '</a></span>\n' + '<span class="delete"><a href="#">' + '삭제' + '</a></span></dd>\n';
+          str +=  '<dd>\n'+ '<span>' + getList.reg_dt + '</span>\n' + '<span>' + getList.reg_dt_hms + '</span>';
+          if(user_id == getList.user_id){
+            $("#board_editing_btn_group").show(); //수정,삭제 버튼 display
+
+            str +=  '<span><a href="javascript:editBoardComment()">수정</a></span>\n' +
+                    '<span class="delete"><a href="javascript:deleteBoardComment()">삭제</a>' +
+                    '</span></dd>\n';
+          }
           str +=  '<dd class="txt">' + getList.content + '</dd>\n';
-          str +=  '<p><img src="../img/good.png">' + 35 + '</p>\n';
+          str +=  '<p><img src="../img/good.png">' + getList.comment_like_count + '</p>\n';
           str +=  '</dl>';
         }
         $('#comment_list').html(str);
@@ -258,11 +267,11 @@
   }
 
   function boardViewUp() {
-    if(getCookie("boardViewSeq" + seq) === undefined){
-      setCookie("boardViewSeq" + seq, seq, '1');
+    if(getCookie("boardViewSeq" + board_seq) === undefined){
+      setCookie("boardViewSeq" + board_seq, board_seq, '1');
 
       var data = {
-        seq : seq
+        seq : board_seq
       };
 
       $.ajax({
@@ -277,19 +286,19 @@
           console.log(response);
         }
       });
-    } else if(getCookie("boardViewSeq" + seq) === seq){
+    } else if(getCookie("boardViewSeq" + board_seq) === board_seq){
       return;
     }
   }
 
   function editToBoard(){
-    location.href="/board/editingPostBoard.do?type=" + type + "&seq=" + seq + "&option=edit";
+    location.href="/board/editingPostBoard.do?type=" + type + "&seq=" + board_seq + "&option=edit";
   }
 
   function deleteToBoard(){
     if(confirm("작성글을 삭제하시겠습니까?")){
       var data = {
-        seq : seq
+        seq : board_seq
       };
 
       $.ajax({
@@ -308,6 +317,84 @@
     } else{
 
     }
+  }
+
+  function insertBoardComment(){
+    if($("#comment_contents").val()===""){
+      alert("댓글을 입력해주세요");
+      return;
+    }
+
+    var data = {
+      user_id : "bolee", //아이디는 코딩이 되면 아래 내용으로 변경
+      //user_id : user_id,
+      board_seq : board_seq,
+      content : $("#comment_contents").val()
+    };
+
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json",
+      dataType: 'json',
+      url: '/board/insertBoardCommentContent.do',
+      data: JSON.stringify(data),
+      success: function (seq) {
+        location.reload()
+      },
+      error : function(){
+        alert("글 작성에 실패 하였습니다. 잠시 후 다시 시도해 주세요.");
+        return;
+      }
+    });
+  }
+
+  function editBoardComment(){
+    if($("#comment_contents").val()===""){
+      alert("댓글을 입력해주세요");
+      return;
+    }
+
+    var data = {
+      user_id : "bolee", //아이디는 코딩이 되면 아래 내용으로 변경
+      //user_id : user_id,
+      seq : seq,
+      content : $("#comment_contents").val()
+    };
+
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json",
+      dataType: 'json',
+      url: '/board/insertBoardCommentContent.do',
+      data: JSON.stringify(data),
+      success: function (seq) {
+        location.reload()
+      },
+      error : function(){
+        alert("글 작성에 실패 하였습니다. 잠시 후 다시 시도해 주세요.");
+        return;
+      }
+    });
+  }
+
+  function deleteBoardComment(){
+    var data = {
+      seq : seq
+    };
+
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json",
+      dataType: 'json',
+      url: '/board/deleteBoardCommentContent.do',
+      data: JSON.stringify(data),
+      success: function (data) {
+        location.reload()
+      },
+      error : function(response){
+        console.log(response);
+      }
+    });
   }
 </script>
 

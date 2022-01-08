@@ -40,4 +40,13 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public int updateBoardViewUp(int seq) { return boardDAO.updateBoardViewUp(seq); }
+
+	@Override
+	public int insertBoardCommentContent(Board.Comment boardComment) { return boardDAO.insertBoardCommentContent(boardComment); }
+
+	@Override
+	public int editBoardCommentContent(Board.Comment boardComment) { return boardDAO.editBoardCommentContent(boardComment); }
+
+	@Override
+	public int deleteBoardCommentContent(int seq) { return boardDAO.deleteBoardCommentContent(seq); }
 }

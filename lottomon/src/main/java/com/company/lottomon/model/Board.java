@@ -31,4 +31,14 @@ public class Board {
 	private String pv; //조회수 - default 값 : 0
 
 	private String type_name; //게시글 카테고리명
+
+	@Data
+	public class Comment{
+		private int seq;
+		private int board_seq;
+		private String content;
+		private String user_id; //사용자 id
+		private String reg_dt; //댓글 등록일자
+		private String update_dt; //댓글 수정일자
+	}
 }

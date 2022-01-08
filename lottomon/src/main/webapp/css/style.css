@@ -187,7 +187,7 @@
 #sub .service_alert .service_alert_list { overflow:hidden; margin-top:15px; }
 #sub .service_alert .service_alert_list span { background:#2e68bf; padding:9px 14px; }
 #sub .service_alert .service_alert_list span a { color:#fff; display:block; }
-#sub .service_alert .service_alert_list ul { display:inline-block; float:right;}
+#sub .service_alert .service_alert_list ul { display:inline-block; float:right; display: none;}
 #sub .service_alert .service_alert_list ul li { margin-right:5px; display:inline-block; padding:9px 14px; background:#505050; }
 #sub .service_alert .service_alert_list ul li:last-child { margin-right:0; }
 #sub .service_alert .service_alert_list ul li a { color:#fff; display:block; }
@@ -198,9 +198,9 @@
 #sub .service_alert .comment .comment, #sub .service_alert .comment .comment2
  { cursor:pointer; }
 #sub .service_alert .comment .com { overflow:hidden; }
-#sub .service_alert .comment .com input { float:left; height:100px;  }
-#sub .service_alert .comment .com input[type=text] { width:90%; }
-#sub .service_alert .comment .com input[type=submit] { width:10%; }
+#sub .service_alert .comment .com textarea[type=text] {float:left; width:80%; height:100px; padding: 15px;}
+#sub .service_alert .comment .com input {float:right; height:100px;  }
+#sub .service_alert .comment .com input[type=submit] { width:20%; }
 
 #sub .service_alert .comment .comment_list { padding:15px 0; color:#505050; position:relative; border-bottom:1px solid #dedede; }
 #sub .service_alert .comment .comment_list a { color:#505050; }
@@ -210,8 +210,8 @@
 #sub .service_alert .comment .comment_list dt img { margin-right:5px; vertical-align:middle; }
 #sub .service_alert .comment .comment_list dd span::after { content:"|"; color:#bbbbbb; margin:0 7px; }
 #sub .service_alert .comment .comment_list .content { display:block; }
-#sub .service_alert .comment .comment_list p {color:#2e68bf; position:absolute; top:50%; right:0; transform:translate(0,-50%);}
-#sub .service_alert .comment .comment_list p img { margin-right:3px; }
+#sub .service_alert .comment .comment_list p {color:#2e68bf; position:absolute; top:50%; right:20px; transform:translate(0,-50%);}
+#sub .service_alert .comment .comment_list p img { margin-right:3px; margin-top: 3px;}
 #sub .service_alert .comment .comment_list .delete a { color:#cd0000; }
 #sub .service_alert table { display:block; color:#505050; border:1px solid #bbbbbb; margin-top:50px; margin-bottom:30px; }
 #sub .service_alert table tbody { display:block;  }

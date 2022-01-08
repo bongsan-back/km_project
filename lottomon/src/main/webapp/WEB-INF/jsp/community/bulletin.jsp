@@ -60,7 +60,7 @@
           <a href="./bulletin.do" class="on">자유게시판</a>
           <a href="./winPrayer.do">당첨기원게시판</a>
           <a href="./debateRoom.do">토론방</a>
-          <a href="./theFirstStory.do">1등당첨자이야기</a>
+          <%--<a href="./theFirstStory.do">1등당첨자이야기</a>--%>
         </div>
       </div>
       <div class="content">

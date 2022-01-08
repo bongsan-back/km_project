@@ -12,4 +12,7 @@ public interface BoardService {
 	int insertBoardContent(Board board);
 	int deleteBoardContent(int seq);
 	int updateBoardViewUp(int seq);
+	int insertBoardCommentContent(Board.Comment boardComment);
+	int editBoardCommentContent(Board.Comment boardComment);
+	int deleteBoardCommentContent(int seq);
 }

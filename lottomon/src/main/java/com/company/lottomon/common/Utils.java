@@ -2,7 +2,7 @@ package com.company.lottomon.common;
 
 import javax.servlet.http.HttpSession;
 
-public class Utills {
+public class Utils {
     //세션 체크 (세션 유효하면 true, 없으면 false)
     public boolean sessionCheck(HttpSession session){
         boolean sc = false;
