@@ -1,9 +1,11 @@
 package com.company.lottomon.controller;
 
 import com.company.lottomon.encrypt.AES256;
+import com.company.lottomon.model.UserInfo;
 import com.company.lottomon.service.AdminService;
 import org.apache.log4j.Logger;
-import org.apache.maven.model.Model;
+import org.springframework.http.HttpRequest;
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -29,7 +34,7 @@ public class AdminController {
     /**
      * 관리자 페이지 intro 페이지 확인
      */
-    @RequestMapping(value = "/main.do", method = RequestMethod.GET)
+    @RequestMapping(value = {"/main.do","/" }, method = RequestMethod.GET)
     public String main(HttpServletRequest request, HttpSession session) {
         log.debug(session.getAttribute("user_id") + "세션 아이디입니다.");
         System.out.println(session.getAttribute("user_id") + "세션 아이디입니다.");
@@ -40,10 +45,14 @@ public class AdminController {
     /**
      * 관리자 페이지 user 페이지 확인
      */
-    @RequestMapping(value = "/user.do", method = RequestMethod.GET)
-    public String user(HttpServletRequest request, HttpSession session) {
+    @RequestMapping(value = "/user.do")
+    public String user(HttpServletRequest request, HttpSession session, org.springframework.ui.Model model) {
+        System.out.println("신규 테스트");
+        List<UserInfo> userInfo = adminService.selectUserInfo();
 
-        return "admin/user";
+        model.addAttribute("userInfo",userInfo);
+
+        return "/admin/manage";
     }
     /**
      * 관리자 페이지 lotto 관리 페이지 확인
@@ -71,6 +80,24 @@ public class AdminController {
 
 
         return "admin/lotto";
+    }
+
+    /**
+     * 관리자 페이지 lotto 데이터 업데이트
+     */
+    @SuppressWarnings("resource")
+    @RequestMapping(value = "/changeGrade.do", method = RequestMethod.POST)
+    public @ResponseBody Object changeGrade(@RequestBody UserInfo userInfo, HttpSession session, Model model) throws Exception{
+        System.out.println("고객 등급 변경");
+
+        try {
+            Map<String, Object> insMap = new HashMap<String, Object>();
+            adminService.changeGrade(userInfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return 1;
     }
 
 }

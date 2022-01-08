@@ -1,20 +1,19 @@
 package com.company.lottomon.controller;
 
-import com.company.lottomon.common.Constant.*;
+import com.company.lottomon.common.HtmlCrawling;
 import com.company.lottomon.model.*;
-import com.company.lottomon.service.LottoService;
-import com.company.lottomon.service.MembershipService;
-import com.company.lottomon.service.UserService;
+import com.company.lottomon.service.*;
 import org.apache.log4j.Logger;
 
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.company.lottomon.service.BoardService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +42,6 @@ public class ViewController {
     @Autowired
     @Resource(name = "userService")
     private UserService userService;
-
 
     /**
      * 로그인 페이지
@@ -114,6 +112,8 @@ public class ViewController {
     @RequestMapping(value = "/main.do", method = RequestMethod.GET)
     public String main(HttpServletRequest request, HttpSession session, Model model) {
         try {
+            //로또 정보 최신화 (배치 대용)
+            latestLottoData();
 
             model.addAttribute("lottoData3Week", lottoService.select3WeeksNumberList());
             model.addAttribute("selectOrderingNo1", lottoService.selectOrderingNo1());
@@ -131,14 +131,6 @@ public class ViewController {
             model.addAttribute("board_winhope", boardService.selectList(board));
             board.setType("04");
             model.addAttribute("board_win", boardService.selectList(board));
-
-
-
-
-
-
-
-
 
         }catch (Exception e){
             e.printStackTrace();
@@ -213,5 +205,151 @@ public class ViewController {
     }
 
 
+    public void latestLottoData(){
+        int serveLatestDrw = lottoService.selectLastDrwNo();
+        int dhLatestDrw = crawlingDrwno();
+
+        if(dhLatestDrw != 0 && serveLatestDrw != dhLatestDrw ){
+            for (int i = ++serveLatestDrw; i <= dhLatestDrw; i++) {
+                latestInsertDrw(i);
+                latestInsertStore(i);
+            }
+        }
+    }
+
+    private int crawlingDrwno(){
+        try {
+            String url = "https://dhlottery.co.kr/gameResult.do?method=byWin";
+
+            HtmlCrawling hc = new HtmlCrawling();
+            Document doc = (Document) hc.getHtml(url);
+
+            //동행복권 최신 로또 회차 가져오기
+            Elements drwNoEle = doc.select(".win_result").eq(0).select("strong");
+            String drwNo = drwNoEle.get(0).text().replaceAll("회", "");
+
+            return Integer.parseInt(drwNo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void latestInsertDrw(int insertDrw){
+        try {
+            String param = "&drwNo="+insertDrw;
+            String url = "https://dhlottery.co.kr/gameResult.do?method=byWin" + param;
+
+            HtmlCrawling hc = new HtmlCrawling();
+            Document doc = (Document) hc.getHtml(url);
+
+            LottoData ld = new LottoData();
+
+            //당첨 금액, 인원수 추출
+            Elements mElementDatas = doc.select(".tbl_data_col").eq(0).select("tr");
+            int i = 0;
+            ld.setDrwNo(insertDrw);
+            for  (Element ele : mElementDatas){
+                Elements tdList = ele.select("td");
+                if(i==0){
+                    i++;
+                }else if(i==1){
+                    ld.setPlaceNo1_cnt(Integer.parseInt(tdList.eq(2).text().replaceAll(",","")));
+                    ld.setPlaceNo1_price(tdList.eq(3).text().replaceAll(",","").replaceAll("원", ""));
+                    i++;
+                }else if(i==2){
+                    ld.setPlaceNo2_cnt(Integer.parseInt(tdList.eq(2).text().replaceAll(",","")));
+                    ld.setPlaceNo2_price(tdList.eq(3).text().replaceAll(",","").replaceAll("원", ""));
+                    i++;
+                }else if(i==3){
+                    ld.setPlaceNo3_cnt(Integer.parseInt(tdList.eq(2).text().replaceAll(",","")));
+                    ld.setPlaceNo3_price(tdList.eq(3).text().replaceAll(",","").replaceAll("원", ""));
+                    i++;
+                }else if(i==4){
+                    ld.setPlaceNo4_cnt(Integer.parseInt(tdList.eq(2).text().replaceAll(",","")));
+                    ld.setPlaceNo4_price(tdList.eq(3).text().replaceAll(",","").replaceAll("원", ""));
+                    i++;
+                }else if(i==5){
+                    ld.setPlaceNo5_cnt(Integer.parseInt(tdList.eq(2).text().replaceAll(",","")));
+                    ld.setPlaceNo5_price(tdList.eq(3).text().replaceAll(",","").replaceAll("원", ""));
+                    i++;
+                }
+            }
+
+            Elements mElementNo = doc.select(".ball_645");
+            i = 1;
+            for  (Element ele : mElementNo){
+                switch (i){
+                    case 1:
+                        ld.setDrwtNo1(Integer.parseInt(ele.text()));
+                    case 2:
+                        ld.setDrwtNo2(Integer.parseInt(ele.text()));
+                    case 3:
+                        ld.setDrwtNo3(Integer.parseInt(ele.text()));
+                    case 4:
+                        ld.setDrwtNo4(Integer.parseInt(ele.text()));
+                    case 5:
+                        ld.setDrwtNo5(Integer.parseInt(ele.text()));
+                    case 6:
+                        ld.setDrwtNo6(Integer.parseInt(ele.text()));
+                    case 7:
+                        ld.setBnusNo(Integer.parseInt(ele.text()));
+                }
+                i++;
+            }
+            Elements drwDate = doc.select(".desc");
+            for  (Element ele : drwDate){
+                String date = ele.text().substring(1,13).replaceAll("년 ", ".").replaceAll("월 ", ".");
+                ld.setDwr_dt(date);
+            }
+            System.out.println(ld);
+            lottoService.insertLottoData(ld);
+
+            System.out.println(insertDrw +" 회차 정보 저장 성공");
+
+            //당첨 번호 추출
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void latestInsertStore(int lastPlaceDrwNo){
+        try {
+            String param = "&drwNo=" + lastPlaceDrwNo;
+            String url = "https://dhlottery.co.kr/store.do?method=topStore&pageGubun=L645"+param;
+
+            HtmlCrawling hc = new HtmlCrawling();
+
+            Document doc = (Document) hc.getHtml(url);
+            Elements mElementDatas = doc.select(".tbl_data_col").eq(0).select("tr");
+            LottoPlace lp = new LottoPlace();
+
+            List<LottoPlace> placeList = new ArrayList<>();
+            for (Element ele : mElementDatas){
+                Elements tdList = ele.select("td");
+                if(tdList.size() < 1 || tdList.get(0).text().contains("조회 결과가")){
+                    continue;
+                }else{
+                    for (int i = 0; i < tdList.size(); i++) {
+                        lp.setDrwNo(lastPlaceDrwNo);
+                        if(i == 1){
+                            lp.setName(tdList.eq(i).text());
+                        }else if(i == 2){
+                            lp.setType(tdList.eq(i).text());
+                        }else if (i == 3){
+                            lp.setAddr(tdList.eq(i).text());
+                            placeList.add(lp);
+                            lp = new LottoPlace();
+                        }
+                    }
+                }
+            }
+            if(placeList.size() > 0){
+                lottoService.insertLottoPlaceData(placeList);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
