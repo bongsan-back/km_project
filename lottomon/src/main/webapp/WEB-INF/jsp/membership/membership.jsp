@@ -59,7 +59,7 @@
                 <h2>멤버십안내</h2>
                 <div>
                     <a href="./membership.do" class="on">멤버십 안내</a>
-                    <a href="./membershipPay.do">멤버십 결제</a>
+                    <%--<a href="./membershipPay.do">멤버십 결제</a>--%>
                 </div>
             </div>
             <div class="content">
@@ -136,7 +136,7 @@
                         <td><fmt:formatNumber value="${vip36}" pattern="#,###" />원</td>
                     </tr>
                 </table>
-                <div class="pay"><a href="./membershipPay.do">멤버십 결제하기</a></div>
+                <div class="pay"><a href="/board/mylotto_payment.do">멤버십 결제하기</a></div>
             </div>
         </div>
     </div>

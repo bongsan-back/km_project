@@ -91,7 +91,7 @@
 .main .main-2 .main-2box span { text-align:center;  display:block; margin-top:20px; }
 .main .main-2 .main-2box h6 { font-size:34px; color:#ee1512; text-align:center; margin-top:10px; }
 .main .main-2 a { color: #fff; display:inline-block; width:45%; height:36px; line-height:36px; text-align:center; margin-top:30px; font-weight:400;  font-size:14px; }
-.main .main-2 a:nth-of-type(1) { background:#2e68bf; float:left; }
+.main .main-2 a:nth-of-type(1) { /*background:#2e68bf;*/ float:left; }
 .main .main-2 a:nth-of-type(2) { background:#09827b; float:right; }
 .main .main-2 .main-2table { font-size:13px; border-right:1px solid #dddddd; table-layout:fixed; }
 .main .main-2 .main-2table .gray { background:#f5f6f7; }
@@ -100,10 +100,10 @@
 .main .main-2 .main-2table table tr th { font-weight:500; height:35px; }
 .main .main-2 .main-2table table tr td { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:center; height:30px;line-height:30px; min-width:50px; font-weight:300; color:#525252;  }
 .main .main-2 .main-2table table tr td:nth-of-type(1) { max-width:30px; min-width:20px; font-weight:600; }
-.main .main-2 .main-2_number { background-image:url("../img/main-2_numberBg.jpg"); border-left:none; background-position:center; background-repeat:no-repeat; background-size:cover; }
-.main .main-2 .main-2_number h6 { color:#ff8300; font-weight:bold; font-size:24px; margin-top:25px; }
-.main .main-2 .main-2_number span { font-size:18px; width:100%; height:110px; display:inline-block; padding-right:40%; padding-top:20px; box-sizing:border-box; }
-.main .main-2 .main-2_number span + a { background:#09827b; border-radius:30px; margin-left:0px; margin-top:0; }
+.main .main-1 .main-2_number { background-image:url("../img/main-2_numberBg.jpg"); border-left:none; background-position:center; background-repeat:no-repeat; background-size:cover;     height: 290px;position: relative;top: -25px;padding: 20px;}
+.main .main-1 .main-2_number h6 { color:#ff8300; font-weight:bold; font-size:24px; margin-top:25px; }
+.main .main-1 .main-2_number span { font-size:18px; width:100%; height:110px; display:inline-block; padding-right:40%; padding-top:20px; box-sizing:border-box; }
+.main .main-1 .main-2_number span + a { background:#09827b; border-radius:30px; margin-left:0px; margin-top:0; }
 
 .main .main-3 > div { height:275px; }
 .main .main-3 .main-3_1box { width:66.6%; padding:0 20px; }
@@ -151,6 +151,14 @@
 .main .main-4 .main-4box-2 ul li span { display:inline-block; float:right; color:#589893; }
 .main .main-4 .main-4box-2 ul li span img { vertical-align:middle; margin-right:4px; }
 
+.main .main-5 .main-4box-2 { background:#f7f7f7; padding:0; width:33.4%; border-right:1px solid #dddddd; }
+.main .main-5 .main-4box-2 h3 {  display:inline-block; padding-left:20px; font-size:18px; }
+.main .main-5 .main-4box-2 > span a { font-size:12px; float:right; padding-right:20px; margin-top:20px; }
+.main .main-5 .main-4box-2 > span a img { margin-left:5px; vertical-align:middle; margin-bottom:3px;}
+.main .main-5 .main-4box-2 ul { text-align:center; }
+.main .main-5 .main-4box-2 ul li { border:1px solid #dddddd; color:#505050; width:85%; height:40px; line-height:40px;  display:inline-block; text-align:left; padding:0 10px; margin-bottom:5px; border-radius:6px; font-size:13px; background:#fff; font-weight:bold; }
+.main .main-5 .main-4box-2 ul li span { display:inline-block; float:right; color:#589893; }
+.main .main-5 .main-4box-2 ul li span img { vertical-align:middle; margin-right:4px; }
 
 
 
@@ -162,6 +170,15 @@
 .main .main-3 .main-4box-2 ul li { border:1px solid #dddddd; color:#505050; width:85%; height:35px; line-height:40px;  display:inline-block; text-align:left; padding:0 10px; margin-bottom:5px; border-radius:6px; font-size:13px; background:#fff; font-weight:bold; }
 .main .main-3 .main-4box-2 ul li span { display:inline-block; float:right; color:#589893; }
 .main .main-3 .main-4box-2 ul li span img { vertical-align:middle; margin-right:4px; }
+
+.main .main-5 .main-4box-2 { background:#f7f7f7; padding:0; width:33.4%; border-right:1px solid #dddddd; }
+.main .main-5 .main-4box-2 h3 {  display:inline-block; padding-left:20px; font-size:18px; }
+.main .main-5 .main-4box-2 > span a { font-size:12px; float:right; padding-right:20px; margin-top:20px; }
+.main .main-5 .main-4box-2 > span a img { margin-left:5px; vertical-align:middle; margin-bottom:3px;}
+.main .main-5 .main-4box-2 ul { text-align:center; }
+.main .main-5 .main-4box-2 ul li { border:1px solid #dddddd; color:#505050; width:85%; height:35px; line-height:40px;  display:inline-block; text-align:left; padding:0 10px; margin-bottom:5px; border-radius:6px; font-size:13px; background:#fff; font-weight:bold; }
+.main .main-5 .main-4box-2 ul li span { display:inline-block; float:right; color:#589893; }
+.main .main-5 .main-4box-2 ul li span img { vertical-align:middle; margin-right:4px; }
 
 
 .main .main-5 > div { height:255px; }
@@ -188,10 +205,25 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
 .main .main-contents .main-5 .sd2 { background-image:url("../img/swiper-img-lotto.jpg"); }
 .main .main-contents .main-5 .sd3 { background-image:url("../img/swiper-img-lotto.jpg"); }
 .main .main-contents .main-5 .swiper-slide span { position:absolute;
-color:#fff; font-size:23px; left:50%; top:25%; transform:translate(-50%,-25%); max-height:100px; }
+    color:#fff; font-size:23px; left:50%; top:25%; transform:translate(-50%,-25%); max-height:100px; }
 .main .main-contents .main-5 .swiper-slide a { position:absolute; left:50%; top:75%; transform:translate(-50%,-75%); background-size:cover; background-image:url("../img/swiper-img-btn.png"); display:inline-block; width:200px; height:40px; color:#3b1010; font-size:16px; font-weight:bold; text-align:center; line-height:38px; }
 
 .main .main-contents .main-5 .swiper-pagination { position: absolute; top:220px; }
+
+
+.main .main-2 .swiper-slide { height:100%; position:relative; }
+.main .main-2 .swiper-slide.swiper-slide-active {  }
+.main .main-2 .swiper-container-board .swiper-pagination-bullets .swiper-pagination-bullet { opacity:1; background:#fff; }
+.main .main-2 .swiper-container-board .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active { background-color:#ffde31; }
+.main .main-2 .swiper-slide { background-size:cover; background-position:center center; height:255px; width:100%;}
+.main .main-2 .sd1 { background-image:url("../img/swiper-img-lotto.jpg");}
+.main .main-2 .sd2 { background-image:url("../img/swiper-img-lotto.jpg"); }
+.main .main-2 .sd3 { background-image:url("../img/swiper-img-lotto.jpg"); }
+.main .main-2 .swiper-slide span { position:absolute;
+    color:#fff; font-size:23px; left:50%; top:25%; transform:translate(-50%,-25%); max-height:100px; }
+.main .main-2 .swiper-slide a { position:absolute; left:50%; top:60%; transform:translate(-50%,-65%); background-size:cover; background-image:url("../img/swiper-img-btn.png"); display:inline-block; width:200px; height:40px; color:#3b1010; font-size:16px; font-weight:bold; text-align:center; line-height:38px; }
+
+.main .main-2 .swiper-pagination { position: absolute; top:220px; }
 
 .main .main-6 > div { height:255px;}
 .main .main-6 .coll { padding:0; }
@@ -245,6 +277,9 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
   .main .main-2 .main-2_number h6 { font-size:22px; }
   .main .main-2 .main-2_number span { padding-right:20%; font-size:14px; }
   .main .main-2 .main-2_number h6 { font-size:20px; }
+    .main .main-1 .main-2_number h6 { font-size:22px; }
+    .main .main-1 .main-2_number span { padding-right:20%; font-size:14px; }
+    .main .main-1 .main-2_number h6 { font-size:20px; }
   .main .main-2 a { font-size:13px; }
   .main .main-3 .main-3_1box { padding:0 10px; }
   .main .main-3 .main-3_1box .photo { background-position:center; }

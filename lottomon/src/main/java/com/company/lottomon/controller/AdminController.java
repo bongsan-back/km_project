@@ -34,18 +34,18 @@ public class AdminController {
     /**
      * 관리자 페이지 intro 페이지 확인
      */
-    @RequestMapping(value = {"/main.do","/" }, method = RequestMethod.GET)
+    /*@RequestMapping(value = {"/main.do","/" }, method = RequestMethod.GET)
     public String main(HttpServletRequest request, HttpSession session) {
         log.debug(session.getAttribute("user_id") + "세션 아이디입니다.");
         System.out.println(session.getAttribute("user_id") + "세션 아이디입니다.");
 
         return "admin/adminMain";
     }
-
+*/
     /**
      * 관리자 페이지 user 페이지 확인
      */
-    @RequestMapping(value = "/user.do")
+    @RequestMapping(value = {"/user.do", "/main.do"})
     public String user(HttpServletRequest request, HttpSession session, org.springframework.ui.Model model) {
         System.out.println("신규 테스트");
         List<UserInfo> userInfo = adminService.selectUserInfo();

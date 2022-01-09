@@ -56,7 +56,7 @@
                 <li><a href="/winning.do">로또당첨결과</a></li>
                 <li><a href="/membership.do">멤버십안내</a></li>
                 <li><a href="/board/bulletin.do">커뮤니티</a></li>
-                <li><a href="/mylotto/thisWeeksNumber.do">나의로또</a></li>
+                <li><a href="/lotto/thisWeeksNumber.do">나의로또</a></li>
                 <li><a href="/board/notice.do">고객센터</a></li>
             </ul>
         </nav>
@@ -93,7 +93,7 @@
                 <li>
                     <ul>
                         <li><a href='/membership.do'>멤버십 안내</a></li>
-                        <li><a href='/membershipPay.do'>멤버십 결제</a></li>
+                        <%--<li><a href='/membershipPay.do'>멤버십 결제</a></li>--%>
                     </ul>
                 </li>
                 <li>
@@ -141,5 +141,12 @@
         });
     }
 
+    $(document).ready(function(){
+        $('#mobile').click(function() {
+            $('.menu_full').fadeIn();
+        });
+        $('#mobile_x').click(function() {
+            $('.menu_full').fadeOut();
+        });
+    });
 </script>
-

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 @Service("userService")
 public class UserServiceImpl implements UserService{
 	Logger log = Logger.getLogger(this.getClass());
-	
+
 	@Autowired
 	private UserDAO userDAO;
 
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
 		userDAO.insert(userInfo);
 		return ServiceResult.SUCCESS;
 	}
-	
+
 	@Override
 	public int findUser(UserInfo userInfo) {
 		int userCnt = userDAO.findUser(userInfo);
@@ -60,19 +60,19 @@ public class UserServiceImpl implements UserService{
 
 			switch (result.getGrade()){
 				case "11":
-					session.setAttribute("grade_name", "silver");
+					session.setAttribute("grade_name", "실버 등급");
 					break;
 				case "12":
-					session.setAttribute("grade_name", "gold");
+					session.setAttribute("grade_name", "골드 등급");
 					break;
 				case "13":
-					session.setAttribute("grade_name", "vip");
+					session.setAttribute("grade_name", "VIP 등급");
 					break;
 				case "99":
-					session.setAttribute("grade_name", "admin");
+					session.setAttribute("grade_name", "관리자");
 					break;
 				default:
-					session.setAttribute("grade_name", "normal");
+					session.setAttribute("grade_name", "일반 회원");
 			}
 			//세션 유지 시간 1시간
 			session.setMaxInactiveInterval(60 * 60);

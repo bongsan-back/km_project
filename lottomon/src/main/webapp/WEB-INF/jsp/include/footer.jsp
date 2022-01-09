@@ -17,25 +17,18 @@
     <div class="wrap">
       <div class="text">
       <p>
-        <span>법인명 : (주)로또몬</span>
-        <span>대표자 : 홍길동</span><br>
-        <span>도로명주소 : 서울특별시 강남구 논현동 928 61층</span>
+        <span>법인명 : 유한회사 제이앤에스홀딩스</span>
+        <span>대표자 : 오재정</span><br>
+        <span>도로명주소 : 서울특별시 서초구 강남대로107길 21, 2층</span>
       </p>
       <p>
-        <span>TEL : 02-1577-1234</span>
-        <span>FAX : 02-1511-1234</span><br>
-        <span>E-mail : ceo@naver.com</span>
-        <span>제휴문의 : ceo@naver.com</span>
-      </p>
-      <p>
-        <span>통신판매신고 : 2020-서울강남-1234호</span><br>
-        <span>사업자 등록번호 : 123-451-646</span>
+        <span>E-mail : buenos2002@naver.com</span>
       </p>
       <p class="center">
         <span>COPYRIGHT@LOTTO KINGDOM ALL RIGHT RESERVED.</span>
       </p>
       <p class="bottom">
-        <span>텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트</span>
+        <span></span>
       </p>
     </div>
   </div>

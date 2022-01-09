@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -60,7 +60,7 @@
       <div class="left three">
         <h2>회원서비스</h2>
         <div>
-          	<a href="./login.do"  class="on">로그인</a>
+          	<a href="./login.do">로그인</a>
 	        <a href="./findUser.do">아이디<span>/패스워드</span> 찾기</a>
 	        <a href="./join.do" class="on">회원가입</a>
         </div>
@@ -92,9 +92,9 @@
             </div>
           </div>
         </div>
-        
-        
-        
+
+
+
         <form name="write_form_user" id="write_form_user" method="post">
           <table>
             <h3>계정정보</h3>
@@ -166,7 +166,7 @@
             <tr>
               <th>핸드폰 번호</th>
               <td class="tel">
-              	<input type="text" name="tel_h1" id="tel_h1" required maxlength="3" onkeyup="javascript:nextTelNo(1)"> 
+              	<input type="text" name="tel_h1" id="tel_h1" required maxlength="3" onkeyup="javascript:nextTelNo(1)">
                 <span>-</span>
                 <input type="text" name="tel_h2_1" id="tel_h2_1" required maxlength="4" onkeyup="javascript:nextTelNo(2)">
                 <span>-</span>
@@ -206,7 +206,7 @@ var gender;
 
 
 $(document).ready(function(){
-	
+
 });
 
 function nextTelNo(cnt){
@@ -218,11 +218,11 @@ function nextTelNo(cnt){
 }
 
 function verifyId(attr, type){
-	
+
 	var requestParam;
 	var value = $(attr).val();
 	var textType;
-		
+
 	if(type == 'id'){
 		textType = '아이디';
 		$("#message_id").show();
@@ -230,7 +230,7 @@ function verifyId(attr, type){
 			$("#message_id").val("아이디는 5자리 이상, 20자리 이하로 입력해 주세요.").css("color", "red");
 			return false;
 		}
-		
+
 		requestParam = {
 	            "data":{
 	                "id" : value,
@@ -243,14 +243,14 @@ function verifyId(attr, type){
 			$("#message_nickname").val("닉네임은 2자리 이상, 20자리 이하로 입력해 주세요.").css("color", "red");
 			return false;
 		}
-		
+
 		requestParam = {
 	            "data":{
 	                "nickname" : value,
 	            }
 	        };
 	}
-	
+
 	$.ajax({
         type: 'POST',
         url: '/user/verifyUser.do',
@@ -269,7 +269,7 @@ function verifyId(attr, type){
         },
         error : function(request, status, error ) {
         	alert("알 수 없는 이유로 실패하였습니다. " + error);
-        
+
         },
         contentType: "application/json",
         dataType: 'text'
@@ -280,7 +280,7 @@ $("#certBtn").click(function(){
 	telNo = $("#tel_h1").val() + $("#tel_h2_1").val() + $("#tel_h2_2").val();
 	name = $("#name").val();
 	gender = $("input[name=gender]").val();
-	
+
 	var requestParam = {
             "data":{
                 "telNo" : telNo,
@@ -288,19 +288,19 @@ $("#certBtn").click(function(){
                 "name": name
             }
         };
-	
+
 	var patternPhone = /01[016789]-[^0][0-9]{2,3}-[0-9]{3,4}/;
 
 	if(!patternPhone.test(phoneNum)){
         alert("전화번호를 확인하세요.");
         return false;
-    }  
+    }
 
 	if(!checkKor(name)){
 		alert("성명을 확인하세요.");
 		return false;
 	}
-	
+
 	$.ajax({
         type: 'POST',
         url: '/auth/smsCert.do',
@@ -310,7 +310,7 @@ $("#certBtn").click(function(){
         },
         error : function(request, status, error ) {
         	alert("알 수 없는 이유로 실패하였습니다. " + error);
-        
+
         },
         contentType: "application/json",
         dataType: 'text'
@@ -323,8 +323,8 @@ $("#emailaddr").on('change', function(){
 	}else{
 		$("#emailText").hide();
 	}
-	
-	
+
+
 })
 
 function joinSubmit(){
@@ -336,76 +336,76 @@ function joinSubmit(){
 	var mon = $("#mon").val();
 	var day = $("#day").val();
 	var birth;
-	
+
 	var name = $("#name").val();
-	
+
 	var gender = $("input[name=gender]").val();
 	var email = $("#email").val() + '@' + $("#emailaddr").val();
-	
+
 	/* if(!certYn){
 		alert("휴대폰 인증을 해주세요.");
 		return false;
 	}
 	 */
-	 
+
 	 if(!checkId){
 		 alert("아이디를 확인하세요.");
 		 $("#id").focus();
 		return false;
 	 }
-	 
-	
+
+
 	if(id.length < 4 || id.length > 20 || !checkEngNum(id)){
 		alert("아이디는 5자리 이상, 20자리 이하로 입력하세요.");
 		return false;
 	}
-	 
+
 	if(password == '' || password_re == ''){
 		 alert("비밀번호를 입력하세요.");
 		 return false;
 	 }
-	 
+
 	 if(password !== password_re){
 		 alert("비밀번호가 일히하지 않습니다.");
 		 return false;
 	 }
-	 
+
 	 if(!checkPassword(password)){
 		 alert("비밀번호는 8~20자리, 영문,숫자,특수문자를 포함하여 입력해 주세요.");
 		 return false;
 	 }
-	 
+
 	 if(nickname == ''){
 		 alert("닉네임을 2글자 이상 입력해주세요.");
 		 return false;
 	 }
-	 
+
 	 if(!checkNickname){
 		 alert("닉네임을 확인하세요.");
 		 $("#nickname").focus();
 		return false;
 	 }
-	 
+
 	 if(year < 1900 || year > now_year || year == ''){
 		 alert("생년월일을 정확히 입력하세요.");
 		 return false;
 	 }
-	  
+
 	 if(mon < 0 || mon > 12 || mon == ''){
 		 alert("생년월일을 정확히 입력하세요.");
 		 return false;
 	 }
-	 
+
 	 if(day < 0 || day > 31 || day == ''){
 		 alert("생년월일을 정확히 입력하세요	.");
 		 return false;
 	 }
-	 
+
 	 if(mon.length <2 && mon < 10) mon = '0' + mon;
 	 if(day.length <2 && day < 10) day = '0' + day;
-	 
+
 	 birth = year+""+mon+""+day
-	 
+
 	 if($("#email").val() == ''){
 		 alert("이메일을 정확히 입력해 주세요.");
 		 return false;
@@ -415,13 +415,13 @@ function joinSubmit(){
 				 alert("이메일 주소를 정확히 입력해주세요.");
 				 return false;
 			 }else{
-				 email =  $("#email").val().trim() + '@' + $("#emailText").val().trim();	 
+				 email =  $("#email").val().trim() + '@' + $("#emailText").val().trim();
 			 }
 		 }else{
 			 email =  $("#email").val().trim() + '@' + $("#emailaddr option:selected").val();
 		 }
 	 }
-	 
+
 	 var requestParam = {
 	    "data":{
 	        "telNo" : telNo,
@@ -435,9 +435,9 @@ function joinSubmit(){
 	    }
 	};
 
-	 
+
 	 console.log(requestParam);
-	
+
 	$.ajax({
         type: 'POST',
         url: '/user/join.do',
@@ -448,14 +448,14 @@ function joinSubmit(){
         },
         error : function(request, status, error ) {
         	alert("알 수 없는 이유로 실패하였습니다. " + error);
-        
+
         },
         contentType: "application/json",
         dataType: 'text'
     });
-	
-		
-	
+
+
+
 }
 
 

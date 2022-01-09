@@ -21,6 +21,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -123,7 +124,12 @@ public class BoardController {
 	 * 결제내역 페이지
 	 */
 	@RequestMapping(value = "/mylotto_payment.do", method = RequestMethod.GET)
-	public String mylotto_payment(Model model) {
+	public String mylotto_payment(Model model, HttpSession session) {
+
+		if(session.getAttribute("user_id") == null){
+			model.addAttribute("message","로그인이 필요한 서비스입니다.");
+			return "/login/login";
+		}
 		Board board = new Board();
 		board.setType(Constant.menuCodeType.MYLOTTOPAYMENT.getTypeValue()); //게시물 종류 설정
 

@@ -174,14 +174,11 @@
           </form>
         </c:if>
         <c:if test="${not empty user_id }">
-          ${user_id} <br>
-          ${user_name}
-
-          <ul>
-            <li>
-              <a href="javascript:logout()">로그아웃</a> |
-            </li>
-          </ul>
+          <div class="main-2_number">
+            <h6>${user_id}님 환영합니다.</h6>
+            <span>회원 등급 : ${grade_name}</span>
+            <a href="#">마이 페이지</a>
+          </div>
         </c:if>
 
 
@@ -229,13 +226,60 @@
         </c:forEach>
       </table>
     </div>
+
+    <div>
+      <div class="swiper-container swiper-container-board">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide sd1">
+            <span>로또몬 1 로또몬 1</span>
+            <a href="/membership.do">멤버십가입Go</a>
+            <!-- <img src="./img/swiper-img-btn.png"> -->
+          </div>
+          <div class="swiper-slide sd1">
+            <span>로또몬 2 로또몬 2</span>
+            <a href="/membership.do">멤버십가입Go</a>
+          </div>
+          <div class="swiper-slide sd1">
+            <span>로또몬 3 로또몬 3</span>
+            <a href="/membership.do">멤버십가입Go</a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <script>
+        var mySwiper_board = new Swiper('.swiper-container-board', {
+          slidesPerView: 'auto',
+          loop: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          autoplay: {
+            delay: 1500,
+            disableOnInteraction: false,
+          },
+        });
+
+      </script>
+    </div>
+
+    <%--
+
+    사용할것
     <div class="main-2_number">
       <h6>제목텍스트베너</h6>
       <span>텍스트 텍스트 텍스트 텍스트 텍스트 텍스트</span>
       <a href="#">버튼</a>
-    </div>
+    </div>--%>
   </div>
+
+  <%--
   <div class="main-3">
+
+
     <div class="main-3_1box">
       <div class="main3-title">
         <h3><span>1등 당첨자</span> 이야기</h3>
@@ -266,6 +310,9 @@
         </div>
       </a>
     </div>
+
+
+
     <div class="main-4box-2">
       <h3><span>역대 1등</span> 당첨</h3>
       <ul>
@@ -277,6 +324,8 @@
       </ul>
     </div>
   </div>
+  --%>
+
   <%--<div class="main-4 wrap">
     <div class="main-4box">
       <h6><p>당첨의 명당</p><a href="#">더보기<img src="./img/arrow2.png"></a></h6>
@@ -341,7 +390,18 @@
         <li><a href="#"><span>5 </span> ${board_free[4].title}</a></li>
       </ol>
     </div>
-    <div>
+    <div class="main-4box-2">
+      <h3><span>역대 1등</span> 당첨</h3>
+      <ul>
+        <li>${selectOrderingNo1[0].drwNo}회차 (${selectOrderingNo1[0].placeNo1_cnt}명)<span><img src="./img/money.png"><fmt:formatNumber value="${selectOrderingNo1[0].placeNo1_price}" pattern="#,###" />원</span></li>
+        <li>${selectOrderingNo1[1].drwNo}회차 (${selectOrderingNo1[1].placeNo1_cnt}명)<span><img src="./img/money.png"><fmt:formatNumber value="${selectOrderingNo1[1].placeNo1_price}" pattern="#,###" />원</span></li>
+        <li>${selectOrderingNo1[2].drwNo}회차 (${selectOrderingNo1[2].placeNo1_cnt}명)<span><img src="./img/money.png"><fmt:formatNumber value="${selectOrderingNo1[2].placeNo1_price}" pattern="#,###" />원</span></li>
+        <li>${selectOrderingNo1[3].drwNo}회차 (${selectOrderingNo1[3].placeNo1_cnt}명)<span><img src="./img/money.png"><fmt:formatNumber value="${selectOrderingNo1[3].placeNo1_price}" pattern="#,###" />원</span></li>
+        <li>${selectOrderingNo1[4].drwNo}회차 (${selectOrderingNo1[4].placeNo1_cnt}명)<span><img src="./img/money.png"><fmt:formatNumber value="${selectOrderingNo1[4].placeNo1_price}" pattern="#,###" />원</span></li>
+      </ul>
+    </div>
+
+    <%--<div>
       <div class="swiper-container swiper-container-board">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
@@ -378,7 +438,7 @@
         });
 
       </script>
-    </div>
+    </div>--%>
   </div>
   <div class="main-6">
     <div class="coll"><a href="#none" style="cursor: default"><img src="/img/coll_img.jpg"></a></div>
@@ -426,14 +486,14 @@
           var message = data;
 
           if(message == '"SUCCESS"'){
-            alert('로그인에 성공하였습니다.');
+            //alert('로그인에 성공하였습니다.');
             location.href="/main.do";
           }else if(message == '"NOT_MATCHE"'){
             alert('아이디 혹은 비밀번호가 일치하지 않습니다.');
           }else if(message == '"LEAVE"'){
             alert('회원탈퇴된 계정입니다.');
           }else if(message == '"DORMANT"'){
-            if(confirm('휴면처리된 계정입니다.\n본인인증을 하시면 휴면 해제를 해드립니다. \n이동하시겠습니까?')){
+            if(confirm('휴면처리된 계정입니다.\n본인인증을 하시면 휴면상태가 해제됩니다.. \n이동하시겠습니까?')){
               location.href="";
             }else{
 

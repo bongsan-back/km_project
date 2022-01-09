@@ -141,7 +141,7 @@
                 var message = data;
 
                 if(message == '"SUCCESS"'){
-                    alert('로그인에 성공하였습니다.');
+                    //alert('로그인에 성공하였습니다.');
                     if('${redirectUrl}' == null || '${redirectUrl}' == '' ){
                         location.href="../main.do";
                     }else{
@@ -178,6 +178,7 @@
         }
     });
 
+/*
 
     //naver 로그인 변수
     var naver_id_login = new naver_id_login("OE2CmixkLpQy33V4vswA", "http://localhost:8080/login/naverCallback.do");
@@ -187,6 +188,7 @@
     naver_id_login.setState(state);
     naver_id_login.setPopup();
     naver_id_login.init_naver_id_login();
+*/
 
 
 

@@ -799,3 +799,16 @@
 @media screen and (max-width:412px) {
   #sub .mylotto_fix .fix .information .tel button { margin-top:10px; }
 }
+
+/*디자인 추가 */
+
+#sub .member_go.go02 .email input[type=text] {width:30%}
+#sub .member_go.go02 .email select {width:25%}
+
+#sub .member_go.go02 form tr {display:table;}
+#sub .member_go.go02 form th {display:table-cell; vertical-align:middle;}
+#sub .member_go.go02 form td {width:calc(100% - 120px);}
+@media (max-width:640px){
+    #sub .member_go.go02 form input[type=password] {width: 85%;}
+    #sub .member_go.go02 form td {width:calc(100% - 90px);}
+}

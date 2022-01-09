@@ -130,7 +130,6 @@
   var type = "${type}";
 
   var user_id = '<%=(String)session.getAttribute("user_id")%>';
-  var role = '<%=(String)session.getAttribute("role")%>';
 </script>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -163,8 +162,6 @@
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
       type : type,
-      user_id : user_id,
-      role : role,
       search_type : $("#content_search_option option:selected").val(),
       search_word : search_word
     };
