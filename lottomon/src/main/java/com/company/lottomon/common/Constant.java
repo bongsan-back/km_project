@@ -33,7 +33,8 @@ public class Constant {
 		THEFIRSTSTORY("04"),		// 당첨자이야기
 		NOTICE("11"),				// 공지사항
 		MATTERSFORINQUIRY("12"),	// 1:1문의하기
-		THISWEEKSNUMBER("21");		// 이번주 나의번호
+		THISWEEKSNUMBER("21"),		// 이번주 나의번호
+		MYLOTTOPAYMENT("22");		// 결제내역
 		menuCodeType(String type) {
 			this.type = type;
 		}
@@ -52,6 +53,7 @@ public class Constant {
 			case "11": return "공지사항";
 			case "12": return "1:1문의하기";
 			case "21": return "이번주 나의번호";
+			case "22": return "결제내역";
 			default: return "기타";
 		}
 	}
@@ -67,6 +69,7 @@ public class Constant {
 			case "12":
 				return "고객센터";
 			case "21":
+			case "22":
 				return "나의로또";
 			default: return "기타";
 		}

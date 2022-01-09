@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="/css/swiper-min.css" />
   <script src="/js/swiper.min.js"></script>
   <script src="/js/common.js"></script>
-  <script src="/js/menu.js"></script>
+  <script src="/js/menu.js?ver=1"></script>
   <link rel="stylesheet" type="text/css" href="/css/font.css" />
   <link rel="stylesheet" type="text/css" href="/css/common.css" />
   <link rel="stylesheet" type="text/css" href="/css/layout.css" />
@@ -101,11 +101,11 @@
             <div id="comment">
               <div class="comment">
                 <h6>댓글<span id="comment_cnt">[comment]</span>개</h6>
-                <span class="comment focus">인기순</span>
-                <span class="comment2">최신순</span>
+                <span class="comment focus" id="btn_reg_dt" onclick="searchBoardCommentContent('reg_dt')">최신순</span>
+                <span class="comment" id="btn_like_count" onclick="searchBoardCommentContent('like_count')">인기순</span>
                 <form action="#" name="comment" class="com">
                   <textarea type="text" id="comment_contents" required wrap="soft" placeholder="댓글을 작성하세요."></textarea>
-                  <input type="submit" id="insert" value="댓글등록" onclick="insertBoardComment()"/>
+                  <input type="button" id="insert" value="댓글등록" onclick="insertBoardComment()"/>
                 </form>
                 <div id= "comment_list">
                 </div>
@@ -154,6 +154,7 @@
   var next_seq = ${post_board}[0].next_seq;
 
   var user_id = '<%=(String)session.getAttribute("user_id")%>';
+  var orderType = "reg_dt";
 </script>
 <script type="text/javascript">
   $(function() {
@@ -176,6 +177,10 @@
     //왼쪽 게시판 메뉴,헤더 Setting
     var str = menu.createLeftMenu(type,type_group_name);
     $('#setting_menu').html(str);
+
+    if(user_id == post_board.user_id) {
+      $("#board_editing_btn_group").show(); //수정,삭제 버튼 display
+    }
 
     var page_str = "";
     var page_link = "";
@@ -203,7 +208,8 @@
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
       type : type,
-      seq : board_seq
+      seq : board_seq,
+      order_type : orderType
     };
 
     $.ajax({
@@ -220,14 +226,12 @@
           str +=  '<dt>\n'+ '<img src="../img/humen.png">' + getList.name + '</dt>\n';
           str +=  '<dd>\n'+ '<span>' + getList.reg_dt + '</span>\n' + '<span>' + getList.reg_dt_hms + '</span>';
           if(user_id == getList.user_id){
-            $("#board_editing_btn_group").show(); //수정,삭제 버튼 display
-
             str +=  '<span><a href="javascript:editBoardComment()">수정</a></span>\n' +
                     '<span class="delete"><a href="javascript:deleteBoardComment()">삭제</a>' +
                     '</span></dd>\n';
           }
           str +=  '<dd class="txt">' + getList.content + '</dd>\n';
-          str +=  '<p><img src="../img/good.png">' + getList.comment_like_count + '</p>\n';
+          str +=  '<p><img src="../img/good.png">' + getList.like_count + '</p>\n';
           str +=  '</dl>';
         }
         $('#comment_list').html(str);
@@ -264,6 +268,19 @@
 
       $('.list_btn').html(pagingHtml);
     }
+  }
+
+  function searchBoardCommentContent(order_type){
+      orderType = order_type;
+      if(orderType == "reg_dt"){
+        $('#btn_reg_dt').addClass('focus');
+        $('#btn_like_count').removeClass('focus');
+      } else if(orderType == "like_count"){
+        $('#btn_reg_dt').removeClass('focus');
+        $('#btn_like_count').addClass('focus');
+      }
+
+      paging(1);
   }
 
   function boardViewUp() {
@@ -320,18 +337,26 @@
   }
 
   function insertBoardComment(){
-    if($("#comment_contents").val()===""){
+    if(user_id == "null"){
+      if(confirm("로그인 후 작성 가능합니다.\n로그인 화면으로 이동하시겠습니까?")  == true) {
+        location.href="/login/login.do";
+        return;
+      } else {
+        return;
+      }
+    } else if($("#comment_contents").val()==="") {
       alert("댓글을 입력해주세요");
       return;
     }
 
     var data = {
-      user_id : "bolee", //아이디는 코딩이 되면 아래 내용으로 변경
-      //user_id : user_id,
+      user_id : user_id,
       board_seq : board_seq,
       content : $("#comment_contents").val()
     };
 
+    console.log(data);
+    console.log(JSON.stringify(data));
     $.ajax({
       type: 'POST',
       contentType: "application/json",
@@ -342,8 +367,7 @@
         location.reload()
       },
       error : function(){
-        alert("글 작성에 실패 하였습니다. 잠시 후 다시 시도해 주세요.");
-        return;
+        alert("댓글 작성에 실패 하였습니다. 잠시 후 다시 시도해 주세요.");
       }
     });
   }
@@ -355,8 +379,7 @@
     }
 
     var data = {
-      user_id : "bolee", //아이디는 코딩이 되면 아래 내용으로 변경
-      //user_id : user_id,
+      user_id : user_id,
       seq : seq,
       content : $("#comment_contents").val()
     };
@@ -365,7 +388,7 @@
       type: 'POST',
       contentType: "application/json",
       dataType: 'json',
-      url: '/board/insertBoardCommentContent.do',
+      url: '/board/insertBoardComment.do',
       data: JSON.stringify(data),
       success: function (seq) {
         location.reload()
@@ -386,7 +409,7 @@
       type: 'POST',
       contentType: "application/json",
       dataType: 'json',
-      url: '/board/deleteBoardCommentContent.do',
+      url: '/board/deleteBoardComment.do',
       data: JSON.stringify(data),
       success: function (data) {
         location.reload()

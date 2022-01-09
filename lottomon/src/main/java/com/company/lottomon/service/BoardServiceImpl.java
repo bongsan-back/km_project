@@ -2,6 +2,7 @@ package com.company.lottomon.service;
 
 import java.util.List;
 
+import com.company.lottomon.model.BoardComment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,10 +43,10 @@ public class BoardServiceImpl implements BoardService{
 	public int updateBoardViewUp(int seq) { return boardDAO.updateBoardViewUp(seq); }
 
 	@Override
-	public int insertBoardCommentContent(Board.Comment boardComment) { return boardDAO.insertBoardCommentContent(boardComment); }
+	public int insertBoardCommentContent(BoardComment boardComment) { return boardDAO.insertBoardCommentContent(boardComment); }
 
 	@Override
-	public int editBoardCommentContent(Board.Comment boardComment) { return boardDAO.editBoardCommentContent(boardComment); }
+	public int editBoardCommentContent(BoardComment boardComment) { return boardDAO.editBoardCommentContent(boardComment); }
 
 	@Override
 	public int deleteBoardCommentContent(int seq) { return boardDAO.deleteBoardCommentContent(seq); }

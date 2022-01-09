@@ -61,7 +61,7 @@
         <h2>회원서비스</h2>
         <div>
           <a href="./thisWeeksNumber.do">이번주 나의번호</a>
-          <a href="#">결제내역</a>
+          <a href="./mylotto_payment.do">결제내역</a>
           <a href="/myUpdate.do" class="on">내 정보 수정</a>
         </div>
       </div>

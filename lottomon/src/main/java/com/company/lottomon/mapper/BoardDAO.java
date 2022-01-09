@@ -2,6 +2,7 @@ package com.company.lottomon.mapper;
 
 import java.util.List;
 
+import com.company.lottomon.model.BoardComment;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -75,7 +76,7 @@ public class BoardDAO {
      * @param boardComment Insert 할 댓글 정보
      * @return
      */
-    public int insertBoardCommentContent(Board.Comment boardComment) {
+    public int insertBoardCommentContent(BoardComment boardComment) {
     	return sqlSession.insert("board.insertBoardCommentContent", boardComment);
 	}
 	/**
@@ -83,7 +84,7 @@ public class BoardDAO {
      * @param boardComment edit 할 댓글 정보
      * @return
      */
-    public int editBoardCommentContent(Board.Comment boardComment) {
+    public int editBoardCommentContent(BoardComment boardComment) {
     	return sqlSession.insert("board.editBoardCommentContent", boardComment);
 	}
 	/**

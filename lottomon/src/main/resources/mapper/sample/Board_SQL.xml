@@ -47,6 +47,7 @@
 		SELECT  A.seq,
 		       	A.title,
 				A.content,
+		  		A.user_id,
 				B.name,
 				DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
 				(SELECT COUNT(*) FROM board_comment C WHERE A.seq = C.board_seq) AS comment,
@@ -68,7 +69,7 @@
 			   DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
 			   REPLACE(REPLACE(DATE_FORMAT(A.reg_dt,'%p %H:%i'),'AM','오전'),'PM','오후') reg_dt_hms,
 			   A.user_id,
-			   (SELECT COUNT(*) FROM board_comment_like_count D WHERE A.seq = D.seq AND A.board_seq = D.board_seq) AS comment_like_count
+			   (SELECT COUNT(*) FROM board_comment_like_count D WHERE A.seq = D.seq AND A.board_seq = D.board_seq) AS like_count
 		FROM board_comment A
 	 	JOIN board B
 	  	ON A.board_seq = B.seq
@@ -76,7 +77,13 @@
 	   	ON A.user_id = C.id
 		WHERE B.type = #{type}
 		AND A.board_seq = #{seq}
+		<if test="order_type == 'reg_dt'">
 		ORDER BY reg_dt DESC
+		</if>
+		<if test="order_type == 'like_count'">
+		ORDER BY like_count DESC
+		</if>
+
 		LIMIT #{start_row_num}, #{post_num_base_cnt}
 	</select>
 

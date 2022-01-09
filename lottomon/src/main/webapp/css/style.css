@@ -200,7 +200,7 @@
 #sub .service_alert .comment .com { overflow:hidden; }
 #sub .service_alert .comment .com textarea[type=text] {float:left; width:80%; height:100px; padding: 15px;}
 #sub .service_alert .comment .com input {float:right; height:100px;  }
-#sub .service_alert .comment .com input[type=submit] { width:20%; }
+#sub .service_alert .comment .com input[type=button] { width:20%; color: #fff; background: #2e68bf;font-size: 15px ;font-family: "Noto Sans KR", sans-serif;}
 
 #sub .service_alert .comment .comment_list { padding:15px 0; color:#505050; position:relative; border-bottom:1px solid #dedede; }
 #sub .service_alert .comment .comment_list a { color:#505050; }

@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="/css/swiper-min.css" />
   <script src="/js/swiper.min.js"></script>
   <script src="/js/common.js"></script>
-  <script src="/js/menu.js"></script>
+  <script src="/js/menu.js?ver=1"></script>
   <link rel="stylesheet" type="text/css" href="/css/font.css" />
   <link rel="stylesheet" type="text/css" href="/css/common.css" />
   <link rel="stylesheet" type="text/css" href="/css/layout.css" />

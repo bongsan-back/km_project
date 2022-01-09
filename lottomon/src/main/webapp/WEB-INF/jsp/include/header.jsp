@@ -107,7 +107,7 @@
                 <li>
                     <ul>
                         <li><a href='/lotto/thisWeeksNumber.do'>이번주 나의번호</a></li>
-                        <li><a href='/mylotto_payment.do'>결제내역</a></li>
+                        <li><a href='/lotto/mylotto_payment.do'>결제내역</a></li>
                         <li><a href='/myUpdate.do'>내 정보 수정</a></li>
                     </ul>
                 </li>

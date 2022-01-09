@@ -25,20 +25,11 @@ public class Board {
 	private String search_type; //검색 종류
 	private String search_word; //검색어
 	private String option; //게시글 옵션
+	private String order_type; //정렬 종류
 
 	//Set RequestBody
 	private String user_id; //사용자 id
 	private String pv; //조회수 - default 값 : 0
 
 	private String type_name; //게시글 카테고리명
-
-	@Data
-	public class Comment{
-		private int seq;
-		private int board_seq;
-		private String content;
-		private String user_id; //사용자 id
-		private String reg_dt; //댓글 등록일자
-		private String update_dt; //댓글 수정일자
-	}
 }

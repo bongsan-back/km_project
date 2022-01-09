@@ -13,6 +13,8 @@ function goToMenu(type){
         location.href = "./mattersForInquiry.do";//1:1문의하기 이동
     } else if(type==="21") {
         location.href = "./thisWeeksNumber.do";//이번주 나의번호 이동
+    } else if(type==="22") {
+        location.href = "./mylotto_payment.do";//결제내역
     }
 }
 
@@ -21,7 +23,7 @@ function goToCategoryMenu(type){
         location.href = "./bulletin.do";//카테고리 상위 - 자유게시판 이동
     } else if(type==="11" || type==="12") {
         location.href = "./notice.do";//카테고리 상위 - 공지사항 이동
-    } else if(type==="21") {
+    } else if(type==="21" || type==="22") {
         location.href = "./thisWeeksNumber.do";//카테고리 상위 - 이번주 나의번호 이동
     }
 }
@@ -53,10 +55,13 @@ var menu = {
             str +=  type==="12" ? 'class="on"' : '';
             str +=  '>1:1문의하기</a>';
         }
-        else if(type==="21"){
+        else if(type==="21" || type==="22"){
             str +=  '<a href="./thisWeeksNumber.do"';
             str +=  type==="21" ? 'class="on"' : '';
-            str +=  '>공지사항</a>';
+            str +=  '>이번주 나의번호</a>' +
+                '<a href="./mylotto_payment.do"';
+            str +=  type==="22" ? 'class="on"' : '';
+            str +=  '>결제내역</a>';
         }
         str +=  '</div>';
         return str;

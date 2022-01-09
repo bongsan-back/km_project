@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="/css/swiper-min.css" />
   <script src="/js/swiper.min.js"></script>
   <script src="/js/common.js"></script>
-  <script src="/js/menu.js"></script>
+  <script src="/js/menu.js?ver=1"></script>
   <link rel="stylesheet" type="text/css" href="/css/font.css" />
   <link rel="stylesheet" type="text/css" href="/css/common.css?ver=1.0.1" />
   <link rel="stylesheet" type="text/css" href="/css/layout.css" />
@@ -75,11 +75,11 @@
                 <dt id="title">제목<textarea id="post_title" autofocus required wrap="soft" placeholder="제목을 입력하세요." style="width: 90%; margin: 5px 15px; line-height: 5px;"></textarea></dt>
                 <p><span id="name"></span><span id="reg_dt" class="day">reg_dt</span></p>
                 <textarea id="post_contents" rows="20" autofocus required wrap="soft" placeholder="내용을 입력하세요." style="width:100%; margin: 15px 0px 15px; padding: 15px;"></textarea>
-                <div class="filebox">
+                <%--<div class="filebox">
                   <label for="file">첨부파일</label>
                   <input type="file" id="file">
                   <input class="upload-name" value="test.txt">
-                </div>
+                </div>--%>
               </dl>
             </form>
 
@@ -110,6 +110,8 @@
   var type_group_name = "${type_group_name}";
   var type_name = "${type_name}";
   var post_board = ${post_board} == null ? null : ${post_board}[0];
+
+  var user_id = '<%=(String)session.getAttribute("user_id")%>';
 </script>
 <script type="text/javascript">
   $(function() {
@@ -148,8 +150,7 @@
     });
 
     var data = {
-      user_id : "bolee", //아이디는 코딩이 되면 아래 내용으로 변경
-      //user_id : user_id,
+      user_id : user_id,
       seq : seq,
       type : type,
       title : $("#post_title").val(),

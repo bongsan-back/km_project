@@ -95,7 +95,7 @@
             </tbody>
           </table>
 
-          <p class="btn"><a href="/board/editingPostBoard.do?type=02">글쓰기</a></p>
+          <p class="btn"><a href="javascript:editingPostBoard()">글쓰기</a></p>
         </div>
 
         <!--페이징-->
@@ -129,6 +129,8 @@
   var pageNumBaseCnt = ${pageNumBaseCnt};
   var allPage = Math.ceil(allCnt / postNumBaseCnt); //페이징 몫 설정
   var type = "${type}";
+
+  var user_id = '<%=(String)session.getAttribute("user_id")%>';
 </script>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -229,6 +231,11 @@
         location.href="/board/readingPostBoard.do?type=02&seq=" + $(this).children().eq(0).text();//게시판 이동
       });
     }
+  }
+
+  function editingPostBoard(){
+    if(user_id == "null")location.href="/login/login.do";
+    else location.href="/board/editingPostBoard.do?type=02";
   }
 </script>
 

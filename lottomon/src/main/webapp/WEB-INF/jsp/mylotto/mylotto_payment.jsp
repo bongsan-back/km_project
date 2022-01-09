@@ -30,8 +30,8 @@
 
   <link rel="stylesheet" href="/css/swiper-min.css" />
   <script src="/js/swiper.min.js"></script>
-  <script src="/js/menu.js"></script>
   <script src="/js/common.js"></script>
+  <script src="/js/menu.js"></script>
   <link rel="stylesheet" type="text/css" href="/css/font.css" />
   <link rel="stylesheet" type="text/css" href="/css/common.css" />
   <link rel="stylesheet" type="text/css" href="/css/layout.css" />
@@ -55,32 +55,45 @@
   <div class="service_main">
     <div class="wrap">
       <div class="left for">
-        <h2>커뮤니티</h2>
+        <h2>나의로또</h2>
         <div>
-          <a href="./bulletin.do">자유게시판</a>
-          <a href="./winPrayer.do">당첨기원게시판</a>
-          <a href="./debateRoom.do">토론방</a>
-          <a href="./theFirstStory.do" class="on">1등당첨자이야기</a>
+          <a href="./thisWeeksNumber.do">이번주 나의번호</a>
+          <a href="./mylotto_payment.do" class="on">결제내역</a>
+          <a href="/myUpdate.do">내 정보 수정</a>
         </div>
       </div>
       <div class="content">
         <div class="head">
-          <h2>1등당첨자이야기</h2>
+          <h2>결제내역</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
-            <a href="javascript:goToCategoryMenu(type)"><img src="../img/arrow.png"> 커뮤니티</a>
-            <a href="javascript:goToMenu(type)"><img src="../img/arrow.png"> 1등당첨자이야기</a>
+            <a href="javascript:goToCategoryMenu(type)"><img src="../img/arrow.png"> 나의로또</a>
+            <a href="javascript:goToMenu(type)"><img src="../img/arrow.png"> 결제내역</a>
           </h5>
         </div>
 
-        <div class="banner">
-          <img src="../img/theFirstStoryBanner.jpg">
-        </div>
-
-        <div id="table_body">
-        </div>
-
         <div class="table">
+          <table id="table" style="border-spacing:0px">
+            <colgroup>
+              <col width="75">
+              <col width="*">
+              <col width="100">
+              <col width="70">
+              <col width="100">
+            </colgroup>
+            <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성일</th>
+              <th>작성자</th>
+              <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody id="table_body">
+            </tbody>
+          </table>
+
           <p class="btn"><a href="javascript:editingPostBoard()">글쓰기</a></p>
         </div>
 
@@ -164,23 +177,17 @@
         for (var i = 0; i < data.length; i++) {
           var getList = data[i];
 
-          str +=  '<div class="box">\n';
-          str +=  '<img src="../img/img.jpg">\n';
-          str +=  '<div class="txt">\n';
-          str +=  '<div id="'+ getList.seq +'" class="seq" style="display: none"></div>\n';
-          str +=  '<h4>\n' +
-                  getList.title
-          str +=  '</h4>\n';
-          str +=  '<span>\n' +
-                  getList.content
-          str +=  '</span>\n';
-          str +=  '<span class="txt_name">\n' +
-                  getList.name + ' | ' + getList.reg_dt
-          str +=  '</span>\n';
-          str +=  '</div>\n';
-          str +=  '</div>\n';
+          str +=  '<tr>\n' +
+                  '<td>'+getList.seq+'</td>\n'
+          str +=  '<td>'+getList.title;
+          str +=  getList.comment==0?'':'['+getList.comment+']';
+          str +=  getList.dsp_new_dt=="Y"?'<span>new</span>\n':'';
+          str +=  '</td>\n'
+          str +=  '<td>'+getList.reg_dt+'</td>\n'
+          str +=  '<td>'+getList.name+'</td>\n'
+          str +=  '<td>'+getList.pv+'</td>\n' +
+                  '</tr>';
         }
-
         $('#table_body').html(str);
         table_click_function();
 
@@ -218,15 +225,16 @@
     }
 
     function table_click_function(){
-      $('.box').click(function (){
-        location.href="/board/readingPostBoard.do?type=04&seq=" + $(this).children('.txt').children('.seq').attr('id');//게시판 이동
+      $("#table tr").click(function() {
+        if($(this).children().eq(0).text() === "번호")return;
+        location.href="/board/readingPostBoard.do?type=22&seq=" + $(this).children().eq(0).text();//게시판 이동
       });
     }
   }
 
   function editingPostBoard(){
     if(user_id == "null")location.href="/login/login.do";
-    else location.href="/board/editingPostBoard.do?type=04";
+    else location.href="/board/editingPostBoard.do?type=22";
   }
 </script>
 

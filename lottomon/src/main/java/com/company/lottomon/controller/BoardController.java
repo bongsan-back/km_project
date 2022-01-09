@@ -2,6 +2,7 @@ package com.company.lottomon.controller;
 
 import com.company.lottomon.common.Constant;
 import com.company.lottomon.model.Board;
+import com.company.lottomon.model.BoardComment;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -292,7 +293,7 @@ public class BoardController {
 	 * 댓글 insert
 	 */
 	@RequestMapping(value = "/insertBoardCommentContent.do", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<Integer> insertBoardCommentContent(@RequestBody Board.Comment boardComment) {
+	public @ResponseBody ResponseEntity<Integer> insertBoardCommentContent(@RequestBody BoardComment boardComment) {
 		try {
 			boardService.insertBoardCommentContent(boardComment);
 		} catch (Exception e) {
@@ -306,7 +307,7 @@ public class BoardController {
 	 * 댓글 edit
 	 */
 	@RequestMapping(value = "/editBoardCommentContent.do", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<Integer> editBoardCommentContent(@RequestBody Board.Comment boardComment) {
+	public @ResponseBody ResponseEntity<Integer> editBoardCommentContent(@RequestBody BoardComment boardComment) {
 		try {
 			boardService.editBoardCommentContent(boardComment);
 		} catch (Exception e) {
@@ -320,7 +321,7 @@ public class BoardController {
 	 * 댓글 delete
 	 */
 	@RequestMapping(value = "/deleteBoardCommentContent.do", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<Integer> deleteBoardCommentContent(@RequestBody Board.Comment boardComment) {
+	public @ResponseBody ResponseEntity<Integer> deleteBoardCommentContent(@RequestBody BoardComment boardComment) {
 		try {
 			boardService.deleteBoardCommentContent(boardComment.getSeq());
 		} catch (Exception e) {
