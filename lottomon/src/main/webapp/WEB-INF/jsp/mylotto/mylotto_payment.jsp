@@ -57,8 +57,8 @@
       <div class="left for">
         <h2>나의로또</h2>
         <div>
-          <a href="./thisWeeksNumber.do">이번주 나의번호</a>
-          <a href="./mylotto_payment.do" class="on">결제내역</a>
+          <a href="/lotto/thisWeeksNumber.do">이번주 나의번호</a>
+          <a href="/board/mylotto_payment.do" class="on">결제내역</a>
           <a href="/myUpdate.do">내 정보 수정</a>
         </div>
       </div>
@@ -130,6 +130,7 @@
   var type = "${type}";
 
   var user_id = '<%=(String)session.getAttribute("user_id")%>';
+  var role = '<%=(String)session.getAttribute("role")%>';
 </script>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -162,6 +163,8 @@
       current_page: currentPage,
       post_num_base_cnt: postNumBaseCnt,
       type : type,
+      user_id : user_id,
+      role : role,
       search_type : $("#content_search_option option:selected").val(),
       search_word : search_word
     };

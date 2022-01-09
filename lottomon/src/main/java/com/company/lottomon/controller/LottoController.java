@@ -95,26 +95,4 @@ public class LottoController {
             return new ResponseEntity<Object>("FAIL", HttpStatus.OK);
         }
     }
-
-    /**
-     * 결제내역 페이지
-     */
-    @RequestMapping(value = "/mylotto_payment.do", method = RequestMethod.GET)
-    public String mylotto_payment(Model model) {
-        Board board = new Board();
-        board.setType(Constant.menuCodeType.MYLOTTOPAYMENT.getTypeValue()); //게시물 종류 설정
-
-        int listCnt = boardService.selectListCount(board);
-
-        try {
-            model.addAttribute("listCnt", listCnt); //리스트 수
-            model.addAttribute("postNumBaseCnt", 10); //페이지당 게시글 기본 출력 개수
-            model.addAttribute("pageNumBaseCnt", 10); //페이지번호 기본 출력 개수
-            model.addAttribute("type", Constant.menuCodeType.MYLOTTOPAYMENT.getTypeValue()); //게시판 type
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "mylotto/mylotto_payment";
-    }
 }

@@ -212,7 +212,7 @@
 #sub .service_alert .comment .comment_list .content { display:block; }
 #sub .service_alert .comment .comment_list p {color:#2e68bf; position:absolute; top:50%; right:20px; transform:translate(0,-50%);}
 #sub .service_alert .comment .comment_list p img { margin-right:3px; margin-top: 3px;}
-#sub .service_alert .comment .comment_list .delete a { color:#cd0000; }
+#sub .service_alert .comment .comment_list .delete_comment a { color:#cd0000; }
 #sub .service_alert table { display:block; color:#505050; border:1px solid #bbbbbb; margin-top:50px; margin-bottom:30px; }
 #sub .service_alert table tbody { display:block;  }
 #sub .service_alert table tr { overflow:hidden; width:100%; display:block; }

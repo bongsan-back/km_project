@@ -226,12 +226,12 @@
           str +=  '<dt>\n'+ '<img src="../img/humen.png">' + getList.name + '</dt>\n';
           str +=  '<dd>\n'+ '<span>' + getList.reg_dt + '</span>\n' + '<span>' + getList.reg_dt_hms + '</span>';
           if(user_id == getList.user_id){
-            str +=  '<span><a href="javascript:editBoardComment()">수정</a></span>\n' +
-                    '<span class="delete"><a href="javascript:deleteBoardComment()">삭제</a>' +
+            //str +=  '<span class="edit_comment"><a href="javascript:editBoardComment(' + getList.seq + ')">수정</a></span>\n';
+            str +=  '<span class="delete_comment"><a href="javascript:deleteBoardComment(' + getList.seq +')">삭제</a>' +
                     '</span></dd>\n';
           }
           str +=  '<dd class="txt">' + getList.content + '</dd>\n';
-          str +=  '<p><img src="../img/good.png">' + getList.like_count + '</p>\n';
+          //str +=  '<p><img src="../img/good.png">' + getList.like_count + '</p>\n';
           str +=  '</dl>';
         }
         $('#comment_list').html(str);
@@ -388,7 +388,7 @@
       type: 'POST',
       contentType: "application/json",
       dataType: 'json',
-      url: '/board/insertBoardComment.do',
+      url: '/board/insertBoardCommentContent.do',
       data: JSON.stringify(data),
       success: function (seq) {
         location.reload()
@@ -400,7 +400,7 @@
     });
   }
 
-  function deleteBoardComment(){
+  function deleteBoardComment(seq){
     var data = {
       seq : seq
     };
@@ -409,7 +409,7 @@
       type: 'POST',
       contentType: "application/json",
       dataType: 'json',
-      url: '/board/deleteBoardComment.do',
+      url: '/board/deleteBoardCommentContent.do',
       data: JSON.stringify(data),
       success: function (data) {
         location.reload()

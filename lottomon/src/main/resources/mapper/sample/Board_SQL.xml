@@ -39,6 +39,13 @@
 		<if test="search_type == 'writer'">
 		AND 		B.name 		LIKE CONCAT('%',#{search_word},'%')
 		</if>
+		<if test="type == '22'">
+			<if test="role == 'ADMIN'">
+				OR A.user_id NOT IN (#{user_id})
+			</if>
+			AND A.user_id IN (#{user_id})
+		</if>
+
 		ORDER BY A.seq DESC
 		LIMIT #{start_row_num}, #{post_num_base_cnt}
 	</select>
@@ -64,12 +71,14 @@
 	</select>
 
 	<select id="selectPostBoardDetail" parameterType="map" resultType="map">
-		SELECT A.content,
+		SELECT A.seq,
+			   A.content,
 			   C.name,
 			   DATE_FORMAT(A.reg_dt,'%Y-%m-%d') reg_dt,
 			   REPLACE(REPLACE(DATE_FORMAT(A.reg_dt,'%p %H:%i'),'AM','오전'),'PM','오후') reg_dt_hms,
 			   A.user_id,
-			   (SELECT COUNT(*) FROM board_comment_like_count D WHERE A.seq = D.seq AND A.board_seq = D.board_seq) AS like_count
+			   (SELECT COUNT(*) FROM board_comment_like_count D WHERE A.seq = D.seq AND A.board_seq = D.board_seq) AS like_count,
+			   A.reg_dt
 		FROM board_comment A
 	 	JOIN board B
 	  	ON A.board_seq = B.seq
@@ -78,10 +87,10 @@
 		WHERE B.type = #{type}
 		AND A.board_seq = #{seq}
 		<if test="order_type == 'reg_dt'">
-		ORDER BY reg_dt DESC
+			ORDER BY A.reg_dt DESC
 		</if>
 		<if test="order_type == 'like_count'">
-		ORDER BY like_count DESC
+			ORDER BY like_count DESC, A.reg_dt DESC
 		</if>
 
 		LIMIT #{start_row_num}, #{post_num_base_cnt}
@@ -110,7 +119,7 @@
 			title = #{title},
 		 	content = #{content},
 		 	update_dt = NOW()
-		WHERE
+		WHERE seq = #{seq}
 	</insert>
 
 	<update id="updateBoardViewUp" parameterType="map">
@@ -136,7 +145,7 @@
 		UPDATE board_comment set
 						 content = #{content}
 						 update_dt = NOW()
-		WHERE
+		WHERE seq = #{seq}
 	</insert>
 
 	<delete id="deleteBoardCommentContent" parameterType="map">
@@ -148,6 +157,6 @@
 		UPDATE board_comment_like_pv set
 			content = #{content}
 			update_dt = NOW()
-		WHERE
+		WHERE seq = #{seq}
 	</update>
 </mapper>

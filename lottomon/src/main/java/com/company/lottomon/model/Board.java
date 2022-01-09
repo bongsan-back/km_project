@@ -29,6 +29,7 @@ public class Board {
 
 	//Set RequestBody
 	private String user_id; //사용자 id
+	private String role; //사용자 권한
 	private String pv; //조회수 - default 값 : 0
 
 	private String type_name; //게시글 카테고리명
