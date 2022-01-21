@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.company.lottomon.common.Utils;
 import com.company.lottomon.encrypt.AES256;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,13 @@ import com.company.lottomon.service.UserService;
 @Component
 public class UserController {
 	Logger log = Logger.getLogger(this.getClass());
-	
+
 	@Autowired
 	@Resource(name = "userService")
 	private UserService userService;
 
 	static private AES256 AES = new AES256("LOTTOMON01234567");
-	
+
 	/**
      * 회원 가입 최종
      */
@@ -44,18 +45,18 @@ public class UserController {
     		userInfo.setPassword(AES.encryptStringToBase64(userInfo.getPassword()));
 
     		userService.insertUser(userInfo);
-    		
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			return ServiceResult.FAIL;
 			// TODO: handle exception
 		}
-    	
+
 		return ServiceResult.SUCCESS;
 	}
-    
-    
+
+
     /**
      * 회원 가입 최종
      */
@@ -74,9 +75,46 @@ public class UserController {
 			// TODO: handle exception
 		}
 	}
-    
-    
-    
-    
-    
+
+	/**
+	 * 아이디 찾기
+	 */
+	@RequestMapping(value = "/findUserId.do", method = RequestMethod.POST)
+	public @ResponseBody Object findUserId(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
+		UserInfo userInfo = param.getData();
+		try {
+			userInfo = userService.selectId(userInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ServiceResult.FAIL;
+		}
+		return userInfo;
+	}
+
+	/**
+	 * 임시비밀번호 등록
+	 */
+	@RequestMapping(value = "/findUserPw.do", method = RequestMethod.POST)
+	public @ResponseBody Object findUserPw(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
+		UserInfo userInfo = param.getData();
+		try {
+			userInfo = userService.selectId(userInfo);
+
+			if(userInfo != null){
+				String tempPassword = Utils.getTempPassword(8);
+				userInfo.setIncPassword(AES.encryptStringToBase64(tempPassword));
+				userService.insertTempPassword(userInfo);
+				userInfo.setTempPassword(tempPassword);
+			}else return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ServiceResult.FAIL;
+		}
+		return userInfo;
+	}
+
+
+
+
+
 }

@@ -11,4 +11,6 @@ public interface UserService {
 	LoginResult loginProc(UserInfo userInfo, HttpSession session);
 	LoginResult snsLoginProc(UserInfo userInfo, HttpSession session);
 	UserInfo getUserInfo(String id);
+	UserInfo selectId(UserInfo userInfo);
+	int insertTempPassword(UserInfo userInfo);
 }

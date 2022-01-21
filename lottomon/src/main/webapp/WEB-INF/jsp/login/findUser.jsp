@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -41,6 +41,15 @@
 
 <style type="text/css">
 .placeholder { color: #aaa; }
+
+#goLogin{
+  width: 284px;
+  height: 51px;
+  position: relative;
+  left: calc(50% - 140px);
+  background: #2e68bf;
+  color: #fff;
+}
 </style>
 
 
@@ -66,65 +75,137 @@
         <div class="head">
           <h2>아이디/패스워드 찾기</h2>
           <h5>
-            <a href="/"><img src="./img/home.jpg"> 홈</a>
-            <a href="./login.do"><img src="./img/arrow.png"> 회원서비스</a>
-            <a href="./joinAgree.do"><img src="./img/arrow.png"> 회원가입</a>
+            <a href="/"><img src="/img/home.jpg"> 홈</a>
+            <a href="./login.do"><img src="/img/arrow.png"> 회원서비스</a>
+            <a href="./joinAgree.do"><img src="/img/arrow.png"> 회원가입</a>
           </h5>
         </div>
 
         <h3>아이디 찾기</h3>
-        <form name="id_find" action="#">
+        <form name="id_find" onsubmit="return false;">
           <dl>
             <dt>이름</dt>
-            <dd class="name"><input type="text" name="name" placeholder="abc123"></dd>
-          </dl>
-          <dl>
-            <dt>핸드폰번호</dt>
-            <dd class="tel">
-              <select id="methods" name="tel">
-                <option value="">010</option>
-                <option value="alert">011</option>
-                <option value="alert">012</option>
-              </select> -
-              <input type="text" placeholder="1234"> -
-              <input type="text" placeholder="1234">
-            </dd>
-          </dl>
-          <dl class="myid my">회원님의 아이디는 <span>abcd1234</span> 입니다.</dl>
-          <dl class="submit"><input type="submit" value="확인"></dl>
-        </form>
-        <h3>패스워드찾기</h3>
-        <form name="pass_find" action="#">
-          <dl>
-            <dt>이름</dt>
-            <dd class="name"><input type="text" name="name" placeholder="abc123"></dd>
-          </dl>
-          <dl>
-            <dt>아이디</dt>
-            <dd class="name"><input type="text" name="id"></dd>
+            <dd class="name"><input type="text" name="name" id="findIdName" placeholder=""></dd>
           </dl>
           <dl>
             <dt>이메일</dt>
-            <dd class="email">
-              <input type="text" name="email"> @
-              <select id="methods" name="emailadess">
-                <option value="">직접입력</option>
-                <option value="alert">naver.com</option>
-                <option value="alert">gmail.com</option>
-              </select>
-            </dd>
+            <dd class="name"><input type="text" name="email" id="findIdEmail" placeholder=""></dd>
           </dl>
-          <dl class="mypassword my">회원님의 임시 비밀번호를 <span>이메일로 전송</span> 했습니다</dl>
-          <dl class="submit"><input type="submit" value="확인"></dl>
+          <dl class="myid my" style="display: none" id="findIdMsg">회원님의 아이디는 <span id="resultId"></span> 입니다.</dl>
+          <dl class="submit"><input type="submit" id="findIdBtn" value="아이디 찾기"></dl>
         </form>
+
+
+
+
+        <h3>비밀번호 찾기</h3>
+        <form name="pass_find"  onsubmit="return false;">
+          <dl>
+            <dt>이름</dt>
+            <dd class="name"><input type="text" name="name" id="findPwName"></dd>
+          </dl>
+          <dl>
+            <dt>아이디</dt>
+            <dd class="name"><input type="text" name="id" id="findPwId"></dd>
+          </dl>
+          <dl>
+            <dt>이메일</dt>
+            <dd class="name"><input type="text" name="email" id="findPwEmail" placeholder=""></dd>
+          </dl>
+          <dl class="mypassword my" id="tmpPassword" style="display: none">회원님의 임시 비밀번호는 <span id="resultIPw"></span> 입니다.</dl>
+          <dl class="submit"><input type="submit" id="findPwBtn"  value="비밀번호 찾기"></dl>
+        </form>
+
+        <input type="button" value="로그인하기" id="goLogin">
       </div>
     </div>
   </div>
 </section>
+
+
 <%@include file="../include/footer.jsp"%>
 
 
 <script>
+$("#goLogin").click(function(){
+  location.href = '/login/login.do';
+})
+
+$("#findIdBtn").click(function(){
+
+  if($("#findIdName").val() == '' || $("#findIdEmail").val() == ''){
+    alert("정보를 입력해주세요.");
+    return false;
+  }
+
+
+  var requestParam = {
+    "data":{
+       'name' : $("#findIdName").val(),
+       'email' : $("#findIdEmail").val()
+    }
+  };
+
+  console.log(requestParam);
+
+  $.ajax({
+    type: 'POST',
+    url: '/user/findUserId.do',
+    data: JSON.stringify(requestParam),
+    success: function(data) {
+      console.log(data);
+      var message;
+      if(data==null || data == '') message = '일치하는 정보가 없습니다.';
+      else message = '회원님의 아이디는 <span>' + data.id + '<span> 입니다.';
+
+      $("#findIdMsg").html(message).show();
+    },
+    error : function(request, status, error ) {
+      alert("알 수 없는 이유로 실패하였습니다. " + request.message);
+
+    },
+    contentType: "application/json",
+  });
+});
+
+
+$("#findPwBtn").click(function(){
+
+  if($("#findPwName").val() == '' || $("#findPwEmail").val() == '' || $("#findPwId").val() == ''){
+    alert("정보를 입력해주세요.");
+    return false;
+  }
+
+
+  var requestParam = {
+    "data":{
+      'name' : $("#findPwName").val(),
+      'email' : $("#findPwEmail").val(),
+      'id' : $("#findPwId").val()
+    }
+  };
+
+  console.log(requestParam);
+
+  $.ajax({
+    type: 'POST',
+    url: '/user/findUserPw.do',
+    data: JSON.stringify(requestParam),
+    success: function(data) {
+      console.log(data);
+      var message;
+      if(data==null || data == '') message = '일치하는 정보가 없습니다.';
+      else message = '회원님의 임시비밀 번호는 <span>' + data.tempPassword + '<span> 입니다.';
+
+      $("#tmpPassword").html(message).show();
+    },
+    error : function(request, status, error ) {
+      alert("알 수 없는 이유로 실패하였습니다. " + request.message);
+
+    },
+    contentType: "application/json",
+  });
+});
 
 
 </script>

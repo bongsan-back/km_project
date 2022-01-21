@@ -6,33 +6,9 @@
 	<insert id="insertUser" parameterType="HashMap">
 		<![CDATA[
 			INSERT INTO user
-			(
-			    id,
-			    password,
-			    name,
-			   	nickname,
-			   	join_type,
-			   	email,
-			   	gender,
-			   	birth,
-			   	grade,
-			   	role,
-			   	reg_dt
-			)
+			(id,password,name,nickname,join_type,email,telNo,gender,birth,grade,role,reg_dt)
 			VALUES
-			(
-				#{id},
-				#{password},
-				#{name},
-				#{nickname},
-				'01',
-				#{email},
-				#{gender},
-				#{birth},
-				'01',
-				'USER',
-			    now()
-			)
+			(#{id},#{password},#{name},#{nickname},'01',#{email},#{telNo},#{gender},#{birth},'01','USER',now())
 		]]>
 	</insert>
 
@@ -52,6 +28,24 @@
 	</select>
 
 	<select id="getUserInfo" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
+		<![CDATA[
+		SELECT * FROM user WHERE
+			name = #{name} and email = #{email}
+		]]>
+		<if test='id != null'>
+			AND id = #{id}
+		</if>
+	</select>
+
+	<select id="insertTempPassword" parameterType="map">
+		<![CDATA[
+		UPDATE user
+		SET password = #{incPassword}
+		WHERE id = #{id} and email = #{email} and name = #{name}
+		]]>
+	</select>
+
+	<select id="getUserId" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
 		<![CDATA[
 		SELECT * FROM user WHERE
 			id = #{id}
@@ -90,7 +84,7 @@
 
 	<update id="changeGrade" parameterType="map">
 		<![CDATA[
-		UPDATE user SET grade = #{grade}, grade_start_dt = NOW() WHERE seq = #{seq}
+		UPDATE user SET grade = #{grade}, role = #{role}, grade_start_dt = NOW() WHERE seq = #{seq}
 		]]>
 
 

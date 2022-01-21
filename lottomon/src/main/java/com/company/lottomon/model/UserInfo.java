@@ -15,6 +15,9 @@ public class UserInfo {
 	private String sns_token;
 	private String join_type;
 
+	private String tempPassword;
+	private String incPassword;
+
 	public int getSeq() {
 		return seq;
 	}
@@ -110,6 +113,22 @@ public class UserInfo {
 
 	public void setJoin_type(String join_type) {
 		this.join_type = join_type;
+	}
+
+	public String getTempPassword() {
+		return tempPassword;
+	}
+
+	public void setTempPassword(String tempPassword) {
+		this.tempPassword = tempPassword;
+	}
+
+	public String getIncPassword() {
+		return incPassword;
+	}
+
+	public void setIncPassword(String incPassword) {
+		this.incPassword = incPassword;
 	}
 
 	@Override

@@ -124,6 +124,7 @@
 #sub .member_password .my span { font-weight:bold; color:#000; }
 #sub .member_password .submit { text-align:center; margin-top:20px; }
 #sub .member_password .submit input[type=submit] { padding:16px 100px; }
+#sub .member_password .submit input[type=button] { padding:16px 100px; }
 #sub .member_password .email input[type=text] { height:48px; width:225px; margin-right:10px; }
 #sub .member_password .email select { width:170px; height:48px; margin-left:10px;}
 /*�븘�씠�뵒 �뙣�뒪�썙�뱶 李얘린***************�걹***************************/

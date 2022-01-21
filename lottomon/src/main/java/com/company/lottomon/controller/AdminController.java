@@ -5,7 +5,7 @@ import com.company.lottomon.model.UserInfo;
 import com.company.lottomon.service.AdminService;
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpRequest;
-import org.springframework.ui.Model;
+import org.springframework.ui.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -46,8 +46,12 @@ public class AdminController {
      * 관리자 페이지 user 페이지 확인
      */
     @RequestMapping(value = {"/user.do", "/main.do"})
-    public String user(HttpServletRequest request, HttpSession session, org.springframework.ui.Model model) {
-        System.out.println("신규 테스트");
+    public String user(HttpServletRequest request, HttpSession session, Model model) {
+        if(session.getAttribute("user_id") == null && session.getAttribute("role").equals("USER")){
+            model.addAttribute("message","관리자만 접근 가능합니다.");
+            return "/main.do";
+        }
+
         List<UserInfo> userInfo = adminService.selectUserInfo();
 
         model.addAttribute("userInfo",userInfo);
@@ -58,7 +62,11 @@ public class AdminController {
      * 관리자 페이지 lotto 관리 페이지 확인
      */
     @RequestMapping(value = "/lotto.do", method = RequestMethod.GET)
-    public String lotto(HttpServletRequest request, HttpSession session) {
+    public String lotto(HttpServletRequest request, HttpSession session, Model model) {
+        if(session.getAttribute("user_id") == null && session.getAttribute("role").equals("USER")){
+            model.addAttribute("message","관리자만 접근 가능합니다.");
+            return "/main.do";
+        }
 
         return "admin/lotto";
     }
@@ -90,8 +98,10 @@ public class AdminController {
     public @ResponseBody Object changeGrade(@RequestBody UserInfo userInfo, HttpSession session, Model model) throws Exception{
         System.out.println("고객 등급 변경");
 
+
+        if(userInfo.getGrade().equals("99")) userInfo.setRole("ADMIN");
+        else userInfo.setRole("USER");
         try {
-            Map<String, Object> insMap = new HashMap<String, Object>();
             adminService.changeGrade(userInfo);
         }catch (Exception e){
             e.printStackTrace();

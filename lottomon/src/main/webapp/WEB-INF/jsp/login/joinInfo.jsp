@@ -166,21 +166,21 @@
             <tr>
               <th>핸드폰 번호</th>
               <td class="tel">
-              	<input type="text" name="tel_h1" id="tel_h1" required maxlength="3" onkeyup="javascript:nextTelNo(1)">
+              	<input type="text" name="tel_h1" id="tel_h1" required maxlength="3" onkeyup="javascript:nextTelNo(1, this.value)">
                 <span>-</span>
-                <input type="text" name="tel_h2_1" id="tel_h2_1" required maxlength="4" onkeyup="javascript:nextTelNo(2)">
+                <input type="text" name="tel_h2_1" id="tel_h2_1" required maxlength="4" onkeyup="javascript:nextTelNo(2, this.value)">
                 <span>-</span>
                 <input type="text" name="tel_h2_2" id="tel_h2_2" required maxlength="4">
-                <input type="button" class="form_btn" id="certBtn" value="인증번호전송">
+                <%--<input type="button" class="form_btn" id="certBtn" value="인증번호전송">--%>
               </td>
             </tr>
-            <tr>
+            <%--<tr>
               <th>인증번호</th>
               <td class="certification">
                 <input type="text" name="certification" required>
                 <input type="button" value="확인" class="form_btn">
               </td>
-            </tr>
+            </tr>--%>
             <tr>
             </tr>
           </table>
@@ -209,10 +209,10 @@ $(document).ready(function(){
 
 });
 
-function nextTelNo(cnt){
-	if(cnt == 1){
+function nextTelNo(cnt, value){
+	if(cnt == 1 && value.length == 3){
 		$("#tel_h2_1").focus();
-	}else if(cnt ==2){
+	}else if(cnt ==2 && value.length == 4){
 		$("#tel_h2_2").focus();
 	}
 }
@@ -421,6 +421,18 @@ function joinSubmit(){
 			 email =  $("#email").val().trim() + '@' + $("#emailaddr option:selected").val();
 		 }
 	 }
+
+
+
+
+
+	 if($("#tel_h1").val().length < 3 || $("#tel_h2_1").val().length < 4 || $("#tel_h2_2").val().length < 4){
+	   alert("휴대폰 번호를 확인하세요.");
+	   $("#tel_h1").focus();
+	   return false;
+     }
+
+       telNo = $("#tel_h1").val() + $("#tel_h2_1").val() + $("#tel_h2_2").val();
 
 	 var requestParam = {
 	    "data":{

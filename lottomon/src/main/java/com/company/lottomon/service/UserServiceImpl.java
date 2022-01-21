@@ -137,4 +137,15 @@ public class UserServiceImpl implements UserService{
 		}
 
 	}
+
+
+	@Override
+	public UserInfo selectId(UserInfo userInfo) {
+		return userDAO.selectId(userInfo);
+	}
+
+	@Override
+	public int insertTempPassword(UserInfo userInfo) {
+		return userDAO.insertTempPassword(userInfo);
+	}
 }

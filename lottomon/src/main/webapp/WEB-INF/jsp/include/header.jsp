@@ -66,14 +66,14 @@
                 <li class="rogin_m">
                     <ul>
                         <%if(session.getAttribute("user_id") != null){%>
-                            <li><a href="/member_login.do">로그아웃</a></li>
+                            <li><a href="javascript:logout()">로그아웃</a></li>
                             <li><a href="/myUpdate.do">마이페이지</a></li>
                             <%if(session.getAttribute("role").equals("ADMIN")){%>
                                 <li><a href="/adminPage.do">관리자 페이지</a></li>
                             <%}%>
                         <%}else{%>
-                            <li><a href="/member_login.do">로그인</a></li>
-                            <li><a href="/member_go.do">회원가입</a></li>
+                            <li><a href="/login/login.do">로그인</a></li>
+                            <li><a href="/user/join.do">회원가입</a></li>
                         <li><a href="/myUpdate.do">마이페이지</a></li>
                         <%}%>
                         <li id="mobile_x">

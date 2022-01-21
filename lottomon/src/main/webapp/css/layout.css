@@ -401,6 +401,7 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
 #sub .find { width:535px; border:1px solid #dedede; display:inline-block; overflow:hidden; padding-right:10px; }
 #sub .find button { outline:none; }
 #sub input[type=submit] { color:#fff; background:#2e68bf; font-weight:600; outline:none; }
+#sub input[type=button] { color:#fff; background:#2e68bf; font-weight:600; outline:none; }
 #sub table .gray { background:#f4f7f8;}
 #sub table .gray th { background:#f4f7f8;}
 #sub table .gray td { background:#f4f7f8;}

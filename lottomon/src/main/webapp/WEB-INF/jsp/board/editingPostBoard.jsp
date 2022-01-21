@@ -72,9 +72,28 @@
           <div class="service_alert">
             <form action="#" name="service_alert" class="title">
               <dl>
-                <dt id="title">제목<textarea id="post_title" autofocus required wrap="soft" placeholder="제목을 입력하세요." style="width: 90%; margin: 5px 15px; line-height: 5px;"></textarea></dt>
-                <p><span id="name"></span><span id="reg_dt" class="day">reg_dt</span></p>
-                <textarea id="post_contents" rows="20" autofocus required wrap="soft" placeholder="내용을 입력하세요." style="width:100%; margin: 15px 0px 15px; padding: 15px;"></textarea>
+                <c:if test="${type == '22'}">
+                  <dt id="title">제목<textarea id="post_title" autofocus required wrap="soft" style="width: 90%; margin: 5px 15px; line-height: 5px;" readonly>입금 문의 드립니다.</textarea></dt>
+
+                  <p><span id="name"></span><span id="reg_dt" class="day">reg_dt</span></p>
+                  <textarea id="post_contents" rows="20" autofocus required wrap="soft" placeholder="내용을 입력하세요." style="width:100%; margin: 15px 0px 15px; padding: 15px;">
+양식에 맞게 작성해 주세요.
+
+입금자 명 :
+입금 금액 :
+입금 날짜 :
+휴대폰 번호 :
+
+*휴대폰 번호는 입금이 잘못되거나, 안내를 도와드리는 목적으로 이용됩니다.
+                </textarea>
+                </c:if>
+                <c:if test="${type != '22'}">
+                  <dt id="title">제목<textarea id="post_title" autofocus required wrap="soft" placeholder="제목을 입력하세요." style="width: 90%; margin: 5px 15px; line-height: 5px;"></textarea></dt>
+
+                  <p><span id="name"></span><span id="reg_dt" class="day">reg_dt</span></p>
+                  <textarea id="post_contents" rows="20" autofocus required wrap="soft" placeholder="내용을 입력하세요." style="width:100%; margin: 15px 0px 15px; padding: 15px;"></textarea>
+                </c:if>
+
                 <%--<div class="filebox">
                   <label for="file">첨부파일</label>
                   <input type="file" id="file">

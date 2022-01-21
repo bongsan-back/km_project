@@ -18,7 +18,7 @@
   </div>
   <div class="right-alert-1 right-alert">
     <a href="../landing_1" target="_blank">
-      <img src="../img/right-alert-top.jpg">
+      <img src="../img/event_banner_01.png" style="max-width: 120px;">
     </a>
   </div>
   <div class="right-alert-2 right-alert">

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.company.lottomon.model.UserInfo;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class UserDAO {
@@ -38,7 +37,7 @@ public class UserDAO {
 	 * @return
 	 */
 	public UserInfo getUserInfo(String id) {
-		return sqlSession.selectOne("user.getUserInfo", id);
+		return sqlSession.selectOne("user.getUserId", id);
 	}
 
 	/**
@@ -82,5 +81,21 @@ public class UserDAO {
 	 */
 	public void changeGrade(UserInfo userInfo) {
 		sqlSession.update("user.changeGrade", userInfo);
+	}
+
+	/**
+	 * 아이디 찾기
+	 * @return
+	 */
+	public UserInfo selectId(UserInfo userInfo) {
+		return sqlSession.selectOne("user.getUserInfo", userInfo);
+	}
+
+	/**
+	 * 임시 비밀번호 설정
+	 * @return
+	 */
+	public int insertTempPassword(UserInfo userInfo) {
+		return sqlSession.update("user.insertTempPassword", userInfo);
 	}
 }

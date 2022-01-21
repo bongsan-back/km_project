@@ -352,4 +352,12 @@ public class ViewController {
         }
     }
 
+
+    /**
+     * 이벤트 랜딩 페이지
+     */
+    @RequestMapping(value = "/eventLandf.do", method = RequestMethod.GET)
+    public String eventLandf() {
+        return "landing/landing01";
+    }
 }
