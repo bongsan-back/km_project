@@ -173,7 +173,7 @@
       seq : seq,
       type : type,
       title : $("#post_title").val(),
-      content : $("#post_contents").val()
+      content : $("#post_contents").val().replace(/\r\n|\n/gi , "<br>")
     };
 
     $.ajax({

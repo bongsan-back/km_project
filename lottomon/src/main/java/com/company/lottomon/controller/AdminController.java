@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,9 +48,9 @@ public class AdminController {
      */
     @RequestMapping(value = {"/user.do", "/main.do"})
     public String user(HttpServletRequest request, HttpSession session, Model model) {
-        if(session.getAttribute("user_id") == null && session.getAttribute("role").equals("USER")){
+        if(session.getAttribute("user_id") == null || session.getAttribute("role").equals("USER")){
             model.addAttribute("message","관리자만 접근 가능합니다.");
-            return "/main.do";
+            return "/main";
         }
 
         List<UserInfo> userInfo = adminService.selectUserInfo();
@@ -63,13 +64,28 @@ public class AdminController {
      */
     @RequestMapping(value = "/lotto.do", method = RequestMethod.GET)
     public String lotto(HttpServletRequest request, HttpSession session, Model model) {
-        if(session.getAttribute("user_id") == null && session.getAttribute("role").equals("USER")){
+        if(session.getAttribute("user_id") == null || session.getAttribute("role").equals("USER")){
             model.addAttribute("message","관리자만 접근 가능합니다.");
-            return "/main.do";
+            return "/main";
         }
 
         return "admin/lotto";
     }
+
+
+    /**
+     * 관리자 페이지 lotto 번호 추출
+     */
+    @RequestMapping(value = "/lottoExtract.do", method = RequestMethod.GET)
+    public String lottoExtract(HttpServletRequest request, HttpSession session, Model model) {
+        if(session.getAttribute("user_id") == null || session.getAttribute("role").equals("USER")){
+            model.addAttribute("message","관리자만 접근 가능합니다.");
+            return "/main";
+        }
+
+        return "admin/lottoExtract";
+    }
+
 
     /**
      * 관리자 페이지 lotto 데이터 업데이트
@@ -97,7 +113,6 @@ public class AdminController {
     @RequestMapping(value = "/changeGrade.do", method = RequestMethod.POST)
     public @ResponseBody Object changeGrade(@RequestBody UserInfo userInfo, HttpSession session, Model model) throws Exception{
         System.out.println("고객 등급 변경");
-
 
         if(userInfo.getGrade().equals("99")) userInfo.setRole("ADMIN");
         else userInfo.setRole("USER");

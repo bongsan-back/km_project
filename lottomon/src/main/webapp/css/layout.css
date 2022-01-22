@@ -101,9 +101,9 @@
 .main .main-2 .main-2table table tr td { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:center; height:30px;line-height:30px; min-width:50px; font-weight:300; color:#525252;  }
 .main .main-2 .main-2table table tr td:nth-of-type(1) { max-width:30px; min-width:20px; font-weight:600; }
 .main .main-1 .main-2_number { background-image:url("../img/main-2_numberBg.jpg"); border-left:none; background-position:center; background-repeat:no-repeat; background-size:cover;     height: 290px;position: relative;top: -25px;padding: 20px;}
-.main .main-1 .main-2_number h6 { color:#ff8300; font-weight:bold; font-size:24px; margin-top:25px; }
-.main .main-1 .main-2_number span { font-size:18px; width:100%; height:110px; display:inline-block; padding-right:40%; padding-top:20px; box-sizing:border-box; }
-.main .main-1 .main-2_number span + a { background:#09827b; border-radius:30px; margin-left:0px; margin-top:0; }
+.main .main-1 .main-2_number h6 { color:#ff8300; font-weight:bold; font-size:18px; margin-top:25px; }
+.main .main-1 .main-2_number span { font-size:15px; width:100%; height:110px; display:inline-block; padding-right:40%; padding-top:20px; box-sizing:border-box; }
+.main .main-1 .main-2_number span + a { background:#09827b; border-radius:30px; margin-left:0px; margin-top:0; padding: 5px 30px; color: #fff;}
 
 .main .main-3 > div { height:275px; }
 .main .main-3 .main-3_1box { width:66.6%; padding:0 20px; }

@@ -13,17 +13,17 @@
     <link href="../css/adminStyles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 
-<title>관리자페이지</title>
+    <title>관리자페이지</title>
 
 
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<style>
-    .gradeBox{padding: 5px;}
-    .tableSubTxt{position: absolute; right: 20px; color: #777;}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        .gradeBox{padding: 5px;}
+        .tableSubTxt{position: absolute; right: 20px; color: #777;}
 
-</style>
+    </style>
 </head>
 <body class="sb-nav-fixed">
 <%@include file="./include/header.jsp"%>
@@ -85,7 +85,8 @@
                                         <c:if test="${user.grade == '99'}">#관리자</c:if>
                                     </td >
                                     <td>
-                                        <select class="gradeBox" name="gradeSel" onchange="javascript:changeGrade(${user.seq}, this.value)">
+                                        <select class="gradeBox" name="gradeSel" id="gradeSel${user.seq}" onchange="javascript:changeGrade(${user.seq}, this.value)">
+                                            <option value='null'>선택</option>
                                             <option value='01' <c:if test="${user.grade == '01'}">selected</c:if> >일반</option>
                                             <option value='02' <c:if test="${user.grade == '02'}">selected</c:if> >휴면</option>
                                             <option value='03' <c:if test="${user.grade == '03'}">selected</c:if> >탈퇴</option>
@@ -95,6 +96,7 @@
                                             <option value='12' <c:if test="${user.grade == '12'}">selected</c:if> >다이아</option>
                                             <option value='99' <c:if test="${user.grade == '99'}">selected</c:if> >admin</option>
                                         </select>
+                                        등급 유지 일 <input type="text" id="diffDate${user.seq}" style="width: 40px"> 일
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -125,12 +127,24 @@
         console.log(seq);
         console.log(grade);
 
+        if(grade == 'null'){
+            return false;
+        }
+
+        if($("#diffDate"+seq).val() == ''){
+            alert("등급 유지 일을 입력해 주세요.");
+            $("#diffDate"+seq).focus();
+            $("#gradeSel"+seq).val('null');
+            return false;
+        }
 
         var data = {
             grade : grade,
-            seq : seq
+            seq : seq,
+            diffDate : $("#diffDate"+seq).val()
         };
 
+        console.log(data);
         $.ajax({
             type: 'POST',
             contentType: "application/json",

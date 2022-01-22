@@ -62,7 +62,7 @@
           <a href="/myUpdate.do">내 정보 수정</a>
         </div>
       </div>
-      <div class="content">
+      <div class="content" style="min-height: 700px;">
         <div class="head">
           <h2>결제내역</h2>
           <h5>

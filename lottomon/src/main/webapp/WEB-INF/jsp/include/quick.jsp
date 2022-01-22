@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="wrap1500">
-  <div class="left-alert">
+  <%--<div class="left-alert">
     <div class="icon">
       <a href="./service.php"><img src="../img/icon-q.png">
         <p>1:1 문의</p>
@@ -15,7 +15,7 @@
         <p>인스타그램</p>
       </a>
     </div>
-  </div>
+  </div>--%>
   <div class="right-alert-1 right-alert">
     <a href="../landing_1" target="_blank">
       <img src="../img/event_banner_01.png" style="max-width: 120px;">

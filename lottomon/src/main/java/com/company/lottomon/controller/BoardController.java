@@ -195,8 +195,11 @@ public class BoardController {
 	 * 게시판 내용 검색
 	 */
 	@RequestMapping(value = "/searchBoardContent.do", method = RequestMethod.POST)
-	public @ResponseBody ResponseEntity<List<Board>> searchBoardContent(@RequestBody Board board, Model model) {
+	public @ResponseBody ResponseEntity<List<Board>> searchBoardContent(@RequestBody Board board, Model model, HttpSession session) {
 		board.setStart_row_num((board.getCurrent_page()-1) * board.getPost_num_base_cnt()); //페이징 시작 번호 수 설정
+
+		board.setUser_id(session.getAttribute("user_id").toString());
+		board.setRole(session.getAttribute("role").toString());
 
 		List<Board> list = boardService.selectList(board);
 
@@ -280,6 +283,8 @@ public class BoardController {
 		try {
 			board.setPv("0"); //조회수 기본세팅
 			board.setShow_yn("Y"); //show_yn 기본세팅
+
+			/*board.setContent(board.getContent().replaceAll("<br>", "\r\n"));*/
 
 			boardService.insertBoardContent(board);
 		} catch (Exception e) {

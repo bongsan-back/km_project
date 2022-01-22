@@ -83,6 +83,39 @@
               </dl>
             </form>
 
+            <c:if test="${type == 22 && role == 'ADMIN'}">
+              <br>
+              <div>
+                등급 조정
+
+                <select class="gradeBox" name="gradeSel" id="gradeSel">
+                  <option value='01'selected>일반 회원</option>
+                  <option value='02'>휴면 회원</option>
+                  <option value='03'>탈퇴 회원</option>
+                  <option value='04'>정지 회원</option>
+                  <option value='10'>실버 회원</option>
+                  <option value='11'>골드 회원</option>
+                  <option value='12'>다이아 회원</option>
+                </select>
+
+                <select class="gradeBox" name="dateSel" id="dateSel">
+                  <option value='30' selected>1달</option>
+                  <option value='60'>2달</option>
+                  <option value='90'>3달</option>
+                  <option value='120'>4달</option>
+                  <option value='150'>5달</option>
+                  <option value='180'>6달</option>
+                  <option value='210'>7달</option>
+                  <option value='240'>8달</option>
+                  <option value='270'>9달</option>
+                  <option value='300'>10달</option>
+                  <option value='330'>11달</option>
+                  <option value='365'>12달</option>
+                </select>
+
+                <input type="button" value="등급 변경" id="gradeChangeBtn" style="width: 120px; height: 45px;">
+              </div>
+            </c:if>
             <script>
               $("#file").on('change', function() {
                 var fileName = $("#file").val();
@@ -152,8 +185,10 @@
   var post_board = ${post_board}[0];
   var prev_seq = ${post_board}[0].prev_seq;
   var next_seq = ${post_board}[0].next_seq;
+  var post_user_id = ${post_board}[0].user_id;
 
   var user_id = '<%=(String)session.getAttribute("user_id")%>';
+  var role = '<%=(String)session.getAttribute("role")%>';
   var orderType = "reg_dt";
 </script>
 <script type="text/javascript">
@@ -171,7 +206,7 @@
     $("#menu_type_name").text(" " + type_name)
     $("#title").text(post_board.title)
     $("#name").text(post_board.name)
-    $("#content").text(post_board.content)
+    $("#content").html(post_board.content)
     $("#reg_dt").text(post_board.reg_dt)
     $("#comment_cnt").text(post_board.comment)
     //왼쪽 게시판 메뉴,헤더 Setting
@@ -271,16 +306,16 @@
   }
 
   function searchBoardCommentContent(order_type){
-      orderType = order_type;
-      if(orderType == "reg_dt"){
-        $('#btn_reg_dt').addClass('focus');
-        $('#btn_like_count').removeClass('focus');
-      } else if(orderType == "like_count"){
-        $('#btn_reg_dt').removeClass('focus');
-        $('#btn_like_count').addClass('focus');
-      }
+    orderType = order_type;
+    if(orderType == "reg_dt"){
+      $('#btn_reg_dt').addClass('focus');
+      $('#btn_like_count').removeClass('focus');
+    } else if(orderType == "like_count"){
+      $('#btn_reg_dt').removeClass('focus');
+      $('#btn_like_count').addClass('focus');
+    }
 
-      paging(1);
+    paging(1);
   }
 
   function boardViewUp() {
@@ -419,6 +454,35 @@
       }
     });
   }
+
+
+  $("#gradeChangeBtn").click(function(){
+    var grade = $("#gradeSel option:selected").val();
+    var diffDate = $("#dateSel option:selected").val();
+
+    var data = {
+      id : post_user_id,
+      grade : grade,
+      diffDate : diffDate
+    };
+
+    $.ajax({
+      type: 'POST',
+      contentType: "application/json",
+      dataType: 'json',
+      url: '/admin/changeGrade.do',
+      data: JSON.stringify(data),
+      success: function (data) {
+        alert("등급이 변경 되었습니다.");
+      },
+      error : function(response){
+        console.log(response);
+      }
+    });
+
+
+
+  })
 </script>
 
 </body>
