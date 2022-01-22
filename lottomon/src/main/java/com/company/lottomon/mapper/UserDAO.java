@@ -98,4 +98,29 @@ public class UserDAO {
 	public int insertTempPassword(UserInfo userInfo) {
 		return sqlSession.update("user.insertTempPassword", userInfo);
 	}
+
+	/**
+	 * 유저 등급 다운 유무
+	 * @return
+	 */
+	public int getExprieYn(String date) {
+		return sqlSession.selectOne("user.getExprieYn", date);
+	}
+
+	/**
+	 * 유저 등급 다운 유무
+	 * @return
+	 */
+	public int getExprieProc(String date) {
+		return sqlSession.update("user.getExprieProc", date);
+	}
+
+	/**insertExpireInfo
+	 * 유저 등급 다운 유무
+	 * @return
+	 */
+	public int insertExpireInfo(int cnt) {
+		return sqlSession.insert("user.insertExpireInfo", cnt);
+	}
+
 }

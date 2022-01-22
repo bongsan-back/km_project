@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 @Controller
 @RequestMapping(value = "/login")
 @Component
@@ -47,6 +50,8 @@ public class LoginController {
             userInfo.setPassword(AES.encryptStringToBase64(userInfo.getPassword()));
 
             Constant.LoginResult result = userService.loginProc(userInfo, session);
+
+            userExpire();
 
             return result;
         } catch (Exception e) {
@@ -100,4 +105,23 @@ public class LoginController {
             // TODO: handle exception
         }
     }
+    private void userExpire(){
+        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
+        Calendar time = Calendar.getInstance();
+
+        String date = format1.format(time.getTime());
+
+        try {
+            int userExYn = userService.getExprieYn(date);
+            if(userExYn > 0){
+                return;
+            }else{
+                int userExCnt = userService.getExprieProc(date);
+                userService.insertExpireInfo(userExCnt);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

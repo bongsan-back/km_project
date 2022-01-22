@@ -148,4 +148,21 @@ public class UserServiceImpl implements UserService{
 	public int insertTempPassword(UserInfo userInfo) {
 		return userDAO.insertTempPassword(userInfo);
 	}
+
+	@Override
+	public int getExprieYn(String date) {
+		return userDAO.getExprieYn(date);
+	}
+
+	@Override
+	public int getExprieProc(String date) {
+		return userDAO.getExprieProc(date);
+	}
+
+	//
+	@Override
+	public void insertExpireInfo(int cnt) {
+		userDAO.insertExpireInfo(cnt);
+	}
+
 }

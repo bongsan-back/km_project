@@ -86,8 +86,33 @@
 		<![CDATA[
 		UPDATE user SET grade = #{grade}, role = #{role}, grade_start_dt = NOW() WHERE seq = #{seq}
 		]]>
-
-
 	</update>
+
+	<select id="getExprieYn" parameterType="String" resultType="int">
+		SELECT count(*) FROM user_expire WHERE
+			reg_dt like CONCAT(#{date}, '%')
+	</select>
+
+
+	<select id="getExprieProc" parameterType="String" resultType="int">
+		<![CDATA[
+		UPDATE user
+		SET grade = '01' ,
+			grade_start_dt = now(),
+			grade_end_dt = NULL
+		WHERE grade_end_dt IS NOT NULL
+		  AND grade_end_dt < CONCAT(#{date}, ' 00:00:00')
+		  AND grade NOT IN ('01','99','02','03','04')
+		]]>
+	</select>
+
+	<insert id="insertExpireInfo" parameterType="int">
+		<![CDATA[
+		INSERT INTO user_expire
+			(update_user_cnt, reg_dt)
+		VALUES
+			(#{cnt},now())
+		]]>
+	</insert>
 
 </mapper>

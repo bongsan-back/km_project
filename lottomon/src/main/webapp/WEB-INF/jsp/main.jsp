@@ -177,14 +177,9 @@
           <div class="main-2_number">
             <h6>${user_id}님 환영합니다.</h6>
             <span>회원 등급 : ${grade_name}</span>
-            <a href="#">마이 페이지</a>
+            <a href="/myUpdate.do">마이 페이지</a>
           </div>
         </c:if>
-
-
-
-
-
       </div>
     </div>
   </div>
