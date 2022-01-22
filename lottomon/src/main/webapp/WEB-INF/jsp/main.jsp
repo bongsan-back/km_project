@@ -42,6 +42,19 @@
 <style type="text/css">
 .placeholder { color: #aaa; }
 
+/*자동로그인 임시 제거*/
+#checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+  color: #fff;
+}
+
 .main-2table .placeTable tr:nth-child(odd){background-color: #f5f6f7}
 .main-2table .placeTable tr:nth-child(2) td:nth-child(1){color: #ee1916 !important;}
 </style>
@@ -155,12 +168,12 @@
 
         <c:if test="${empty user_id }">
           <h3>로그인</h3>
-          <form action='#' method='post'>
+                  <form action='#' method='post'>
             <input type='text' name='id' autocomplate='off' placeholder='아이디' required id="id" />
             <input type='password' name='password' autocomplate='off' placeholder='패스워드' required id="password" />
             <div class="login">
-              <label for="checkbox"><input type="checkbox" id="checkbox"> 자동로그인</label>
-              <ul>
+              <label for="checkbox" style="color: #fff"><input type="checkbox" id="checkbox"> 자동로그인</label>
+              <ul style="position: relative;">
                 <li>
                   <a href="/login/findUser.do">아이디</a>/<a href="/login/findUser.do">비밀번호 찾기</a> |
                 </li>
@@ -176,7 +189,12 @@
         <c:if test="${not empty user_id }">
           <div class="main-2_number">
             <h6>${user_id}님 환영합니다.</h6>
-            <span>회원 등급 : ${grade_name}</span>
+            <span>회원 등급 : ${grade_name}<br>
+              <c:if test="${grade_end_dt != null}">
+                등급 기간 : ${fn:substring(grade_end_dt,0,10)}
+              </c:if>
+
+            </span>
             <a href="/myUpdate.do">마이 페이지</a>
           </div>
         </c:if>
@@ -191,7 +209,7 @@
         <h6><fmt:formatNumber value="${lottoData3Week[0].placeNo1_price}" pattern="#,###" />원</h6>
       </div>
       <p class="btn">
-        <a href="/winning.do">회차별 당첨결과</a>
+        <a href="/winning.do" style="background:#2e68bf;">회차별 당첨결과</a>
         <a href="/membership.do">예상번호 받기</a>
       </p>
     </div>

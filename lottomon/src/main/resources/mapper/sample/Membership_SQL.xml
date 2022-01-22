@@ -5,7 +5,7 @@
 
 	<select id="selectList" resultType="map">
 		<![CDATA[
-			SELECT * FROM membership ORDER BY seq ASC
+			SELECT * FROM membership WHERE show_yn = 'Y' ORDER BY seq ASC
 		]]>
 	</select>
 
@@ -21,6 +21,6 @@
 		SELECT * FROM membership_price WHERE membership_seq = #{membership_seq} AND maintain_month = #{maintain_month}
 		]]>
 	</select>
-	
+
 
 </mapper>

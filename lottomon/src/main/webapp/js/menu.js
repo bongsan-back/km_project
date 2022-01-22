@@ -56,9 +56,9 @@ var menu = {
             str +=  '>1:1문의하기</a>';
         }
         else if(type==="21" || type==="22"){
-            str +=  '<a href="/lotto/thisWeeksNumber.do"';
+            /*str +=  '<a href="/lotto/thisWeeksNumber.do"';
             str +=  type==="21" ? 'class="on"' : '';
-            str +=  '>이번주 나의번호</a>' +
+            str +=  '>이번주 나의번호</a>' +*/
                 '<a href="/board/mylotto_payment.do"';
             str +=  type==="22" ? 'class="on"' : '';
             str +=  '>결제내역</a>';

@@ -51,6 +51,9 @@
                                 <th>닉네임</th>
                                 <th>성별</th>
                                 <th>생년월일</th>
+                                <th>가입일</th>
+                                <th>등급 시작 일</th>
+                                <th>등급 종료 일</th>
                                 <th>등급</th>
                                 <th>등급 변경</th>
                             </tr>
@@ -62,6 +65,9 @@
                                 <th>닉네임</th>
                                 <th>성별</th>
                                 <th>생년월일</th>
+                                <th>가입일</th>
+                                <th>등급 시작 일</th>
+                                <th>등급 종료 일</th>
                                 <th>등급</th>
                                 <th>등급 변경</th>
                             </tr>
@@ -74,6 +80,9 @@
                                     <td>${user.nickname}</td>
                                     <td>${user.gender}</td>
                                     <td>${user.birth}</td>
+                                    <td>${fn:substring(user.reg_dt,0,19)}</td>
+                                    <td>${fn:substring(user.grade_start_dt,0,10)}</td>
+                                    <td>${fn:substring(user.grade_end_dt,0,10)}</td>
                                     <td>
                                         <c:if test="${user.grade == '01'}">#일반 회원</c:if>
                                         <c:if test="${user.grade == '02'}">#휴면 회원</c:if>

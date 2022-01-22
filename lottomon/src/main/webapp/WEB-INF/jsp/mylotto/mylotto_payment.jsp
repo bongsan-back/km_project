@@ -57,7 +57,7 @@
       <div class="left for">
         <h2>나의로또</h2>
         <div>
-          <a href="/lotto/thisWeeksNumber.do">이번주 나의번호</a>
+          <%--<a href="/lotto/thisWeeksNumber.do">이번주 나의번호</a>--%>
           <a href="/board/mylotto_payment.do" class="on">결제내역</a>
           <a href="/myUpdate.do">내 정보 수정</a>
         </div>

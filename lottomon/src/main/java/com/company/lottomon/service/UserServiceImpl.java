@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService{
 			session.setAttribute("user_id", result.getId());
 			session.setAttribute("user_name", result.getName());
 			session.setAttribute("user_nickname", result.getNickname());
+			session.setAttribute("grade_end_dt", result.getGrade_end_dt());
 			session.setAttribute("grade_code", result.getGrade());
 			session.setAttribute("role", result.getRole());
 
@@ -110,6 +111,7 @@ public class UserServiceImpl implements UserService{
 			session.setAttribute("user_id", result.getId());
 			session.setAttribute("user_name", result.getName());
 			session.setAttribute("user_nickname", result.getNickname());
+			session.setAttribute("grade_end_dt", result.getGrade_end_dt());
 			session.setAttribute("grade_code", result.getGrade());
 			session.setAttribute("role", result.getRole());
 

@@ -56,7 +56,7 @@
                 <li><a href="/winning.do">로또당첨결과</a></li>
                 <li><a href="/membership.do">멤버십안내</a></li>
                 <li><a href="/board/bulletin.do">커뮤니티</a></li>
-                <li><a href="/lotto/thisWeeksNumber.do">나의로또</a></li>
+                <li><a href="/board/mylotto_payment.do">나의로또</a></li>
                 <li><a href="/board/notice.do">고객센터</a></li>
             </ul>
         </nav>
@@ -106,7 +106,7 @@
                 </li>
                 <li>
                     <ul>
-                        <li><a href='/lotto/thisWeeksNumber.do'>이번주 나의번호</a></li>
+                        <%--<li><a href='/lotto/thisWeeksNumber.do'>이번주 나의번호</a></li>--%>
                         <li><a href='/board/mylotto_payment.do'>결제내역</a></li>
                         <li><a href='/myUpdate.do'>내 정보 수정</a></li>
                     </ul>

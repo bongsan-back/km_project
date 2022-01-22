@@ -14,6 +14,11 @@ public class UserInfo {
 	private String role;
 	private String sns_token;
 	private String join_type;
+	private String grade_end_dt;
+	private String grade_start_dt;
+	private String reg_dt;
+
+	private int diffDate;
 
 	private String tempPassword;
 	private String incPassword;
@@ -129,6 +134,38 @@ public class UserInfo {
 
 	public void setIncPassword(String incPassword) {
 		this.incPassword = incPassword;
+	}
+
+	public int getDiffDate() {
+		return diffDate;
+	}
+
+	public void setDiffDate(int diffDate) {
+		this.diffDate = diffDate;
+	}
+
+	public String getGrade_end_dt() {
+		return grade_end_dt;
+	}
+
+	public void setGrade_end_dt(String grade_end_dt) {
+		this.grade_end_dt = grade_end_dt;
+	}
+
+	public String getGrade_start_dt() {
+		return grade_start_dt;
+	}
+
+	public void setGrade_start_dt(String grade_start_dt) {
+		this.grade_start_dt = grade_start_dt;
+	}
+
+	public String getReg_dt() {
+		return reg_dt;
+	}
+
+	public void setReg_dt(String reg_dt) {
+		this.reg_dt = reg_dt;
 	}
 
 	@Override

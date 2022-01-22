@@ -75,7 +75,7 @@
                 <div class="box_vip">
                     <c:forEach items="${membershipList}" var="list">
                         <div class="vip">
-                            <div class="img"><img src="${list.image}"><a href="./membership_pay.do">가입하기</a>
+                            <div class="img"><img src="${list.image}"><a href="/board/mylotto_payment.do">가입하기</a>
                             </div>
                             <div class="txt">
                                 <c:set var = "title" value = "${list.title}"/>
@@ -98,7 +98,7 @@
                         </div>
                     </c:forEach>
                 </div>
-                <table style="border-spacing:0px" ;>
+                <%--<table style="border-spacing:0px" ;>
                     <tr class="gray">
                         <th>기간</th>
                         <th>실버</th>
@@ -135,7 +135,7 @@
                         <td><fmt:formatNumber value="${gold36}" pattern="#,###" />원</td>
                         <td><fmt:formatNumber value="${vip36}" pattern="#,###" />원</td>
                     </tr>
-                </table>
+                </table>--%>
                 <div class="pay"><a href="/board/mylotto_payment.do">멤버십 결제하기</a></div>
             </div>
         </div>

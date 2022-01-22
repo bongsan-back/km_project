@@ -39,7 +39,13 @@
 		<if test="search_type == 'writer'">
 			AND 		B.name 		LIKE CONCAT('%',#{search_word},'%')
 		</if>
+
 		<if test="type == '22'">
+			<if test="role != 'ADMIN'">
+				AND A.user_id IN (#{user_id})
+			</if>
+		</if>
+		<if test="type == '12'">
 			<if test="role != 'ADMIN'">
 				AND A.user_id IN (#{user_id})
 			</if>

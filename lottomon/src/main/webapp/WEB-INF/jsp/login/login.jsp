@@ -80,7 +80,7 @@
                             <input type='text' name='id'  id='id' autocomplate='off' placeholder='아이디' required />
                             <input type='password' name='password' id='password' autocomplate='off' placeholder='패스워드' required />
                             <div class="login">
-                                <label for="autoLogin"><input type="checkbox" id="autoLogin"> 자동로그인</label>
+                                <%--<label for="autoLogin"><input type="checkbox" id="autoLogin"> 자동로그인</label>--%>
                                 <ul>
                                     <li>
                                         <a href="./findUser.do">아이디</a>/<a href="./findUser.do">비밀번호 찾기</a> |
