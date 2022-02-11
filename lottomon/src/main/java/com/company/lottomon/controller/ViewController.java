@@ -15,7 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -206,6 +209,19 @@ public class ViewController {
 
 
     public void latestLottoData(){
+
+        SimpleDateFormat format = new SimpleDateFormat ( "HH:mm:ss");
+        Calendar time = Calendar.getInstance();
+
+        String now = format.format(time.getTime());
+
+        System.out.println(now);
+
+        if(now.contains("20:") || now.contains("21:")){
+            return;
+        }
+
+
         int serveLatestDrw = lottoService.selectLastDrwNo();
         int dhLatestDrw = crawlingDrwno();
 

@@ -240,23 +240,17 @@
       </table>
     </div>
 
-    <div>
+    <div style="padding: 0px;">
       <div class="swiper-container swiper-container-board">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide sd1">
-            <span>로또몬 1 로또몬 1</span>
-            <a href="/membership.do">멤버십가입Go</a>
+          <div class="swiper-slide sd1" onclick="javascript:goMembership()">
             <!-- <img src="./img/swiper-img-btn.png"> -->
           </div>
-          <div class="swiper-slide sd1">
-            <span>로또몬 2 로또몬 2</span>
-            <a href="/membership.do">멤버십가입Go</a>
+          <div class="swiper-slide sd2" onclick="javascript:goMembership()">
           </div>
-          <div class="swiper-slide sd1">
-            <span>로또몬 3 로또몬 3</span>
-            <a href="/membership.do">멤버십가입Go</a>
+          <div class="swiper-slide sd3" onclick="javascript:goMembership()">
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -271,7 +265,7 @@
             clickable: true,
           },
           autoplay: {
-            delay: 1500,
+            delay: 5000,
             disableOnInteraction: false,
           },
         });
@@ -454,8 +448,8 @@
     </div>--%>
   </div>
   <div class="main-6">
-    <div class="coll"><a href="#none" style="cursor: default"><img src="/img/coll_img.jpg"></a></div>
-    <div class="bank"><a href="#none" style="cursor: default"><img src="/img/bank_img.jpg"></a></div>
+    <div class="coll"><a href="/membership.do" style="cursor: pointer;"><img style="max-height: 260px;width: 400px;" src="./img/banner_01.jpg"></a></div>
+    <div class="bank"><a href="/board/mylotto_payment.do" style="cursor: default"><img src="/img/bank_img.jpg"></a></div>
     <div class="main-6box">
       <h3>로또몬<span> 토론실</span></h3>
       <h6><a href="/board/debateRoom.do">더보기<img src="/img/arrow.png"></a></h6>
@@ -543,6 +537,10 @@
       });
     }
 
+
+    function goMembership(){
+      location.href = "/membership.do";
+    }
 </script>
 
 

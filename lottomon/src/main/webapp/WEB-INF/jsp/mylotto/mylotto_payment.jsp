@@ -58,17 +58,17 @@
         <h2>나의로또</h2>
         <div>
           <%--<a href="/lotto/thisWeeksNumber.do">이번주 나의번호</a>--%>
-          <a href="/board/mylotto_payment.do" class="on">결제내역</a>
+          <a href="/board/mylotto_payment.do" class="on">결제 게시판</a>
           <a href="/myUpdate.do">내 정보 수정</a>
         </div>
       </div>
       <div class="content" style="min-height: 700px;">
         <div class="head">
-          <h2>결제내역</h2>
+          <h2>결제 게시판</h2>
           <h5>
             <a href="#"><img src="../img/home.jpg"> 홈</a>
             <a href="javascript:goToCategoryMenu(type)"><img src="../img/arrow.png"> 나의로또</a>
-            <a href="javascript:goToMenu(type)"><img src="../img/arrow.png"> 결제내역</a>
+            <a href="javascript:goToMenu(type)"><img src="../img/arrow.png"> 결제 게시판</a>
           </h5>
         </div>
 

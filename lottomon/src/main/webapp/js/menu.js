@@ -14,7 +14,7 @@ function goToMenu(type){
     } else if(type==="21") {
         location.href = "/lotto/thisWeeksNumber.do";//이번주 나의번호 이동
     } else if(type==="22") {
-        location.href = "/board/mylotto_payment.do";//결제내역
+        location.href = "/board/mylotto_payment.do";//결제 게시판
     }
 }
 
@@ -61,7 +61,7 @@ var menu = {
             str +=  '>이번주 나의번호</a>' +*/
                 '<a href="/board/mylotto_payment.do"';
             str +=  type==="22" ? 'class="on"' : '';
-            str +=  '>결제내역</a>';
+            str +=  '>결제 게시판</a>';
         }
         str +=  '</div>';
         return str;

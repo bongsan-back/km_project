@@ -72,7 +72,7 @@
         </div>
 
         <div class="table">
-          <p class="p">1:1문의는 24시간 신청 가능하며, 접수된 내용 답변 완료시,핸드폰문자로 안내드립니다.</p>
+          <p class="p">1:1문의는 24시간 신청 가능하며, 접수된 내용 댓글로 답변드립니다.</p>
           <table id="table" style="border-spacing:0px">
             <colgroup>
               <col width="75">

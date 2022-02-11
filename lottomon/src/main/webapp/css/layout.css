@@ -80,7 +80,7 @@
 .main .main-contents .main-1 form submit a { color:#fff; display:block; }
 
 
-.main .main-2 div { height:283px; }
+.main .main-2 div { height:257px; }
 .main .main-2 > div:first-child { border-top:none; }
 .main .main-2 > div:last-child { border-right:1px solid #ccc;  }
 .main .main-2 > div:nth-child(1),.main .main-2 > div:nth-child(2) { padding:0; }
@@ -90,7 +90,7 @@
 .main .main-2 .main-2box p { height:60px; line-height:60px; background:#0c5f9a; width:100%; color:#fff; text-align:center; font-size:18px; font-weight:bold}
 .main .main-2 .main-2box span { text-align:center;  display:block; margin-top:20px; }
 .main .main-2 .main-2box h6 { font-size:34px; color:#ee1512; text-align:center; margin-top:10px; }
-.main .main-2 a { color: #fff; display:inline-block; width:45%; height:36px; line-height:36px; text-align:center; margin-top:30px; font-weight:400;  font-size:14px; }
+.main .main-2 a { color: #fff; display:inline-block; width:45%; height:36px; line-height:36px; text-align:center; margin-top:15px; font-weight:400;  font-size:14px; }
 .main .main-2 a:nth-of-type(1) { /*background:#2e68bf;*/ float:left; }
 .main .main-2 a:nth-of-type(2) { background:#09827b; float:right; }
 .main .main-2 .main-2table { font-size:13px; border-right:1px solid #dddddd; table-layout:fixed; }
@@ -201,9 +201,9 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
 .main .main-contents .main-5 .swiper-container-board .swiper-pagination-bullets .swiper-pagination-bullet { opacity:1; background:#fff; }
 .main .main-contents .main-5 .swiper-container-board .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active { background-color:#ffde31; }
 .main .main-contents .main-5 .swiper-slide { background-size:cover; background-position:center center; height:255px; width:100%;}
-.main .main-contents .main-5 .sd1 { background-image:url("../img/swiper-img-lotto.jpg");}
-.main .main-contents .main-5 .sd2 { background-image:url("../img/swiper-img-lotto.jpg"); }
-.main .main-contents .main-5 .sd3 { background-image:url("../img/swiper-img-lotto.jpg"); }
+.main .main-contents .main-5 .sd1 { background-image:url("../img/swiper-img-01.png");}
+.main .main-contents .main-5 .sd2 { background-image:url("../img/swiper-img-02.png"); }
+.main .main-contents .main-5 .sd3 { background-image:url("../img/swiper-img-03.png"); }
 .main .main-contents .main-5 .swiper-slide span { position:absolute;
     color:#fff; font-size:23px; left:50%; top:25%; transform:translate(-50%,-25%); max-height:100px; }
 .main .main-contents .main-5 .swiper-slide a { position:absolute; left:50%; top:75%; transform:translate(-50%,-75%); background-size:cover; background-image:url("../img/swiper-img-btn.png"); display:inline-block; width:200px; height:40px; color:#3b1010; font-size:16px; font-weight:bold; text-align:center; line-height:38px; }
@@ -216,9 +216,9 @@ text-overflow:ellipsis; -webkit-line-clamp:1; line-height:20px; white-space:nowr
 .main .main-2 .swiper-container-board .swiper-pagination-bullets .swiper-pagination-bullet { opacity:1; background:#fff; }
 .main .main-2 .swiper-container-board .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active { background-color:#ffde31; }
 .main .main-2 .swiper-slide { background-size:cover; background-position:center center; height:255px; width:100%;}
-.main .main-2 .sd1 { background-image:url("../img/swiper-img-lotto.jpg");}
-.main .main-2 .sd2 { background-image:url("../img/swiper-img-lotto.jpg"); }
-.main .main-2 .sd3 { background-image:url("../img/swiper-img-lotto.jpg"); }
+.main .main-2 .sd1 { background-image:url("../img/swiper-img-01.png");}
+.main .main-2 .sd2 { background-image:url("../img/swiper-img-02.png"); }
+.main .main-2 .sd3 { background-image:url("../img/swiper-img-03.png"); }
 .main .main-2 .swiper-slide span { position:absolute;
     color:#fff; font-size:23px; left:50%; top:25%; transform:translate(-50%,-25%); max-height:100px; }
 .main .main-2 .swiper-slide a { position:absolute; left:50%; top:60%; transform:translate(-50%,-65%); background-size:cover; background-image:url("../img/swiper-img-btn.png"); display:inline-block; width:200px; height:40px; color:#3b1010; font-size:16px; font-weight:bold; text-align:center; line-height:38px; }

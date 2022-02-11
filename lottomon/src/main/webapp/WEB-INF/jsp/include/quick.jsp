@@ -21,9 +21,9 @@
       <img src="../img/event_banner_01.png" style="max-width: 120px;">
     </a>
   </div>
-  <div class="right-alert-2 right-alert">
+  <%--<div class="right-alert-2 right-alert">
     <a href="../landing_2" target="_blank">
-      <img src="../img/right-alert-bottom.jpg">
+      <img src="../img/side_banner_02.png">
     </a>
-  </div>
+  </div>--%>
 </div>

@@ -2,7 +2,7 @@ package com.company.lottomon.common;
 
 public class Constant {
 	public enum ServiceResult {
-        SUCCESS, 
+        SUCCESS,
         FAIL,
         DUPLICATE,
         NOT_FOUND,
@@ -25,7 +25,7 @@ public class Constant {
 		NOT_MATCHE,
 		LOGIN_ERROR
 	}
-	
+
 	public enum menuCodeType {
 		BULLETIN("01"),				// 자유게시판
 		WINPRAYER("02"),			// 당첨기원
@@ -34,7 +34,7 @@ public class Constant {
 		NOTICE("11"),				// 공지사항
 		MATTERSFORINQUIRY("12"),	// 1:1문의하기
 		THISWEEKSNUMBER("21"),		// 이번주 나의번호
-		MYLOTTOPAYMENT("22");		// 결제내역
+		MYLOTTOPAYMENT("22");		// 결제 게시판
 		menuCodeType(String type) {
 			this.type = type;
 		}
@@ -53,7 +53,7 @@ public class Constant {
 			case "11": return "공지사항";
 			case "12": return "1:1문의하기";
 			case "21": return "이번주 나의번호";
-			case "22": return "결제내역";
+			case "22": return "결제 게시판";
 			default: return "기타";
 		}
 	}

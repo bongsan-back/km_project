@@ -121,7 +121,7 @@ public class BoardController {
 	}
 
 	/**
-	 * 결제내역 페이지
+	 * 결제 게시판 페이지
 	 */
 	@RequestMapping(value = "/mylotto_payment.do", method = RequestMethod.GET)
 	public String mylotto_payment(Model model, HttpSession session) {
