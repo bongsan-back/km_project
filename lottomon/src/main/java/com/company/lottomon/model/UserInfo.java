@@ -9,6 +9,7 @@ public class UserInfo {
 	private String birth;
 	private String id;
 	private String password;
+	private String nowPassword;
 	private String email;
 	private String grade;
 	private String role;
@@ -73,6 +74,15 @@ public class UserInfo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getNowPassword() {
+		return nowPassword;
+	}
+
+	public void setNowPassword(String nowPassword) {
+		this.nowPassword = nowPassword;
+	}
+
 	public String getEmail() {
 		return email;
 	}

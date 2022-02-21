@@ -3,6 +3,7 @@ package com.company.lottomon.controller;
 import com.company.lottomon.common.Constant;
 import com.company.lottomon.model.Board;
 import com.company.lottomon.model.BoardComment;
+import com.company.lottomon.model.LottoData;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,7 +37,12 @@ public class BoardController {
 	 * 자유게시판 페이지
 	 */
 	@RequestMapping(value = "/bulletin.do", method = RequestMethod.GET)
-	public String bulletin(Model model) {
+	public String bulletin(Model model, HttpSession session) {
+		if(session.getAttribute("user_id") == null){
+			model.addAttribute("message","로그인이 필요한 서비스입니다.");
+			model.addAttribute("redirectUrl","/myUpdate.do");
+			return "/login/login";
+		}
 		Board board = new Board();
 		board.setType(Constant.menuCodeType.BULLETIN.getTypeValue()); //게시물 종류 설정
 
@@ -58,7 +64,12 @@ public class BoardController {
 	 * 당첨기원 페이지
 	 */
 	@RequestMapping(value = "/winPrayer.do", method = RequestMethod.GET)
-	public String winPrayer(Model model) {
+	public String winPrayer(Model model, HttpSession session) {
+		if(session.getAttribute("user_id") == null){
+			model.addAttribute("message","로그인이 필요한 서비스입니다.");
+			model.addAttribute("redirectUrl","/myUpdate.do");
+			return "/login/login";
+		}
 		Board board = new Board();
 		board.setType(Constant.menuCodeType.WINPRAYER.getTypeValue()); //게시물 종류 설정
 
@@ -80,7 +91,12 @@ public class BoardController {
 	 * 토론방 페이지
 	 */
 	@RequestMapping(value = "/debateRoom.do", method = RequestMethod.GET)
-	public String debate(Model model) {
+	public String debate(Model model, HttpSession session) {
+		if(session.getAttribute("user_id") == null){
+			model.addAttribute("message","로그인이 필요한 서비스입니다.");
+			model.addAttribute("redirectUrl","/myUpdate.do");
+			return "/login/login";
+		}
 		Board board = new Board();
 		board.setType(Constant.menuCodeType.DEBATEROOM.getTypeValue()); //게시물 종류 설정
 
@@ -102,7 +118,12 @@ public class BoardController {
 	 * 1등당첨자이야기 페이지
 	 */
 	@RequestMapping(value = "/theFirstStory.do", method = RequestMethod.GET)
-	public String theFirstStory(Model model) {
+	public String theFirstStory(Model model, HttpSession session) {
+		if(session.getAttribute("user_id") == null){
+			model.addAttribute("message","로그인이 필요한 서비스입니다.");
+			model.addAttribute("redirectUrl","/myUpdate.do");
+			return "/login/login";
+		}
 		Board board = new Board();
 		board.setType(Constant.menuCodeType.THEFIRSTSTORY.getTypeValue()); //게시물 종류 설정
 
@@ -173,7 +194,11 @@ public class BoardController {
 	 * 1:1문의하기 페이지
 	 */
 	@RequestMapping(value = "/mattersForInquiry.do", method = RequestMethod.GET)
-	public String mattersForInquiry(Model model) {
+	public String mattersForInquiry(Model model, HttpSession session) {
+		if(session.getAttribute("user_id") == null){
+			model.addAttribute("message","로그인이 필요한 서비스입니다.");
+			return "/login/login";
+		}
 		Board board = new Board();
 		board.setType(Constant.menuCodeType.MATTERSFORINQUIRY.getTypeValue()); //게시물 종류 설정
 
@@ -191,6 +216,15 @@ public class BoardController {
 		return "service_center/mattersForInquiry";
 	}
 
+
+	/*
+	if(session.getAttribute("user_id") == null){
+			model.addAttribute("message","로그인이 필요한 서비스입니다.");
+			model.addAttribute("redirectUrl","/myUpdate.do");
+			return "/login/login";
+		}
+	* */
+
 	/**
 	 * 게시판 내용 검색
 	 */
@@ -198,8 +232,8 @@ public class BoardController {
 	public @ResponseBody ResponseEntity<List<Board>> searchBoardContent(@RequestBody Board board, Model model, HttpSession session) {
 		board.setStart_row_num((board.getCurrent_page()-1) * board.getPost_num_base_cnt()); //페이징 시작 번호 수 설정
 
-		board.setUser_id(session.getAttribute("user_id").toString());
-		board.setRole(session.getAttribute("role").toString());
+		board.setUser_id(session.getAttribute("user_id") == null ? null : session.getAttribute("user_id").toString());
+		board.setRole(session.getAttribute("role") == null ? null : session.getAttribute("role").toString());
 
 		List<Board> list = boardService.selectList(board);
 

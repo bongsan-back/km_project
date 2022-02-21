@@ -39,6 +39,52 @@
 <link rel="stylesheet" type="text/css" href="/css/footer.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css?ver=0.01" />
 
+
+  <%--리뉴얼--%>
+  <!--웹폰트추가-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+  <!-- Web Fonts  -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="/renew/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/renew/vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/renew/vendor/animate/animate.min.css">
+  <link rel="stylesheet" href="/renew/vendor/simple-line-icons/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/renew/vendor/magnific-popup/magnific-popup.min.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/renew/css/theme.css?1">
+  <link rel="stylesheet" href="/renew/css/theme-elements.css">
+  <link rel="stylesheet" href="/renew/css/theme-blog.css">
+  <link rel="stylesheet" href="/renew/css/theme-shop.css">
+
+  <!-- Current Page CSS -->
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/settings.css">
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/layers.css">
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/navigation.css">
+
+  <!-- Demo CSS -->
+
+  <!-- Skin CSS -->
+  <link rel="stylesheet" href="/renew/css/skins/skin-corporate-9.css">
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="/renew/css/custom.css">
+
+  <!-- Head Libs -->
+  <script src="/renew/vendor/modernizr/modernizr.min.js"></script>
+  <script src="https://kit.fontawesome.com/4b29b1942b.js" crossorigin="anonymous"></script>
+
+  <!--css추가-->
+  <link rel="stylesheet" href="/renew/css/new_style1.css">
+
 <style type="text/css">
 .placeholder { color: #aaa; }
 #write_form_user table td{width: 80%}
@@ -47,7 +93,226 @@
 
 
 </head>
-<body>
+<body class="" data-plugin-page-transition="" data-loading-overlay="" data-plugin-options="{'hideDelay': 500}">
+<div class="loading-overlay">
+  <div class="bounce-loader">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
+
+
+<div class="body">
+  <%@include file="../include/headerRenew.jsp"%>
+  <div role="main" class="main">
+    <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(img/sub_title_bg.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+            <h1 class="mb-3 text-9">로그인/회원가입</h1>
+            <span class="sub-title">최적의 프리미엄조합수 필터링을 통해 서비스를 제공하는 로또몬입니다.</span>
+          </div>
+          <div class="col-md-4 order-1 order-md-2 align-self-center">
+            <ul class="breadcrumb breadcrumb-light d-block text-md-right">
+              <li><a href="https://mansour-lotto.com/join02.php?chk1=Y&amp;chk2=Y#">Home</a></li>
+              <li class="active">로그인/회원가입</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container py-4 my-5" style="">
+      <div class="row justify-content-center text-center mb-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+        <div class="col-lg-10 col-md-12 mb-5">
+          <div class="tabs">
+            <ul class="nav nav-tabs nav-justified flex-column flex-md-row">
+              <li class="nav-item">
+                <a class="nav-link" href="/login/login.do">로그인</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/login/joinAgree.do">회원가입</a>
+              </li>
+            </ul>
+
+
+
+            <div class="tab-content">
+              <!--회원가입-->
+              <div class="tab-pane active">
+                <h3 class="mt-3 mb-3">회원정보 입력</h3>
+                <section class="p-4">
+                  <form class="" method="get" id="join_form">
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">아이디(4~12자리)</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </span>
+                          <input type="text" class="form-control" placeholder="아이디" name="id" id="id" required onkeyup="javascript:verifyId(this,'id')">
+                        </div>
+                        <input type="text" class="message-text" id="message_id" value="" disabled="disabled" style="margin-bottom:14px"/>
+                      </div>
+                    </div>
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">비밀번호</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                          <span class="input-group-prepend">
+                              <span class="input-group-text">
+                                  <i class="fas fa-lock"></i>
+                              </span>
+                          </span>
+                          <input type="password" class="form-control" placeholder="비밀번호" name="password" id="password">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">비밀번호 확인</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                          <span class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                          </span>
+                          <input type="password" class="form-control" placeholder="비밀번호 확인" name="password_re" id="password_re">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">생년월일(8자리)</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="ex) 19920101" name="birth" id="birth" maxlength="6"><br/>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">성명</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="성명" name="name" id="name" maxlength="10" minlength="2" required><br/>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">닉네임(2~10자리)</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="닉네임" name="nickname" id="nickname" maxlength="10" minlength="2" required onkeyup="javascript:verifyId(this,'nickname')"><br/>
+                        </div>
+                        <input type="text" class="message-text" id="message_nickname" value="" disabled="disabled" style="margin-bottom:14px"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">휴대폰 번호</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="휴대폰번호" name="mb_hp" id="mb_hp" maxlength="11" onkeyup="this.value=this.value.replace(/[^0-9]/g,&#39;&#39;);">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                      <label class="col-lg-3 control-label text-lg-right pt-2">이메일</label>
+                      <div class="col-lg-6">
+                        <div class="input-group mb-3">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                </span>
+                          <input type="text" class="form-control" placeholder="이메일" name="email" id="email">
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="col-lg-12">
+                      <button type="button" class="col-lg-6 btn btn-primary mb-2" onclick="joinSubmit()">가입하기</button>
+                    </div>
+
+                  </form>
+                </section>
+              </div>
+              <!--end:회원가입-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <!--end:main-->
+
+
+  <!------공통:푸터------>
+  <footer id="footer" class="mt-0"><%@include file="../include/footerRenew.jsp"%>
+
+  <!------공통:스크립트------>
+
+  <!-- Vendor -->
+  <script src="/renew/vendor/jquery/jquery.min.js"></script>
+  <script src="/renew/vendor/jquery.appear/jquery.appear.min.js"></script>
+  <script src="/renew/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/renew/vendor/jquery.cookie/jquery.cookie.min.js"></script>
+  <script src="/renew/vendor/popper/umd/popper.min.js"></script>
+  <script src="/renew/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/renew/vendor/common/common.min.js"></script>
+  <script src="/renew/vendor/jquery.validation/jquery.validate.min.js"></script>
+  <script src="/renew/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+  <script src="/renew/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+  <script src="/renew/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+  <script src="/renew/vendor/isotope/jquery.isotope.min.js"></script>
+  <script src="/renew/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/renew/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="/renew/vendor/vide/jquery.vide.min.js"></script>
+  <script src="/renew/vendor/vivus/vivus.min.js"></script>
+
+  <!-- Theme Base, Components and Settings -->
+  <script src="/renew/js/theme.js?1"></script>
+
+  <!-- Current Page Vendor and Views -->
+  <script src="/renew/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script src="/renew/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+  <!-- Theme Custom -->
+  <script src="/renew/js/custom.js"></script>
+
+  <!-- Theme Initialization Files -->
+  <script src="/renew/js/theme.init.js"></script>
+
+  <!--js추가_텍스트애니메이션효과-->
+  <script src="/renew/js/txt/jquery.shuffleLetters.js"></script>
+  <script src="/renew/js/txt/script.js"></script>
+
+  <!--퀵메뉴-->
+  <script src="/renew/js/quickmenu.js"></script>
+
+
+
+</div><a class="scroll-to-top hidden-mobile" href="https://mansour-lotto.com/join02.php?chk1=Y&amp;chk2=Y#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
+
+
+
+
+
+
+
+
+<%--
+
 <%@include file="../include/header.jsp"%>
 <section class="main">
   <%@include file="../include/quick.jsp"%>
@@ -171,16 +436,16 @@
                 <input type="text" name="tel_h2_1" id="tel_h2_1" required maxlength="4" onkeyup="javascript:nextTelNo(2, this.value)">
                 <span>-</span>
                 <input type="text" name="tel_h2_2" id="tel_h2_2" required maxlength="4">
-                <%--<input type="button" class="form_btn" id="certBtn" value="인증번호전송">--%>
+                &lt;%&ndash;<input type="button" class="form_btn" id="certBtn" value="인증번호전송">&ndash;%&gt;
               </td>
             </tr>
-            <%--<tr>
+            &lt;%&ndash;<tr>
               <th>인증번호</th>
               <td class="certification">
                 <input type="text" name="certification" required>
                 <input type="button" value="확인" class="form_btn">
               </td>
-            </tr>--%>
+            </tr>&ndash;%&gt;
             <tr>
             </tr>
           </table>
@@ -193,7 +458,8 @@
   </div>
 </section>
 
-<%@include file="../include/footer.jsp"%>
+<%@include file="../include/footerRenew.jsp"%>
+--%>
 
 
 <script>
@@ -277,7 +543,7 @@ function verifyId(attr, type){
 }
 
 $("#certBtn").click(function(){
-	telNo = $("#tel_h1").val() + $("#tel_h2_1").val() + $("#tel_h2_2").val();
+	telNo = $("#mb_hp").val();
 	name = $("#name").val();
 	gender = $("input[name=gender]").val();
 
@@ -332,15 +598,9 @@ function joinSubmit(){
 	var password = $("#password").val();
 	var password_re = $("#password_re").val();
 	var nickname = $("#nickname").val();
-	var year = $("#year").val();
-	var mon = $("#mon").val();
-	var day = $("#day").val();
-	var birth;
-
+	var birth = $("#birth").val();
+    var telNo = $("#mb_hp").val();
 	var name = $("#name").val();
-
-	var gender = $("input[name=gender]").val();
-	var email = $("#email").val() + '@' + $("#emailaddr").val();
 
 	/* if(!certYn){
 		alert("휴대폰 인증을 해주세요.");
@@ -375,6 +635,18 @@ function joinSubmit(){
 		 return false;
 	 }
 
+  if(birth.length != 8 || isNaN(birth)){
+    alert("생년월일 8자리를 정확히 입력해 주세요.");
+    $("#birth").focus();
+    return false;
+  }
+
+  if(name == ''){
+    alert("성명을 확인하세요.");
+    $("#nickname").focus();
+    return false;
+  }
+
 	 if(nickname == ''){
 		 alert("닉네임을 2글자 이상 입력해주세요.");
 		 return false;
@@ -386,7 +658,7 @@ function joinSubmit(){
 		return false;
 	 }
 
-	 if(year < 1900 || year > now_year || year == ''){
+	 /*if(year < 1900 || year > now_year || year == ''){
 		 alert("생년월일을 정확히 입력하세요.");
 		 return false;
 	 }
@@ -402,42 +674,28 @@ function joinSubmit(){
 	 }
 
 	 if(mon.length <2 && mon < 10) mon = '0' + mon;
-	 if(day.length <2 && day < 10) day = '0' + day;
+	 if(day.length <2 && day < 10) day = '0' + day;*/
 
-	 birth = year+""+mon+""+day
 
-	 if($("#email").val() == ''){
+
+  if(telNo.length != 11 || isNaN(telNo)){
+    alert("휴대폰 번호를 확인하세요.");
+    $("#mb_hps").focus();
+    return false;
+  }
+
+	if($("#email").val() == ''){
 		 alert("이메일을 정확히 입력해 주세요.");
 		 return false;
-	 }else{
-		 if($("#emailaddr option:selected").val() == 'email'){
-			 if($("#emailText").val() == '' || $("#emailText").val().indexOf('.') < 0){
-				 alert("이메일 주소를 정확히 입력해주세요.");
-				 return false;
-			 }else{
-				 email =  $("#email").val().trim() + '@' + $("#emailText").val().trim();
-			 }
-		 }else{
-			 email =  $("#email").val().trim() + '@' + $("#emailaddr option:selected").val();
-		 }
-	 }
-
-
-
-
-
-	 if($("#tel_h1").val().length < 3 || $("#tel_h2_1").val().length < 4 || $("#tel_h2_2").val().length < 4){
-	   alert("휴대폰 번호를 확인하세요.");
-	   $("#tel_h1").focus();
-	   return false;
-     }
-
-       telNo = $("#tel_h1").val() + $("#tel_h2_1").val() + $("#tel_h2_2").val();
+	}else if($("#email").val().indexOf('@') < 0 || $("#email").val().indexOf('.') < 0){
+        alert("이메일 주소를 정확히 입력해주세요.");
+        return false;
+	}
 
 	 var requestParam = {
 	    "data":{
 	        "telNo" : telNo,
-	        "gender": gender,
+	        /*"gender": gender,*/
 	        "name": name,
 	        "id" : id,
 	        "password" : password,
@@ -455,8 +713,15 @@ function joinSubmit(){
         url: '/user/join.do',
         data: JSON.stringify(requestParam),
         success: function(data) {
-        	alert("회원가입에 성공하였습니다.");
-        	location.href = '/login/joinSuc.do';
+          if(data == '\"SUCCESS\"'){
+            alert("회원가입에 성공하였습니다.");
+            location.href = '/login/login.do';
+
+          }else{
+            alert("이미 회원가입 된 휴대폰 번호입니다.\n본인이 가입하지 않았거나, 번호가 바뀌었을 경우에 고객센터에 문의바랍니다.");
+          }
+
+
         },
         error : function(request, status, error ) {
         	alert("알 수 없는 이유로 실패하였습니다. " + error);
@@ -465,9 +730,6 @@ function joinSubmit(){
         contentType: "application/json",
         dataType: 'text'
     });
-
-
-
 }
 
 

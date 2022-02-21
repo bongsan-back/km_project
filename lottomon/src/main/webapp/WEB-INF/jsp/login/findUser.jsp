@@ -39,7 +39,53 @@
 <link rel="stylesheet" type="text/css" href="/css/footer.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
-<style type="text/css">
+
+  <%--리뉴얼--%>
+  <!--웹폰트추가-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+  <!-- Web Fonts  -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="/renew/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/renew/vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/renew/vendor/animate/animate.min.css">
+  <link rel="stylesheet" href="/renew/vendor/simple-line-icons/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/renew/vendor/magnific-popup/magnific-popup.min.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/renew/css/theme.css?1">
+  <link rel="stylesheet" href="/renew/css/theme-elements.css">
+  <link rel="stylesheet" href="/renew/css/theme-blog.css">
+  <link rel="stylesheet" href="/renew/css/theme-shop.css">
+
+  <!-- Current Page CSS -->
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/settings.css">
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/layers.css">
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/navigation.css">
+
+  <!-- Demo CSS -->
+
+  <!-- Skin CSS -->
+  <link rel="stylesheet" href="/renew/css/skins/skin-corporate-9.css">
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="/renew/css/custom.css">
+
+  <!-- Head Libs -->
+  <script src="/renew/vendor/modernizr/modernizr.min.js"></script>
+  <script src="https://kit.fontawesome.com/4b29b1942b.js" crossorigin="anonymous"></script>
+
+  <!--css추가-->
+  <link rel="stylesheet" href="/renew/css/new_style1.css">
+
+  <style type="text/css">
 .placeholder { color: #aaa; }
 
 #goLogin{
@@ -55,10 +101,144 @@
 
 </head>
 <body>
-<%@include file="../include/header.jsp"%>
-<section class="main">
-  <%@include file="../include/quick.jsp"%>
-</section>
+<div class="loading-overlay">
+  <div class="bounce-loader">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
+
+
+<div class="body">
+  <%@include file="../include/headerRenew.jsp"%>
+  <div role="main" class="main">
+    <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(img/sub_title_bg.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+            <h1 class="mb-3 text-9">회원정보 변경</h1>
+            <span class="sub-title">최적의 프리미엄조합수 필터링을 통해 서비스를 제공하는 로또몬입니다.</span>
+          </div>
+          <div class="col-md-4 order-1 order-md-2 align-self-center">
+            <ul class="breadcrumb breadcrumb-light d-block text-md-right">
+              <li><a href="https://mansour-lotto.com/mypage02.php#">Home</a></li>
+              <li class="active">마이페이지</li>
+              <li class="active">회원정보 변경</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="container py-4 my-5" style="">
+      <div class="row justify-content-center text-center mb-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+
+        <!--닉네임변경-->
+        <div class="col-lg-10 col-md-12 mb-5">
+          <section class="card card-admin">
+            <header class="card-header">
+              <div class="card-actions">
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-toggle" data-card-toggle=""></a>
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+              </div>
+
+              <h2 class="card-title">아이디 찾기</h2>
+            </header>
+            <div class="card-body">
+              <form class="form-horizontal form-bordered" name="id_find" onsubmit="return false;">
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">성명</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="성명" id="findIdName" name="findIdName" maxlength="10">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">휴대폰 번호</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="휴대폰 번호" id="findIdPhone" name="findIdPhone" maxlength="11">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <input type="submit" class="col-lg-6 btn btn-quaternary mb-2" id="findIdBtn" value="아이디 찾기">
+                </div>
+              </form>
+              <div style="background-color:#E3E3E3;width:100%;text-align: center;padding:15px 0;margin-top: 20px;display: none;" id="findIdMsg">
+              </div>
+            </div>
+          </section>
+        </div><!--end:닉네임변경-->
+
+
+        <!--비밀번호 초기화-->
+        <div class="col-lg-10 col-md-12 mb-5">
+          <section class="card card-admin">
+            <header class="card-header">
+              <div class="card-actions">
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-toggle" data-card-toggle=""></a>
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+              </div>
+
+              <h2 class="card-title">비밀번호 초기화</h2>
+            </header>
+            <div class="card-body">
+              <form class="form-horizontal form-bordered" name="id_find" onsubmit="return false;">
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">아이디</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="아이디" id="findPwId" name="findPwId">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">성명</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="성명" id="findPwName" name="findPwName" maxlength="10">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">휴대폰 번호</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="휴대폰 번호" id="findPwPhone" name="findIdPhone" maxlength="11">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <input type="submit" class="col-lg-6 btn btn-quaternary mb-2" id="findPwBtn" value="임시 비밀번호 발급 받기">
+                </div>
+              </form>
+              <div style="background-color:#E3E3E3;width:100%;text-align: center;padding:15px 0;margin-top: 20px;display: none;" id="tmpPassword">
+              </div>
+            </div>
+          </section>
+        </div><!--end:비밀번호변경-->
+      </div>
+    </div>
+  </div><!--end:main-->
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
 
 <section id="sub">
   <div class="member_password">
@@ -123,7 +303,56 @@
 </section>
 
 
+
 <%@include file="../include/footer.jsp"%>
+--%>
+
+  <%@include file="../include/footerRenew.jsp"%>
+  <!------공통:스크립트------>
+
+  <!-- Vendor -->
+  <script src="/renew/vendor/jquery/jquery.min.js"></script>
+  <script src="/renew/vendor/jquery.appear/jquery.appear.min.js"></script>
+  <script src="/renew/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/renew/vendor/jquery.cookie/jquery.cookie.min.js"></script>
+  <script src="/renew/vendor/popper/umd/popper.min.js"></script>
+  <script src="/renew/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/renew/vendor/common/common.min.js"></script>
+  <script src="/renew/vendor/jquery.validation/jquery.validate.min.js"></script>
+  <script src="/renew/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+  <script src="/renew/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+  <script src="/renew/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+  <script src="/renew/vendor/isotope/jquery.isotope.min.js"></script>
+  <script src="/renew/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/renew/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="/renew/vendor/vide/jquery.vide.min.js"></script>
+  <script src="/renew/vendor/vivus/vivus.min.js"></script>
+
+  <!-- Theme Base, Components and Settings -->
+  <script src="/renew/js/theme.js?1"></script>
+
+  <!-- Current Page Vendor and Views -->
+  <script src="/renew/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script src="/renew/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+  <!-- Theme Custom -->
+  <script src="/renew/js/custom.js"></script>
+
+  <!-- Theme Initialization Files -->
+  <script src="/renew/js/theme.init.js"></script>
+
+  <!--js추가_텍스트애니메이션효과-->
+  <script src="/renew/js/txt/jquery.shuffleLetters.js"></script>
+  <script src="/renew/js/txt/script.js"></script>
+
+  <!--퀵메뉴-->
+  <script src="/renew/js/quickmenu.js"></script>
+
+
+
+</div><a class="scroll-to-top hidden-mobile" href="https://mansour-lotto.com/join02.php?chk1=Y&amp;chk2=Y#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
+
+
 
 
 <script>
@@ -142,7 +371,7 @@ $("#findIdBtn").click(function(){
   var requestParam = {
     "data":{
        'name' : $("#findIdName").val(),
-       'email' : $("#findIdEmail").val()
+       'telNo' : $("#findIdPhone").val()
     }
   };
 
@@ -155,8 +384,8 @@ $("#findIdBtn").click(function(){
     success: function(data) {
       console.log(data);
       var message;
-      if(data==null || data == '') message = '일치하는 정보가 없습니다.';
-      else message = '회원님의 아이디는 <span>' + data.id + '<span> 입니다.';
+      if(data==null || data == '') message = '일치하는 회원 정보가 없습니다.';
+      else message = '회원님의 아이디는 <strong>' + data.id + '<strong> 입니다.';
 
       $("#findIdMsg").html(message).show();
     },
@@ -180,7 +409,7 @@ $("#findPwBtn").click(function(){
   var requestParam = {
     "data":{
       'name' : $("#findPwName").val(),
-      'email' : $("#findPwEmail").val(),
+      'telNo' : $("#findPwPhone").val(),
       'id' : $("#findPwId").val()
     }
   };
@@ -195,7 +424,10 @@ $("#findPwBtn").click(function(){
       console.log(data);
       var message;
       if(data==null || data == '') message = '일치하는 정보가 없습니다.';
-      else message = '회원님의 임시비밀 번호는 <span>' + data.tempPassword + '<span> 입니다.';
+      else{
+       message = '회원님의 임시비밀 번호는 <span>' + data.tempPassword + '<span> 입니다.';
+        $("#findPwBtn").hide();
+      }
 
       $("#tmpPassword").html(message).show();
     },

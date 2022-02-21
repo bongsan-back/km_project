@@ -73,7 +73,7 @@
                             <%}%>
                         <%}else{%>
                             <li><a href="/login/login.do">로그인</a></li>
-                            <li><a href="/user/join.do">회원가입</a></li>
+                            <li><a href="/login/joinAgree.do">회원가입</a></li>
                         <li><a href="/myUpdate.do">마이페이지</a></li>
                         <%}%>
                         <li id="mobile_x">

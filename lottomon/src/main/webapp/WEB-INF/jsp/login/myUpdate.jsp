@@ -39,7 +39,54 @@
 <link rel="stylesheet" type="text/css" href="/css/footer.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css?ver=0.01" />
 
-<style type="text/css">
+
+  <%--리뉴얼--%>
+  <!--웹폰트추가-->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+  <!-- Web Fonts  -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="/renew/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/renew/vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/renew/vendor/animate/animate.min.css">
+  <link rel="stylesheet" href="/renew/vendor/simple-line-icons/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/renew/vendor/magnific-popup/magnific-popup.min.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/renew/css/theme.css?1">
+  <link rel="stylesheet" href="/renew/css/theme-elements.css">
+  <link rel="stylesheet" href="/renew/css/theme-blog.css">
+  <link rel="stylesheet" href="/renew/css/theme-shop.css">
+
+  <!-- Current Page CSS -->
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/settings.css">
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/layers.css">
+  <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/navigation.css">
+
+  <!-- Demo CSS -->
+
+  <!-- Skin CSS -->
+  <link rel="stylesheet" href="/renew/css/skins/skin-corporate-9.css">
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="/renew/css/custom.css">
+
+  <!-- Head Libs -->
+  <script src="/renew/vendor/modernizr/modernizr.min.js"></script>
+  <script src="https://kit.fontawesome.com/4b29b1942b.js" crossorigin="anonymous"></script>
+
+  <!--css추가-->
+  <link rel="stylesheet" href="/renew/css/new_style1.css">
+
+
+  <style type="text/css">
 .placeholder { color: #aaa; }
 #write_form_user table td{width: 80%}
 .message-text{color: red; border: none !important; background-color: #fff !important; display:none; height: 20px !important;}
@@ -48,6 +95,278 @@
 
 </head>
 <body>
+<body>
+<div class="loading-overlay">
+  <div class="bounce-loader">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
+
+
+<div class="body">
+  <%@include file="../include/headerRenew.jsp"%>
+  <div role="main" class="main">
+
+
+    <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(img/sub_title_bg.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+            <h1 class="mb-3 text-9">회원정보 변경</h1>
+            <span class="sub-title">최적의 프리미엄조합수 필터링을 통해 서비스를 제공하는 로또몬입니다.</span>
+          </div>
+          <div class="col-md-4 order-1 order-md-2 align-self-center">
+            <ul class="breadcrumb breadcrumb-light d-block text-md-right">
+              <li><a href="https://mansour-lotto.com/mypage02.php#">Home</a></li>
+              <li class="active">마이페이지</li>
+              <li class="active">회원정보 변경</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="container py-4 my-5" style="">
+      <div class="row justify-content-center text-center mb-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+
+
+        <!--닉네임,아이디표시-->
+        <div class="col-lg-10">
+          <h4 class="text-5 mb-4">${user_nickname}(${user_id}) <span class="font-weight-light">고객님 안녕하세요.</span></h4>
+        </div>
+
+        <!--닉네임변경-->
+        <%--<div class="col-lg-10 col-md-12 mb-5">
+          <section class="card card-admin">
+            <header class="card-header">
+              <div class="card-actions">
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-toggle" data-card-toggle=""></a>
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+              </div>
+
+              <h2 class="card-title">닉네임 변경</h2>
+            </header>
+            <div class="card-body">
+              <form class="form-horizontal form-bordered" id="nick_form">
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">닉네임</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="변경할 닉네임" id="mb_nick" name="mb_nick" maxlength="10">
+                      <span class="input-group-append">
+                          <button class="btn btn-primary" type="button" onclick="nick_chk()">닉네임 중복체크</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+                  <button type="button" class="col-lg-6 btn btn-quaternary mb-2" onclick="upd_nick()">닉네임 변경</button>
+                </div>
+
+              </form>
+            </div>
+          </section>
+        </div>--%>
+        <!--end:닉네임변경-->
+
+
+        <!--비밀번호변경-->
+        <div class="col-lg-10 col-md-12 mb-5">
+          <section class="card card-admin">
+            <header class="card-header">
+              <div class="card-actions">
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-toggle" data-card-toggle=""></a>
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+              </div>
+
+              <h2 class="card-title">비밀번호 변경</h2>
+            </header>
+            <div class="card-body">
+              <form class="form-horizontal form-bordered" id="pwd_form">
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">현재 비밀번호</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="fas fa-lock"></i>
+                          </span>
+                      </span>
+                      <input type="password" class="form-control" placeholder="현재 비밀번호" id="c_pwd" name="c_pwd">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">새로운 비밀번호</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="fas fa-lock"></i>
+                          </span>
+                      </span>
+                      <input type="password" class="form-control" placeholder="새로운 비밀번호" id="n_pwd1" name="n_pwd1">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">비밀번호 확인</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="fas fa-lock"></i>
+                          </span>
+                      </span>
+                      <input type="password" class="form-control" placeholder="비밀번호 확인" id="n_pwd2" name="n_pwd2">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+
+                  <button type="button" class="col-lg-6 btn btn-quaternary mb-2" onclick="passwordChange()" id="pchBtn">비밀번호 수정</button>
+                </div>
+
+              </form>
+            </div>
+          </section>
+        </div><!--end:비밀번호변경-->
+
+        <!--휴대폰번호변경-->
+        <div class="col-lg-10 col-md-12">
+          <section class="card card-admin">
+            <header class="card-header">
+              <div class="card-actions">
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-toggle" data-card-toggle=""></a>
+                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+              </div>
+
+              <h2 class="card-title">휴대폰번호 수정</h2>
+            </header>
+            <div class="card-body">
+              <form class="form-horizontal form-bordered" id="hp_form">
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">변경할 휴대전화</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="휴대폰번호" id="mb_hp" maxlength="11">
+                      <%--<span class="input-group-append">
+                          <button class="btn btn-primary" type="button" onclick="hp_auth()">인증번호 발송</button>
+                      </span>--%>
+                    </div>
+                  </div>
+                </div>
+
+                <%--<div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">인증번호 입력</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="인증번호" id="auth_num">
+                      <span class="input-group-append">
+                          <button class="btn btn-primary" type="button" onclick="auth()">인증번호 확인</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+--%>
+
+                <div class="form-group row mb-0">
+                  <label class="col-lg-3 control-label text-lg-right pt-2">비밀번호 확인</label>
+                  <div class="col-lg-6">
+                    <div class="input-group mb-3">
+                      <span class="input-group-prepend">
+                          <span class="input-group-text">
+                              <i class="fas fa-lock"></i>
+                          </span>
+                      </span>
+                      <input type="password" class="form-control" placeholder="비밀번호 확인" id="mb_password">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-12">
+
+                  <button type="button" class="col-lg-6 btn btn-quaternary mb-2" onclick="telNoChange();" id="tchBtn">휴대폰번호 변경
+                  </button></div>
+
+              </form>
+            </div>
+          </section>
+        </div><!--end:휴대폰번호변경-->
+
+
+
+      </div>
+    </div>
+  </div><!--end:main-->
+
+
+  <%@include file="../include/footerRenew.jsp"%>
+  <!------공통:스크립트------>
+
+  <!-- Vendor -->
+  <script src="/renew/vendor/jquery/jquery.min.js"></script>
+  <script src="/renew/vendor/jquery.appear/jquery.appear.min.js"></script>
+  <script src="/renew/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/renew/vendor/jquery.cookie/jquery.cookie.min.js"></script>
+  <script src="/renew/vendor/popper/umd/popper.min.js"></script>
+  <script src="/renew/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/renew/vendor/common/common.min.js"></script>
+  <script src="/renew/vendor/jquery.validation/jquery.validate.min.js"></script>
+  <script src="/renew/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+  <script src="/renew/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+  <script src="/renew/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+  <script src="/renew/vendor/isotope/jquery.isotope.min.js"></script>
+  <script src="/renew/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/renew/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="/renew/vendor/vide/jquery.vide.min.js"></script>
+  <script src="/renew/vendor/vivus/vivus.min.js"></script>
+
+  <!-- Theme Base, Components and Settings -->
+  <script src="/renew/js/theme.js?1"></script>
+
+  <!-- Current Page Vendor and Views -->
+  <script src="/renew/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+  <script src="/renew/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+  <!-- Theme Custom -->
+  <script src="/renew/js/custom.js"></script>
+
+  <!-- Theme Initialization Files -->
+  <script src="/renew/js/theme.init.js"></script>
+
+  <!--js추가_텍스트애니메이션효과-->
+  <script src="/renew/js/txt/jquery.shuffleLetters.js"></script>
+  <script src="/renew/js/txt/script.js"></script>
+
+  <!--퀵메뉴-->
+  <script src="/renew/js/quickmenu.js"></script>
+
+
+
+</div><a class="scroll-to-top hidden-mobile" href="https://mansour-lotto.com/join02.php?chk1=Y&amp;chk2=Y#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
+
 <%@include file="../include/header.jsp"%>
 <section class="main">
   <%@include file="../include/quick.jsp"%>
@@ -60,7 +379,7 @@
       <div class="left three">
         <h2>회원서비스</h2>
         <div>
-          <%--<a href="/lotto/thisWeeksNumber.do">이번주 나의번호</a>--%>
+          &lt;%&ndash;<a href="/lotto/thisWeeksNumber.do">이번주 나의번호</a>&ndash;%&gt;
           <a href="/board/mylotto_payment.do">결제 게시판</a>
           <a href="/myUpdate.do" class="on">내 정보 수정</a>
         </div>
@@ -198,6 +517,7 @@
 
 <%@include file="../include/footer.jsp"%>
 
+--%>
 
 <script>
 var certYn = false;
@@ -330,46 +650,20 @@ $("#emailaddr").on('change', function(){
 
 })
 
-function joinSubmit(){
-	var id = $("#id").val();
-	var password = $("#password").val();
-	var password_re = $("#password_re").val();
-	var nickname = $("#nickname").val();
-	var year = $("#year").val();
-	var mon = $("#mon").val();
-	var day = $("#day").val();
-	var birth;
+function passwordChange(){
+	var id = '${userInfo.id}';
+	var name = '${user_name}';
+    var nowPassword = $("#c_pwd").val();
+	var password = $("#n_pwd1").val();
+	var password_re = $("#n_pwd2").val();
 
-	var name = $("#name").val();
-
-	var gender = $("input[name=gender]").val();
-	var email = $("#email").val() + '@' + $("#emailaddr").val();
-
-	/* if(!certYn){
-		alert("휴대폰 인증을 해주세요.");
-		return false;
-	}
-	 */
-
-	 if(!checkId){
-		 alert("아이디를 확인하세요.");
-		 $("#id").focus();
-		return false;
-	 }
-
-
-	if(id.length < 4 || id.length > 20 || !checkEngNum(id)){
-		alert("아이디는 5자리 이상, 20자리 이하로 입력하세요.");
-		return false;
-	}
-
-	if(password == '' || password_re == ''){
+	if(nowPassword == '' || password == '' || password_re == ''){
 		 alert("비밀번호를 입력하세요.");
 		 return false;
 	 }
 
 	 if(password !== password_re){
-		 alert("비밀번호가 일히하지 않습니다.");
+		 alert("비밀번호가 일치하지 않습니다.");
 		 return false;
 	 }
 
@@ -378,76 +672,28 @@ function joinSubmit(){
 		 return false;
 	 }
 
-	 if(nickname == ''){
-		 alert("닉네임을 2글자 이상 입력해주세요.");
-		 return false;
-	 }
-
-	 if(!checkNickname){
-		 alert("닉네임을 확인하세요.");
-		 $("#nickname").focus();
-		return false;
-	 }
-
-	 if(year < 1900 || year > now_year || year == ''){
-		 alert("생년월일을 정확히 입력하세요.");
-		 return false;
-	 }
-
-	 if(mon < 0 || mon > 12 || mon == ''){
-		 alert("생년월일을 정확히 입력하세요.");
-		 return false;
-	 }
-
-	 if(day < 0 || day > 31 || day == ''){
-		 alert("생년월일을 정확히 입력하세요	.");
-		 return false;
-	 }
-
-	 if(mon.length <2 && mon < 10) mon = '0' + mon;
-	 if(day.length <2 && day < 10) day = '0' + day;
-
-	 birth = year+""+mon+""+day
-
-	 if($("#email").val() == ''){
-		 alert("이메일을 정확히 입력해 주세요.");
-		 return false;
-	 }else{
-		 if($("#emailaddr option:selected").val() == 'email'){
-			 if($("#emailText").val() == '' || $("#emailText").val().indexOf('.') < 0){
-				 alert("이메일 주소를 정확히 입력해주세요.");
-				 return false;
-			 }else{
-				 email =  $("#email").val().trim() + '@' + $("#emailText").val().trim();
-			 }
-		 }else{
-			 email =  $("#email").val().trim() + '@' + $("#emailaddr option:selected").val();
-		 }
-	 }
+	 $("#pchBtn").attr("disabled", true).css('cursor', 'not-allowed');
 
 	 var requestParam = {
 	    "data":{
-	        "telNo" : telNo,
-	        "gender": gender,
-	        "name": name,
 	        "id" : id,
-	        "password" : password,
-	        "nickname" : nickname,
-	        "birth" : birth,
-	        "email" : email
+            "name" : name,
+            "nowPassword" : nowPassword,
+	        "password" : password
 	    }
 	};
 
-
-	 console.log(requestParam);
-
 	$.ajax({
         type: 'POST',
-        url: '/user/join.do',
+        url: '/user/passwordChange.do',
         data: JSON.stringify(requestParam),
         success: function(data) {
-        	alert("회원가입에 성공하였습니다.");
-        	location.href = '/login/joinSuc.do';
+          if(data == '\"NOT_MATCH\"'){
+            alert("비밀번호가 일치하지 않습니다.");
+            $("#pchBtn").attr("disabled", false).css('cursor', 'pointer');
+            return false;
+          }
+        	alert("비밀번호가 정상적으로 변경되었습니다.");
         },
         error : function(request, status, error ) {
         	alert("알 수 없는 이유로 실패하였습니다. " + error);
@@ -456,11 +702,61 @@ function joinSubmit(){
         contentType: "application/json",
         dataType: 'text'
     });
-
-
-
 }
 
+
+function telNoChange(){
+  var id = '${userInfo.id}';
+  var name = '${user_name}';
+  var nowPassword = $("#mb_password").val();
+  var telNo = $("#mb_hp").val();
+
+  if(telNo == '' || telNo.length != 11){
+    alert("핸드폰 번호를 입력하세요.");
+    return false;
+  }
+
+  if(nowPassword == ''){
+    alert("비밀번호를 입력하세요.");
+    return false;
+  }
+
+  if(!telNo.startsWith("010") || isNaN(telNo)){
+    alert("핸드폰 번호를 확인하세요.");
+    return false;
+  }
+
+  $("#tchBtn").attr("disabled", true).css('cursor', 'not-allowed');
+
+  var requestParam = {
+    "data":{
+      "id" : id,
+      "name" : name,
+      "nowPassword" : nowPassword,
+      "telNo" : telNo
+    }
+  };
+
+  $.ajax({
+    type: 'POST',
+    url: '/user/telNoChange.do',
+    data: JSON.stringify(requestParam),
+    success: function(data) {
+      if(data == '\"NOT_MATCH\"'){
+        alert("비밀번호가 일치하지 않습니다.");
+        $("#pchBtn").attr("disabled", false).css('cursor', 'pointer');
+        return false;
+      }
+      alert("비밀번호가 정상적으로 변경되었습니다.");
+    },
+    error : function(request, status, error ) {
+      alert("알 수 없는 이유로 실패하였습니다. " + error);
+
+    },
+    contentType: "application/json",
+    dataType: 'text'
+  });
+}
 
 
 

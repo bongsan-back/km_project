@@ -40,6 +40,53 @@
 <link rel="stylesheet" type="text/css" href="/css/footer.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
+
+    <%--리뉴얼--%>
+    <!--웹폰트추가-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&amp;display=swap" rel="stylesheet">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light%7CPlayfair+Display:400" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/renew/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/renew/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/renew/vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="/renew/vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/renew/vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/renew/vendor/magnific-popup/magnific-popup.min.css">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/renew/css/theme.css?1">
+    <link rel="stylesheet" href="/renew/css/theme-elements.css">
+    <link rel="stylesheet" href="/renew/css/theme-blog.css">
+    <link rel="stylesheet" href="/renew/css/theme-shop.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="/renew/vendor/rs-plugin/css/navigation.css">
+
+    <!-- Demo CSS -->
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="/renew/css/skins/skin-corporate-9.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="/renew/css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="/renew/vendor/modernizr/modernizr.min.js"></script>
+    <script src="https://kit.fontawesome.com/4b29b1942b.js" crossorigin="anonymous"></script>
+
+    <!--css추가-->
+    <link rel="stylesheet" href="/renew/css/new_style1.css">
+
+
 <style type="text/css">
 .placeholder { color: #aaa; }
 </style>
@@ -47,6 +94,262 @@
 
 </head>
 <body>
+
+<div class="body">
+    <%@include file="../include/headerRenew.jsp"%>
+    <div role="main" class="main">
+
+
+        <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(img/sub_title_bg.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+                        <h1 class="mb-3 text-9" style="letter-spacing: 0.03em">상품안내/구매</h1>
+                        <span class="sub-title">최적의 프리미엄조합수 필터링을 통해 서비스를 제공하는 로또몬입니다.</span>
+                    </div>
+                    <div class="col-md-4 order-1 order-md-2 align-self-center">
+                        <ul class="breadcrumb breadcrumb-light d-block text-md-right">
+                            <li><a href="https://mansour-lotto.com/goods01.php#">Home</a></li>
+                            <li class="active">상품안내/구매</li>
+                            <li class="active">등급별 상품</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="container py-4 my-5" style="">
+            <div class="row justify-content-center text-center mb-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+                <div class="col-lg-8">
+                    <div class="txt_type1 text-color-dark">ANALYSIS SYSTEM RATING GUIDE</div>
+                    <div class="txt_type3 m-b-70 text-color-dark">분석시스템 상품안내</div>
+                </div>
+            </div>
+            <div class="row featured-boxes featured-boxes-style-4">
+                <div class="col-md-12 col-lg-12">
+                    <div class="pricing-table pricing-table-no-gap mb-4">
+                        <div class="col-md-4 mb-4">
+                            <div class="plan">
+                                <div class="plan-header">
+                                    <h3 class="text-4">다이아 (12개월)</h3>
+                                </div>
+                                <div class="plan-price py-3">
+
+                                    <div class="rank-img"><img src="/renew/img/goods_03.jpg" alt=""></div>
+
+                                    <span class="price mt-2 mb-2">599,000원</span>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li class="text-color-primary">VVIP자료 + 게시판 열람가능</li>
+                                        <li class="text-color-primary">AI필터링 15단계 적용</li>
+                                        <li>패턴 매칭 4X4 적용</li>
+                                        <li>조합 및 당첨 결과 문자발송</li>
+                                        <li>조합수 : 20조합</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-footer">
+                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;15&#39;);">구매하기</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="plan plan-featured">
+                                <div class="plan-header bg-primary">
+                                    <h3 class="text-4">브론즈 (1개월)</h3>
+                                </div>
+
+                                <div class="plan-price py-3">
+
+                                    <div class="rank-img"><img src="/renew/img/goods_bronze.jpg" alt=""></div>
+
+                                    <span class="price mt-2 mb-2">39,900원</span>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li class="text-color-primary">비공개자동게시판 열람가능</li>
+                                        <li class="text-color-primary">AI필터링 8단계 적용</li>
+                                        <li>패턴 매칭 3X3 적용</li>
+                                        <li>조합 및 당첨 결과 문자발송</li>
+                                        <li>조합수 : 20조합</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-footer">
+                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-primary btn-modern py-2 px-4 text-3" onclick="javascript:pay(&#39;12&#39;);">구매하기</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="plan">
+                                <div class="plan-header">
+                                    <h3 class="text-4">마스터 (24개월)</h3>
+                                </div>
+                                <div class="plan-price py-3">
+
+                                    <div class="rank-img"><img src="/renew/img/goods_04.jpg" alt=""></div>
+
+                                    <span class="price mt-2 mb-2">999,000원</span>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li class="text-color-primary">VVIP자료 + 게시판 열람가능</li>
+                                        <li class="text-color-primary">AI필터링 15단계 적용</li>
+                                        <li>패턴 매칭 4X4 적용</li>
+                                        <li>조합 및 당첨 결과 문자발송</li>
+                                        <li>조합수 : 20조합</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-footer">
+                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;16&#39;);">구매하기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="pricing-table pricing-table-gap mb-4 mt-5 justify-content-center">
+                        <div class="col-md-4 mb-4">
+                            <div class="plan">
+                                <div class="plan-header">
+                                    <h3 class="text-4">골드 (6개월)</h3>
+                                </div>
+                                <div class="plan-price py-3">
+
+                                    <div class="rank-img"><img src="/renew/img/goods_02.jpg" alt=""></div>
+
+                                    <span class="price mt-2 mb-2">399,000원</span>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li class="text-color-primary">VVIP자료 + 게시판 열람가능</li>
+                                        <li class="text-color-primary">AI필터링 12단계 적용</li>
+                                        <li>패턴 매칭 3X3 적용</li>
+                                        <li>조합 및 당첨 결과 문자발송</li>
+                                        <li>조합수 : 20조합</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-footer">
+                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;14&#39;);">구매하기</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="col-md-4">
+                            <div class="plan plan-featured">
+                                <div class="plan-header bg-primary">
+                                    <h3 class="text-4">프리미엄 (24개월+12개월)</h3>
+                                </div>
+
+                                <div class="plan-price py-3">
+
+                                <div class="rank-img"><img src="/renew/img/goods_05.jpg" alt=""></div>
+
+                                    <span class="price mt-2 mb-2">1,599,000원</span>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li class="text-color-primary">VVIP자료 + 게시판 열람가능</li>
+                                        <li class="text-color-primary">AI필터링 15단계 적용</li>
+                                        <li>패턴 매칭 4X4 적용</li>
+                                        <li>조합 및 당첨 결과 문자발송</li>
+                                        <li>조합수 : 20조합</li>
+                                    </ul>
+                                </div>
+                                <div class="plan-footer">
+                                    <a href="#none" class="btn btn-primary btn-modern py-2 px-4 text-3" onclick="javascript:pay('17');">구매하기</a>
+                                </div>
+                            </div>
+                        </div>-->
+
+                        <div class="col-md-4 mb-4">
+                            <div class="plan">
+                                <div class="plan-header">
+                                    <h3 class="text-4">실버 (3개월)</h3>
+                                </div>
+                                <div class="plan-price py-3">
+
+                                    <div class="rank-img"><img src="/renew/img/goods_01.jpg" alt=""></div>
+
+                                    <span class="price mt-2 mb-2">299,000원</span>
+                                </div>
+                                <div class="plan-features">
+                                    <ul>
+                                        <li class="text-color-primary">VVIP자료 + 게시판 열람가능</li>
+                                        <li class="text-color-primary">AI필터링 12단계 적용</li>
+                                        <li>패턴 매칭 3X3 적용</li>
+                                        <li>조합 및 당첨 결과 문자발송</li>
+                                        <li>조합수 : 20조합</li><!--여기-->
+                                    </ul>
+                                </div>
+                                <div class="plan-footer">
+                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;13&#39;);">구매하기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div><!--end:main-->
+
+
+    <!------공통:푸터------>
+    <%@include file="../include/footerRenew.jsp"%>
+    <!------공통:스크립트------>
+
+    <!-- Vendor -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+    <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
+    <script src="vendor/popper/umd/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/common/common.min.js"></script>
+    <script src="vendor/jquery.validation/jquery.validate.min.js"></script>
+    <script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+    <script src="vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+    <script src="vendor/isotope/jquery.isotope.min.js"></script>
+    <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="vendor/vide/jquery.vide.min.js"></script>
+    <script src="vendor/vivus/vivus.min.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="js/theme.js?1"></script>
+
+    <!-- Current Page Vendor and Views -->
+    <script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="js/custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="js/theme.init.js"></script>
+
+    <!--js추가_텍스트애니메이션효과-->
+    <script src="js/txt/jquery.shuffleLetters.js"></script>
+    <script src="js/txt/script.js"></script>
+
+    <!--퀵메뉴-->
+    <script src="js/quickmenu.js"></script>
+
+
+</div><a class="scroll-to-top hidden-mobile" href="#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
+
+
+
+
+
+<%--
+
 <%@include file="../include/header.jsp"%>
 <section class="main">
   <%@include file="../include/quick.jsp"%>
@@ -59,7 +362,7 @@
                 <h2>멤버십안내</h2>
                 <div>
                     <a href="./membership.do" class="on">멤버십 안내</a>
-                    <%--<a href="./membershipPay.do">멤버십 결제</a>--%>
+                    &lt;%&ndash;<a href="./membershipPay.do">멤버십 결제</a>&ndash;%&gt;
                 </div>
             </div>
             <div class="content">
@@ -98,7 +401,7 @@
                         </div>
                     </c:forEach>
                 </div>
-                <%--<table style="border-spacing:0px" ;>
+                &lt;%&ndash;<table style="border-spacing:0px" ;>
                     <tr class="gray">
                         <th>기간</th>
                         <th>실버</th>
@@ -135,7 +438,7 @@
                         <td><fmt:formatNumber value="${gold36}" pattern="#,###" />원</td>
                         <td><fmt:formatNumber value="${vip36}" pattern="#,###" />원</td>
                     </tr>
-                </table>--%>
+                </table>&ndash;%&gt;
                 <div class="pay"><a href="/board/mylotto_payment.do">멤버십 결제하기</a></div>
             </div>
         </div>
@@ -146,6 +449,7 @@
 
 <%@include file="../include/footer.jsp"%>
 
+--%>
 
 <script>
 </script>

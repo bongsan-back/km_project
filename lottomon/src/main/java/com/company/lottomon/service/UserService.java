@@ -13,6 +13,7 @@ public interface UserService {
 	UserInfo getUserInfo(String id);
 	UserInfo selectId(UserInfo userInfo);
 	int insertTempPassword(UserInfo userInfo);
+	int updateTelNo(UserInfo userInfo);
 
 	int getExprieYn(String date);
 	int getExprieProc(String date);

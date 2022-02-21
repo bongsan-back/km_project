@@ -32,6 +32,12 @@ public class AdminController {
 
     static private AES256 AES = new AES256("LOTTOMON01234567");
 
+    @RequestMapping(value = {"/dec.do"})
+    public String decoding(HttpServletRequest request, HttpSession session, Model model) {
+        String str = request.getParameter("str");
+        return AES.decryptBase64String(str);
+    }
+
     /**
      * 관리자 페이지 intro 페이지 확인
      */

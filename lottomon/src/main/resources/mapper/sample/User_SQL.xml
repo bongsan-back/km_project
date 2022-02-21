@@ -30,20 +30,30 @@
 	<select id="getUserInfo" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
 		<![CDATA[
 		SELECT * FROM user WHERE
-			name = #{name} and email = #{email}
+			name = #{name}
 		]]>
+		<if test='telNo != null'>
+			AND telNo = #{telNo}
+		</if>
 		<if test='id != null'>
 			AND id = #{id}
 		</if>
+		<if test='nowPassword != null'>
+			AND password = #{nowPassword}
+		</if>
 	</select>
 
-	<select id="insertTempPassword" parameterType="map">
+	<update id="insertTempPassword" parameterType="map">
 		<![CDATA[
 		UPDATE user
 		SET password = #{incPassword}
-		WHERE id = #{id} and email = #{email} and name = #{name}
 		]]>
-	</select>
+		WHERE id = #{id} and name = #{name}
+			<if test='telNo != null'>
+			AND telNo = #{telNo}
+			</if>
+
+	</update>
 
 	<select id="getUserId" parameterType="map" resultType="com.company.lottomon.model.UserInfo">
 		<![CDATA[
@@ -131,5 +141,19 @@
 			(#{cnt},now())
 		]]>
 	</insert>
+
+	<update id="updateTelNo" parameterType="map">
+		<![CDATA[
+		UPDATE user SET
+			telNo = #{telNo}
+		]]>
+		WHERE 1=1
+		<if test="name != null">
+			AND name = #{name}
+		</if>
+		<if test="id != null">
+			AND id = #{id}
+		</if>
+	</update>
 
 </mapper>

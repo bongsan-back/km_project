@@ -63,7 +63,7 @@ public class AdminServiceImpl implements AdminService{
 						if(rowIdx == 0 && columnIdx == 0 ){
 							String headerText = cell.getStringCellValue();
 							if(!headerText.equals("회차별 추첨결과")){
-								return ServiceResult.NOT_MATCHE;
+								return ServiceResult.NOT_MATCH;
 							}else{
 								System.out.println("SUCCESS MATCHE FILE");
 							}

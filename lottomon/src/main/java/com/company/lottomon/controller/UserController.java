@@ -115,6 +115,60 @@ public class UserController {
 
 
 
+	/**
+	 * 비밀번호 변경
+	 */
+	@RequestMapping(value = "/passwordChange.do", method = RequestMethod.POST)
+	public @ResponseBody Object passwordChange(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
+		UserInfo userInfo = param.getData();
+
+		try {
+			String nowPassword = AES.encryptStringToBase64(userInfo.getNowPassword());
+			String Password = AES.encryptStringToBase64(userInfo.getPassword());
+
+			userInfo.setNowPassword(nowPassword);
+
+			userInfo = userService.selectId(userInfo);
+
+			if(userInfo == null) return ServiceResult.NOT_MATCH;
+
+			if(userInfo != null){
+				userInfo.setIncPassword(Password);
+				userService.insertTempPassword(userInfo);
+				return ServiceResult.SUCCESS;
+			}else return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ServiceResult.FAIL;
+		}
+	}
 
 
+	/** telNoChange.do
+	 * 비밀번호 변경
+	 */
+	@RequestMapping(value = "/telNoChange.do", method = RequestMethod.POST)
+	public @ResponseBody Object telNoChange(@RequestBody LMServiceParam<UserInfo> param, HttpServletRequest request, HttpSession session) {
+		UserInfo userInfo = param.getData();
+
+		try {
+			String tmpTelNo = userInfo.getTelNo();
+			userInfo.setTelNo(null);
+			userInfo.setNowPassword(AES.encryptStringToBase64(userInfo.getNowPassword()));
+
+			userInfo = userService.selectId(userInfo);
+
+
+			if(userInfo == null) return ServiceResult.NOT_MATCH;
+
+			if(userInfo != null){
+				userInfo.setTelNo(tmpTelNo);
+				userService.updateTelNo(userInfo);
+				return ServiceResult.SUCCESS;
+			}else return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ServiceResult.FAIL;
+		}
+	}
 }

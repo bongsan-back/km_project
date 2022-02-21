@@ -10,7 +10,7 @@ nowDate();
 
 function nowDate(){
 
-var	today = new Date();   
+var	today = new Date();
 
 now_year = today.getFullYear(); // 년도
 now_month = today.getMonth() + 1;  // 월
@@ -92,10 +92,10 @@ $('#mobile_x').click(function() {
          //스페이스 없는 경우
      }
  }
- 
+
   //비밀번호 8~20 자리 영어,숫자,특문
  function checkPassword(str) {
-	 var regExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/;
+	 var regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[~!@#$%^&*()+|=])[A-Za-z\d~!@#$%^&*()+|=]{8,16}$/;
 	 if (regExp.test(str)) {
 		 return true;
 	 }
@@ -103,8 +103,8 @@ $('#mobile_x').click(function() {
 		 return false;
 	 }
  }
- 
- 
+
+
  /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/
 
 

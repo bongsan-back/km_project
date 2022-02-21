@@ -8,7 +8,7 @@ public class Constant {
         NOT_FOUND,
         LEAVE,
         INVALID_TOKEN,
-        NOT_MATCHE,
+        NOT_MATCH,
         INVALID_PARAM,
         BAD_REQUEST,
         UNAUTHORIZED,

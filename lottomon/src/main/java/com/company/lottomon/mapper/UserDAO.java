@@ -100,6 +100,15 @@ public class UserDAO {
 	}
 
 	/**
+	 * 휴대폰 번호 변경
+	 * @return
+	 */
+	public int updateTelNo(UserInfo userInfo) {
+		return sqlSession.update("user.updateTelNo", userInfo);
+	}
+
+
+	/**
 	 * 유저 등급 다운 유무
 	 * @return
 	 */

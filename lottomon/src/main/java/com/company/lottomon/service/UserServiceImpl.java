@@ -152,6 +152,12 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public int updateTelNo(UserInfo userInfo) {
+		return userDAO.updateTelNo(userInfo);
+	}
+
+
+	@Override
 	public int getExprieYn(String date) {
 		return userDAO.getExprieYn(date);
 	}
