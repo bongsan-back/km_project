@@ -58,6 +58,15 @@ public class ViewController {
     }
 
     /**
+     * 사이트 소개 페이지
+     */
+    @RequestMapping(value = "/lotto/introduce.do", method = RequestMethod.GET)
+    public String introduce(HttpServletRequest request, HttpSession session) {
+
+        return "login/findUser";
+    }
+
+    /**
      * 회원 가입 약관 동의 페이지 호출
      */
     @RequestMapping(value = "/login/joinAgree.do", method = RequestMethod.GET)
@@ -180,9 +189,13 @@ public class ViewController {
                 model.addAttribute("redirectUrl","/myUpdate.do");
                 return "/login/login";
             }
+
+            String sg = request.getParameter("sg");
+
             ArrayList<Membership> memberships = (ArrayList<Membership>) membershipService.selectList();
             ArrayList<MembershipPrice> membershipPrice = (ArrayList<MembershipPrice>) membershipService.getPrice();
 
+            model.addAttribute("sg", sg);
             model.addAttribute("membershipList", memberships);
             model.addAttribute("membershipPriceList", membershipPrice);
 

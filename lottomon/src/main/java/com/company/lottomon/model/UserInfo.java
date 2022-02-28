@@ -5,6 +5,7 @@ public class UserInfo {
 	private String telNo;
 	private String gender;
 	private String name;
+	private String bankname;
 	private String nickname;
 	private String birth;
 	private String id;
@@ -23,6 +24,8 @@ public class UserInfo {
 
 	private String tempPassword;
 	private String incPassword;
+
+	private String price;
 
 	public int getSeq() {
 		return seq;
@@ -176,6 +179,22 @@ public class UserInfo {
 
 	public void setReg_dt(String reg_dt) {
 		this.reg_dt = reg_dt;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getBankname() {
+		return bankname;
+	}
+
+	public void setBankname(String bankname) {
+		this.bankname = bankname;
 	}
 
 	@Override

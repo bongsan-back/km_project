@@ -115,107 +115,11 @@
 
     <div class="body">
       <div role="main" class="main">
+        <img src="/renew/img/introduce.jpg">
 
 
-        <section class="page-header page-header-modern page-header-background page-header-background-md overlay overlay-color-dark overlay-show overlay-op-5" style="background-image: url(img/sub_title_bg.jpg);">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-8 order-2 order-md-1 align-self-center p-static">
-                <h1 class="mb-3 text-9">회차별 당첨결과</h1>
-                <span class="sub-title">최적의 프리미엄조합수 필터링을 통해 서비스를 제공하는 로또몬입니다.</span>
-              </div>
-              <div class="col-md-4 order-1 order-md-2 align-self-center">
-                <ul class="breadcrumb breadcrumb-light d-block text-md-right">
-                  <li><a href="/main.do#">Home</a></li>
-                  <li class="active">명예의전당</li>
-                  <li class="active">회차별 당첨결과</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
 
 
-        <div class="container py-4 my-5" style="">
-          <div class="row justify-content-center text-center mb-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400" style="animation-delay: 400ms;">
-
-            <div class="col-lg-12">
-              <div class="row">
-
-                <!--회차검색-->
-                <div class="col-md-12">
-                  <div class="">
-                    <form nema="loto_number" class="col d-flex align-items-center justify-content-center mb-4">
-                      <h3 class="text-4 mr-3 mb-0">회차선택</h3>
-                      <select class="selectpicker text-4 p-2 mr-1 px-4" id="drwSelect" name="drwSelect">
-                        <option value="${lottoData.drwNo}">${lottoData.drwNo} 회차</option>
-                      </select>
-                    </form>
-                  </div>
-                </div>
-                <!--end:회차검색-->
-
-                <div id="drwNoTable" style="width: 100%">
-                  <table class="table table-bordered">
-                    <thead>
-                    <tr class="bg-primary">
-                      <th>순위</th>
-                      <th>총 당첨금액</th>
-                      <th>당첨자 수</th>
-                      <th>1인당 당첨금액</th>
-                      <th>당첨기준</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td class="text-color-primary">1등</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo1_price * lottoData.placeNo1_cnt}" pattern="#,###" />원</td>
-                      <td class="text-color-primary">${lottoData.placeNo1_cnt}명</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo1_price}" pattern="#,###" />원</td>
-                      <td>당첨번호 6개 숫자일치</td>
-                    </tr>
-
-                    <tr>
-                      <td class="text-color-primary">2등</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo2_price * lottoData.placeNo2_cnt}" pattern="#,###" />원</td>
-                      <td class="text-color-primary">${lottoData.placeNo2_cnt}명</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo2_price}" pattern="#,###" />원</td>
-                      <td>당첨번호 5개 숫자일치<br>+ 보너스 숫자일치
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-color-primary">3등</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo3_price * lottoData.placeNo3_cnt}" pattern="#,###" />원</td>
-                      <td class="text-color-primary">${lottoData.placeNo3_cnt}명</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo3_price}" pattern="#,###" />원</td>
-                      <td>당첨번호 5개 숫자일치</td>
-                    </tr>
-                    <tr>
-                      <td class="text-color-primary">4등</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo4_price * lottoData.placeNo4_cnt}" pattern="#,###" />원</td>
-                      <td class="text-color-primary">${lottoData.placeNo4_cnt}명</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo4_price}" pattern="#,###" />원</td>
-                      <td>당첨번호 4개 숫자일치</td>
-                    </tr>
-                    <tr>
-                      <td class="text-color-primary">5등</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo5_price * lottoData.placeNo5_cnt}" pattern="#,###" />원</td>
-                      <td class="text-color-primary">${lottoData.placeNo5_cnt}명</td>
-                      <td><fmt:formatNumber value="${lottoData.placeNo5_price}" pattern="#,###" />원</td>
-                      <td>당첨번호 3개 숫자일치</td>
-                    </tr>
-                    </tbody>
-                  </table>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <hr>
 
       </div><!--end:main-->
 
@@ -362,6 +266,133 @@
 
 <%@include file="../include/footer.jsp"%>
 --%>
+
+<script>
+  var drwNo = ${lottoData.drwNo}
+$(document).ready(function(){
+    drwNoAddClass();
+    drwNoSeleteAdd();
+})
+
+  function drwNoSeleteAdd(){
+    for (var i = drwNo-1; i > 0; i--) {
+      $("#drwSelect").append("<option value='"+i+"'>"+i+" 회차</option>");
+    }
+  }
+
+$("#drwSelect").on('change', function(){
+  var tmpDrwNo = $("select[name=drwSelect]").val();
+
+  var requestParam = {
+    "data":{
+      "drwNo" : tmpDrwNo
+    }
+  };
+
+  $.ajax({
+    type: 'POST',
+    contentType: "application/json",
+    dataType: 'json',
+    url: '/lotto/lottoDataSelect.do',
+    data: JSON.stringify(requestParam),
+    success: function (data) {
+      /*var infoStr = "";
+      infoStr +='<h6><b>'+data.drwNo+'회차 </b>당첨 결과</h6>'+
+              '<div class="lotto-number">'+
+              '<span id="drwNo1_span">'+data.drwtNo1+'</span>'+
+              '<span id="drwNo2_span">'+data.drwtNo2+'</span>'+
+              '<span id="drwNo3_span">'+data.drwtNo3+'</span>'+
+              '<span id="drwNo4_span">'+data.drwtNo4+'</span>'+
+              '<span id="drwNo5_span">'+data.drwtNo5+'</span>'+
+              '<span id="drwNo6_span">'+data.drwtNo6+'</span>'+
+              '<span class="plus">+</span>'+
+              '<span id="drwNo7_span">'+data.bnusNo+'</span>'+
+              '</div>';
+      $("#drwNoInfo").html(infoStr);*/
+
+      var tableStr = '<table class="table table-bordered">'+
+                        '<thead>'+
+                          '<tr class="bg-primary">'+
+                            '<th>순위</th>'+
+                            '<th>총 당첨금액</th>'+
+                            '<th>당첨게임 수</th>'+
+                            '<th>1게임당 당첨금액</th>'+
+                            '<th>당첨기준</th>'+
+                          '</tr>'+
+                        '</thead>'+
+                        '<tbody>'+
+                        '<tr>'+
+                          '<td class="text-color-primary">1등</td>'+
+                          '<td>'+numberComma(data.placeNo1_price * data.placeNo1_cnt)+'원</td>'+
+                          '<td class="text-color-primary">'+data.placeNo1_cnt+'명</td>'+
+                          '<td>'+numberComma(data.placeNo1_price)+'원</td>'+
+                          '<td>당첨번호 6개 숫자일치</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                          '<td class="text-color-primary">2등</td>'+
+                          '<td>'+numberComma(data.placeNo2_price * data.placeNo2_cnt)+'원</td>'+
+                          '<td class="text-color-primary">'+data.placeNo2_cnt+'명</td>'+
+                          '<td>'+numberComma(data.placeNo2_price)+'원</td>'+
+                          '<td>당첨번호 5개 숫자일치<br>+ 보너스 숫자일치'+
+                        '</tr>'+
+                        '<tr>'+
+                          '<td class="text-color-primary">3등</td>'+
+                          '<td>'+numberComma(data.placeNo3_price * data.placeNo3_cnt)+'원</td>'+
+                          '<td class="text-color-primary">'+data.placeNo3_cnt+'명</td>'+
+                          '<td>'+numberComma(data.placeNo3_price)+'원</td>'+
+                          '<td>당첨번호 5개 숫자일치</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                          '<td class="text-color-primary">4등</td>'+
+                          '<td>'+numberComma(data.placeNo4_price * data.placeNo4_cnt)+'원</td>'+
+                          '<td class="text-color-primary">'+data.placeNo4_cnt+'명</td>'+
+                          '<td>'+numberComma(data.placeNo4_price)+'원</td>'+
+                          '<td>당첨번호 4개 숫자일치</td>'+
+                        '</tr>'+
+                        '<tr>'+
+                          '<td class="text-color-primary">5등</td>'+
+                          '<td>'+numberComma(data.placeNo5_price * data.placeNo5_cnt)+'원</td>'+
+                          '<td class="text-color-primary">'+data.placeNo5_cnt+'명</td>'+
+                          '<td>'+numberComma(data.placeNo5_price)+'원</td>'+
+                          '<td>당첨번호 3개 숫자일치</td>'+
+                        '</tr>'+
+                        '</tbody>'+
+                      '</table>';
+      $("#drwNoTable").html(tableStr);
+
+      drwNoAddClass();
+    },
+    error : function(response){
+      console.log(response);
+    }
+  });
+
+
+})
+
+function drwNoAddClass(){
+  for (var i = 1; i < 8; i++) {
+    var tmpNo = $("#drwNo"+i+"_span").html();
+
+    if(tmpNo < 11){
+      $("#drwNo"+i+"_span").addClass("yellow");
+    }else if(tmpNo > 10 && tmpNo < 21){
+      $("#drwNo"+i+"_span").addClass("blue");
+    }else if(tmpNo > 20 && tmpNo < 31){
+      $("#drwNo"+i+"_span").addClass("red");
+    }else if(tmpNo > 30 && tmpNo < 41){
+      $("#drwNo"+i+"_span").addClass("pup");
+    }else{
+      $("#drwNo"+i+"_span").addClass("green");
+    }
+  }
+}
+
+function numberComma(num){
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+</script>
 
 
 

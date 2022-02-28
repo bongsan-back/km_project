@@ -122,7 +122,7 @@
           </div>
           <div class="col-md-4 order-1 order-md-2 align-self-center">
             <ul class="breadcrumb breadcrumb-light d-block text-md-right">
-              <li><a href="https://mansour-lotto.com/mypage02.php#">Home</a></li>
+              <li><a href="/main.do">Home</a></li>
               <li class="active">마이페이지</li>
               <li class="active">회원정보 변경</li>
             </ul>
@@ -140,8 +140,8 @@
           <section class="card card-admin">
             <header class="card-header">
               <div class="card-actions">
-                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-toggle" data-card-toggle=""></a>
-                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+                <a href="#none" class="card-action card-action-toggle" data-card-toggle=""></a>
+                <a href="#none" class="card-action card-action-dismiss" data-card-dismiss=""></a>
               </div>
 
               <h2 class="card-title">아이디 찾기</h2>
@@ -181,8 +181,8 @@
           <section class="card card-admin">
             <header class="card-header">
               <div class="card-actions">
-                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-toggle" data-card-toggle=""></a>
-                <a href="https://mansour-lotto.com/mypage02.php#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+                <a href="#none" class="card-action card-action-toggle" data-card-toggle=""></a>
+                <a href="#none" class="card-action card-action-dismiss" data-card-dismiss=""></a>
               </div>
 
               <h2 class="card-title">비밀번호 초기화</h2>
@@ -350,7 +350,7 @@
 
 
 
-</div><a class="scroll-to-top hidden-mobile" href="https://mansour-lotto.com/join02.php?chk1=Y&amp;chk2=Y#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
+</div><a class="scroll-to-top hidden-mobile" href="#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
 
 
 

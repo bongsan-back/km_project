@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-md-4 order-1 order-md-2 align-self-center">
                         <ul class="breadcrumb breadcrumb-light d-block text-md-right">
-                            <li><a href="https://mansour-lotto.com/login01.php#">Home</a></li>
+                            <li><a href="#none">Home</a></li>
                             <li class="active">로그인/회원가입</li>
                         </ul>
                     </div>

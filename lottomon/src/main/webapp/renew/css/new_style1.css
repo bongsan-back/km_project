@@ -464,7 +464,10 @@ html .btn-navy {
 
 /*bg_type1*/
 .bg_type1 {
-    padding: 130px 0;
+    /*padding: 130px 0;*/
+}
+.bg_type1 img{
+    width: 100%;
 }
 
 /*icon_li1*/
@@ -749,8 +752,8 @@ html .btn-navy {
 /*************************ë°˜ì‘í˜•****************************/
 
 @media screen and (max-width:768px) {
-    
-    
+
+
  /*ìƒˆë¡œìš´ì˜ì—­*/
     .col-md-new-6{
     flex: 0 0 50%;
@@ -761,7 +764,7 @@ html .btn-navy {
     padding-left: 15px;
      padding-bottom: 15px;
 }
-    
+
     .col-lg-new-6{
     flex: 0 0 50%;
     max-width: 50%;
@@ -773,10 +776,10 @@ html .btn-navy {
 }
 
 
-    
+
     /*ë©”ì¸ ì˜ìˆ˜ì¦ ê³ ì •ê°’ì£¼ê¸°*/
 .owl-carousel .owl-item .fixed-height{height: 480px;}
-    
+
     .page-header.page-header-modern.page-header-background.page-header-background-md {
     padding: 40px 0;
 }
@@ -784,9 +787,9 @@ html .btn-navy {
 .search-type2{width: 63%;}
 .search-type3{width: 98%;margin: auto;}
 .search-type3 a{width: 100%;}
-    
+
     .post-container{padding: 1rem;} /*p-5ì™€ ë™ì¼*/
-    
+
     .free_user p {
     font-size: 20px;
     padding-top: 20px;
@@ -931,7 +934,7 @@ html .btn-navy {
     .m-txt-center {
         text-align: center;
     }
-    
+
     /*í…Œì´ë¸”-ëª¨ë°”ì¼*/
     .table_m{display: block;}
     .table_m h4{font-weight: 400;line-height: 1.2;}
@@ -957,7 +960,7 @@ html .btn-navy {
     height: 250px;
 }
     .medal_icon img{width: 30px;}
-    
+
 }/*end:414*/
 
 

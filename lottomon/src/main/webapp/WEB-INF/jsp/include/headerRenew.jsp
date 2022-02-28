@@ -44,7 +44,7 @@
                     <div class="header-row">
                         <div class="header-logo" style="width: 200px; height: 120px;">
                             <a href="/main.do">
-                                <img alt="Porto" width="120" height="68" data-sticky-width="100" data-sticky-height="56" data-sticky-top="10" src="/img/og_img.png" style="top:-20px">
+                                <img alt="Porto" width="250" height="80" data-sticky-width="180" data-sticky-height="56" data-sticky-top="10" src="http://lotto-kingdom.co.kr/img/lm_main.png" style="top:-20px">
                             </a>
                         </div>
                         <!--번호추가-->
@@ -60,7 +60,7 @@
                                     <ul class="nav nav-pills" id="mainNav">
                                         <li class="dropdown">
                                             <a class="dropdown-item dropdown-toggle " href="/winning.do">
-                                                로또당첨결과
+                                                결과 & 소개
                                                 <i class="fas fa-chevron-down"></i></a>
                                             <ul class="dropdown-menu">
                                                 <li>
@@ -68,6 +68,11 @@
                                                         로또당첨결과
                                                     </a>
                                                 </li>
+                                                <%--<li>
+                                                    <a class="dropdown-item" href="/introduce.do">
+                                                        시스템 소개
+                                                    </a>
+                                                </li>--%>
                                             </ul>
                                         </li>
                                         <li class="dropdown">
@@ -99,8 +104,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-
-
 
                                         <li class="dropdown">
                                             <a class="dropdown-item dropdown-toggle " href="/board/mylotto_payment.do">나의로또<i class="fas fa-chevron-down"></i></a>

@@ -152,7 +152,7 @@
           </div>
           <div class="col-md-4 order-1 order-md-2 align-self-center">
             <ul class="breadcrumb breadcrumb-light d-block text-md-right">
-              <li><a href="https://mansour-lotto.com/customer01.php#">Home</a></li>
+              <li><a href="/main.do">Home</a></li>
               <li class="active">나의로또</li>
               <li class="active">결제게시판</li>
             </ul>
@@ -174,8 +174,8 @@
             <tr>
               <th>번호</th>
               <th style="width: 60%;">제목</th>
-              <th>작성자</th>
               <th>작성일</th>
+              <th>작성자/th>
               <th style="width: 100px">조회수</th>
             </tr>
             </thead>
@@ -186,9 +186,9 @@
             </tr>-->
             </tbody>
           </table>
-          <div class="text-right mt-3">
+         <%-- <div class="text-right mt-3">
             <a class="btn btn-gray mb-2" href="javascript:editingPostBoard()">글 쓰기</a>
-          </div>
+          </div>--%>
         </div>
         <!--end:pc번-->
 
@@ -196,16 +196,15 @@
         <div class="table_m col-lg-12 text-left">
           <ul class="p-0" id="mobile-li">
           </ul>
-          <div class="text-right mt-3">
+          <%--<div class="text-right mt-3">
             <a class="btn btn-gray mb-2" href="javascript:editingPostBoard()">글 쓰기</a>
-          </div>
+          </div>--%>
         </div>
         <!--end:모바일버전-->
 
         <!-- 이전,다음 페이징 -->
         <%--<div class="col">
           <ul class="pagination justify-content-center text-center">
-            <li class="page-item"><a class="page-link" href="https://mansour-lotto.com/customer01.php#a"><i class="fas fa-angle-left"></i></a></li><li class="page-item active"><a class="page-link" href="https://mansour-lotto.com/customer01.php#a">1</a></li><a class="page-link" href="https://mansour-lotto.com/customer01.php#a"><i class="fas fa-angle-right"></i></a>
           </ul>
         </div>--%>
 

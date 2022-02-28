@@ -109,7 +109,7 @@
                     </div>
                     <div class="col-md-4 order-1 order-md-2 align-self-center">
                         <ul class="breadcrumb breadcrumb-light d-block text-md-right">
-                            <li><a href="https://mansour-lotto.com/goods01.php#">Home</a></li>
+                            <li><a href="/main.do">Home</a></li>
                             <li class="active">상품안내/구매</li>
                             <li class="active">등급별 상품</li>
                         </ul>
@@ -150,7 +150,7 @@
                                     </ul>
                                 </div>
                                 <div class="plan-footer">
-                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;15&#39;);">구매하기</a>
+                                    <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="goPage('diamond');">구매하기</a>
 
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
                                     </ul>
                                 </div>
                                 <div class="plan-footer">
-                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-primary btn-modern py-2 px-4 text-3" onclick="javascript:pay(&#39;12&#39;);">구매하기</a>
+                                    <a href="#none" class="btn btn-primary btn-modern py-2 px-4 text-3" onclick="javascript:goPage('bronze');">구매하기</a>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
                                     </ul>
                                 </div>
                                 <div class="plan-footer">
-                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;16&#39;);">구매하기</a>
+                                    <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="goPage('marster');">구매하기</a>
                                 </div>
                             </div>
                         </div>
@@ -233,7 +233,7 @@
                                     </ul>
                                 </div>
                                 <div class="plan-footer">
-                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;14&#39;);">구매하기</a>
+                                    <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="goPage('gold'););">구매하기</a>
                                 </div>
                             </div>
                         </div>
@@ -286,7 +286,7 @@
                                     </ul>
                                 </div>
                                 <div class="plan-footer">
-                                    <a href="https://mansour-lotto.com/goods01.php#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay(&#39;13&#39;);">구매하기</a>
+                                    <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:goPage('silver');">구매하기</a>
                                 </div>
                             </div>
                         </div>
@@ -452,6 +452,10 @@
 --%>
 
 <script>
+    function goPage(grade){
+        location.href = 'membershipPay.do?sg='+grade;
+    }
+
 </script>
 
 

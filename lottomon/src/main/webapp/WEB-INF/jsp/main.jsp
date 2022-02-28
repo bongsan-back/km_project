@@ -121,38 +121,6 @@
 
 <div class="body">
   <%@include file="./include/headerRenew.jsp"%>
-  <script>
-    var popup_right = '';
-
-    function q_insert() {
-      var q_name = $('#q_name').val();
-      var q_hp = $('#q_hp').val();
-
-      if($.trim(q_name) == '') {
-        alert('이름을 입력해주세요.');
-        return false;
-      }
-
-      if($.trim(q_hp) == '') {
-        alert('핸드폰 번호를 입력해주세요.');
-        return false;
-      }
-
-      if(confirm('신청하시겠습니까?')) {
-        $.ajax({
-          type: "POST",
-          url: "num_insert_proc.php",
-          data: $('#q_form').serialize(),
-          cache: false,
-          async: false,
-          success :function(data) {
-            console.log(data);
-          }
-        });
-      }
-    }
-
-  </script>       <!-------end:공통:헤더-------->
 
 
   <!--레이어팝업-->
@@ -191,6 +159,8 @@
       }
       document.all['popup_01'].style.visibility = "hidden";
     }
+
+
     function closePop2() {
       if ( document.pop_form2.chkbox2.checked ){
         setCookie( "maindiv2", "done" , 1 );
@@ -216,7 +186,7 @@
 
   <div id="popup_01" class="popup-style" style="visibility: hidden;">
     <div class="popup_img">
-      <img style="width: 100%;" src="/renew/img/popup-win-969.gif?1" alt="969회차당첨팝업">
+      <img style="width: 100%;" src="http://lotto-kingdom.co.kr/renew/img/popup_img1.jpg" alt="광고이미지">
     </div>
     <div class="" style="background: #000;">
       <form name="pop_form" style="display: flex;justify-content: center;">
@@ -225,6 +195,19 @@
       </form>
     </div>
   </div>
+
+  <div id="popup_02" class="popup-style" style="visibility: hidden;">
+    <div class="popup_img">
+      <img style="width: 100%;" src="http://lotto-kingdom.co.kr/renew/img/popup_img2.gif" alt="광고이미지">
+    </div>
+    <div class="" style="background: #000;">
+      <form name="pop_form2" style="display: flex;justify-content: center;">
+        <div id="check2"><label for="chk_none2" style="margin-bottom:0 !important"><input id="chk_none2" type="checkbox" name="chkbox2" value="checkbox" style="margin-right:5px;">오늘 하루동안 보지 않기</label></div>
+        <a href="javascript:closePop2();"><b>[닫기]</b></a>
+      </form>
+    </div>
+  </div>
+
 
   <script language="Javascript">
 
@@ -256,12 +239,15 @@
 
   <!--메인페이지-->
   <div role="main" class="main">
-
+    <video width="100%" src="http://lotto-kingdom.co.kr/renew/vm/intro.mp4" controls muted="muted" autoplay="autoplay" style="margin-bottom: 50px"></video>
     <div class="z-index-1 appear-animation animated fadeInDownShorter appear-animation-visible" data-appear-animation="fadeInDownShorter" data-appear-animation-delay="500" style="animation-delay: 500ms;">
-      <div class="owl-carousel owl-theme full-width owl-loaded owl-drag owl-carousel-init m-0 mb-0" data-plugin-options="{'items': 1, 'loop': true, 'nav': true, 'dots': false, 'autoplay': true, 'autoplayTimeout': 9000}" style="height: auto;">
+
+      <%--<div class="owl-carousel owl-theme full-width owl-loaded owl-drag owl-carousel-init m-0 mb-0" data-plugin-options="{'items': 1, 'loop': true, 'nav': true, 'dots': false, 'autoplay': true, 'autoplayTimeout': 9000}" style="height: auto;">
 
 
         <div class="owl-stage-outer">
+
+
           <div class="owl-stage" style="transform: translate3d(-2908px, 0px, 0px); transition: all 0.25s ease 0s; width: 8724px;"><div class="owl-item cloned" style="width: 1454px;">
             <div class="main_bg" style="background-image: url(/renew/img/section1_img1.jpg)"></div>
             <div class="main_txt_box">
@@ -271,7 +257,7 @@
                 등급별 분석필터링을 통해 최적의 조합수 발송,<br>
                 로또 핵심자료 게시판을 이용할 수 있는 서비스를 제공합니다.
               </div>
-              <a href="goods01.php" class="btn_new1 btn-red rounded-0 mb-2">상품안내 확인하기</a>
+              <a href="membership.do" class="btn_new1 btn-red rounded-0 mb-2">상품안내 확인하기</a>
             </div>
           </div>
             <div class="owl-item cloned" style="width: 1454px;">
@@ -283,18 +269,20 @@
                 통계분석,필터분석,데이터마이닝등 정확한 타겟을 분석을통해<br>
                 1등당첨 예상번호를 무료로 알려드립니다.
               </div>
-              <a href="goods01.php" class="btn_new1 btn-red rounded-0 mb-2">상품안내 확인하기</a>
+              <a href="membership.do" class="btn_new1 btn-red rounded-0 mb-2">상품안내 확인하기</a>
 
             </div>
           </div>
           </div>
         </div>
+
+
         <div class="owl-nav">
           <button type="button" role="presentation" class="owl-prev"></button>
           <button type="button" role="presentation" class="owl-next"></button>
         </div>
         <div class="owl-dots disabled"></div>
-        <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next"></button></div><div class="owl-dots disabled"></div></div>
+        <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next"></button></div><div class="owl-dots disabled"></div></div>--%>
     </div>
 
     <section class="parallax section section-height-3 section-parallax m-0" data-plugin-parallax="" data-plugin-options="{'speed': 1.5}" data-image-src="/renew/img/section_bg2.jpg" style="position: relative; overflow: hidden;"><div class="parallax-background" style="background-image: url(/renew/img/section_bg2.jpg&quot;); background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; height: 180%; transform: translate3d(0px, -262.857px, 0px); background-position-x: 50%;"></div>
@@ -308,13 +296,14 @@
             <p class="text-color-light lead pb-2 mb-4 text-4">프리미엄 로또 브랜드 로또몬의
               실제 당첨내역,<br>
               고액당첨배출,15단계필터링,실제 당첨후기</p>
-            <a href="report01.php" class="btn btn-primary font-weight-light text-1 px-4 btn-py-2 text-4">당첨내역 더보기</a>
+            <%--<a href="#non" class="btn btn-primary font-weight-light text-1 px-4 btn-py-2 text-4">당첨내역 더보기</a>--%>
           </div>
+          <%--
           <div class="col-lg-7">
             <img style="width:100% " onerror="this.src='img/winner_565_1.jpg?1'" src="/renew/img/winner_565_1.jpg?1" alt="명예의전당 영수증">
             <!--<img style="width:100% " src="/renew/img/win1_img1.jpg" alt="명예의전당 영수증">-->
             <!--여기-->
-          </div>
+          </div>--%>
         </div>
         <!--end:고액당첨영수증-->
 
@@ -323,48 +312,77 @@
           <div class="col">
 
             <div class="lightbox">
-              <div class="owl-carousel owl-theme stage-margin owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'items': 4, 'margin': 10, 'loop': false, 'nav': true, 'dots': false, 'stagePadding': 40, 'autoplay': true, 'autoplayTimeout': 3000}" style="height: auto;">
-                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1560px, 0px, 0px); transition: all 0.25s ease 0s; width: 2680px; padding-left: 40px; padding-right: 40px;"><div class="owl-item" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1634779606.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=49'">
-                  </a>
-                </div></div><div class="owl-item" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1634300549.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=48'">
-                  </a>
-                </div></div><div class="owl-item" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1634300498.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=47'">
-                  </a>
-                </div></div><div class="owl-item" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1634300432.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=46'">
-                  </a>
-                </div></div><div class="owl-item" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1630553081.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=45'">
-                  </a>
-                </div></div><div class="owl-item" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1624951624.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=44'">
-                  </a>
-                </div></div><div class="owl-item active" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1624951552.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=43'">
-                  </a>
-                </div></div><div class="owl-item active" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1620875166.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=42'">
-                  </a>
-                </div></div><div class="owl-item active" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1620875154.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=41'">
-                  </a>
-                </div></div><div class="owl-item active" style="width: 250px; margin-right: 10px;"><div style="cursor:pointer">
-                  <a class="img-thumbnail img-thumbnail-no-borders">
-                    <img class="fixed-height" src="https://mansour-lotto.com/n_board/win_img/1620027662.jpg" alt="Project Image" onclick="location.href='report01-view.php?sq=40'">
-                  </a>
-                </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next disabled"></button></div><div class="owl-dots disabled"></div></div>
+              <div class="owl-carousel owl-theme stage-margin owl-loaded owl-drag owl-carousel-init"
+                   data-plugin-options="{'items': 4, 'margin': 10, 'loop': false, 'nav': true, 'dots': false, 'stagePadding': 40, 'autoplay': true, 'autoplayTimeout': 3000}"
+                   style="height: auto;">
+                <div class="owl-stage-outer">
+                  <div class="owl-stage"
+                       style="transform: translate3d(-1560px, 0px, 0px); transition: all 0.25s ease 0s; width: 2680px; padding-left: 40px; padding-right: 40px;">
+                    <div class="owl-item" style="width: 250px; margin-right: 10px;">
+                      <div style="cursor:pointer">
+                        <a class="img-thumbnail img-thumbnail-no-borders">
+                          <img class="fixed-height" src="/renew/img/1634779606.jpg"
+                               alt="Project Image">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="owl-item" style="width: 250px; margin-right: 10px;">
+                      <div style="cursor:pointer">
+                        <a class="img-thumbnail img-thumbnail-no-borders">
+                          <img class="fixed-height" src="/renew/img/1634300549.jpg"
+                               alt="Project Image">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="owl-item" style="width: 250px; margin-right: 10px;">
+                      <div style="cursor:pointer">
+                        <a class="img-thumbnail img-thumbnail-no-borders">
+                          <img class="fixed-height" src="/renew/img/1634300498.jpg"
+                               alt="Project Image">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="owl-item" style="width: 250px; margin-right: 10px;">
+                      <div style="cursor:pointer">
+                        <a class="img-thumbnail img-thumbnail-no-borders">
+                          <img class="fixed-height" src="/renew/img/1634300432.jpg"
+                               alt="Project Image">
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="owl-item active" style="width: 250px; margin-right: 10px;">
+                      <div style="cursor:pointer">
+                        <a class="img-thumbnail img-thumbnail-no-borders">
+                          <img class="fixed-height" src="/renew/img/1620875166.jpg"
+                               alt="Project Image">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="owl-item active" style="width: 250px; margin-right: 10px;">
+                      <div style="cursor:pointer">
+                        <a class="img-thumbnail img-thumbnail-no-borders">
+                          <img class="fixed-height" src="/renew/img/1620875154.jpg"
+                               alt="Project Image">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="owl-item active" style="width: 250px; margin-right: 10px;">
+                      <div style="cursor:pointer">
+                        <a class="img-thumbnail img-thumbnail-no-borders">
+                          <img class="fixed-height" src="/renew/img/1620027662.jpg"
+                               alt="Project Image">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="owl-nav">
+                  <button type="button" role="presentation" class="owl-prev"></button>
+                  <button type="button" role="presentation" class="owl-next disabled"></button>
+                </div>
+                <div class="owl-dots disabled"></div>
+              </div>
             </div>
           </div>
 
@@ -385,7 +403,7 @@
       <div class="row featured-boxes featured-boxes-style-4">
         <div class="col-md-12 col-lg-6">
           <div class="li_box bg-navy" style="background-image: url(/renew/img/section2_img1.png)">
-            <a href="company02.php">
+            <a href="#none">
               <p>
                 통계학적<br>
                 수학확률<br>
@@ -397,7 +415,7 @@
 
         <div class="col-md-12 col-lg-6">
           <div class="li_box bg-primary" style="background-image: url(/renew/img/section2_img2.png)">
-            <a href="company01.php">
+            <a href="#none">
               <p>
                 인공지능<br>
                 예측시스템<br>
@@ -409,7 +427,7 @@
 
         <div class="col-md-12 col-lg-6">
           <div class="li_box bg-primary" style="background-image: url(/renew/img/section2_img3.png)">
-            <a href="company01.php">
+            <a href="#none">
               <p>
                 핵심필터링<br>
                 기법<br>
@@ -421,7 +439,7 @@
 
         <div class="col-md-12 col-lg-6">
           <div class="li_box bg-navy" style="background-image: url(/renew/img/section2_img4.png)">
-            <a href="company01.php">
+            <a href="#none">
               <p>
                 소수3배수<br>
                 합성수 필터<br>
@@ -533,34 +551,37 @@
       </div>
     </div>
 
+<style>
+  .bg_type1
+
+</style>
 
 
-
-    <section class="bg_type1 section-height-3 section-no-border section-center mb-0" style="background-image: url(/renew/img/section5_bg.jpg);">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-4 appear-animation animated" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
-          <div class="col-lg-8">
-            <div class="txt_type1 text-color-light">실제로또1등<br><strong>당첨자의 당첨비법!</strong></div>
-            <div class="txt_type3 m-b-40 text-color-light">수학적 확률계산을통해 1등번호를 분석하는 분석필터링 시스템</div>
-          </div>
-        </div>
-        <div class="row featured-boxes featured-boxes-style-4">
-          <div class="col-md-12 col-lg-12 text-center">
-            <ul class="icon_li1 p-0">
-              <li><img src="/renew/img/section5_img1.png" alt="">
-                <p class="text-color-light text-center mt-2 text-4">1등당첨 비법</p>
-              </li>
-              <li><img src="/renew/img/section5_img2.png" alt="">
-                <p class="text-color-light text-center mt-2 text-4">생생한 당첨후기</p>
-              </li>
-              <li><img src="/renew/img/section5_img3.png" alt="">
-                <p class="text-color-light text-center mt-2 text-4">당첨자 인터뷰</p>
-              </li>
-            </ul>
-            <a class="btn-outline-light mt-3" href="https://www.youtube.com/channel/UC4FcZUxwwBj0RsVbtVay3Bg/featured" target="_blank">1등당첨 노하우보기</a>
-          </div>
+    <section class="bg_type1 section-height-3 section-no-border section-center mb-0" >
+       <img src="http://lotto-kingdom.co.kr/renew/img/serction5_bg2.jpg">
+       <%--<div class="row justify-content-center text-center mb-4 appear-animation animated" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
+        <div class="col-lg-8">
+          <div class="txt_type1 text-color-light">실제로또1등<br><strong>당첨자의 당첨비법!</strong></div>
+          <div class="txt_type3 m-b-40 text-color-light">수학적 확률계산을통해 1등번호를 분석하는 분석필터링 시스템</div>
         </div>
       </div>
+      <div class="row featured-boxes featured-boxes-style-4">
+        <div class="col-md-12 col-lg-12 text-center">
+          <ul class="icon_li1 p-0">
+            <li><img src="/renew/img/section5_img1.png" alt="">
+              <p class="text-color-light text-center mt-2 text-4">1등당첨 비법</p>
+            </li>
+            <li><img src="/renew/img/section5_img2.png" alt="">
+              <p class="text-color-light text-center mt-2 text-4">생생한 당첨후기</p>
+            </li>
+            <li><img src="/renew/img/section5_img3.png" alt="">
+              <p class="text-color-light text-center mt-2 text-4">당첨자 인터뷰</p>
+            </li>
+          </ul>
+          <a class="btn-outline-light mt-3" href="https://www.youtube.com/channel/UC4FcZUxwwBj0RsVbtVay3Bg/featured" target="_blank">1등당첨 노하우보기</a>
+        </div>
+      </div>
+--%>
     </section>
 
 
@@ -597,7 +618,7 @@
                   </ul>
                 </div>
                 <div class="plan-footer">
-                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay('15');">구매하기</a>
+                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:goPage('diamond');">구매하기</a>
 
                 </div>
               </div>
@@ -624,7 +645,7 @@
                   </ul>
                 </div>
                 <div class="plan-footer">
-                  <a href="#none" class="btn btn-primary btn-modern py-2 px-4 text-3" onclick="javascript:pay('12');">구매하기</a>
+                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:goPage('bronze');">구매하기</a>
                 </div>
               </div>
             </div>
@@ -650,7 +671,7 @@
                   </ul>
                 </div>
                 <div class="plan-footer">
-                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay('16');">구매하기</a>
+                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:goPage('marster');">구매하기</a>
                 </div>
               </div>
             </div>
@@ -680,7 +701,7 @@
                   </ul>
                 </div>
                 <div class="plan-footer">
-                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay('14');">구매하기</a>
+                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:goPage('gold');">구매하기</a>
                 </div>
               </div>
             </div>
@@ -733,7 +754,7 @@
                   </ul>
                 </div>
                 <div class="plan-footer">
-                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:pay('13');">구매하기</a>
+                  <a href="#none" class="btn btn-dark btn-modern btn-outline py-2 px-4 text-3" onclick="javascript:goPage('gold');">구매하기</a>
                 </div>
               </div>
             </div>
@@ -750,9 +771,9 @@
           <div class="m-txt-center col-lg-7 mb-5 mb-lg-0 appear-animation animated" data-appear-animation="fadeInRightShorter">
             <p class="text-color-light text-4 line-height-1 mb-2">로또몬 분석기법</p>
 
-            <h4 class="text-color-light font-weight-normal line-height-3 text-6"><strong class="font-weight-extra-bold text-color-primary">동행복권 1000회차</strong> 당첨번호 분석</h4>
-            <p class="text-color-light lead pb-2 mb-4 text-4">만수르로또만의 빅데이터 필터링으로 사용자에게 최상의 번호조합을 제공합니다.</p>
-            <a href="statistics01.php" class="btn btn-primary font-weight-light text-1 px-4 btn-py-2 text-4">통합분석보기</a>
+            <h4 class="text-color-light font-weight-normal line-height-3 text-6"><strong class="font-weight-extra-bold text-color-primary">동행복권 ${weekList.drwNo}회차</strong> 당첨번호 분석</h4>
+            <p class="text-color-light lead pb-2 mb-4 text-4">로또몬만의 빅데이터 필터링으로 사용자에게 최상의 번호조합을 제공합니다.</p>
+            <a href="#none" class="btn btn-primary font-weight-light text-1 px-4 btn-py-2 text-4">통합분석보기</a>
           </div>
           <div class="col-lg-5">
             <div class="row">
@@ -779,7 +800,6 @@
                       <label class="text-4">합계/125(120번대)</label>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -787,99 +807,6 @@
         </div>
       </div>
     </section>
-
-    <div class="container py-4 my-5" style="">
-      <div class="row justify-content-center text-center mb-4 appear-animation animated" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="400">
-        <div class="col-lg-8">
-          <div class="txt_type1 text-color-dark">로또몬 분석번호 필터링 시스템</div>
-          <div class="txt_type3 m-b-70 text-color-dark">AI필터링을 통해 최적의 예상번호를 추출합니다.</div>
-        </div>
-      </div>
-      <div class="row featured-boxes featured-boxes-style-4">
-        <div class="col-md-12 col-lg-12">
-          <div class="row portfolio-list sort-destination" data-sort-id="portfolio" data-filter="*" style="position: relative; height: 290px;">
-            <div class="col-12 col-sm-6 col-lg-3 isotope-item websites" style="position: absolute; left: 0px; top: 0px;">
-              <div class="portfolio-item">
-                <a href="company01.php">
-                                    <span class="thumb-info thumb-info-lighten border-radius-0">
-                                        <span class="thumb-info-wrapper border-radius-0">
-                                            <img src="/renew/img/section6_img1.jpg" class="img-fluid border-radius-0" alt="">
-                                            <span class="thumb-info-title">
-                                                <span class="thumb-info-inner">AI 파워 분석시스템</span>
-                                                <span class="thumb-info-type">더보기</span>
-                                            </span>
-                                            <span class="thumb-info-action">
-                                                <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
-                                            </span>
-                                        </span>
-                                    </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 isotope-item medias" style="position: absolute; left: 285px; top: 0px;">
-              <div class="portfolio-item">
-                <a href="statistics10.php">
-                  <span class="thumb-info thumb-info-lighten border-radius-0">
-                      <span class="thumb-info-wrapper border-radius-0">
-                          <img src="/renew/img/section6_img2.jpg" class="img-fluid border-radius-0" alt="">
-                          <span class="thumb-info-title">
-                              <span class="thumb-info-inner">고저통계</span>
-                              <span class="thumb-info-type">더보기</span>
-                          </span>
-                          <span class="thumb-info-action">
-                              <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
-                          </span>
-                      </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 isotope-item logos" style="position: absolute; left: 570px; top: 0px;">
-              <div class="portfolio-item">
-                <a href="statistics02.php">
-                  <span class="thumb-info thumb-info-lighten border-radius-0">
-                      <span class="thumb-info-wrapper border-radius-0">
-                          <img src="/renew/img/section6_img3.jpg" class="img-fluid border-radius-0" alt="">
-                          <span class="thumb-info-title">
-                              <span class="thumb-info-inner">패턴분석</span>
-                              <span class="thumb-info-type">더보기</span>
-                          </span>
-                          <span class="thumb-info-action">
-                              <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
-                          </span>
-                      </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 isotope-item brands" style="position: absolute; left: 855px; top: 0px;">
-              <div class="portfolio-item">
-                <a href="goods01.php">
-                  <span class="thumb-info thumb-info-lighten border-radius-0">
-                      <span class="thumb-info-wrapper border-radius-0">
-                          <img src="/renew/img/section6_img4.jpg" class="img-fluid border-radius-0" alt="">
-                          <span class="thumb-info-title">
-                              <span class="thumb-info-inner">등급별 필터링</span>
-                              <span class="thumb-info-type">더보기</span>
-                          </span>
-                          <span class="thumb-info-action">
-                              <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
-                          </span>
-                      </span>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-
-
-
-
 
     <section class="section section-height-3 section-no-border section-center mb-0 appear-animation animated" data-appear-animation="fadeIn" style="background-image: url(/renew/img/section8_bg.jpg)">
       <div class="container">
@@ -897,120 +824,85 @@
                               <img src="/renew/img/section8_img1.png" class="text-center" alt="">
                           </div>
                       </div>
-                      <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
+                      <a href="membership.do" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
                   </div>
               </div>-->
 
-
-
-
-
-
-
-
-
-
-
-              <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-4600px, 0px, 0px); transition: all 0.25s ease 0s; width: 10120px;"><div class="owl-item cloned" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img4.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item cloned" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img5.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item cloned" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img6.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img2.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img3.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item active" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img4.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img5.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img6.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item cloned" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img2.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item cloned" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img3.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div><div class="owl-item cloned" style="width: 920px;"><div>
-                <div class="col">
-                  <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
-                    <div class="goods_img">
-                      <img src="/renew/img/section8_img4.png" class="text-center" alt="">
-                    </div>
-                  </div>
-                  <a href="goods01.php" type="button" class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
-                </div>
-              </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next"></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
+                <div class="owl-stage-outer">
+                    <div class="owl-stage"
+                         style="transform: translate3d(-4600px, 0px, 0px); transition: all 0.25s ease 0s; width: 10120px;">
+                        <div class="owl-item" style="width: 920px;">
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
+                                        <div class="goods_img">
+                                            <img src="/renew/img/section8_img2.png" class="text-center" alt="">
+                                        </div>
+                                    </div>
+                                    <a href="membership.do" type="button"
+                                       class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 920px;">
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
+                                        <div class="goods_img">
+                                            <img src="/renew/img/section8_img3.png" class="text-center" alt="">
+                                        </div>
+                                    </div>
+                                    <a href="membership.do" type="button"
+                                       class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item active" style="width: 920px;">
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
+                                        <div class="goods_img">
+                                            <img src="/renew/img/section8_img4.png" class="text-center" alt="">
+                                        </div>
+                                    </div>
+                                    <a href="membership.do" type="button"
+                                       class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 920px;">
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
+                                        <div class="goods_img">
+                                            <img src="/renew/img/section8_img5.png" class="text-center" alt="">
+                                        </div>
+                                    </div>
+                                    <a href="membership.do" type="button"
+                                       class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 920px;">
+                            <div>
+                                <div class="col">
+                                    <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0 row justify-content-center">
+                                        <div class="goods_img">
+                                            <img src="/renew/img/section8_img6.png" class="text-center" alt="">
+                                        </div>
+                                    </div>
+                                    <a href="membership.do" type="button"
+                                       class="btn btn_new_round btn-red mb-2 text-5 font-weight-light">상품안내/구매</a>
+                                </div>
+                            </div>
+                        </div>
+              </div>
+              </div>
+              <div class="owl-nav disabled">
+                <button type="button" role="presentation" class="owl-prev"></button>
+                <button type="button" role="presentation" class="owl-next"></button>
+              </div>
+            </div>
 
 
           </div>
@@ -1028,8 +920,8 @@
             <div class="bank bg-primary col-md-12 col-lg-6">
               <img src="/renew/img/icon_money.png" alt="">
               <h3 class="text-color-light mt-3">무통장 입금안내</h3>
-              <p><strong>예금주</strong> 차상우</p>
-              <p><strong>기업은행</strong> 187-093620-01-011</p>
+              <p><strong>예금주</strong> 오재정</p>
+              <p><strong>케이뱅크</strong> 1001-2822-0095</p>
               <p>무통장입금은 평일 18:30분까지 확인이 가능합니다.</p>
             </div>
             <div class="bank service col-md-12 col-lg-6">
@@ -1038,7 +930,7 @@
               <p><strong>업무시간</strong> 09:30~18:00</p>
               <p><strong>점심시간</strong> 12:30~14:00</p>
               <p><strong>휴무</strong> 주말 및 공휴일</p>
-              <p class="text-color-primary">업무시간외 시간에는 1:1문의를 이용해주세요.</p>
+              <p class="text-color-primary">1:1문의 게시판을 이용해주세요.</p>
             </div>
 
           </div>
@@ -1046,6 +938,11 @@
         </div>
       </div>
     </div><!--end:고객센터-->
+
+    <div class="container py-4 my-5" style="">
+      <img src="/renew/img/section7_bg2.jpg" style="width: 100%">
+    </div>
+
   </div><!--end:메인페이지-->
 
 
@@ -1685,6 +1582,9 @@
       }
     }
 
+  function goPage(grade){
+    location.href = 'membershipPay.do?sg='+grade;
+  }
 </script>
 
 

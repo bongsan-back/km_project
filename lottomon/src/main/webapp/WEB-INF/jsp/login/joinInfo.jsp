@@ -115,7 +115,7 @@
           </div>
           <div class="col-md-4 order-1 order-md-2 align-self-center">
             <ul class="breadcrumb breadcrumb-light d-block text-md-right">
-              <li><a href="https://mansour-lotto.com/join02.php?chk1=Y&amp;chk2=Y#">Home</a></li>
+              <li><a href="/main.do">Home</a></li>
               <li class="active">로그인/회원가입</li>
             </ul>
           </div>
@@ -190,7 +190,7 @@
                       <label class="col-lg-3 control-label text-lg-right pt-2">생년월일(8자리)</label>
                       <div class="col-lg-6">
                         <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="ex) 19920101" name="birth" id="birth" maxlength="6"><br/>
+                          <input type="text" class="form-control" placeholder="ex) 19920101" name="birth" id="birth" maxlength="8"><br/>
                         </div>
                       </div>
                     </div>
@@ -302,7 +302,7 @@
 
 
 
-</div><a class="scroll-to-top hidden-mobile" href="https://mansour-lotto.com/join02.php?chk1=Y&amp;chk2=Y#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
+</div><a class="scroll-to-top hidden-mobile" href="#"><i class="fas fa-chevron-up"></i></a><!--end:bodyClass-->
 
 
 
@@ -601,6 +601,7 @@ function joinSubmit(){
 	var birth = $("#birth").val();
     var telNo = $("#mb_hp").val();
 	var name = $("#name").val();
+	var email = $("#email").val();
 
 	/* if(!certYn){
 		alert("휴대폰 인증을 해주세요.");
@@ -724,6 +725,8 @@ function joinSubmit(){
 
         },
         error : function(request, status, error ) {
+          alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+
         	alert("알 수 없는 이유로 실패하였습니다. " + error);
 
         },
